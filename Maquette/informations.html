@@ -15,7 +15,7 @@
   --zoom: 1; --dock-h: 0px; --top-h: 68px; --gz: 1;
   color-scheme: light;
 }
-@media (min-width: 761px) { :root { --gz: .88; } html { zoom: var(--gz); } }
+@media (min-width: 761px) { :root { --gz: .82; } html { zoom: var(--gz); } }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #12171E; --surf: #1B212B; --surf2: #222A35; --line: #2C3441; --line2: #262E3A; --ink: #ECE8DF; --sub: #AEB5C1; --mute: #8A93A2;
@@ -50,9 +50,10 @@ a { color: var(--dem); text-underline-offset: 3px; }
 [hidden] { display: none !important; }
 ::selection { background: var(--hl); color: var(--hl-ink); }
 h1, h2, h3, h4 { font-family: var(--title); font-weight: 700; letter-spacing: -.025em; line-height: 1.12; margin: 0; color: var(--ink); text-wrap: balance; }
+h1 { font-size: 28px; }
 p { margin: 0; }
-.t1 { font-size: clamp(30px, 4.4vw, 46px); letter-spacing: -.035em; }
-.t2 { font-size: clamp(22px, 2.6vw, 30px); }
+.t1 { font-size: clamp(28px, 3.4vw, 38px); letter-spacing: -.035em; }
+.t2 { font-size: clamp(20px, 2.2vw, 26px); }
 .t3 { font-size: 19px; letter-spacing: -.015em; }
 .lead { color: var(--sub); font-size: 17px; max-width: 60ch; }
 .muted { color: var(--sub); } .mute { color: var(--mute); } .small { font-size: 14px; } .tiny { font-size: 12.5px; }
