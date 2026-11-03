@@ -61,6 +61,6 @@ Le même code React devient une application téléphone avec Capacitor, et reste
 - **VPS sécurisé** : SSH par clé uniquement, pare-feu, fail2ban, mises à jour système automatiques.
 - **Données de santé** : données fictives pour le jury, mention « HDS non implémenté en MVP ».
 
-[Arborescence](Arborescence%203ee4b7414be0804bacc5fc7410d6f9b7.md)
+[Arborescence](Arborescence.md)
 
-[Base de données](Base%20de%20donn%C3%A9es%203ee4b7414be0804c8115ccf83a34a48a.md)
+[Base de données](Base%20de%20donn%C3%A9es.md)

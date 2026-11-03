@@ -15,6 +15,6 @@ Le cœur du projet. Une IA qui décompose les démarches complexes — PAP, PPS,
 **5. Coffre documentaire**
 Un espace centralisé pour stocker bilans orthophoniques, notifications MDPH, PAP/PPS, notifications RQTH, comptes-rendus universitaires — au lieu de les chercher dans des mails et des photos éparpillées à chaque nouvelle démarche ou chaque nouvelle rentrée.
 
-[Toutes les features à coder](Toutes%20les%20features%20%C3%A0%20coder%203ee4b7414be08041a8e1e78ab447f662.md)
+[Toutes les features à coder](Toutes%20les%20features%20%C3%A0%20coder.md)
 
-[Dys'Pass ](Dys'Pass%203ee4b7414be080dab110eff9a25fb5e7.md)
+[Dys'Pass ](Dys_Pass%20-%20d%C3%A9tail%20des%20features.md)

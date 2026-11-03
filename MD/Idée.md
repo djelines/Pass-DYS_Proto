@@ -25,4 +25,4 @@ Passerelle est un compagnon numérique du quotidien pour les personnes dyslexiqu
 
 Les dispositifs existants (badges de signalement, cartes d'accessibilité, outils scolaires) s'arrêtent soit au symbole générique, soit à la sortie du système scolaire. Passerelle propose un profil qui se configure précisément, sans diagnostic affiché, et qui suit la personne à chaque étape de sa vie — pas seulement à l'école, mais aussi à la fac et au travail, là où le sujet dyslexie devient invisible aux yeux des institutions.
 
-[Dys'Pass](Dys'Pass%203ee4b7414be08005b654cd457f51cd80.md)
+[Dys'Pass](Dys_Pass.md)
