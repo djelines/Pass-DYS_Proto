@@ -1,0 +1,181 @@
+<mxfile host="app.diagrams.net" agent="Pass&#39;Dys">
+  <diagram id="empathy" name="Empathy map">
+    <mxGraphModel dx="1334" dy="871" grid="0" gridSize="8" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1340" pageHeight="902" background="#F8F6F1" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontColor=#3E3A63;fontSize=32;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;fontFamily=Inter Tight;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DInter%2BTight%3Awght%40700;fontStyle=1;" value="Empathy map" vertex="1">
+          <mxGeometry height="44" width="600" x="40" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" parent="1" style="rounded=0;html=1;fillColor=#FFFFFF;strokeColor=#CFC9BE;strokeWidth=1.5;" value="" vertex="1">
+          <mxGeometry height="600" width="600" x="40" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#CFC9BE;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="96" as="sourcePoint" />
+            <mxPoint x="640" y="696" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#CFC9BE;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="640" y="96" as="sourcePoint" />
+            <mxPoint x="40" y="696" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c6" parent="1" style="shape=image;html=1;imageAspect=1;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNjU1MkM5IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE5IDE0YzEuNS0xLjUgMy0zLjIgMy01LjVBNS41IDUuNSAwIDAgMCAxNi41IDNjLTEuOCAwLTMgLjUtNC41IDItMS41LTEuNS0yLjctMi00LjUtMkE1LjUgNS41IDAgMCAwIDIgOC41YzAgMi4zIDEuNSA0IDMgNS41bDcgN3oiLz48L3N2Zz4=;" value="" vertex="1">
+          <mxGeometry height="24" width="24" x="328" y="114" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontColor=#3E3A63;fontSize=17;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;fontFamily=Inter Tight;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DInter%2BTight%3Awght%40700;fontStyle=1;fontSize=17;" value="Pense et ressent" vertex="1">
+          <mxGeometry height="26" width="300" x="190" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="c8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontColor=#3E3A63;fontSize=14;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;" value="&lt;div style=&quot;margin-bottom:6px&quot;&gt;Se sent illégitime à demander&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Peur d&#39;être jugée au travail&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Pensait que ses aides s&#39;arrêtaient au bac&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="300" x="190" y="176" as="geometry" />
+        </mxCell>
+        <mxCell id="c9" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=bottom;fontColor=#3E3A63;fontSize=14;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;" value="&lt;div style=&quot;margin-bottom:6px&quot;&gt;Relit chaque mail plusieurs fois&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Repousse sa demande de RQTH&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Cache ses difficultés au travail&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="300" x="190" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="c10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontColor=#3E3A63;fontSize=17;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;fontFamily=Inter Tight;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DInter%2BTight%3Awght%40700;fontStyle=1;fontSize=17;" value="Dit et fait" vertex="1">
+          <mxGeometry height="26" width="300" x="190" y="618" as="geometry" />
+        </mxCell>
+        <mxCell id="c11" parent="1" style="shape=image;html=1;imageAspect=1;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQjQ1MzNBIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iOSIgeT0iMyIgd2lkdGg9IjYiIGhlaWdodD0iMTEiIHJ4PSIzIi8+PHBhdGggZD0iTTE5IDExYTcgNyAwIDAgMS0xNCAwTTEyIDE4djMiLz48L3N2Zz4=;" value="" vertex="1">
+          <mxGeometry height="24" width="24" x="328" y="652" as="geometry" />
+        </mxCell>
+        <mxCell id="c12" parent="1" style="shape=image;html=1;imageAspect=1;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMkY3Rjc3IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTExIDUgNiA5SDN2NmgzbDUgNHoiLz48cGF0aCBkPSJNMTUuNSA4LjVhNSA1IDAgMCAxIDAgN00xOC41IDUuNWE5IDkgMCAwIDEgMCAxMyIvPjwvc3ZnPg==;" value="" vertex="1">
+          <mxGeometry height="24" width="24" x="62" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="c13" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontColor=#3E3A63;fontSize=17;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;fontFamily=Inter Tight;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DInter%2BTight%3Awght%40700;fontStyle=1;fontSize=17;" value="Entend" vertex="1">
+          <mxGeometry height="26" width="170" x="62" y="338" as="geometry" />
+        </mxCell>
+        <mxCell id="c14" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontColor=#3E3A63;fontSize=14;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;" value="&lt;div style=&quot;margin-bottom:6px&quot;&gt;Personne ne parle de RQTH&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Des remarques sur ses fautes&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Rien sur les aménagements&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="210" x="62" y="372" as="geometry" />
+        </mxCell>
+        <mxCell id="c15" parent="1" style="shape=image;html=1;imageAspect=1;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM0I2NEE4IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIuNSAxMlM2IDUgMTIgNXM5LjUgNyA5LjUgNy0zLjUgNy05LjUgN1MyLjUgMTIgMi41IDEyeiIvPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiLz48L3N2Zz4=;" value="" vertex="1">
+          <mxGeometry height="24" width="24" x="594" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="c16" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=top;fontColor=#3E3A63;fontSize=17;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;fontFamily=Inter Tight;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DInter%2BTight%3Awght%40700;fontStyle=1;fontSize=17;" value="Voit" vertex="1">
+          <mxGeometry height="26" width="170" x="448" y="338" as="geometry" />
+        </mxCell>
+        <mxCell id="c17" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=top;fontColor=#3E3A63;fontSize=14;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;" value="&lt;div style=&quot;margin-bottom:6px&quot;&gt;Aucune aide après les études&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Un dossier RQTH obscur&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Un sujet tabou au bureau&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="210" x="408" y="372" as="geometry" />
+        </mxCell>
+        <mxCell id="c18" parent="1" style="ellipse;html=1;fillColor=#34475F;strokeColor=#FFFFFF;strokeWidth=6;" value="" vertex="1">
+          <mxGeometry height="130" width="130" x="275" y="331" as="geometry" />
+        </mxCell>
+        <mxCell id="c19" parent="1" style="shape=image;html=1;imageAspect=1;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTIiIGN5PSI4IiByPSIzLjUiLz48cGF0aCBkPSJNNiAyMGMwLTMuMyAyLjctNS41IDYtNS41czYgMi4yIDYgNS41Ii8+PC9zdmc+;" value="" vertex="1">
+          <mxGeometry height="32" width="32" x="324" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="c20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontColor=#3E3A63;fontSize=18;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;fontFamily=Inter Tight;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DInter%2BTight%3Awght%40700;fontStyle=1;fontColor=#FFFFFF;" value="Camille&lt;br&gt;&lt;font style=&quot;font-size:11px;font-weight:400&quot;&gt;27 ans · salariée&lt;/font&gt;" vertex="1">
+          <mxGeometry height="46" width="120" x="280" y="388" as="geometry" />
+        </mxCell>
+        <mxCell id="c21" parent="1" style="rounded=1;arcSize=6;html=1;fillColor=#F9CDB7;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="150" width="292" x="40" y="712" as="geometry" />
+        </mxCell>
+        <mxCell id="c22" parent="1" style="shape=image;html=1;imageAspect=1;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM0UzQTYzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEyIDMgMiAyMGgyMHoiLz48cGF0aCBkPSJNMTIgMTB2NE0xMiAxN2guMDEiLz48L3N2Zz4=;" value="" vertex="1">
+          <mxGeometry height="22" width="22" x="58" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="c23" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontColor=#3E3A63;fontSize=17;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;fontFamily=Inter Tight;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DInter%2BTight%3Awght%40700;fontStyle=1;fontSize=17;" value="Douleurs" vertex="1">
+          <mxGeometry height="26" width="232" x="88" y="728" as="geometry" />
+        </mxCell>
+        <mxCell id="c24" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontColor=#3E3A63;fontSize=14;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;" value="&lt;div style=&quot;margin-bottom:6px&quot;&gt;Écrire à son employeur la bloque&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Un dossier RQTH long et flou&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Peur d&#39;être mise à part&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="256" x="58" y="766" as="geometry" />
+        </mxCell>
+        <mxCell id="c25" parent="1" style="rounded=1;arcSize=6;html=1;fillColor=#97D4D0;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="150" width="292" x="348" y="712" as="geometry" />
+        </mxCell>
+        <mxCell id="c26" parent="1" style="shape=image;html=1;imageAspect=1;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM0UzQTYzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEyIDNsMi43IDUuNiA2LjEuOS00LjQgNC4zIDEgNi4xTDEyIDE3bC01LjQgMi45IDEtNi4xTDMuMiA5LjVsNi4xLS45eiIvPjwvc3ZnPg==;" value="" vertex="1">
+          <mxGeometry height="22" width="22" x="366" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="c27" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontColor=#3E3A63;fontSize=17;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;fontFamily=Inter Tight;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DInter%2BTight%3Awght%40700;fontStyle=1;fontSize=17;" value="Gains" vertex="1">
+          <mxGeometry height="26" width="232" x="396" y="728" as="geometry" />
+        </mxCell>
+        <mxCell id="c28" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontColor=#3E3A63;fontSize=14;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;" value="&lt;div style=&quot;margin-bottom:6px&quot;&gt;Un mail juste, écrit avec ses mots&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Sa RQTH étape par étape&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Un aménagement de poste obtenu&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="256" x="366" y="766" as="geometry" />
+        </mxCell>
+        <mxCell id="c29" parent="1" style="rounded=0;html=1;fillColor=#FFFFFF;strokeColor=#CFC9BE;strokeWidth=1.5;" value="" vertex="1">
+          <mxGeometry height="600" width="600" x="700" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="c30" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#CFC9BE;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="700" y="96" as="sourcePoint" />
+            <mxPoint x="1300" y="696" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c31" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#CFC9BE;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1300" y="96" as="sourcePoint" />
+            <mxPoint x="700" y="696" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c32" parent="1" style="shape=image;html=1;imageAspect=1;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNjU1MkM5IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE5IDE0YzEuNS0xLjUgMy0zLjIgMy01LjVBNS41IDUuNSAwIDAgMCAxNi41IDNjLTEuOCAwLTMgLjUtNC41IDItMS41LTEuNS0yLjctMi00LjUtMkE1LjUgNS41IDAgMCAwIDIgOC41YzAgMi4zIDEuNSA0IDMgNS41bDcgN3oiLz48L3N2Zz4=;" value="" vertex="1">
+          <mxGeometry height="24" width="24" x="988" y="114" as="geometry" />
+        </mxCell>
+        <mxCell id="c33" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontColor=#3E3A63;fontSize=17;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;fontFamily=Inter Tight;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DInter%2BTight%3Awght%40700;fontStyle=1;fontSize=17;" value="Pense et ressent" vertex="1">
+          <mxGeometry height="26" width="300" x="850" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="c34" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontColor=#3E3A63;fontSize=14;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;" value="&lt;div style=&quot;margin-bottom:6px&quot;&gt;Épuisé par la paperasse&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Seul, sans mode d&#39;emploi&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Peur de rater une échéance&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="300" x="850" y="176" as="geometry" />
+        </mxCell>
+        <mxCell id="c35" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=bottom;fontColor=#3E3A63;fontSize=14;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;" value="&lt;div style=&quot;margin-bottom:6px&quot;&gt;Passe ses soirées sur les dossiers&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Cherche un orthophoniste proche&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Refait les dossiers à chaque rentrée&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="300" x="850" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="c36" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontColor=#3E3A63;fontSize=17;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;fontFamily=Inter Tight;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DInter%2BTight%3Awght%40700;fontStyle=1;fontSize=17;" value="Dit et fait" vertex="1">
+          <mxGeometry height="26" width="300" x="850" y="618" as="geometry" />
+        </mxCell>
+        <mxCell id="c37" parent="1" style="shape=image;html=1;imageAspect=1;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQjQ1MzNBIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iOSIgeT0iMyIgd2lkdGg9IjYiIGhlaWdodD0iMTEiIHJ4PSIzIi8+PHBhdGggZD0iTTE5IDExYTcgNyAwIDAgMS0xNCAwTTEyIDE4djMiLz48L3N2Zz4=;" value="" vertex="1">
+          <mxGeometry height="24" width="24" x="988" y="652" as="geometry" />
+        </mxCell>
+        <mxCell id="c38" parent="1" style="shape=image;html=1;imageAspect=1;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMkY3Rjc3IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTExIDUgNiA5SDN2NmgzbDUgNHoiLz48cGF0aCBkPSJNMTUuNSA4LjVhNSA1IDAgMCAxIDAgN00xOC41IDUuNWE5IDkgMCAwIDEgMCAxMyIvPjwvc3ZnPg==;" value="" vertex="1">
+          <mxGeometry height="24" width="24" x="722" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="c39" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontColor=#3E3A63;fontSize=17;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;fontFamily=Inter Tight;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DInter%2BTight%3Awght%40700;fontStyle=1;fontSize=17;" value="Entend" vertex="1">
+          <mxGeometry height="26" width="170" x="722" y="338" as="geometry" />
+        </mxCell>
+        <mxCell id="c40" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontColor=#3E3A63;fontSize=14;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;" value="&lt;div style=&quot;margin-bottom:6px&quot;&gt;La lenteur des démarches&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Son enfant qui n&#39;ose pas lire&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Personne pour le guider&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="210" x="722" y="372" as="geometry" />
+        </mxCell>
+        <mxCell id="c41" parent="1" style="shape=image;html=1;imageAspect=1;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM0I2NEE4IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIuNSAxMlM2IDUgMTIgNXM5LjUgNyA5LjUgNy0zLjUgNy05LjUgN1MyLjUgMTIgMi41IDEyeiIvPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiLz48L3N2Zz4=;" value="" vertex="1">
+          <mxGeometry height="24" width="24" x="1254" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="c42" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=top;fontColor=#3E3A63;fontSize=17;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;fontFamily=Inter Tight;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DInter%2BTight%3Awght%40700;fontStyle=1;fontSize=17;" value="Voit" vertex="1">
+          <mxGeometry height="26" width="170" x="1108" y="338" as="geometry" />
+        </mxCell>
+        <mxCell id="c43" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=top;fontColor=#3E3A63;fontSize=14;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;" value="&lt;div style=&quot;margin-bottom:6px&quot;&gt;Un PAP qui n&#39;avance pas&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Des papiers dans ses mails&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Son enfant qui peine à lire&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="210" x="1068" y="372" as="geometry" />
+        </mxCell>
+        <mxCell id="c44" parent="1" style="ellipse;html=1;fillColor=#34475F;strokeColor=#FFFFFF;strokeWidth=6;" value="" vertex="1">
+          <mxGeometry height="130" width="130" x="935" y="331" as="geometry" />
+        </mxCell>
+        <mxCell id="c45" parent="1" style="shape=image;html=1;imageAspect=1;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTIiIGN5PSI4IiByPSIzLjUiLz48cGF0aCBkPSJNNiAyMGMwLTMuMyAyLjctNS41IDYtNS41czYgMi4yIDYgNS41Ii8+PC9zdmc+;" value="" vertex="1">
+          <mxGeometry height="32" width="32" x="984" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="c46" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontColor=#3E3A63;fontSize=18;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;fontFamily=Inter Tight;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DInter%2BTight%3Awght%40700;fontStyle=1;fontColor=#FFFFFF;" value="Julien&lt;br&gt;&lt;font style=&quot;font-size:11px;font-weight:400&quot;&gt;45 ans · père&lt;/font&gt;" vertex="1">
+          <mxGeometry height="46" width="120" x="940" y="388" as="geometry" />
+        </mxCell>
+        <mxCell id="c47" parent="1" style="rounded=1;arcSize=6;html=1;fillColor=#F9CDB7;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="150" width="292" x="700" y="712" as="geometry" />
+        </mxCell>
+        <mxCell id="c48" parent="1" style="shape=image;html=1;imageAspect=1;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM0UzQTYzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEyIDMgMiAyMGgyMHoiLz48cGF0aCBkPSJNMTIgMTB2NE0xMiAxN2guMDEiLz48L3N2Zz4=;" value="" vertex="1">
+          <mxGeometry height="22" width="22" x="718" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="c49" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontColor=#3E3A63;fontSize=17;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;fontFamily=Inter Tight;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DInter%2BTight%3Awght%40700;fontStyle=1;fontSize=17;" value="Douleurs" vertex="1">
+          <mxGeometry height="26" width="232" x="748" y="728" as="geometry" />
+        </mxCell>
+        <mxCell id="c50" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontColor=#3E3A63;fontSize=14;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;" value="&lt;div style=&quot;margin-bottom:6px&quot;&gt;Tout repose sur lui&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Des papiers éparpillés&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Pas de bibliothèque adaptée&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="256" x="718" y="766" as="geometry" />
+        </mxCell>
+        <mxCell id="c51" parent="1" style="rounded=1;arcSize=6;html=1;fillColor=#97D4D0;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="150" width="292" x="1008" y="712" as="geometry" />
+        </mxCell>
+        <mxCell id="c52" parent="1" style="shape=image;html=1;imageAspect=1;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM0UzQTYzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEyIDNsMi43IDUuNiA2LjEuOS00LjQgNC4zIDEgNi4xTDEyIDE3bC01LjQgMi45IDEtNi4xTDMuMiA5LjVsNi4xLS45eiIvPjwvc3ZnPg==;" value="" vertex="1">
+          <mxGeometry height="22" width="22" x="1026" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="c53" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontColor=#3E3A63;fontSize=17;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;fontFamily=Inter Tight;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DInter%2BTight%3Awght%40700;fontStyle=1;fontSize=17;" value="Gains" vertex="1">
+          <mxGeometry height="26" width="232" x="1056" y="728" as="geometry" />
+        </mxCell>
+        <mxCell id="c54" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontColor=#3E3A63;fontSize=14;fontFamily=Lexend;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DLexend%3Awght%40400%3B600;" value="&lt;div style=&quot;margin-bottom:6px&quot;&gt;Suivre le PAP de son enfant&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Tous les papiers au même endroit&lt;/div&gt;&lt;div style=&quot;margin-bottom:6px&quot;&gt;Un rappel avant chaque échéance&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="256" x="1026" y="766" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
