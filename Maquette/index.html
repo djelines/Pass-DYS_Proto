@@ -391,11 +391,7 @@ $$('.screen').forEach((s) => { originals[s.dataset.id] = s.innerHTML; });
 
 // mise à l'échelle : la maquette fait 1440 px de large
 function fit() {
-  const s = FIXED ? Math.min(innerWidth / 1440, innerHeight / 900) : (innerWidth > 900 ? Math.min(innerWidth / 1440, innerHeight / 1049) : innerWidth / 1440);
-  if (!FIXED) {
-    const g = 34 * s, top = 109 * s, H = 1049 * s;
-    document.body.style.background = `linear-gradient(#F8F6F1 0 ${top}px, transparent ${top}px ${H}px, #F8F6F1 ${H}px), radial-gradient(circle at ${3 * s}px ${3 * s}px, #BFE2DE ${1.8 * s}px, transparent ${1.8 * s + 0.6}px) ${(innerWidth - 1440 * s) / 2}px ${top}px / ${g}px ${g}px, #F8F6F1`;
-  }
+  const s = FIXED ? Math.min(innerWidth / 1440, innerHeight / 900) : innerWidth / 1440;
   stage.style.transform = `scale(${s})`;
   fitBox.style.width = `${1440 * s}px`;
   fitBox.style.height = `${stage.offsetHeight * s}px`;
