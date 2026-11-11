@@ -1411,6 +1411,101 @@ summary, .hero-note, .note { text-wrap: balance; }
   .hm-b .hm-shop { padding-top: 4px; padding-bottom: 4px; }
 }
 @media (max-width: 600px) and (max-height: 700px) { .hm-b .hm-tile { min-height: 44px; } .hm-b .hm-tiles { gap: 6px; } }
+
+/* boutique : lisible en sombre, prix simples, boutons en contour, zones de 44 px */
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .bq-hero h1, :root:not([data-theme="light"]) .bq-hero p { color: var(--ink); } :root:not([data-theme="light"]) .bq-mylist b { color: var(--bg); } }
+:root[data-theme="dark"] .bq-mylist b { color: var(--bg); }
+.bq-mylist b { font-size: 14px; min-width: 22px; height: 22px; border-radius: 11px; }
+.bq-price b { font-size: 22px; letter-spacing: -.01em; }
+.bq-price i { font-size: 14.5px; }
+.bq-price b + i { margin-left: 6px; }
+.bq-pic { cursor: pointer; border: 1px solid var(--line); border-radius: 12px; }
+.bq-illu { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: var(--bq-pic); }
+.bq-illu svg { width: 76%; height: auto; }
+.bq-add { min-height: 44px; background: transparent; border: 2px solid var(--navy); color: var(--navy); font-weight: 600; }
+.bq-add.on { background: var(--lio-bg); border-color: var(--lio); color: #24665F; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .bq-add.on { color: var(--lio); } }
+:root[data-theme="dark"] .bq-add.on { color: var(--lio); }
+@media (hover: hover) { .bq-add:not(.on):hover { background: var(--surf2); filter: none; } }
+.bq-tabs button, .bq-mylist { height: 44px; }
+.bq-go { height: 40px; }
+.bq-search { height: 52px; }
+.bq-go { min-height: 44px; height: 44px; }
+.bq-sort select { height: 44px; }
+.bq-ck, .bq-ln { min-height: 44px; }
+.bq-fs summary { display: flex; align-items: center; justify-content: space-between; min-height: 44px; cursor: pointer; list-style: none; color: var(--sub); }
+.bq-fs summary::-webkit-details-marker { display: none; }
+.bq-fs summary h2 { font-family: var(--font); font-size: 15px; font-weight: 700; letter-spacing: 0; color: var(--ink); margin: 0; }
+.bq-fs summary svg { transition: transform .2s; }
+.bq-fs[open] summary svg { transform: rotate(180deg); }
+.bq-side { gap: 6px; }
+.bq-aide { display: flex; align-items: flex-start; gap: 10px; margin: 0 0 18px; padding: 12px 14px; border-radius: 12px; background: var(--dem-bg); color: var(--ink); font-size: 15px; line-height: 1.45; }
+.bq-aide svg { flex-shrink: 0; color: var(--dem); margin-top: 1px; }
+.bq-aide b { font-weight: 700; }
+.bq-foot, .bq-credb { font-size: 14px; }
+@media (prefers-reduced-motion: reduce) { .bq-fs summary svg { transition: none; } }
+.bq .bq-card .bq-title { min-height: max(44px, calc(2 * 1.35em)); }
+@media (max-width: 600px) { .bq .bq-card .bq-title { min-height: 44px; } }
+.bq .bq-fbtn { height: 44px; }
+.bq .bq-fbtn b { font-size: 14px; min-width: 22px; height: 22px; }
+.bq-credb { display: inline-block; padding: 11px 4px; margin: -11px -4px; }
+.bq-fs-open h2 { display: flex; align-items: center; min-height: 44px; font-family: var(--font); font-size: 15px; font-weight: 700; letter-spacing: 0; color: var(--ink); margin: 0; }
+
+/* boutique, direction B : un conseiller avant le catalogue */
+.bq-adv { display: flex; flex-direction: column; gap: 14px; padding: 20px 22px 22px; background: var(--surf); border: 1px solid var(--line); border-radius: 16px; }
+.bq-adv-h { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.bq-adv-h h2 { font-family: var(--title); font-size: clamp(20px, 2vw, 26px); letter-spacing: -.015em; }
+.bq-need { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
+.bq-nd { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; min-height: 120px; padding: 14px; border-radius: 14px; color: #fff; text-align: left; -webkit-tap-highlight-color: transparent; }
+.bq-nd-ic { width: 40px; height: 40px; border-radius: 12px; background: rgba(255, 255, 255, .18); display: flex; align-items: center; justify-content: center; margin-bottom: 4px; }
+.bq-nd b { font-family: var(--title); font-size: 17px; line-height: 1.2; }
+.bq-nd-s { font-size: 14px; line-height: 1.35; text-wrap: balance; }
+.bq-nd-ok { position: absolute; top: 12px; right: 12px; width: 26px; height: 26px; border-radius: 50%; background: #fff; color: var(--ink); display: none; align-items: center; justify-content: center; }
+.bq-nd.on { outline: 3px solid var(--ink); outline-offset: 3px; }
+.bq-nd.on .bq-nd-ok { display: flex; }
+@media (hover: hover) { .bq-nd:hover { filter: brightness(1.08); } }
+.bq-picks-t { font-family: var(--title); font-size: 18px; margin: 6px 0 10px; }
+.bq-picks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.bq-pk { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 14px; padding: 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--bg); }
+.bq-pk-pic { width: 112px; aspect-ratio: 1; border-radius: 10px; overflow: hidden; background: var(--bq-pic); border: 1px solid var(--line); cursor: pointer; }
+.bq-pk-pic img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bq-pk-t { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; min-width: 0; }
+.bq-pk-t h4 { font-family: var(--title); font-size: 17px; line-height: 1.25; }
+.bq-pk-t p { font-size: 15px; line-height: 1.45; color: var(--sub); text-wrap: pretty; }
+.bq-pk-t .bq-pk-p { font-family: var(--title); font-size: 17px; font-weight: 700; color: var(--ink); }
+.bq-tag { display: inline-flex; align-items: center; min-height: 26px; padding: 0 10px; border-radius: 999px; background: var(--lio-bg); color: #24665F; font-size: 14px; font-weight: 600; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .bq-tag { color: var(--lio); } }
+:root[data-theme="dark"] .bq-tag { color: var(--lio); }
+.bq-pk-a { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 4px; }
+.bq-pk-a .bq-add { margin: 0; }
+.bq-more { display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; background: var(--navy); color: var(--onnavy); font-weight: 600; font-size: 14.5px; }
+.bq-cat-t { font-family: var(--title); font-size: 20px; margin-bottom: 10px; }
+.bq-price b { font-size: 17px; letter-spacing: 0; }
+@media (max-width: 1280px) { .bq-need { grid-template-columns: repeat(3, minmax(0, 1fr)); } .bq-nd { min-height: 96px; } .bq-picks { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 600px) {
+  .bq-adv { padding: 14px; border-radius: 14px; }
+  .bq-need { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .bq-nd { min-height: 84px; padding: 12px; }
+  .bq-nd-ic { width: 34px; height: 34px; }
+  .bq-nd b { font-size: 16px; }
+  .bq-pk { grid-template-columns: 84px minmax(0, 1fr); padding: 12px; gap: 12px; }
+  .bq-pk-pic { width: 84px; }
+}
+
+/* boutique : focus visible partout, sélection distincte, un seul style de boutons, titre du catalogue en tête */
+.bq .bq-nd:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 14px; }
+.bq .bq-nd.on { outline: 0; box-shadow: inset 0 0 0 3px #fff; }
+.bq .bq-nd.on:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.bq .bq-add, .bq .bq-more { min-height: 44px; border-radius: 12px; font-size: 14.5px; }
+.bq .bq-add { border-width: 1.5px; padding: 0 16px; }
+.bq .bq-more { padding: 0 12px; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; background: transparent; }
+.bq .bq-go { border-radius: 10px; }
+.bq-pk-a { flex-wrap: nowrap; align-items: center; }
+@media (max-width: 1500px) { .bq-pk-a { flex-wrap: wrap; } }
+.bq-body > .bq-cat-t { grid-column: 1 / -1; margin: 0; }
+.bq-fs h3 { font-family: var(--font); font-size: 15px; font-weight: 700; letter-spacing: 0; color: var(--ink); margin: 0; }
+.bq-fs-open h3 { display: flex; align-items: center; min-height: 44px; }
 </style>
 <style>/* required styles */
 
@@ -2134,14 +2229,20 @@ svg.leaflet-image-layer.leaflet-interactive path {
           </div>
           <span class="bq-hero-ic" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,16V72H40V56Zm0,144H40V88H216V200Zm-40-88a48,48,0,0,1-96,0,8,8,0,0,1,16,0,32,32,0,0,0,64,0,8,8,0,0,1,16,0Z"/></svg></span>
         </section>
-        <div class="bq-chips"><nav class="bq-tabs" id="bqTabs" aria-label="Rayons"></nav><button class="bq-mylist" data-act="bqList"><svg width="17" height="17" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M184,32H72A16,16,0,0,0,56,48V224a8,8,0,0,0,12.24,6.78L128,193.43l59.77,37.35A8,8,0,0,0,200,224V48A16,16,0,0,0,184,32Zm0,177.57-51.77-32.35a8,8,0,0,0-8.48,0L72,209.57V48H184Z"/></svg>Ma liste<b id="bqN">0</b></button></div>
+        <section class="bq-adv" aria-labelledby="bqAdvT">
+          <div class="bq-adv-h"><h2 id="bqAdvT">Qu’est-ce qui pose problème ?</h2><button class="bq-mylist" data-act="bqList"><svg width="17" height="17" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M184,32H72A16,16,0,0,0,56,48V224a8,8,0,0,0,12.24,6.78L128,193.43l59.77,37.35A8,8,0,0,0,200,224V48A16,16,0,0,0,184,32Zm0,177.57-51.77-32.35a8,8,0,0,0-8.48,0L72,209.57V48H184Z"/></svg>Ma liste<b id="bqN">0</b></button></div>
+          <div class="bq-need" id="bqNeed" role="group" aria-label="Choisir une difficulté"></div>
+          <div class="bq-picks-w"><h3 class="bq-picks-t" id="bqPicksT"></h3><div class="bq-picks" id="bqPicks"></div></div>
+        </section>
       </div>
       <div class="bq-body">
+        <h2 class="bq-cat-t" id="bqCatT">Les autres articles</h2>
         <aside class="bq-side" id="bqSide" aria-label="Filtres"></aside>
         <div class="bq-res">
           <div class="bq-res-h"><p id="bqCount" aria-live="polite"></p><button class="bq-fbtn" id="bqFbtn" data-act="bqFilters"></button><label class="bq-sort"><span>Trier par</span><select id="bqSort"><option value="pert">Pertinence</option><option value="prix">Prix : croissant</option><option value="prixd">Prix : décroissant</option></select></label></div>
+          <p class="bq-aide"><svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M140,180a12,12,0,1,1-12-12A12,12,0,0,1,140,180ZM128,72c-22.06,0-40,16.15-40,36v4a8,8,0,0,0,16,0v-4c0-11,10.77-20,24-20s24,9,24,20-10.77,20-24,20a8,8,0,0,0-8,8v8a8,8,0,0,0,16,0v-.72c18.24-3.35,32-17.9,32-35.28C168,88.15,150.06,72,128,72Zm104,56A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span><b>Des aides peuvent financer ce matériel.</b> Parles-en à ton établissement, à ton médecin ou à la MDPH.</span></p>
           <div class="bq-grid" id="bqGrid"></div>
-          <p class="bq-foot">Les prix sont indicatifs. Certaines aides peuvent être financées : parles-en à ton établissement, à ton médecin ou à la MDPH. <button class="bq-credb" data-act="bqCred">Crédits photos</button></p>
+          <p class="bq-foot">Les prix sont indicatifs. <button class="bq-credb" data-act="bqCred">Crédits photos</button></p>
         </div>
       </div>
     </div></div></section>
@@ -2359,7 +2460,7 @@ $$('.who-full').forEach((e) => { e.textContent = `${PROFIL.prenom} ${PROFIL.nom}
 
 const ENTER = {};
 let params = {};
-const NAVOF = { boutique: 'accueil', accueil: 'accueil', demarches: 'demarches', mails: 'accueil', lio: 'lio', lire: 'lio', calculer: 'lio', reformuler: 'lio', organiser: 'lio', ecrire: 'lio', entrainer: 'lio', lieux: 'lieux', annuaire: 'lieux', coffre: 'coffre', besoins: 'besoins' };
+const NAVOF = { boutique: '', accueil: 'accueil', demarches: 'demarches', mails: 'accueil', lio: 'lio', lire: 'lio', calculer: 'lio', reformuler: 'lio', organiser: 'lio', ecrire: 'lio', entrainer: 'lio', lieux: 'lieux', annuaire: 'lieux', coffre: 'coffre', besoins: 'besoins' };
 function show(id) {
   if (!$(`.screen[data-id="${id}"]`)) id = 'accueil';
   $$('.screen').forEach((s) => s.classList.toggle('on', s.dataset.id === id));
@@ -3540,7 +3641,7 @@ ACT.stRevoke = (el) => { el.closest('.st-row').remove(); toast(`Accès de ${el.d
 ACT.stDel = (el) => { if (el.dataset.ok !== '1') { el.dataset.ok = '1'; el.textContent = 'Confirmer la suppression'; return; } try { localStorage.clear(); } catch (e) { el.blur(); } location.href = 'index.html'; };
 ENTER.reglages = paintSettings;
 
-const BQ_CAT = [['tout', 'Tout'], ['lire', 'Lire'], ['ecrire', 'Écrire'], ['compter', 'Compter'], ['organiser', 'S’organiser'], ['calme', 'Se concentrer'], ['appli', 'Applis et logiciels']];
+const BQ_CAT = [['tout', 'Tout'], ['lire', 'Lire'], ['ecrire', 'Écrire'], ['compter', 'Compter'], ['organiser', 'S’organiser'], ['calme', 'Se concentrer'], ['appli', 'Ordinateur et téléphone']];
 const BQ_DYS = ['Dyslexie', 'Dysorthographie', 'Dysgraphie', 'Dyspraxie', 'Dyscalculie'];
 const BQ_PRIX = [['gratuit', 'Gratuit', 0, 0], ['20', 'Moins de 20 €', 0, 20], ['50', 'De 20 à 50 €', 20, 50], ['plus', 'Plus de 50 €', 50, 1e9]];
 const BQ_TRI = [['pert', 'Pertinence'], ['prix', 'Prix : croissant'], ['prixd', 'Prix : décroissant']];
@@ -3588,19 +3689,25 @@ const BQ_SRC = {"regle": [{"m": "Matériel DYS", "p": 3.59, "u": "https://www.ma
 const BQ_DATE = '11 novembre 2026';
 const BQ_PHOTOS = ['audio', 'calculatrice', 'casque', 'manipuler', 'minuteur', 'reglette', 'stylos', 'stylo', 'livres', 'cahier', 'dictee', 'prediction', 'synthese', 'doigts', 'planning', 'regle'];
 
-const BQS = { cat: 'tout', q: '', dys: [], prix: '', tri: 'pert', liste: store.get('liste', ['regle', 'casque']) };
+const BQS = { cat: 'tout', q: '', dys: [], prix: '', tri: 'pert', open: {}, liste: store.get('liste', ['regle', 'casque']) };
 const bqIn = (id) => BQS.liste.includes(id);
-const bqImg = (x) => BQ_PHOTOS.includes(x.id) ? `<img src="boutique/${x.id}.jpg" alt="" loading="lazy">` : `<span class="bq-noimg">${ic(BQ_ICON[x.cat], 40)}<small>Photo à venir</small></span>`;
+const BQ_ILLU = {calques: '<svg viewBox="0 0 200 200" aria-hidden="true"><rect x="38" y="34" width="112" height="136" rx="8" fill="#FFFDF7" stroke="#3E3A63" stroke-width="4"/><g stroke="#C9C3B5" stroke-width="6" stroke-linecap="round"><line x1="56" y1="58" x2="132" y2="58"/><line x1="56" y1="78" x2="120" y2="78"/><line x1="56" y1="98" x2="132" y2="98"/><line x1="56" y1="118" x2="112" y2="118"/><line x1="56" y1="138" x2="128" y2="138"/></g><rect x="62" y="64" width="104" height="62" rx="6" fill="#FBE7A1" fill-opacity=".75" stroke="#3E3A63" stroke-width="4" transform="rotate(-7 114 95)"/><rect x="50" y="104" width="104" height="58" rx="6" fill="#97D4D0" fill-opacity=".65" stroke="#3E3A63" stroke-width="4" transform="rotate(5 102 133)"/></svg>', pupitre: '<svg viewBox="0 0 200 200" aria-hidden="true"><line x1="24" y1="160" x2="176" y2="160" stroke="#3E3A63" stroke-width="4" stroke-linecap="round"/><path d="M40 156 L160 156 L160 82 Z" fill="#F9CDB7" stroke="#3E3A63" stroke-width="4" stroke-linejoin="round"/><path d="M30 150 L166 72 L174 86 L38 164 Z" fill="#97D4D0" stroke="#3E3A63" stroke-width="4" stroke-linejoin="round"/><path d="M70 120 L136 82 L144 96 L78 134 Z" fill="#FFFDF7" stroke="#3E3A63" stroke-width="4" stroke-linejoin="round"/><line x1="86" y1="118" x2="128" y2="94" stroke="#C9C3B5" stroke-width="4" stroke-linecap="round"/></svg>', trieurs: '<svg viewBox="0 0 200 200" aria-hidden="true"><g stroke="#3E3A63" stroke-width="4" stroke-linejoin="round"><path d="M34 74 h40 l8 10 h84 v74 h-132 Z" fill="#97D4D0"/><path d="M42 94 h40 l8 10 h84 v62 h-132 Z" fill="#FBE7A1" transform="translate(-8 0)"/><path d="M34 114 h40 l8 10 h84 v52 h-132 Z" fill="#F9CDB7"/></g><g stroke="#3E3A63" stroke-width="4" stroke-linecap="round"><line x1="58" y1="150" x2="98" y2="150"/></g></svg>'};
+const bqImg = (x) => BQ_PHOTOS.includes(x.id) ? `<img src="boutique/${x.id}.jpg" alt="" loading="lazy">` : BQ_ILLU[x.id] ? `<span class="bq-illu">${BQ_ILLU[x.id]}</span>` : `<span class="bq-noimg">${ic(BQ_ICON[x.cat], 40)}</span>`;
 const bqEur = (v) => { const e = Math.floor(v); const c = Math.round((v - e) * 100); return { e, c: c ? `,${String(c).padStart(2, '0')}` : '' }; };
 const bqFmt = (v) => { const { e, c } = bqEur(v); return `${e}${c} €`; };
-const bqPrice = (x) => { if (x.max === 0) return '<span class="bq-price"><b>Gratuit</b></span>'; const { e, c } = bqEur(x.min || x.max); return `<span class="bq-price">${x.min === 0 ? '<i>Gratuit ou</i>' : x.max !== x.min ? '<i>dès</i>' : ''}<b>${e}</b><sup>${c} €</sup></span>`; };
+const BQ_NEED = { lire: ['#3B64A8', 'Sauter des lignes, se fatiguer en lisant'], ecrire: ['#2F7F77', 'Tenir le crayon, écrire lisiblement'], compter: ['#8A6412', 'Les nombres et le calcul'], organiser: ['#B4533A', 'Le temps, les affaires, les papiers'], calme: ['#6552C9', 'Le bruit et l’attention'], appli: ['#34475F', 'Dicter ou faire lire à l’ordinateur'] };
+const bqRange = (x) => { if (x.max === 0) return 'Gratuit'; if (x.min === 0) return `Gratuit, ou jusqu’à ${bqFmt(x.max)}`; if (x.min === x.max) return bqFmt(x.min); return `de ${bqFmt(x.min)} à ${bqFmt(x.max)}`; };
+const BQ_FOR = { lire: 'pour lire', ecrire: 'pour écrire', compter: 'pour compter', organiser: 'pour s’organiser', calme: 'pour se concentrer', appli: 'sur ordinateur et téléphone' };
+const bqWhy = (x) => x.d.split('. ')[0].replace(/\.$/, '') + '.';
+const bqPrice = (x) => `<span class="bq-price"><b>${bqRange(x)}</b></span>`;
 const bqOu = (x) => `${x.ou.charAt(0).toLowerCase()}${x.ou.slice(1)}`;
 
 function bqList() {
-  const q = BQS.q.trim().toLowerCase();
+  const fold = (t) => t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const q = fold(BQS.q.trim());
   const pr = BQ_PRIX.find((p) => p[0] === BQS.prix);
   let l = BQ.filter((x) => (BQS.cat === 'tout' || x.cat === BQS.cat)
-    && (!q || `${x.t} ${x.d} ${x.dys.join(' ')}`.toLowerCase().includes(q))
+    && (!q || fold(`${x.t} ${x.d} ${x.dys.join(' ')}`).includes(q))
     && (!BQS.dys.length || x.dys.some((d) => BQS.dys.includes(d)))
     && (!pr || (pr[0] === 'gratuit' ? x.min === 0 : x.min >= pr[2] && x.min < pr[3]))
     );
@@ -3608,41 +3715,53 @@ function bqList() {
   if (BQS.tri === 'prixd') l = [...l].sort((a, b) => b.max - a.max);
   return l;
 }
-function bqFilters() {
+function bqFilters(all = false) {
+  const op = (g, on) => (all || on || BQS.open[g] ? ' open' : '');
   const ck = (k, v, on, t) => `<button class="bq-ck" data-act="bqF" data-k="${k}" data-v="${v}" aria-pressed="${on}"><span class="bq-box">${on ? ic('check', 13, 'currentColor', 3) : ''}</span>${t}</button>`;
   const ln = (k, v, on, t) => `<button class="bq-ln${on ? ' on' : ''}" data-act="bqF" data-k="${k}" data-v="${v}" aria-pressed="${on}">${t}</button>`;
-  return `<div class="bq-fs"><h3>Pensé pour</h3>${BQ_DYS.map((d) => ck('dys', d, BQS.dys.includes(d), d)).join('')}</div>
-    <div class="bq-fs"><h3>Prix indicatif</h3>${BQ_PRIX.map(([k, t]) => ln('prix', k, BQS.prix === k, t)).join('')}</div>
+  return `<details class="bq-fs" data-g="dys"${op('dys', BQS.dys.length)}><summary><h3>Pensé pour</h3>${ic('down', 18)}</summary>${BQ_DYS.map((d) => ck('dys', d, BQS.dys.includes(d), d)).join('')}</details>
+    <div class="bq-fs bq-fs-open"><h3>Prix indicatif</h3>${BQ_PRIX.map(([k, t]) => ln('prix', k, BQS.prix === k, t)).join('')}</div>
     ${BQS.dys.length || BQS.prix ? '<button class="bq-clear" data-act="bqReset">Effacer les filtres</button>' : ''}`;
 }
 function bqRender() {
-  $('#bqTabs').innerHTML = BQ_CAT.map(([k, t]) => `<button class="${BQS.cat === k ? 'on' : ''}" data-act="bqCat" data-v="${k}" aria-pressed="${BQS.cat === k}">${t}</button>`).join('');
+  $('#bqNeed').innerHTML = BQ_CAT.filter(([k]) => k !== 'tout').map(([k, t]) => `<button class="bq-nd${BQS.cat === k ? ' on' : ''}" style="background-color: ${BQ_NEED[k][0]};" data-act="bqCat" data-v="${k}" aria-pressed="${BQS.cat === k}"><span class="bq-nd-ic">${ic(BQ_ICON[k], 22, 'currentColor', 2)}</span><b>${t}</b><span class="bq-nd-s">${BQ_NEED[k][1]}</span><span class="bq-nd-ok">${ic('check', 16, 'currentColor', 3)}</span></button>`).join('');
+  const catN = BQS.cat !== 'tout' ? BQ_CAT.find((c) => c[0] === BQS.cat)[1] : '';
+  const picks = (BQS.cat === 'tout' ? BQ.filter((x) => x.choix) : [...BQ.filter((x) => x.cat === BQS.cat && x.choix), ...BQ.filter((x) => x.cat === BQS.cat && !x.choix)]).slice(0, 3);
+  $('#bqPicksT').textContent = catN ? `Nos conseils ${BQ_FOR[BQS.cat]}` : 'Pour commencer, les plus utiles';
+  $('#bqPicks').innerHTML = picks.map((x) => `<article class="bq-pk">
+      <div class="bq-pk-pic" data-act="bqOpen" data-id="${x.id}" aria-hidden="true">${bqImg(x)}</div>
+      <div class="bq-pk-t"><h4>${x.t}</h4><p>${bqWhy(x)}</p><p class="bq-pk-p">${bqRange(x)}</p>
+        <div class="bq-pk-a"><button class="btn ghost bq-more" data-act="bqOpen" data-id="${x.id}">Voir le détail<span class="vh"> : ${esc(x.t)}</span></button><button class="bq-add${bqIn(x.id) ? ' on' : ''}" data-act="bqSave" data-id="${x.id}" aria-pressed="${bqIn(x.id)}">${bqIn(x.id) ? `${ic('check', 16, 'currentColor', 2.6)}Dans ma liste` : 'Ajouter à ma liste'}<span class="vh"> : ${esc(x.t)}</span></button></div>
+      </div>
+    </article>`).join('');
+  const narrowed = !!(BQS.q.trim() || BQS.dys.length || BQS.prix);
+  $('#bqCatT').textContent = narrowed ? 'Résultats' : `Les autres articles${catN ? ` ${BQ_FOR[BQS.cat]}` : ''}`;
+  window.__bqPicks = narrowed ? [] : picks.map((x) => x.id);
   $('#bqN').textContent = BQS.liste.length;
   $('#bqSide').innerHTML = bqFilters();
   const nf = BQS.dys.length + (BQS.prix ? 1 : 0);
   $('#bqFbtn').innerHTML = `${ic('list', 18)}Filtres${nf ? ` <b>${nf}</b>` : ''}`;
-  const l = bqList();
-  const cat = BQS.cat !== 'tout' ? BQ_CAT.find((c) => c[0] === BQS.cat)[1] : '';
-  $('#bqCount').innerHTML = `${l.length} résultat${l.length > 1 ? 's' : ''}${BQS.q ? ` pour <b>« ${esc(BQS.q)} »</b>` : ''}${cat ? ` dans <b>${cat}</b>` : ''}`;
+  const l = bqList().filter((x) => !(window.__bqPicks || []).includes(x.id));
+  $('#bqCount').innerHTML = `${l.length} article${l.length > 1 ? 's' : ''}${BQS.q ? ` pour <b>« ${esc(BQS.q)} »</b>` : ''}`;
   $('#bqGrid').innerHTML = l.map((x) => `<article class="bq-card">
-      <button class="bq-pic" data-act="bqOpen" data-id="${x.id}" aria-label="Voir ${esc(x.t)}">${bqImg(x)}</button>
+      <div class="bq-pic" data-act="bqOpen" data-id="${x.id}" aria-hidden="true">${bqImg(x)}</div>
       <button class="bq-title" data-act="bqOpen" data-id="${x.id}">${x.t}</button>
       ${bqPrice(x)}
-      <button class="bq-add${bqIn(x.id) ? ' on' : ''}" data-act="bqSave" data-id="${x.id}" aria-pressed="${bqIn(x.id)}">${bqIn(x.id) ? `${ic('check', 16, 'currentColor', 2.6)}Dans ma liste` : 'Ajouter à ma liste'}</button>
-    </article>`).join('') || '<div class="bq-empty"><b>Aucun résultat</b><p>Essaie un autre mot ou retire un filtre.</p><button class="bq-clear" data-act="bqReset">Effacer les filtres</button></div>';
+      <button class="bq-add${bqIn(x.id) ? ' on' : ''}" data-act="bqSave" data-id="${x.id}" aria-pressed="${bqIn(x.id)}">${bqIn(x.id) ? `${ic('check', 16, 'currentColor', 2.6)}Dans ma liste` : 'Ajouter à ma liste'}<span class="vh"> : ${esc(x.t)}</span></button>
+    </article>`).join('') || ((window.__bqPicks || []).length ? '<div class="bq-empty"><b>Tout est dans nos conseils</b><p>Les articles de ce rayon sont juste au-dessus.</p></div>' : '<div class="bq-empty"><b>Aucun résultat</b><p>Essaie un autre mot ou retire un filtre.</p><button class="bq-clear" data-act="bqReset">Effacer les filtres</button></div>');
 }
-ACT.bqCat = (el) => { BQS.cat = el.dataset.v; bqRender(); };
+ACT.bqCat = (el) => { BQS.cat = BQS.cat === el.dataset.v ? 'tout' : el.dataset.v; bqRender(); $(`.bq-nd[data-v="${el.dataset.v}"]`)?.focus(); };
 ACT.bqF = (el) => {
   const { k, v } = el.dataset;
   if (k === 'dys') BQS.dys = BQS.dys.includes(v) ? BQS.dys.filter((d) => d !== v) : [...BQS.dys, v];
   if (k === 'prix') BQS.prix = BQS.prix === v ? '' : v;
   bqRender();
-  if ($('.bq-sheet')) $('.bq-sheet').innerHTML = bqFilters();
+  if ($('.bq-sheet')) $('.bq-sheet').innerHTML = bqFilters(true);
   $(`[data-act="bqF"][data-k="${k}"][data-v="${v}"]`)?.focus();
 };
-ACT.bqReset = () => { Object.assign(BQS, { q: '', dys: [], prix: '' }); $('#bqQ').value = ''; bqRender(); if ($('.bq-sheet')) $('.bq-sheet').innerHTML = bqFilters(); };
+ACT.bqReset = () => { Object.assign(BQS, { q: '', dys: [], prix: '' }); $('#bqQ').value = ''; bqRender(); if ($('.bq-sheet')) $('.bq-sheet').innerHTML = bqFilters(true); };
 ACT.bqSearch = () => { BQS.q = $('#bqQ').value; bqRender(); };
-ACT.bqFilters = () => modal(`${mHead('Filtres')}<div class="bq-sheet">${bqFilters()}</div><button class="btn pri bq-see" data-act="close">Voir les résultats</button>`);
+ACT.bqFilters = () => modal(`${mHead('Filtres')}<div class="bq-sheet">${bqFilters(true)}</div><button class="btn pri bq-see" data-act="close">Voir les résultats</button>`);
 ACT.bqSave = (el) => {
   const id = el.dataset.id;
   BQS.liste = bqIn(id) ? BQS.liste.filter((x) => x !== id) : [...BQS.liste, id];
@@ -3693,6 +3812,7 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Enter' && e.target.
 document.addEventListener('input', (e) => { if (e.target.id === 'bqQ') { BQS.q = e.target.value; bqRender(); } });
 document.addEventListener('change', (e) => { if (e.target.id === 'bqSort') { BQS.tri = e.target.value; bqRender(); } });
 ENTER.boutique = bqRender;
+document.addEventListener('toggle', (e) => { if (e.target.matches && e.target.matches('#bqSide .bq-fs')) BQS.open[e.target.dataset.g] = e.target.open; }, true);
 
 </script>
 <script>(() => {
