@@ -28,7 +28,7 @@ img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; cursor: pointer; background: none; border: 0; padding: 0; }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 8px; }
-h1, h2, h3 { font-family: var(--title); font-weight: 700; letter-spacing: -.03em; line-height: 1.1; margin: 0; color: var(--navy); }
+h1, h2, h3 { font-family: var(--title); font-weight: 700; letter-spacing: -.015em; line-height: 1.1; margin: 0; color: var(--navy); }
 p { margin: 0; }
 ul, ol { margin: 0; padding: 0; list-style: none; }
 .wrap { max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gut); }
@@ -59,8 +59,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .hd .btn.out { background: #fff; border-color: var(--c1); color: var(--vert); } .hd .btn.out:hover { background: var(--c2); }
 
 /* titres façon carnet */
-.tt .s { display: block; font-size: clamp(19px, 1.9vw, 25px); font-weight: 600; letter-spacing: -.035em; }
-.tt .b { display: inline-block; font-size: clamp(32px, 4.2vw, 54px); font-weight: 800; letter-spacing: -.05em; line-height: 1; margin-top: 4px; }
+.tt .s { display: block; font-size: clamp(19px, 1.9vw, 25px); font-weight: 600; letter-spacing: -.01em; }
+.tt .b { display: inline-block; font-size: clamp(32px, 4.2vw, 54px); font-weight: 800; letter-spacing: -.015em; line-height: 1; margin-top: 4px; }
 .u { position: relative; white-space: nowrap; }
 .u svg { position: absolute; left: -1%; bottom: -.22em; width: 102%; height: .3em; overflow: visible; }
 .u path { stroke-dasharray: 460; stroke-dashoffset: 460; }
@@ -79,8 +79,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .lio-says { position: absolute; left: 0; bottom: 4%; z-index: 6; display: flex; align-items: flex-end; gap: 4px; animation: bob 5s ease-in-out 1; pointer-events: none; }
 .lio-says p { background: var(--paper); border: 2px solid var(--encre); border-bottom-width: 4px; border-radius: 18px 18px 18px 4px; padding: 8px 14px; font-size: 21px; line-height: 1.05; color: var(--navy2); transform: rotate(-3deg); margin-bottom: 46px; white-space: nowrap; }
 .hero-txt { display: flex; flex-direction: column; align-items: center; text-align: center; }
-.hero h1 { display: flex; flex-direction: column; align-items: center; font-size: clamp(34px, 3.7vw, 56px); font-weight: 800; letter-spacing: -.05em; line-height: 1.05; }
-.hero h1 .s { font-size: .48em; font-weight: 600; letter-spacing: -.035em; margin-bottom: 4px; }
+.hero h1 { display: flex; flex-direction: column; align-items: center; font-size: clamp(32px, 3.4vw, 50px); font-weight: 800; letter-spacing: -.015em; line-height: 1.05; }
+.hero h1 .s { font-size: .48em; font-weight: 600; letter-spacing: -.01em; margin-bottom: 4px; }
 .hero-txt p { font-size: 18px; color: var(--sub); margin-top: 26px; max-width: 34ch; }
 .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 24px; }
 .hero-txt .hero-cta { flex-direction: column; flex-wrap: nowrap; gap: 14px; width: 100%; margin-top: 30px; }
@@ -100,7 +100,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .pi .fold { position: absolute; right: 0; bottom: 0; width: 20px; height: 20px; clip-path: polygon(0 0, 100% 0, 0 100%); }
 .pi-ic { position: absolute; right: 12px; top: 12px; transition: transform .4s; }
 .pi-in { position: absolute; left: 66px; right: 36px; top: 14px; opacity: 0; transform: translateX(-12px); transition: opacity .3s, transform .45s; }
-.pi-in b { display: block; font-family: var(--title); font-weight: 700; font-size: 23px; letter-spacing: -.03em; line-height: 1.05; }
+.pi-in b { display: block; font-family: var(--title); font-weight: 700; font-size: 23px; letter-spacing: -.015em; line-height: 1.05; }
 .pi-in span { display: block; font-size: 14px; line-height: 1.35; margin-top: 5px; }
 .pi-in em { display: flex; align-items: center; gap: 4px; font-style: normal; font-size: 14px; font-weight: 600; margin-top: 8px; color: #1F5F59; }
 .pi:focus-visible, .nb.open .pi { transform: translateX(var(--open)) rotate(-5deg) scale(1.04); z-index: 3; }
@@ -231,7 +231,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .cta-pi { position: absolute; width: 140px; height: 112px; padding: 14px 16px; text-align: left; color: var(--ink); clip-path: polygon(0 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%); transition: transform .45s cubic-bezier(.3, 1.5, .45, 1); }
 .cta-pi:hover { transform: rotate(0deg) translateY(-6px) !important; }
 .cta-pi .box { margin-left: auto; }
-.cta-pi b { display: block; font-family: var(--title); font-size: 24px; letter-spacing: -.035em; margin-top: 26px; }
+.cta-pi b { display: block; font-family: var(--title); font-size: 24px; letter-spacing: -.015em; margin-top: 26px; }
 
 .wave { display: block; width: 100%; height: clamp(50px, 7vw, 96px); margin-bottom: -2px; }
 .ft { background: var(--lio); color: #fff; padding-block: 28px 52px; }
@@ -308,7 +308,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .dots { display: none; }
 .cta .dots { display: block; }
 .cta-sec { padding-top: clamp(56px, 7vw, 96px) !important; }
-.h2 { font-size: clamp(28px, 3.2vw, 40px); font-weight: 800; letter-spacing: -.035em; line-height: 1.15; max-width: 18ch; }
+.h2 { font-size: clamp(28px, 3.2vw, 40px); font-weight: 800; letter-spacing: -.015em; line-height: 1.15; max-width: 18ch; }
 .cta .h2 { color: var(--bg); max-width: none; }
 
 /* parents et questions fréquentes */
@@ -404,6 +404,10 @@ html.sp2 body { letter-spacing: .035em; word-spacing: .12em; line-height: 1.8; }
 html.sp3 body { letter-spacing: .07em; word-spacing: .22em; line-height: 2; }
 html.f-dys { --font: 'OpenDyslexic', sans-serif; --title: 'OpenDyslexic', sans-serif; }
 html.f-atk { --font: 'Atkinson Hyperlegible', sans-serif; }
+/* pas de mot seul en fin de paragraphe */
+.nw { white-space: nowrap; }
+p, li, dd, figcaption, blockquote { text-wrap: pretty; }
+summary, .hero-note, .note { text-wrap: balance; }
 html.hc { --sub: #26313D; --line: #8C8576; --navy: var(--ink); }
 html.hc .hand { font-family: var(--font); }
 html.hc .dots { display: none; }
@@ -474,7 +478,7 @@ html.calm { scroll-behavior: auto; }
       <div class="rv">
         <h2 class="tt"><span class="s">Tes démarches,</span><span class="b">enfin claires.</span></h2>
         <p class="txt"><abbr title="Plan d’accompagnement personnalisé">PAP</abbr>, <abbr title="Projet personnalisé de scolarisation">PPS</abbr>, <abbr title="Maison départementale des personnes handicapées">MDPH</abbr>, fac, <abbr title="Reconnaissance de la qualité de travailleur handicapé">RQTH</abbr> : chaque démarche est découpée en petites étapes, avec les documents à fournir et des sources vérifiées.</p>
-        <ul class="ticks"><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Une étape à la fois</li><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Les bons papiers, au bon moment</li><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>« Explique-moi » à chaque étape</li></ul>
+        <ul class="ticks"><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Une étape à la fois</li><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Les bons papiers, au bon moment</li><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>« Explique-moi » à chaque étape</li></ul>
       </div>
       <div class="vis dem rv" aria-hidden="true">
         <ol class="path">
@@ -499,14 +503,14 @@ html.calm { scroll-behavior: auto; }
     <div class="feat rev" id="lio">
       <div class="rv">
         <h2 class="tt"><span class="s">Dis-le,</span><span class="b">Lio l’écrit.</span></h2>
-        <p class="txt">Tu parles avec tes mots, Lio rédige un mail clair. Il lit aussi tes documents à voix haute et t’entraîne avant un rendez-vous.</p>
+        <p class="txt">Tu parles avec tes mots, Lio rédige un mail clair. Il lit aussi tes documents à voix haute et t’entraîne avant un <span class="nw">rendez-vous.</span></p>
       </div>
       <div class="vis lio-vis rv" aria-hidden="true">
-        <div class="paper said"><span class="cap" style="color: var(--sub);">Ce que tu as dit</span><p class="hand">« j’ai pas eu mon tiers-temps au partiel… »</p></div>
+        <div class="paper said"><span class="cap" style="color: var(--sub);">Ce que tu as dit</span><p class="hand">« j’ai pas eu mon tiers-temps au partiel… »</p></div>
         <div class="paper mail">
           <div class="mail-h"><svg class="logo" width="37" height="30" viewBox="28 42 272 222" aria-hidden="true"><defs><clipPath id="lb2"><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z"/></clipPath><clipPath id="lc2"><path d="M70 130 C72 58 230 56 234 126 Z"/></clipPath></defs><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z" fill="#9fdcd5"/><g clip-path="url(#lb2)"><ellipse cx="160" cy="262" rx="150" ry="48" fill="#7cc7bf"/></g><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z" fill="none" stroke="#21293f" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/><g class="lio-cap"><path d="M70 130 C72 58 230 56 234 126 Z" fill="#116176" stroke="#21293f" stroke-width="11" stroke-linejoin="round"/><path d="M92 100 C108 78 146 70 174 76 C146 80 120 90 104 108 Z" fill="#1b7a92" clip-path="url(#lc2)"/><path d="M214 118 C246 110 278 116 286 132 C260 142 230 140 206 132 Z" fill="#116176" stroke="#21293f" stroke-width="11" stroke-linejoin="round"/><circle cx="152" cy="66" r="9" fill="#21293f"/></g><g class="lio-eyes"><ellipse cx="128" cy="160" rx="11" ry="15" fill="#21293f"/><ellipse cx="186" cy="160" rx="11" ry="15" fill="#21293f"/><circle cx="132" cy="154" r="4" fill="#fff"/><circle cx="190" cy="154" r="4" fill="#fff"/></g><ellipse cx="96" cy="186" rx="13" ry="8" fill="#f7a58c"/><ellipse cx="220" cy="186" rx="13" ry="8" fill="#f7a58c"/><path class="lio-mouth" d="M126 194 C140 214 176 214 190 194" fill="none" stroke="#21293f" stroke-width="11" stroke-linecap="round"/></svg>Proposition de Lio</div>
           <div class="mail-o"><span style="color: var(--sub);">Objet</span> · <b style="font-weight: 600;">Tiers-temps non appliqué</b></div>
-          <p class="mail-b">Bonjour Madame Martin,<br>Lors du partiel du 12 mars, mon tiers-temps n’a pas été appliqué. Pourriez-vous m’indiquer comment régulariser la situation ?<br>Cordialement, <span class="nm">Julien</span></p>
+          <p class="mail-b">Bonjour Madame Martin,<br>Lors du partiel du 12 mars, mon tiers-temps n’a pas été appliqué. Pourriez-vous m’indiquer comment régulariser la situation ?<br>Cordialement, <span class="nm">Julien</span></p>
           <div class="acts"><span class="btn pri sm">Envoyer <svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M227.32,28.68a16,16,0,0,0-15.66-4.08l-.15,0L19.57,82.84a16,16,0,0,0-2.49,29.8L102,154l41.3,84.87A15.86,15.86,0,0,0,157.74,248q.69,0,1.38-.06a15.88,15.88,0,0,0,14-11.51l58.2-191.94c0-.05,0-.1,0-.15A16,16,0,0,0,227.32,28.68ZM157.83,231.85l-.05.14,0-.07-40.06-82.3,48-48a8,8,0,0,0-11.31-11.31l-48,48L24.08,98.25l-.07,0,.14,0L216,40Z"/></svg></span></div>
         </div>
       </div>
@@ -540,7 +544,7 @@ html.calm { scroll-behavior: auto; }
     <div class="feat rev" id="lecture">
       <div class="rv">
         <h2 class="tt"><span class="s">Une app qui s’adapte</span><span class="b">à ta lecture.</span></h2>
-        <p class="txt">Police pensée pour les dys, texte plus grand, lignes aérées, contraste renforcé, lecture à voix haute : tu règles tout dès l’inscription. Essaie ici.</p>
+        <p class="txt">Police pensée pour les dys, texte plus grand, lignes aérées, contraste renforcé, lecture à voix haute : tu règles tout dès l’inscription. Essaie ici.</p>
         <ul class="ticks"><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Quatre polices, dont OpenDyslexic</li><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Son coupé par défaut</li><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Tes réglages partout, même sur téléphone</li></ul>
       </div>
       <div class="vis rv" style="position: relative;">
@@ -561,13 +565,13 @@ html.calm { scroll-behavior: auto; }
   <div class="wrap">
     <div class="par" id="parents">
       <div class="rv">
-        <h2 class="tt" id="parentsT"><span class="s">Parents, aidants :</span><span class="b">on vous guide.</span></h2>
+        <h2 class="tt" id="parentsT"><span class="s">Parents, aidants :</span><span class="b">on vous guide.</span></h2>
         <p class="txt">Pass’Dys sert aussi aux parents et aux aidants. Vous suivez les démarches avec lui, sans faire à sa place.</p>
       </div>
       <ul class="par-l">
         <li><b>Préparer le PAP ou le PPS avec l’école</b><span>Les étapes, les documents à fournir et les bons interlocuteurs.</span></li>
         <li><b>Partager la carte de besoins</b><span>Un QR code à montrer aux enseignants. Aucun diagnostic n’est affiché.</span></li>
-        <li><b>Garder les bilans au même endroit</b><span>Orthophonie, ergothérapie, notifications MDPH : tout est rangé dans le coffre.</span></li>
+        <li><b>Garder les bilans au même endroit</b><span>Orthophonie, ergothérapie, notifications MDPH : tout est rangé dans le coffre.</span></li>
       </ul>
     </div>
   </div>
@@ -577,11 +581,11 @@ html.calm { scroll-behavior: auto; }
   <div class="wrap faq rv" id="faq">
     <h2 class="tt" id="faqT"><span class="b">Questions fréquentes.</span></h2>
     <div class="faq-l">
-      <details><summary>C’est gratuit ?</summary><p>Oui. Pass’Dys est entièrement gratuit : pas d’abonnement, pas de paiement.</p></details>
-      <details><summary>Faut-il un diagnostic pour s’inscrire ?</summary><p>Non. Aucun diagnostic n’est demandé, ni à l’inscription ni ensuite.</p></details>
-      <details><summary>Où sont gardées mes données ?</summary><p>Elles seront confiées à un hébergeur certifié pour les données de santé (HDS). Tes documents sont chiffrés et rien n’est partagé sans ton accord.</p></details>
-      <details><summary>Je suis parent : je peux créer le carnet ?</summary><p>Oui. Vous pouvez créer le carnet avec votre enfant et le remplir ensemble.</p></details>
-      <details><summary>Que veulent dire PAP, PPS, MDPH et RQTH ?</summary><dl>
+      <details><summary>C’est gratuit ?</summary><p>Oui. Pass’Dys est entièrement gratuit : pas d’abonnement, pas de paiement.</p></details>
+      <details><summary>Faut-il un diagnostic pour s’inscrire ?</summary><p>Non. Aucun diagnostic n’est demandé, ni à l’inscription ni ensuite.</p></details>
+      <details><summary>Où sont gardées mes données ?</summary><p>Elles seront confiées à un hébergeur certifié pour les données de santé (HDS). Tes documents sont chiffrés et rien n’est partagé sans ton accord.</p></details>
+      <details><summary>Je suis parent : je peux créer le carnet ?</summary><p>Oui. Vous pouvez créer le carnet avec votre enfant et le remplir ensemble.</p></details>
+      <details><summary>Que veulent dire PAP, PPS, MDPH et RQTH ?</summary><dl>
         <dt>PAP</dt><dd>Plan d’accompagnement personnalisé. Des aménagements à l’école, sans passer par la MDPH.</dd>
         <dt>PPS</dt><dd>Projet personnalisé de scolarisation. Décidé par la MDPH, il peut prévoir un AESH ou du matériel.</dd>
         <dt>MDPH</dt><dd>Maison départementale des personnes handicapées. Elle étudie les demandes d’aides et de droits.</dd>
@@ -596,7 +600,7 @@ html.calm { scroll-behavior: auto; }
     <div class="cta rv">
       <span class="dots"></span>
       <span class="cta-pi" style="background: var(--pale); left: 40px; top: 56px; transform: rotate(-8deg);" aria-hidden="true"><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><b>Lire</b></span><span class="cta-pi" style="background: var(--postit); right: 48px; top: 44px; transform: rotate(6deg);" aria-hidden="true"><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><b>Écrire</b></span><span class="cta-pi" style="background: var(--corail); left: 70px; bottom: 50px; transform: rotate(5deg);" aria-hidden="true"><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><b>Compter</b></span><span class="cta-pi" style="background: var(--menthe); right: 70px; bottom: 56px; transform: rotate(-6deg);" aria-hidden="true"><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><b>Parler</b></span>
-      <h2 class="tt" id="ctaT"><span class="s">Alors,</span><span class="b"><span class="u">on ouvre ton carnet ?<svg viewBox="0 0 440 30" preserveAspectRatio="none" aria-hidden="true"><path d="M6 18 C 110 6, 230 26, 434 10" stroke="currentColor" stroke-width="7" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></span></span></h2>
+      <h2 class="tt" id="ctaT"><span class="s">Alors,</span><span class="b"><span class="u">on ouvre ton carnet ?<svg viewBox="0 0 440 30" preserveAspectRatio="none" aria-hidden="true"><path d="M6 18 C 110 6, 230 26, 434 10" stroke="currentColor" stroke-width="7" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></span></span></h2>
       <p>2 minutes · aucun diagnostic demandé</p>
       <div class="hero-cta"><a class="btn pri" href="inscription.html#compte">Créer mon carnet <svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a><a class="btn out" href="inscription.html#connexion">Se connecter</a></div>
     </div>
