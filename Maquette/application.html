@@ -395,7 +395,7 @@ body { overflow-x: clip; }
   body.scrolled .topbar { border-bottom-color: var(--line); }
   .topbar { border-bottom-color: transparent; }
   body.scrolled:not(.has-back) .brand span { display: none; }
-  .pg-back, .cf-crumb { display: none !important; }
+  .pg-back { display: none !important; }
   .tabbar { display: flex; align-items: stretch; position: fixed; z-index: 700; left: 0; right: 0; bottom: 0; height: calc(var(--dock-h) + env(safe-area-inset-bottom, 0px)); padding: 0 4px env(safe-area-inset-bottom, 0px); background: var(--surf); border-top: 1px solid var(--line); }
   .tb-i { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: var(--sub); text-decoration: none; font-size: 11.5px; font-weight: 600; min-width: 0; position: relative; }
   .tb-ic { width: 54px; height: 30px; border-radius: 999px; display: flex; align-items: center; justify-content: center; transition: background .15s; }
@@ -479,58 +479,6 @@ button.ac-row:hover .ac-t { text-decoration: underline; }
 .bs-full-p { margin-top: 30px; font-size: 18px; line-height: 1.6; color: #E6EEF6; max-width: 56ch; }
 @media (max-width: 1000px) { .bs-layout { grid-template-columns: minmax(0, 1fr); } .bs-side { order: -1; } .bs-sticky { position: static; } }
 @media (max-width: 480px) { .bs-stages { grid-template-columns: repeat(2, minmax(0, 1fr)); } .bs-acts { grid-template-columns: 1fr 1fr; } .bs-acts .btn:first-child { grid-column: 1 / -1; } }
-
-.cf-crumb { display: flex; align-items: center; gap: 8px; color: var(--sub); font-size: 14px; margin-bottom: 10px; }
-.cf-crumb button { color: var(--dem); font-weight: 600; }
-.cf-crumb b { color: var(--ink); }
-.cf-layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 24px; align-items: start; }
-.cf-aside { display: flex; flex-direction: column; gap: 14px; position: sticky; top: calc(var(--top-h) + 20px); }
-.cf-aside .ac-box { gap: 0; }
-.cf-alert { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 16px; background: var(--aut-bg); color: var(--ink); margin-bottom: 20px; flex-wrap: wrap; }
-.cf-alert > svg { color: var(--aut); }
-.cf-folders { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 18px 16px; padding-top: 12px; }
-.cf-folder { position: relative; text-align: left; color: #1D2B3A; transition: transform .2s; }
-.cf-folder:hover { transform: translateY(-3px); }
-.cf-tab { position: absolute; left: 0; top: -12px; width: 46%; height: 22px; border-radius: 12px 12px 0 0; background: var(--fc); filter: brightness(.94); }
-.cf-body { position: relative; display: flex; flex-direction: column; gap: 4px; min-height: 132px; padding: 16px; border-radius: 4px 18px 18px 18px; background: var(--fc); }
-.cf-body b { font-family: var(--title); font-size: 19px; margin-top: auto; }
-.cf-body .small { color: rgba(29, 43, 58, .72); }
-.cf-fold-ic { width: 44px; height: 44px; border-radius: 13px; background: rgba(255, 255, 255, .7); color: var(--fi); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.cf-tools { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
-.cf-filters { flex-wrap: nowrap; overflow-x: auto; min-width: 0; max-width: 100%; }
-.cf-main { min-width: 0; }
-.cf-drop { border-radius: 20px; transition: outline-color .15s; outline: 2px dashed transparent; outline-offset: 4px; }
-.cf-drop.over { outline-color: var(--navy); }
-.cf-table { background: var(--surf); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; }
-.cf-th, .cf-tr { display: grid; grid-template-columns: minmax(0, 1fr) 120px 120px 80px 44px; gap: 12px; align-items: center; padding: 10px 16px; }
-.cf-th { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--mute); border-bottom: 1px solid var(--line); background: var(--surf2); }
-.cf-tr { border-bottom: 1px solid var(--line2); }
-.cf-tr:last-child { border-bottom: 0; }
-.cf-tr:hover { background: var(--bg); }
-.cf-name { display: flex; align-items: center; gap: 14px; text-align: left; min-width: 0; color: var(--ink); }
-.cf-name:hover .ac-t { text-decoration: underline; }
-.cf-ft { position: relative; border-radius: 11px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.cf-ft i { position: absolute; bottom: -5px; right: -7px; font-style: normal; font-size: 9px; font-weight: 800; letter-spacing: .04em; padding: 1px 4px; border-radius: 5px; background: var(--surf); border: 1px solid currentColor; line-height: 1.2; }
-.cf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 14px; }
-.cf-tile { border: 1px solid var(--line); border-radius: 18px; background: var(--surf); overflow: hidden; }
-.cf-thumb { position: relative; height: 120px; width: 100%; background: var(--surf2); display: flex; align-items: center; justify-content: center; }
-.cf-thumb .cf-ft { position: absolute; left: 10px; bottom: 10px; }
-.cf-dz { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; margin-top: 14px; padding: 18px; border-radius: 16px; border: 1.5px dashed var(--line); color: var(--sub); font-weight: 600; font-size: 14.5px; text-align: center; }
-.cf-dz:hover { border-color: var(--navy); color: var(--ink); }
-.cf-meta { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
-.cf-meta > span { display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; border-radius: 12px; background: var(--surf2); font-size: 14px; min-width: 0; }
-@media (max-width: 1100px) { .cf-layout { grid-template-columns: minmax(0, 1fr); } .cf-aside { position: static; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (max-width: 760px) {
-  .cf-th { display: none; }
-  .cf-tr { grid-template-columns: minmax(0, 1fr) auto 44px; padding: 10px 8px 10px 14px; }
-  .cf-tr > .cf-c:nth-of-type(1), .cf-tr > .cf-c:nth-of-type(3) { display: none; }
-  .cf-aside { grid-template-columns: 1fr; }
-  .cf-meta { grid-template-columns: 1fr 1fr; }
-  .cf-folders { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .cf-tools .seg { margin-left: auto; }
-  .cf-tools .mp-search { flex: 1 1 100%; }
-  .cf-filters { flex: 1 1 0; }
-}
 
 @media (max-width: 1100px) {
   .mp { height: calc(100vh - var(--top-h) - var(--dock-h)); height: calc(100dvh - var(--top-h) - var(--dock-h)); }
@@ -655,19 +603,7 @@ button.ac-row:hover .ac-t { text-decoration: underline; }
   .an-card > .grow { min-width: 0; }
   .an-card .btn.ghost { font-size: 0; gap: 0; width: 48px; height: 44px; padding: 0; border: 1px solid var(--line); border-radius: 12px; }
   .an-card .btn.ghost svg { width: 19px; height: 19px; }
-
-  .cf-folders { display: flex; overflow-x: auto; gap: 12px; margin: 0 -16px; padding: 14px 16px 4px; scrollbar-width: none; }
-  .cf-folders::-webkit-scrollbar { display: none; }
-  .cf-folder { flex: 0 0 136px; }
-  .cf-body { min-height: 112px; padding: 14px; }
-  .cf-body b { font-size: 17px; }
-  .cf-aside { display: none; }
-  .cf-tools .seg { display: none; }
-  .cf-alert { padding: 12px 14px; font-size: 14.5px; }
-  .cf-tr { padding: 10px 6px 10px 12px; }
-  .cf-dz { display: none; }
   [data-id="coffre"] .page-h .row.wrap .btn.sec { min-height: 44px; }
-  .cf-meta { grid-template-columns: 1fr 1fr; }
 
   .bs-stages { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
   .bs-stage { padding: 12px 4px; font-size: 13.5px; border-radius: 14px; }
@@ -740,14 +676,13 @@ html.big-cursor, html.big-cursor * { cursor: url("data:image/svg+xml,%3Csvg xmln
 #main:focus { outline: none; }
 .st-preview { margin: 0; padding: 14px 22px; background: var(--bg); border-bottom: 1px solid var(--line2); font-size: 17px; line-height: 1.7; }
 .kbd { display: inline-flex; align-items: center; min-width: 44px; justify-content: center; padding: 4px 10px; border-radius: 8px; border: 1px solid var(--line); border-bottom-width: 3px; background: var(--surf2); font: inherit; font-size: 13.5px; font-weight: 600; white-space: nowrap; }
-.cf-log { border-top: 1px solid var(--line2); padding-top: 12px; }
 .a11y-body { margin: 0 -24px; border-top: 1px solid var(--line2); }
 .a11y-body .st-row { padding: 14px 24px; }
 .a11y-body .st-preview { padding: 12px 24px; }
 @media (max-width: 640px) { .a11y-body { margin: 0 -18px; } .a11y-body .st-row, .a11y-body .st-preview { padding-left: 18px; padding-right: 18px; } .a11y-body .st-row:has(.seg) { flex-direction: column; align-items: stretch; } }
-.tb-aa span { font-family: var(--title); font-weight: 800; font-size: 17px; letter-spacing: -.02em; }
+.tb-aa span { font-family: var(--title); font-weight: 800; font-size: 17px; letter-spacing: -.02em; }/* Accueil */
 
-/* Accueil */
+
 .hm { display: flex; flex-direction: column; gap: 18px; width: 100%; }
 [data-id="accueil"] .page { padding-bottom: calc(var(--dock-h) + 24px); }
 .hm h1, .hm h2 { font-family: var(--title); }
@@ -806,11 +741,11 @@ html.big-cursor, html.big-cursor * { cursor: url("data:image/svg+xml,%3Csvg xmln
 .hm-pj-i span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .hm-pj-i svg { flex-shrink: 0; }
 @media (hover: hover) { .hm-pj-i:hover { border-color: var(--navy); } }
-.hm-pj-i[aria-pressed="true"] { background: var(--lio-bg); border-color: var(--lio); color: var(--lio); font-weight: 600; }
+.hm-pj-i[aria-pressed="true"] { background: var(--lio-bg); border-color: var(--lio); color: var(--lio); font-weight: 600; }/* Boutique *//* Accueil : tablette */
 
-/* Boutique */
 
-/* Accueil : tablette */
+
+
 @media (min-width: 601px) and (max-width: 1100px) {
   .hm-grid { grid-template-columns: minmax(0, 1fr); }
   .hm-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -826,9 +761,9 @@ html.big-cursor, html.big-cursor * { cursor: url("data:image/svg+xml,%3Csvg xmln
   .hm-tile b { font-size: 17px; }
   .hm-tile > span:last-child { font-size: 14px; }
   .hm-card-b { min-height: 52px; font-size: 16px; }
-}
+}/* Accueil : téléphone */
 
-/* Accueil : téléphone */
+
 @media (max-width: 600px) {
   [data-id="accueil"] .page { padding-top: 10px; padding-bottom: calc(var(--dock-h) + 16px); }
   .hm { gap: 12px; }
@@ -927,9 +862,9 @@ html.big-cursor, html.big-cursor * { cursor: url("data:image/svg+xml,%3Csvg xmln
   [aria-labelledby="hmGoT"] .hm-h { display: none; }
   .hm-shop { padding: 6px 12px; }
   .hm-shop-ic { width: 30px; height: 30px; }
-}
+}/* Accueil : occupe toute la hauteur de l'écran */
 
-/* Accueil : occupe toute la hauteur de l'écran */
+
 [data-id="accueil"] .page { min-height: calc((100dvh - var(--top-h)) / var(--zoom)); display: flex; flex-direction: column; }
 .hm { flex: 1; }
 .hm-grid { flex: 1; }
@@ -965,13 +900,13 @@ html.big-cursor, html.big-cursor * { cursor: url("data:image/svg+xml,%3Csvg xmln
   .hm-shop-t b { font-size: 18px; }
   .hm-shop-t span { font-size: 15px; }
 }
-.hm-tile { align-content: center; row-gap: 2px; }
-/* Barre du haut : reste sur une ligne avec l'espacement agrandi */
+.hm-tile { align-content: center; row-gap: 2px; }/* Barre du haut : reste sur une ligne avec l'espacement agrandi */
+
 html.sp2 .topbar, html.sp3 .topbar { letter-spacing: .02em; word-spacing: .04em; }
 html.sp2 .tab, html.sp3 .tab { padding: 0 10px; }
 html.sp2 .tb-lio, html.sp3 .tb-lio { padding-right: 5px; font-size: 0; gap: 0; }
-html.sp2 .tb-lio > :not(.tb-lio-f), html.sp3 .tb-lio > :not(.tb-lio-f) { display: none; }
-/* Grands écrans : le texte grandit avec la hauteur disponible */
+html.sp2 .tb-lio > :not(.tb-lio-f), html.sp3 .tb-lio > :not(.tb-lio-f) { display: none; }/* Grands écrans : le texte grandit avec la hauteur disponible */
+
 @media (min-width: 1101px) and (min-height: 950px) {
   .hm-hero h1 { font-size: clamp(34px, 3.9vh, 46px); }
   .hm-sum, .hm-xp-t { font-size: clamp(16.5px, 1.75vh, 20px); }
@@ -995,9 +930,9 @@ html.sp2 .tb-lio > :not(.tb-lio-f), html.sp3 .tb-lio > :not(.tb-lio-f) { display
   .hm-tile { min-height: 56px; padding: 10px 12px; }
   .hm { gap: 14px; }
   .hm-grid { gap: 14px; }
-}
+}/* Accueil : pep's */
 
-/* Accueil : pep's */
+
 .hm-hero { position: relative; overflow: hidden; isolation: isolate; background: linear-gradient(115deg, var(--surf) 50%, var(--lio-bg)); }
 .hm-hero::before { content: ''; position: absolute; z-index: -1; right: -60px; top: -90px; width: 260px; height: 260px; border-radius: 50%; background: var(--postit); opacity: .55; }
 .hm-hero::after { content: ''; position: absolute; z-index: -1; right: 150px; bottom: -70px; width: 140px; height: 140px; border-radius: 50%; border: 18px solid var(--eau); opacity: .35; }
@@ -1018,14 +953,14 @@ html.sp2 .tb-lio > :not(.tb-lio-f), html.sp3 .tb-lio > :not(.tb-lio-f) { display
 .hm-due.hot { background: var(--corail); color: var(--aut); }
 .hm-shop-pics { display: flex; flex-shrink: 0; }
 .hm-shop-pics img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 3px solid var(--vio-bg); background: #fff; margin-left: -12px; }
-@media (max-width: 600px) { .hm-shop-pics { display: none; } .hm-tile-wm { display: none; } .hm-hero::after { display: none; } }
+@media (max-width: 600px) { .hm-shop-pics { display: none; } .hm-tile-wm { display: none; } .hm-hero::after { display: none; } }/* Finitions (better-ui) */
 
-/* Finitions (better-ui) */
+
 .hm-shop-pics img { outline: 1px solid oklch(0 0 0 / .1); outline-offset: -1px; }
 .hm-tile, .hm-shop { -webkit-tap-highlight-color: transparent; }
-.modal { overscroll-behavior: contain; }
+.modal { overscroll-behavior: contain; }/* Boutique dys : page de résultats */
 
-/* Boutique dys : page de résultats */
+
 .bq { --bq-gold: #E0A526; --bq-pic: #F1EEE8; display: flex; flex-direction: column; gap: 18px; }
 :root[data-theme="dark"] .bq { --bq-pic: #222A35; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .bq { --bq-pic: #222A35; } }
@@ -1146,14 +1081,14 @@ html.sp2 .tb-lio > :not(.tb-lio-f), html.sp3 .tb-lio > :not(.tb-lio-f) { display
   .bq-d { grid-template-columns: minmax(0, 1fr); gap: 14px; }
   .bq-d-pic { aspect-ratio: 4 / 3; }
   .bq-also { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
+}/* better-ui : rayons concentriques, alignement optique, contour photo en sombre auto */
 
-/* better-ui : rayons concentriques, alignement optique, contour photo en sombre auto */
+
 .bq-add:has(svg), .bq-l .bq-add { padding-inline-start: 14px; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) :is(.bq-pic, .bq-d-pic, .bq-also-pic, .bq-l-pic, .hm-shop-pics) img { outline-color: oklch(1 0 0 / .1); } }
 :root[data-theme="dark"] .hm-shop-pics img { outline-color: oklch(1 0 0 / .1); }
-.bq-where:disabled { opacity: .45; cursor: not-allowed; }
-/* Boutique : grille régulière */
+.bq-where:disabled { opacity: .45; cursor: not-allowed; }/* Boutique : grille régulière */
+
 .bq-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: stretch; }
 .bq-card { height: 100%; }
 .bq-card .bq-title { -webkit-line-clamp: 2; min-height: calc(2 * 1.35em); width: 100%; overflow-wrap: anywhere; }
@@ -1173,9 +1108,9 @@ html.sp2 .tb-lio > :not(.tb-lio-f), html.sp3 .tb-lio > :not(.tb-lio-f) { display
 @media (max-width: 760px) {
   .bq-card { grid-template-rows: auto auto auto; min-height: 0; align-content: start; }
   .bq-card .bq-add { align-self: start; justify-self: start; margin-top: 4px; }
-}
+}/* Boutique : bandeau post-it */
 
-/* Boutique : bandeau post-it */
+
 .bq-head { display: flex; flex-direction: column; gap: 12px; }
 .bq-hero { display: flex; align-items: center; gap: 24px; padding: 22px 26px; border-radius: 16px; background: var(--postit); }
 .bq-hero-t { flex: 1; min-width: 0; }
@@ -1212,13 +1147,13 @@ html.sp2 .tb-lio > :not(.tb-lio-f), html.sp3 .tb-lio > :not(.tb-lio-f) { display
 .bq-src a { display: inline-flex; align-items: center; gap: 4px; color: var(--dem); font-weight: 600; }
 .bq-src span { color: var(--sub); min-width: 0; }
 .bq-src b { font-weight: 600; white-space: nowrap; }
-@media (max-width: 760px) { .bq-src li { grid-template-columns: 1fr auto; } .bq-src span { grid-column: 1 / -1; grid-row: 2; } }
+@media (max-width: 760px) { .bq-src li { grid-template-columns: 1fr auto; } .bq-src span { grid-column: 1 / -1; grid-row: 2; } }/* pas de mot seul en fin de paragraphe */
 
-/* pas de mot seul en fin de paragraphe */
+
 p, li, dd, figcaption, blockquote { text-wrap: pretty; }
-summary, .hero-note, .note { text-wrap: balance; }
+summary, .hero-note, .note { text-wrap: balance; }/* accueil : correctifs invisibles d'accessibilité (contraste du texte des tuiles, zones de 44 px, texte de 14 px) */
 
-/* accueil : correctifs invisibles d'accessibilité (contraste du texte des tuiles, zones de 44 px, texte de 14 px) */
+
 .hm-tile { background-image: linear-gradient(135deg, rgba(255, 255, 255, .16), rgba(255, 255, 255, 0) 24%, rgba(0, 0, 0, .1)); }
 .hm-tile-mail { background-image: linear-gradient(135deg, rgba(255, 255, 255, .16), rgba(255, 255, 255, 0) 12%, rgba(0, 0, 0, .1)); }
 .hm-task .chk { position: relative; }
@@ -1229,9 +1164,9 @@ summary, .hero-note, .note { text-wrap: balance; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hm-due.soon { color: var(--car); } }
 :root[data-theme="dark"] .hm-due.soon { color: var(--car); }
 .hm-lv { font-size: 14px; }
-@media (min-width: 601px) { .hm-task-t span, .hm-xp-t, .hm-shop-t span { font-size: max(14px, 1em); } }
+@media (min-width: 601px) { .hm-task-t span, .hm-xp-t, .hm-shop-t span { font-size: max(14px, 1em); } }/* boutique : lisible en sombre, prix simples, boutons en contour, zones de 44 px */
 
-/* boutique : lisible en sombre, prix simples, boutons en contour, zones de 44 px */
+
 .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .bq-hero h1, :root:not([data-theme="light"]) .bq-hero p { color: var(--ink); } :root:not([data-theme="light"]) .bq-mylist b { color: var(--bg); } }
 :root[data-theme="dark"] .bq-mylist b { color: var(--bg); }
@@ -1269,9 +1204,9 @@ summary, .hero-note, .note { text-wrap: balance; }
 .bq .bq-fbtn { height: 44px; }
 .bq .bq-fbtn b { font-size: 14px; min-width: 22px; height: 22px; }
 .bq-credb { display: inline-block; padding: 11px 4px; margin: -11px -4px; }
-.bq-fs-open h2 { display: flex; align-items: center; min-height: 44px; font-family: var(--font); font-size: 15px; font-weight: 700; letter-spacing: 0; color: var(--ink); margin: 0; }
+.bq-fs-open h2 { display: flex; align-items: center; min-height: 44px; font-family: var(--font); font-size: 15px; font-weight: 700; letter-spacing: 0; color: var(--ink); margin: 0; }/* boutique, direction B : un conseiller avant le catalogue */
 
-/* boutique, direction B : un conseiller avant le catalogue */
+
 .bq-adv { display: flex; flex-direction: column; gap: 14px; padding: 20px 22px 22px; background: var(--surf); border: 1px solid var(--line); border-radius: 16px; }
 .bq-adv-h { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 .bq-adv-h h2 { font-family: var(--title); font-size: clamp(20px, 2vw, 26px); letter-spacing: -.015em; }
@@ -1310,9 +1245,9 @@ summary, .hero-note, .note { text-wrap: balance; }
   .bq-nd b { font-size: 16px; }
   .bq-pk { grid-template-columns: 84px minmax(0, 1fr); padding: 12px; gap: 12px; }
   .bq-pk-pic { width: 84px; }
-}
+}/* boutique : focus visible partout, sélection distincte, un seul style de boutons, titre du catalogue en tête */
 
-/* boutique : focus visible partout, sélection distincte, un seul style de boutons, titre du catalogue en tête */
+
 .bq .bq-nd:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 14px; }
 .bq .bq-nd.on { outline: 0; box-shadow: inset 0 0 0 3px #fff; }
 .bq .bq-nd.on:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
@@ -1324,9 +1259,9 @@ summary, .hero-note, .note { text-wrap: balance; }
 @media (max-width: 1500px) { .bq-pk-a { flex-wrap: wrap; } }
 .bq-body > .bq-cat-t { grid-column: 1 / -1; margin: 0; }
 .bq-fs h3 { font-family: var(--font); font-size: 15px; font-weight: 700; letter-spacing: 0; color: var(--ink); margin: 0; }
-.bq-fs-open h3 { display: flex; align-items: center; min-height: 44px; }
+.bq-fs-open h3 { display: flex; align-items: center; min-height: 44px; }/* accueil : tuiles inchangées à l'œil, contraste du texte garanti ; bandeau sans décor ; zones de 44 px, texte de 14 px */
 
-/* accueil : tuiles inchangées à l'œil, contraste du texte garanti ; bandeau sans décor ; zones de 44 px, texte de 14 px */
+
 .hm-tile { background-image: linear-gradient(135deg, rgba(255, 255, 255, .16), rgba(255, 255, 255, 0) 24%, rgba(0, 0, 0, .1)); }
 .hm-lv { font-size: 14px; }
 .hm-h .btn { min-height: 44px; }
@@ -1349,9 +1284,9 @@ summary, .hero-note, .note { text-wrap: balance; }
   .hm .hm-box { padding-top: 6px; padding-bottom: 8px; gap: 0; }
   .hm .hm-tiles { gap: 6px; }
 }
-.hm-tile-mail { background-image: linear-gradient(135deg, rgba(255, 255, 255, .16), rgba(255, 255, 255, 0) 12%, rgba(0, 0, 0, .1)); }
+.hm-tile-mail { background-image: linear-gradient(135deg, rgba(255, 255, 255, .16), rgba(255, 255, 255, 0) 12%, rgba(0, 0, 0, .1)); }/* accueil, direction B : une seule priorité, les espaces en une rangée, le reste replié */
 
-/* accueil, direction B : une seule priorité, les espaces en une rangée, le reste replié */
+
 .hm-b { display: flex; flex-direction: column; gap: 16px; }
 .hm-next { display: flex; align-items: center; gap: 18px; padding: 18px 22px; border-radius: 22px; background: var(--surf); border: 1px solid var(--line); }
 .hm-next-i { width: 52px; height: 52px; border-radius: 16px; background: var(--dem-bg); color: var(--dem); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -1430,9 +1365,9 @@ summary, .hero-note, .note { text-wrap: balance; }
   .hm-more summary, .hm-b .hm-shop { min-height: 48px; }
   .hm-b .hm-shop { padding-top: 4px; padding-bottom: 4px; }
 }
-@media (max-width: 600px) and (max-height: 700px) { .hm-b .hm-tile { min-height: 44px; } .hm-b .hm-tiles { gap: 6px; } }
+@media (max-width: 600px) and (max-height: 700px) { .hm-b .hm-tile { min-height: 44px; } .hm-b .hm-tiles { gap: 6px; } }/* accueil, entre-deux : les tâches suivantes visibles, la Boutique mise en avant */
 
-/* accueil, entre-deux : les tâches suivantes visibles, la Boutique mise en avant */
+
 .hm-b .hm-row { align-items: stretch; }
 .hm-then { gap: 6px; }
 .hm-then .hm-h h2 { display: flex; align-items: baseline; gap: 8px; }
@@ -1460,8 +1395,8 @@ summary, .hero-note, .note { text-wrap: balance; }
   .hm-feat .btn { min-height: 44px; padding: 0 14px; font-size: 15px; }
   .hm-feat-pics { grid-template-columns: repeat(2, 44px); grid-template-rows: repeat(2, 44px); gap: 6px; }
   .hm-feat-pics img { border-width: 2px; border-radius: 10px; }
-}
-/* entre-deux : versions compactes pour les écrans courts et le mobile */
+}/* entre-deux : versions compactes pour les écrans courts et le mobile */
+
 .hm-feat { position: relative; }
 @media (min-width: 601px) and (max-height: 800px) {
   .hm-then .hm-tasks { display: none; }
@@ -1510,13 +1445,13 @@ summary, .hero-note, .note { text-wrap: balance; }
   .hm-b .hm-tile-ic { grid-row: auto; margin-bottom: 4px; width: 32px; height: 32px; }
   .hm-b .hm-tile b { align-self: end; font-size: 15px; }
   .hm-b .hm-tile > span:last-child { font-size: 14px; }
-}
-/* carte Boutique sans photos : une icône dans un rond, comme le bandeau de la Boutique */
+}/* carte Boutique sans photos : une icône dans un rond, comme le bandeau de la Boutique */
+
 .hm-feat-ic { width: 84px; height: 84px; border-radius: 50%; background: var(--surf); color: var(--car); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 @media (min-width: 601px) and (max-height: 800px) { .hm-feat-ic { order: -1; width: 48px; height: 48px; } .hm-feat-ic svg { width: 24px; height: 24px; } }
-@media (max-width: 600px) { .hm-feat-ic { order: -1; grid-row: 1 / span 2; width: 40px; height: 40px; } .hm-feat-ic svg { width: 20px; height: 20px; } }
+@media (max-width: 600px) { .hm-feat-ic { order: -1; grid-row: 1 / span 2; width: 40px; height: 40px; } .hm-feat-ic svg { width: 20px; height: 20px; } }/* accueil, entre-deux 1 : la prochaine étape en haut, les deux colonnes d'origine dessous */
 
-/* accueil, entre-deux 1 : la prochaine étape en haut, les deux colonnes d'origine dessous */
+
 @media (min-width: 1101px) and (min-height: 801px) {
   .hm-e1 .hm-then { flex: 1; }
   .hm-e1 .hm-then .hm-tasks { flex: 1; display: flex; flex-direction: column; }
@@ -1565,8 +1500,8 @@ summary, .hero-note, .note { text-wrap: balance; }
   .hm-e1 .hm-go { padding-top: 8px; padding-bottom: 8px; }
   .hm-e1 .hm-then { padding-top: 0; padding-bottom: 0; }
 }
-@media (max-width: 600px) and (min-height: 701px) { .hm-e1 { gap: 7px; } }
-/* entre-deux 1, écrans courts : les tâches restent visibles, la Boutique reste compacte */
+@media (max-width: 600px) and (min-height: 701px) { .hm-e1 { gap: 7px; } }/* entre-deux 1, écrans courts : les tâches restent visibles, la Boutique reste compacte */
+
 .hm-e1 .hm-feat-k svg { display: none; }
 @media (min-width: 601px) and (max-height: 800px) {
   .hm-e1 .hm-then { flex: 1; justify-content: flex-start; }
@@ -1574,14 +1509,14 @@ summary, .hero-note, .note { text-wrap: balance; }
   .hm-e1 .hm-then .hm-task ~ .hm-task ~ .hm-task { display: none; }
   .hm-e1 .hm-then .hm-task ~ .hm-task { display: flex; }
   .hm-e1 .hm-feat { flex: none; grid-template-columns: auto minmax(0, 1fr); align-items: center; }
-}
+}/* ================= Démarches, nouvelle passe : même DA, moins de superflu ================= */
 
-/* ================= Démarches, nouvelle passe : même DA, moins de superflu ================= */
+
 :root { --m-sh: 0 1px 2px rgba(29, 43, 58, .06), 0 16px 40px -12px rgba(29, 43, 58, .24); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --m-sh: 0 1px 2px rgba(29, 43, 58, .3), 0 16px 40px -12px rgba(29, 43, 58, .6); } }
-:root[data-theme="dark"] { --m-sh: 0 1px 2px rgba(29, 43, 58, .3), 0 16px 40px -12px rgba(29, 43, 58, .6); }
+:root[data-theme="dark"] { --m-sh: 0 1px 2px rgba(29, 43, 58, .3), 0 16px 40px -12px rgba(29, 43, 58, .6); }/* modales façon Bits UI : rayon modéré, fine bordure et ombre douce, titre + description, séparateur sous l'en-tête */
 
-/* modales façon Bits UI : rayon modéré, fine bordure et ombre douce, titre + description, séparateur sous l'en-tête */
+
 @keyframes mFade { from { opacity: 0; } }
 @keyframes mIn { from { opacity: 0; transform: scale(.96); } }
 @keyframes mUp { from { opacity: 0; transform: translateY(16px); } }
@@ -1600,11 +1535,11 @@ summary, .hero-note, .note { text-wrap: balance; }
 @media (prefers-reduced-motion: no-preference) and (max-width: 640px) { .overlay .modal { animation: mUp .2s ease-out both; } }
 @media (max-width: 600px) { .modal { border-radius: 12px 16px 0 0; } .modal-h { margin: -2px -18px 0; padding: 4px 18px 12px; } }
 .btn:not(:disabled):active { transform: none; }
-@media (prefers-reduced-motion: no-preference) { .btn { transition: background-color .15s, border-color .15s, color .15s, transform .15s ease-out; } .btn:not(:disabled):active { transform: scale(.96); } }
+@media (prefers-reduced-motion: no-preference) { .btn { transition: background-color .15s, border-color .15s, color .15s, transform .15s ease-out; } .btn:not(:disabled):active { transform: scale(.96); } }/* tableau : rayons plus sobres *//* calendrier : tout le jour est cliquable, rayons plus petits */
 
-/* tableau : rayons plus sobres */
 
-/* calendrier : tout le jour est cliquable, rayons plus petits */
+
+
 .cv-main, .cv-side { border-radius: 12px; }
 .cal-d { position: relative; border-radius: 8px; border-color: var(--line2); transition: border-color .15s, background-color .15s; }
 .cal-d.is-today { border-color: var(--navy); }
@@ -1617,9 +1552,9 @@ summary, .hero-note, .note { text-wrap: balance; }
 .cal-i { position: relative; z-index: 1; font-size: 14px; }
 @media (hover: hover) { .cal-d:hover { border-color: var(--navy); } }
 .cal-wd span, .cal-key, .cv-day { font-size: 14px; }
-.cv-hint { margin-top: 10px; font-size: 14px; color: var(--sub); }
+.cv-hint { margin-top: 10px; font-size: 14px; color: var(--sub); }/* bulle d'ajout rapide (popover Bits UI) */
 
-/* bulle d'ajout rapide (popover Bits UI) */
+
 .pop { position: fixed; z-index: 950; display: flex; flex-direction: column; gap: 12px; width: min(340px, calc(100vw - 24px)); padding: 16px; border-radius: 12px; border: 1px solid var(--line); background: var(--surf); box-shadow: var(--m-sh); overscroll-behavior: contain; }
 @media (prefers-reduced-motion: no-preference) { .pop { animation: mIn .15s ease-out both; transform-origin: top left; } }
 .pop-h { display: flex; align-items: center; gap: 8px; margin: -8px -8px -4px 0; }
@@ -1627,9 +1562,9 @@ summary, .hero-note, .note { text-wrap: balance; }
 .pop-scrim { position: fixed; inset: 0; z-index: 940; background: var(--overlay); }
 @media (prefers-reduced-motion: no-preference) { .pop-scrim { animation: mFade .15s ease-out both; } .pop.sheet { animation: mUp .2s ease-out both; } }
 .pop.sheet { top: auto; left: 0; right: 0; bottom: 0; width: auto; max-height: 85dvh; overflow: auto; padding: 10px 18px calc(18px + env(safe-area-inset-bottom, 0px)); border-radius: 12px 16px 0 0; }
-.pop.sheet::before { content: ''; display: block; width: 40px; height: 5px; margin: 0 auto 2px; border-radius: 4px; background: var(--line); }
+.pop.sheet::before { content: ''; display: block; width: 40px; height: 5px; margin: 0 auto 2px; border-radius: 4px; background: var(--line); }/* partage, comme un document partagé */
 
-/* partage, comme un document partagé */
+
 .modal.m-share { width: min(560px, 100%); }
 .shr-inv { display: flex; gap: 8px; }
 .shr-inv #shMail { flex: 1; min-width: 0; }
@@ -1647,9 +1582,9 @@ summary, .hero-note, .note { text-wrap: balance; }
 .shr-owner { padding: 0 12px; font-size: 14px; color: var(--sub); }
 .shr-note { padding-top: 12px; border-top: 1px solid var(--line2); font-size: 14px; line-height: 1.5; color: var(--sub); }
 .shr-note b { font-weight: 600; color: var(--ink); }
-@media (max-width: 600px) { .shr-inv { flex-wrap: wrap; } .shr-inv #shMail { flex: 1 1 100%; } .shr-inv .shr-role { flex: 1; } }
+@media (max-width: 600px) { .shr-inv { flex-wrap: wrap; } .shr-inv #shMail { flex: 1 1 100%; } .shr-inv .shr-role { flex: 1; } }/* nouvelle démarche : une liste de choix sobre */
 
-/* nouvelle démarche : une liste de choix sobre */
+
 .modal.m-new { width: min(560px, 100%); }
 .nb-fs { min-width: 0; margin: 0; padding: 0; border: 0; }
 .nb-list { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; }
@@ -1660,9 +1595,9 @@ summary, .hero-note, .note { text-wrap: balance; }
 .nb-opt .grow span { font-size: 14px; color: var(--sub); }
 .nb-opt.on { background: var(--surf2); }
 .nb-opt:focus-visible { outline-offset: -3px; }
-@media (hover: hover) { .nb-opt:not(.on):hover { background: var(--bg); } }
+@media (hover: hover) { .nb-opt:not(.on):hover { background: var(--bg); } }/* audit Démarches : zones de 44 px, textes de 14 px, contraste AA */
 
-/* audit Démarches : zones de 44 px, textes de 14 px, contraste AA */
+
 #dmBoard .btn.sm, #dmBoard .seg > button, .modal .btn.sm, .modal .chip, .modal .seg > button { min-height: 44px; }
 #dmBoard .seg, .modal .seg { padding: 3px; }
 #dmBoard [data-act="share"].row { min-height: 44px; padding: 0 4px; }
@@ -1677,17 +1612,17 @@ summary, .hero-note, .note { text-wrap: balance; }
 .cal-d .tiny { font-size: 14px; color: var(--sub); }
 .modal .chk { position: relative; }
 .modal .chk::before { content: ''; position: absolute; inset: -10px; }
-.cv-up .tiny { font-size: 14px; }
+.cv-up .tiny { font-size: 14px; }/* ================= Démarches façon Trello ================= */
 
-/* ================= Démarches façon Trello ================= */
+
 :root { --tl-bg: var(--surf2); --tc-bg: var(--surf); --tc-sh: 0 1px 1px rgba(29, 43, 58, .2), 0 0 1px rgba(29, 43, 58, .3); --red: #B23A2E; --green: #2F7F77; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --tl-bg: var(--bg); --tc-bg: var(--surf2); --tc-sh: 0 1px 1px rgba(29, 43, 58, .4), 0 0 1px rgba(29, 43, 58, .5); } }
 :root[data-theme="dark"] { --tl-bg: var(--bg); --tc-bg: var(--surf2); --tc-sh: 0 1px 1px rgba(29, 43, 58, .4), 0 0 1px rgba(29, 43, 58, .5); }
 .modal { border-radius: 12px; }
 @media (max-width: 640px) { .modal { border-radius: 12px 12px 0 0; } }
-@media (max-width: 600px) { .modal { border-radius: 12px 12px 0 0; } }
+@media (max-width: 600px) { .modal { border-radius: 12px 12px 0 0; } }/* mes démarches : même carte, moins chargée, moins arrondie */
 
-/* mes démarches : même carte, moins chargée, moins arrondie */
+
 .pj-card { border-radius: 12px; align-items: stretch; }
 .pj-date { border-radius: 8px; }
 .pj-st { font-size: 14px; font-weight: 600; }
@@ -1701,9 +1636,9 @@ summary, .hero-note, .note { text-wrap: balance; }
 .pj-bar i { display: block; height: 100%; border-radius: 4px; }
 .pj-n { font-size: 14px; color: var(--sub); white-space: nowrap; }
 .pj-foot .avs { margin-left: auto; }
-.pj-foot .av { border-color: var(--surf); }
+.pj-foot .av { border-color: var(--surf); }/* le tableau : fond de la couleur de la démarche */
 
-/* le tableau : fond de la couleur de la démarche */
+
 .tb { display: flex; flex-direction: column; min-height: calc(100dvh - var(--top-h) - 130px); overflow: hidden; border-radius: 12px; background: var(--bc); }
 .tb-bar { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px; padding: 10px 14px; background: rgba(29, 43, 58, .28); color: #fff; }
 .tb-name { margin-right: 4px; font-size: 20px; letter-spacing: -.015em; color: #fff; }
@@ -1712,9 +1647,9 @@ summary, .hero-note, .note { text-wrap: balance; }
 .tb-avs .av { border-color: transparent; box-shadow: 0 0 0 2px rgba(255, 255, 255, .9); }
 .tb-share { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border-radius: 8px; background: #fff; color: #1D2B3A; font-weight: 600; font-size: 15px; transition: background-color .15s; }
 .tb-body { display: flex; flex: 1; flex-direction: column; min-height: 0; }
-.tb-lists { display: flex; flex: 1; align-items: flex-start; gap: 12px; padding: 14px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, .5) transparent; }
+.tb-lists { display: flex; flex: 1; align-items: flex-start; gap: 12px; padding: 14px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, .5) transparent; }/* les listes */
 
-/* les listes */
+
 .tl { display: flex; flex: 0 0 264px; flex-direction: column; min-height: 0; max-height: calc(100dvh - var(--top-h) - 230px); border-radius: 12px; background: var(--tl-bg); box-shadow: var(--tc-sh); color: var(--ink); transition: box-shadow .15s; }
 .tl.over { box-shadow: var(--tc-sh), 0 0 0 2px #fff; }
 .tl-h { display: flex; align-items: center; gap: 4px; padding: 6px 4px 2px 8px; }
@@ -1734,9 +1669,9 @@ summary, .hero-note, .note { text-wrap: balance; }
 .tl-new { flex: 0 0 264px; border-radius: 12px; }
 .tl-newb { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 48px; padding: 0 14px; border-radius: 12px; background: rgba(29, 43, 58, .24); color: #fff; font-weight: 600; font-size: 15px; transition: background-color .15s; }
 @media (hover: hover) { .tl-newb:hover { background: rgba(29, 43, 58, .34); } }
-.tl-new.open { padding: 8px; background: var(--tl-bg); }
+.tl-new.open { padding: 8px; background: var(--tl-bg); }/* les cartes */
 
-/* les cartes */
+
 .tc { position: relative; display: flex; flex-direction: column; gap: 6px; padding: 8px 12px; border-radius: 8px; background: var(--tc-bg); box-shadow: var(--tc-sh); cursor: pointer; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; transition: box-shadow .15s; }
 @media (hover: hover) { .tc:hover { box-shadow: var(--tc-sh), inset 0 0 0 2px var(--dem); } }
 .tc:has(.tc-open:focus-visible) { outline: 3px solid var(--dem); outline-offset: 2px; }
@@ -1754,19 +1689,19 @@ summary, .hero-note, .note { text-wrap: balance; }
 .tc .avs .av { border-color: var(--tc-bg); }
 .tc-ph { background: rgba(29, 43, 58, .1); box-shadow: none; }
 .tc-ph > * { visibility: hidden; }
-.tc-ghost { position: fixed; z-index: 950; pointer-events: none; rotate: 3deg; box-shadow: 0 8px 16px -4px rgba(29, 43, 58, .3), 0 0 1px rgba(29, 43, 58, .3); }
+.tc-ghost { position: fixed; z-index: 950; pointer-events: none; rotate: 3deg; box-shadow: 0 8px 16px -4px rgba(29, 43, 58, .3), 0 0 1px rgba(29, 43, 58, .3); }/* calendrier *//* fenêtre d'ajout au calendrier */
 
-/* calendrier */
 
-/* fenêtre d'ajout au calendrier */
+
+
 .modal.m-ev { width: min(480px, 100%); }
 .ev-type { display: flex; padding: 3px; }
 .ev-type > button { flex: 1; justify-content: center; min-height: 44px; }
 .ev-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .ev-opt { font-weight: 400; color: var(--sub); }
-.ev-del { margin-right: auto; }
+.ev-del { margin-right: auto; }/* fiche d'une carte, comme sur Trello */
 
-/* fiche d'une carte, comme sur Trello */
+
 .modal.m-card { width: min(780px, 100%); }
 .tm-h { align-items: flex-start; gap: 12px; }
 .tm-ic { margin-top: 10px; color: var(--sub); }
@@ -1799,9 +1734,9 @@ summary, .hero-note, .note { text-wrap: balance; }
 .tm-cl li { display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 2px 0 8px; border-radius: 8px; }
 .tm-cl li.is-done .grow { color: var(--sub); text-decoration: line-through; }
 @media (hover: hover) { .tm-cl li:hover { background: var(--surf2); } .tm-rm { opacity: 0; } .tm-cl li:hover .tm-rm, .tm-rm:focus-visible { opacity: 1; } .tm-plus:hover, .tm-date:hover { background: var(--line); } }
-.tm-cl + .field { border-radius: 8px; }
+.tm-cl + .field { border-radius: 8px; }/* choix dans les bulles (membres, étiquettes, échéance, déplacer, actions de liste) */
 
-/* choix dans les bulles (membres, étiquettes, échéance, déplacer, actions de liste) */
+
 .pm-list { display: flex; flex-direction: column; gap: 4px; margin: 0 -6px; }
 .pm-list > button { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 8px; border-radius: 8px; font-weight: 500; text-align: left; }
 @media (hover: hover) { .pm-list > button:not(:disabled):hover { background: var(--surf2); } }
@@ -1812,9 +1747,9 @@ summary, .hero-note, .note { text-wrap: balance; }
 .pop-f { display: flex; justify-content: flex-end; gap: 8px; }
 .pop-note { font-size: 14px; color: var(--sub); }
 .pop-menu { width: 300px; }
-.pop .btn { border-radius: 8px; }
+.pop .btn { border-radius: 8px; }/* tablettes et mobiles */
 
-/* tablettes et mobiles */
+
 @media (max-width: 1100px) { .tm-body { grid-template-columns: minmax(0, 1fr); } .tm-side { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); } .tm-side .tm-k { grid-column: 1 / -1; } }
 @media (max-width: 760px) {
   .tb { min-height: calc(100dvh - var(--top-h) - var(--dock-h) - 60px); border-radius: 8px; }
@@ -1827,19 +1762,19 @@ summary, .hero-note, .note { text-wrap: balance; }
   .tl, .tl-new { flex-basis: 86%; scroll-snap-align: center; }
   .tl { max-height: calc(100dvh - var(--top-h) - var(--dock-h) - 200px); }
 }
-@media (max-width: 600px) { .ev-2 { grid-template-columns: 1fr; } .tm-meta { gap: 14px; } }
+@media (max-width: 600px) { .ev-2 { grid-template-columns: 1fr; } .tm-meta { gap: 14px; } }/* ================= Démarches : proportions, calendrier d'avant, fiche sans doublons ================= *//* le tableau tient dans l'écran : quatre listes visibles, pas de colonne coupée */
 
-/* ================= Démarches : proportions, calendrier d'avant, fiche sans doublons ================= */
-/* le tableau tient dans l'écran : quatre listes visibles, pas de colonne coupée */
+
+
 .tb { height: calc(100dvh - var(--top-h) - var(--dock-h) - 150px); min-height: 440px; }
 .tb-lists { min-height: 0; }
 .tl { flex: 0 0 max(248px, calc((100% - 96px) / 4)); max-height: 100%; }
 .tl-new { flex: 0 0 48px; }
 .tl-newb { justify-content: center; width: 48px; height: 48px; min-height: 0; padding: 0; }
 .tl-newl { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.tl-new.open { flex-basis: max(248px, calc((100% - 96px) / 4)); }
+.tl-new.open { flex-basis: max(248px, calc((100% - 96px) / 4)); }/* calendrier : le design d'avant */
 
-/* calendrier : le design d'avant */
+
 .cv-head { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
 .cv-month { min-width: 160px; font-size: 17px; text-align: center; }
 .cal-key { font-size: 14px; }
@@ -1848,16 +1783,16 @@ summary, .hero-note, .note { text-wrap: balance; }
 .cv-ups { display: flex; flex-direction: column; gap: 6px; margin: 12px 0 14px; }
 .cv-up { min-height: 60px; }
 .cv-up-n { display: block; font-weight: 600; }
-.cv-up-s { display: block; font-size: 14px; color: var(--sub); }
+.cv-up-s { display: block; font-size: 14px; color: var(--sub); }/* fiche d'une carte : une colonne, chaque réglage une seule fois */
 
-/* fiche d'une carte : une colonne, chaque réglage une seule fois */
+
 .modal.m-card { width: min(680px, 100%); }
 .m-card .tm-main { gap: 22px; }
 .tm-inlist { font-weight: 600; color: var(--ink); text-decoration: none; }
 .tm-del { margin-right: auto; }
-.tm-f .btn { border-radius: 8px; }
+.tm-f .btn { border-radius: 8px; }/* tailles d'écran */
 
-/* tailles d'écran */
+
 @media (max-width: 1100px) { .tb { height: calc(100dvh - var(--top-h) - var(--dock-h) - 130px); } }
 @media (max-width: 760px) {
   .tb { height: calc(100dvh - var(--top-h) - var(--dock-h) - 48px); min-height: 400px; }
@@ -1869,19 +1804,19 @@ summary, .hero-note, .note { text-wrap: balance; }
 @media (max-width: 640px) {
   .m-card .tm-del { flex: 0 0 48px; padding: 0; }
   .m-card .tm-del span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-}
-/* audit : les textes réservés aux lecteurs d'écran restent dans le tableau ; la page ne défile pas sous le tableau */
-.tb-lists, .tl-newb, .tc, .tl-h { position: relative; }
-/* tablettes : quatre listes jusqu'à 900 px, puis deux par écran avec défilement aimanté */
+}/* audit : les textes réservés aux lecteurs d'écran restent dans le tableau ; la page ne défile pas sous le tableau */
+
+.tb-lists, .tl-newb, .tc, .tl-h { position: relative; }/* tablettes : quatre listes jusqu'à 900 px, puis deux par écran avec défilement aimanté */
+
 .tl, .tl-new.open { flex-basis: max(216px, calc((100% - 96px) / 4)); }
 @media (min-width: 761px) and (max-width: 900px) {
   .tb-lists { scroll-snap-type: x mandatory; }
   .tl, .tl-new.open { flex: 0 0 calc((100% - 12px) / 2); scroll-snap-align: start; }
 }
 @media (max-width: 760px) { .tl, .tl-new.open { flex: 0 0 86%; } }
-@media (max-width: 640px) { .cal-i { font-size: 0; } }
+@media (max-width: 640px) { .cal-i { font-size: 0; } }/* ================= Démarches : calendrier général, étiquettes, téléphone ================= */
 
-/* ================= Démarches : calendrier général, étiquettes, téléphone ================= */
+
 .dm-hh { align-items: flex-end; }
 .dm-hbar { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
 .dm-sw { padding: 3px; }
@@ -1900,9 +1835,9 @@ summary, .hero-note, .note { text-wrap: balance; }
 .lb-c { display: flex; align-items: center; justify-content: center; height: 44px; border-radius: 8px; color: #fff; transition: box-shadow .15s; }
 .lb-c svg { opacity: 0; }
 .lb-c.on svg { opacity: 1; }
-.lb-c.on { box-shadow: 0 0 0 2px var(--surf), 0 0 0 4px var(--ink); }
+.lb-c.on { box-shadow: 0 0 0 2px var(--surf), 0 0 0 4px var(--ink); }/* téléphone */
 
-/* téléphone */
+
 @media (max-width: 760px) {
   .tb-bar { flex-wrap: nowrap; gap: 8px; padding: 8px 8px 8px 14px; }
   .tb-name { flex: 1; min-width: 0; overflow: hidden; font-size: 17px; text-overflow: ellipsis; white-space: nowrap; }
@@ -1935,9 +1870,9 @@ summary, .hero-note, .note { text-wrap: balance; }
 }
 @media (max-width: 640px) { .cal-i svg, .cal-i .vh { display: none; } }
 @media (max-width: 760px) { .tb { margin-inline: calc(-1 * max(16px, 3vw)); border-radius: 0; } }
-@media (max-width: 600px) { .tb { margin-inline: -16px; } }
+@media (max-width: 600px) { .tb { margin-inline: -16px; } }/* nouvelle démarche : une grille de modèles, dans l'esprit des cartes de démarche */
 
-/* nouvelle démarche : une grille de modèles, dans l'esprit des cartes de démarche */
+
 .modal.m-new { width: min(620px, 100%); }
 .nb-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; overflow: visible; border: 0; border-radius: 0; }
 .nb-opt { position: relative; display: flex; align-items: center; gap: 12px; min-height: 72px; padding: 12px 36px 12px 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--surf); text-align: left; transition: border-color .15s, box-shadow .15s, background-color .15s; }
@@ -1951,9 +1886,9 @@ summary, .hero-note, .note { text-wrap: balance; }
 .nb-t span { font-size: 14px; color: var(--sub); }
 .nb-ok { position: absolute; top: 10px; right: 10px; display: flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; background: var(--navy); color: var(--onnavy); opacity: 0; transition: opacity .15s; }
 .nb-opt.on .nb-ok { opacity: 1; }
-@media (max-width: 600px) { .nb-list { grid-template-columns: 1fr; } .nb-opt { min-height: 64px; } }
+@media (max-width: 600px) { .nb-list { grid-template-columns: 1fr; } .nb-opt { min-height: 64px; } }/* une démarche : sa couleur remplit tout le fond, sous la barre du haut */
 
-/* une démarche : sa couleur remplit tout le fond, sous la barre du haut */
+
 .screen.dm-full { min-height: calc(100dvh - var(--top-h)); background: var(--bc); }
 .screen.dm-full > .page { max-width: none; padding: 0 0 var(--dock-h); }
 .screen.dm-full .tb { height: calc(100dvh - var(--top-h) - var(--dock-h)); min-height: 420px; margin: 0; border-radius: 0; background: transparent; }
@@ -1969,47 +1904,47 @@ summary, .hero-note, .note { text-wrap: balance; }
   .tb-ret, .tb-sep { display: none; }
 }
 .screen.dm-full[data-id] > .page { padding-bottom: var(--dock-h); }
-@media (min-width: 901px) { .screen.dm-full .tl, .screen.dm-full .tl-new.open { flex-basis: clamp(248px, calc((100% - 96px) / 4), 300px); } }
+@media (min-width: 901px) { .screen.dm-full .tl, .screen.dm-full .tl-new.open { flex-basis: clamp(248px, calc((100% - 96px) / 4), 300px); } }/* étiquettes : supprimer en deux clics */
 
-/* étiquettes : supprimer en deux clics */
+
 .pm-lbs { display: flex; flex-direction: column; gap: 4px; margin: 0 -6px; }
 .pm-lbr { display: flex; align-items: center; gap: 4px; }
 .pm-lbr .pm-lb { display: flex; flex: 1; align-items: center; gap: 10px; min-width: 0; min-height: 44px; padding: 0 6px; border-radius: 8px; font-weight: 500; text-align: left; }
 @media (hover: hover) { .pm-lbr .pm-lb:hover, .pm-del:hover { background: var(--surf2); } }
 .pm-del { flex-shrink: 0; color: var(--sub); }
-.pm-del.arm { width: auto; gap: 6px; padding: 0 10px; color: var(--bad); background: var(--bad-bg); font-weight: 600; font-size: 14px; }
+.pm-del.arm { width: auto; gap: 6px; padding: 0 10px; color: var(--bad); background: var(--bad-bg); font-weight: 600; font-size: 14px; }/* calendrier : une couleur par type, partout pareille (rendez-vous violet, tâche or) */
 
-/* calendrier : une couleur par type, partout pareille (rendez-vous violet, tâche or) */
+
 .cal-i.ev, .cv-day.ev { background: var(--vio-bg); color: var(--vio); }
 .cal-i.tk, .cv-day.tk { background: var(--car-bg); color: var(--car); }
 .cal-key.ev::before { background: var(--vio); }
 .cal-key.tk::before { background: var(--car); }
-@media (max-width: 640px) { .cal-i.ev { background: var(--vio); } .cal-i.tk { background: var(--car); } }
+@media (max-width: 640px) { .cal-i.ev { background: var(--vio); } .cal-i.tk { background: var(--car); } }/* ================= Démarches : corrections de l’audit ================= *//* texte agrandi (réglage Aa) : la page est zoomée, la hauteur du tableau est recalculée en conséquence */
 
-/* ================= Démarches : corrections de l’audit ================= */
-/* texte agrandi (réglage Aa) : la page est zoomée, la hauteur du tableau est recalculée en conséquence */
+
+
 .screen.dm-full .tb { height: calc((100dvh - var(--top-h) - var(--dock-h)) / var(--zoom, 1)); min-height: calc(420px / var(--zoom, 1)); }
-.screen.dm-full { min-height: calc(100dvh - var(--top-h)); }
-/* cartes : une bordure en plus de l’ombre, pour les distinguer sans dépendre de l’ombre */
+.screen.dm-full { min-height: calc(100dvh - var(--top-h)); }/* cartes : une bordure en plus de l’ombre, pour les distinguer sans dépendre de l’ombre */
+
 .tc { border: 1px solid var(--line); }
-.tc-ph { border-style: dashed; border-color: var(--sub); }
-/* catégories : en casse normale, plus en capitales espacées */
-.pj-cat { font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; }
-/* avatars : moins de chevauchement, les initiales restent lisibles */
-.pj-foot .avs .av + .av, .tc .avs .av + .av, .tb-avs .avs .av + .av { margin-left: -4px; }
-/* erreurs sous le champ */
+.tc-ph { border-style: dashed; border-color: var(--sub); }/* catégories : en casse normale, plus en capitales espacées */
+
+.pj-cat { font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; }/* avatars : moins de chevauchement, les initiales restent lisibles */
+
+.pj-foot .avs .av + .av, .tc .avs .av + .av, .tb-avs .avs .av + .av { margin-left: -4px; }/* erreurs sous le champ */
+
 .f-err { margin-top: 6px; color: var(--bad); font-size: 14px; font-weight: 600; }
 .field[aria-invalid="true"], .tc-ta[aria-invalid="true"] { border-color: var(--bad); box-shadow: 0 0 0 1px var(--bad); }
-.shr-inv + .f-err { margin-top: -8px; }
-/* checklist : libellé visible et bouton Ajouter */
+.shr-inv + .f-err { margin-top: -8px; }/* checklist : libellé visible et bouton Ajouter */
+
 .tm-add { margin-top: 4px; }
 .tm-addr { display: flex; gap: 8px; }
 .tm-addr .field { flex: 1; min-width: 0; border-radius: 8px; }
-.tm-addr .btn { border-radius: 8px; }
-/* filtre par personne dans la barre du tableau */
+.tm-addr .btn { border-radius: 8px; }/* filtre par personne dans la barre du tableau */
+
 .tb-who select { min-height: 44px; padding: 0 12px; border: 0; border-radius: 8px; background: rgba(29, 43, 58, .28); color: #fff; font-weight: 600; font-size: 15px; cursor: pointer; }
-.tb-who select option { color: #1D2B3A; background: #FFFFFF; }
-/* calendrier : « +n » cliquable, liste de la journée */
+.tb-who select option { color: #1D2B3A; background: #FFFFFF; }/* calendrier : « +n » cliquable, liste de la journée */
+
 .cal-more { position: relative; z-index: 1; align-self: flex-start; min-height: 28px; padding: 0 8px; border-radius: 4px; color: var(--sub); font-size: 14px; font-weight: 600; }
 @media (hover: hover) { .cal-more:hover { background: var(--surf2); color: var(--ink); } }
 .day-l { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
@@ -2022,6 +1957,260 @@ summary, .hero-note, .note { text-wrap: balance; }
 @media (hover: hover) { .day-i:hover { background: var(--surf2); } }
 @media (max-width: 760px) { .tb-who select { max-width: 150px; font-size: 14px; } }
 @media (max-width: 600px) { .screen.dm-full .tb-bar { flex-wrap: wrap; } .tb-who { order: 9; flex: 1 1 100%; } .tb-who select { width: 100%; max-width: none; } }
+
+/* ================= Coffre : dépôt en haut, dossiers en intercalaires ================= */
+.cx-head { align-items: flex-end; margin-bottom: 20px; }
+.cx-drop { display: flex; align-items: center; gap: 16px; padding: 18px 20px; border: 1.5px solid var(--line); border-radius: 12px; background: var(--surf); transition: border-color .15s, background-color .15s; }
+.cx-drop.over { border-color: var(--navy); background: var(--surf2); }
+.cx-drop-ic { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 48px; height: 48px; border-radius: 8px; background: var(--surf2); color: var(--ink); }
+.cx-drop-t { display: flex; flex: 1; flex-direction: column; gap: 2px; min-width: 0; }
+.cx-drop-t b { font-size: 17px; font-weight: 600; }
+.cx-drop-t > span { font-size: 14px; color: var(--sub); }
+.cx-drop .btn, .cx-alert .btn, .cx-head .btn { border-radius: 8px; }
+.cx-alert { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 12px; padding: 12px 16px; border-radius: 12px; background: var(--postit); color: var(--ink); }
+.cx-alert p { min-width: 220px; font-size: 15px; }
+
+/* les intercalaires */
+.cx-tabs { display: flex; align-items: flex-end; gap: 4px; margin-top: 24px; padding: 0 2px; overflow-x: auto; scrollbar-width: none; }
+.cx-tabs::-webkit-scrollbar { display: none; }
+.cx-tab { display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0; min-height: 44px; padding: 0 16px; border-radius: 8px 8px 0 0; background: var(--tb, var(--surf2)); color: #1D2B3A; font-size: 15px; font-weight: 600; white-space: nowrap; transition: min-height .15s; }
+.cx-tab:not([style]) { color: var(--ink); }
+.cx-tab.on { min-height: 52px; }
+.cx-tab-n { font-size: 14px; font-weight: 500; }
+.cx-tab-add { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 44px; height: 44px; border-radius: 8px 8px 0 0; color: var(--sub); }
+@media (hover: hover) { .cx-tab:not(.on):hover { min-height: 48px; } .cx-tab-add:hover { background: var(--surf2); color: var(--ink); } }
+.cx-panel { padding: 18px 16px 14px; border: 1px solid var(--line); border-radius: 0 12px 12px 12px; background: var(--surf); box-shadow: inset 0 4px 0 var(--tb, var(--surf2)); }
+
+/* recherche, filtres, affichage */
+.cx-tools { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+.cx-search { display: flex; flex: 1 1 240px; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surf); color: var(--sub); }
+.cx-search:focus-within { border-color: var(--dem); outline: 3px solid var(--dem); outline-offset: 0; }
+.cx-search input { flex: 1; min-width: 0; min-height: 42px; border: 0; background: transparent; color: var(--ink); outline: none; }
+.cx-search input::placeholder { color: var(--sub); }
+.cx-tools .seg { padding: 3px; }
+.cx-tools .seg > button { min-height: 44px; }
+
+/* la liste */
+.cx-table { display: flex; flex-direction: column; }
+.cx-th, .cx-tr { display: grid; grid-template-columns: minmax(0, 1fr) 120px 150px 80px 44px; align-items: center; gap: 12px; }
+.cx-th { padding: 0 8px 8px; border-bottom: 1px solid var(--line); font-size: 14px; font-weight: 600; color: var(--sub); }
+.cx-tr { min-height: 64px; padding: 6px 8px; border-bottom: 1px solid var(--line2); }
+.cx-tr:last-child { border-bottom: 0; }
+@media (hover: hover) { .cx-tr:hover { background: var(--surf2); } .cx-name:hover b, .cx-tile-n:hover b { text-decoration: underline; text-underline-offset: 3px; } }
+.cx-name { display: flex; align-items: center; gap: 12px; width: 100%; min-width: 0; min-height: 44px; text-align: left; color: var(--ink); }
+.cx-nt { display: flex; flex-direction: column; min-width: 0; }
+.cx-nt b { overflow: hidden; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.cx-nt > span { font-size: 14px; color: var(--sub); }
+.cx-m { display: none; }
+.cx-old { color: var(--bad); font-weight: 600; }
+.cx-c { font-size: 14px; color: var(--sub); }
+.cx-priv { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--sub); }
+.cx-ft { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; border-radius: 8px; }
+.cx-ft.pdf { background: var(--bad-bg); color: var(--bad); } .cx-ft.img { background: var(--lio-bg); color: var(--lio); } .cx-ft.doc { background: var(--dem-bg); color: var(--dem); }
+.cx-empty { padding: 28px 8px; font-size: 15px; text-align: center; color: var(--sub); }
+.cx-safe { display: flex; align-items: center; gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line2); font-size: 14px; color: var(--sub); }
+.cx-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.cx-tile { overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: var(--surf); }
+.cx-thumb { display: flex; align-items: center; justify-content: center; width: 100%; height: 120px; background: var(--surf2); }
+.cx-tile-b { display: flex; align-items: center; gap: 8px; padding: 8px 4px 8px 10px; }
+.cx-tile-n { display: flex; flex: 1; flex-direction: column; justify-content: center; min-width: 0; min-height: 44px; text-align: left; }
+.cx-tile-n b { overflow: hidden; font-size: 15px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.cx-tile-n span { overflow: hidden; font-size: 14px; color: var(--sub); text-overflow: ellipsis; white-space: nowrap; }
+
+/* fenêtres du coffre */
+.modal.m-doc { width: min(680px, 100%); }
+.modal.m-more { width: min(540px, 100%); }
+.doc-page { border-radius: 8px; }
+.doc-t { display: block; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid #1D2B3A; font-family: var(--title); font-size: 20px; }
+.doc-p { margin-bottom: 10px; line-height: 1.7; }
+.doc-l { display: block; height: 7px; margin-top: 10px; border-radius: 4px; background: #ECE8DF; }
+.cx-sec { display: flex; flex-direction: column; gap: 8px; }
+.cx-h3 { font-family: var(--font); font-size: 15px; font-weight: 600; letter-spacing: 0; color: var(--sub); }
+.cx-sec-r { display: flex; flex-wrap: wrap; gap: 8px; }
+.cx-pp { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 12px 0 4px; border-radius: 8px; background: var(--surf2); font-size: 15px; font-weight: 500; }
+.cx-pp .av { border: 0; }
+.cx-none { font-size: 14px; color: var(--sub); }
+.cx-f-left { margin-right: auto; }
+.cx-ppl { margin: 0; padding: 0; list-style: none; }
+.cx-ppl li { display: flex; align-items: center; gap: 12px; min-height: 60px; padding: 8px 0; }
+.cx-ppl li + li { border-top: 1px solid var(--line2); }
+.cx-ppl .grow { display: flex; flex-direction: column; min-width: 0; }
+.cx-ppl .grow b { font-weight: 600; }
+.cx-ppl .grow span { font-size: 14px; color: var(--sub); }
+.cx-ppl .av { border: 0; }
+.cx-ppl .tgl::before { content: ''; position: absolute; inset: -8px; }
+.cx-fs { min-width: 0; margin: 0; padding: 0; border: 0; }
+.modal.m-nf .lb-sw { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+
+/* tailles d'écran */
+@media (max-width: 760px) {
+  .cx-th { display: none; }
+  .cx-tr { grid-template-columns: minmax(0, 1fr) auto 44px; }
+  .cx-tr > [role="cell"]:nth-child(2), .cx-tr > [role="cell"]:nth-child(4) { display: none; }
+  .cx-m { display: inline; }
+}
+@media (max-width: 600px) {
+  [data-id="coffre"] .fab { display: none; }
+  .cx-head { margin-bottom: 14px; }
+  .cx-drop { flex-wrap: wrap; gap: 12px; padding: 14px; }
+  .cx-drop .btn { width: 100%; }
+  .cx-tabs { margin: 18px -16px 0; padding: 0 16px; }
+  .cx-panel { padding: 14px 12px 12px; border-radius: 0 0 12px 12px; }
+  .cx-tr { grid-template-columns: minmax(0, 1fr) 44px; padding: 6px 2px; }
+  .cx-tr > .cx-who { display: none; }
+  .cx-tools .cx-search { flex-basis: 100%; }
+  .cx-tools .cx-filter { flex: 1; }
+  .cx-tools .cx-filter > button { flex: 1; justify-content: center; padding: 0 8px; }
+  .modal.m-nf .lb-sw { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+.cx-d-s { display: none; }
+@media (max-width: 600px) { .cx-d-l, .cx-tools .cx-view { display: none; } .cx-d-s { display: inline; } }
+
+/* ================= Coffre, version Classeur ================= */
+.cx-back { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; margin: -6px 0 4px -6px; padding: 0 12px 0 6px; border-radius: 8px; color: var(--sub); font-size: 15px; font-weight: 600; }
+@media (hover: hover) { .cx-back:hover { background: var(--surf2); color: var(--ink); } .cx-folder:hover { border-color: var(--navy); } }
+.cx-fo-t { display: flex; align-items: center; gap: 14px; }
+.cx-fo-ic { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 44px; height: 44px; border-radius: 8px; }
+.cx-fo-t .cx-fo-ic { width: 52px; height: 52px; }
+.cx-layout { display: grid; grid-template-columns: minmax(0, 1fr) 280px; align-items: start; gap: 24px; margin-top: 20px; }
+.cx-main { display: flex; flex-direction: column; gap: 28px; min-width: 0; }
+.cx-alert-a { margin-top: 0; }
+.cx-h2 { margin-bottom: 12px; font-size: 20px; letter-spacing: -.015em; }
+.cx-folders { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+.cx-folder { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 72px; padding: 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--surf); text-align: left; transition: border-color .15s; }
+.cx-fo-x { display: flex; flex: 1; flex-direction: column; min-width: 0; }
+.cx-fo-x b { overflow: hidden; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.cx-fo-x span { font-size: 14px; color: var(--sub); }
+.cx-folder .av { border-color: var(--surf); }
+.cx-list { padding: 8px 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--surf); }
+.cx-aside { position: sticky; top: calc(var(--top-h) + 20px); padding: 18px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surf); }
+.cx-aside .cx-h2 { margin-bottom: 4px; font-size: 17px; }
+@media (max-width: 1100px) { .cx-layout { grid-template-columns: minmax(0, 1fr); } .cx-aside { position: static; } }
+@media (max-width: 600px) { .cx-folders { grid-template-columns: repeat(2, minmax(0, 1fr)); } .cx-folder { min-height: 64px; gap: 10px; padding: 10px; } .cx-folder .avs { display: none; } .cx-list { padding: 4px 8px; } .cx-layout { margin-top: 16px; } .cx-main { gap: 22px; } }
+.cx-folders { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.cx-folder .avs { display: none; }
+.cx-folder { gap: 10px; padding: 10px 12px; }
+.cx-fo-x b { white-space: normal; overflow-wrap: anywhere; line-height: 1.3; }
+.cx-fo-x span { white-space: nowrap; }
+.cx-folder .cx-fo-ic { width: 40px; height: 40px; }
+
+/* ================= Coffre, version Explorateur ================= */
+.cz-layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); align-items: start; gap: 24px; }
+.cz-side { position: sticky; top: calc(var(--top-h) + 20px); display: flex; flex-direction: column; gap: 8px; }
+.cz-list { display: flex; flex-direction: column; gap: 2px; margin: 0; padding: 0; list-style: none; }
+.cz-f { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 0 10px 0 6px; border-radius: 8px; color: var(--ink); font-weight: 500; text-align: left; transition: background-color .15s; }
+.cz-f.on { background: var(--surf); box-shadow: inset 0 0 0 1px var(--line); font-weight: 600; }
+@media (hover: hover) { .cz-f:not(.on):hover, .cz-new:hover { background: var(--surf2); } }
+.cz-dot { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 28px; height: 28px; border-radius: 6px; }
+.cz-fn { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cz-n { font-size: 14px; font-weight: 500; color: var(--sub); }
+.cz-new { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 10px; border-radius: 8px; color: var(--sub); font-weight: 600; font-size: 15px; }
+.cz-safe { margin-top: 4px; }
+.cz-main { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.cz-main .cx-alert { margin-top: 0; }
+.cz-docs .cx-h2 { margin: 8px 0 12px; }
+@media (max-width: 900px) {
+  .cz-layout { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .cz-side { position: static; }
+  .cz-list { flex-direction: row; gap: 6px; margin: 0 -16px; padding: 0 16px 4px; overflow-x: auto; scrollbar-width: none; }
+  .cz-list::-webkit-scrollbar { display: none; }
+  .cz-list li { flex-shrink: 0; }
+  .cz-f { padding: 0 12px 0 6px; background: var(--surf); box-shadow: inset 0 0 0 1px var(--line); }
+  .cz-f.on { box-shadow: inset 0 0 0 2px var(--navy); }
+  .cz-fn { overflow: visible; }
+  .cz-new { align-self: flex-start; }
+  .cz-safe { display: none; }
+}
+.cx-tile-b .cx-ft { display: none; }
+.cx-tile-b { padding: 10px 4px 10px 12px; }
+.cx-tile-n b { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; white-space: normal; line-height: 1.3; }
+.cx-grid { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+
+/* ================= Coffre : Classeur + colonne latérale de l'Explorateur ================= */
+@media (min-width: 901px) { .cz-layout { grid-template-columns: 260px minmax(0, 1fr); } }
+.cz-side { gap: 12px; max-height: calc(100dvh - var(--top-h) - 40px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+.cz-box { padding: 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--surf); }
+.cz-h { margin: 2px 6px 8px; font-size: 17px; letter-spacing: -.01em; }
+.cz-f.on { background: var(--surf2); box-shadow: none; }
+.cz-new { width: 100%; margin-top: 4px; }
+.cz-ppl li { min-height: 52px; padding: 6px 4px; }
+.cz-ppl .grow b { font-size: 15px; }
+.cz-box .cx-safe { margin-top: 6px; padding: 10px 4px 0; }
+.cz-share-bottom { display: none; }
+.cz-docs .cx-list { padding: 8px 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--surf); }
+@media (max-width: 900px) {
+  .cz-side { max-height: none; overflow: visible; }
+  .cz-fo { padding: 0; border: 0; background: transparent; }
+  .cz-fo .cz-h { display: none; }
+  .cz-share-side { display: none; }
+  .cz-share-bottom { display: block; }
+  .cz-f.on { background: var(--surf); box-shadow: inset 0 0 0 2px var(--navy); }
+}
+@media (max-width: 600px) { .cz-docs .cx-list { padding: 4px 8px; } }
+
+/* Coffre : une touche de couleur, sans en faire trop */
+.cz-f.on { background: var(--fb); color: #1D2B3A; box-shadow: none; }
+.cz-f.on .cz-n { color: #1D2B3A; }
+@media (hover: hover) { .cz-f:not(.on):hover { background: color-mix(in srgb, var(--fb) 45%, transparent); } }
+.cx-drop-ic { background: var(--lio-bg); color: var(--lio); }
+.cx-drop { transition: border-color .15s, background-color .15s; }
+.cx-drop.over { border-color: var(--lio); background: var(--lio-bg); }
+.cz-t { display: flex; align-items: center; gap: 10px; }
+.cz-count { display: inline-flex; align-items: center; justify-content: center; min-width: 28px; height: 26px; padding: 0 9px; border-radius: 999px; background: var(--surf2); color: var(--sub); font-family: var(--font); font-size: 14px; font-weight: 600; letter-spacing: 0; }
+@media (max-width: 900px) { .cz-f.on { background: var(--fb); box-shadow: none; } }
+@media (hover: hover) and (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .cz-f:not(.on):hover { background: color-mix(in srgb, var(--fb) 14%, transparent); } }
+@media (hover: hover) { :root[data-theme="dark"] .cz-f:not(.on):hover { background: color-mix(in srgb, var(--fb) 14%, transparent); } }
+
+/* Coffre : l'aperçu et le dépôt en pointillés */
+.cx-th, .cx-tr { grid-template-columns: minmax(0, 1fr) 120px 150px 80px 92px; }
+.cx-acts { display: flex; align-items: center; justify-content: flex-end; gap: 4px; }
+.cx-eye { color: var(--ink); }
+@media (hover: hover) { .cx-eye:hover { background: var(--lio-bg); color: var(--lio); } }
+.cx-drop { flex-direction: column; justify-content: center; gap: 10px; width: 100%; min-height: 168px; padding: 24px 20px; border: 2px dashed color-mix(in srgb, var(--surf2) 62%, var(--sub)); border-radius: 12px; background: var(--surf2); color: var(--ink); text-align: center; cursor: pointer; transition: border-color .15s, background-color .15s; }
+.cx-drop-ic { width: auto; height: auto; background: none; color: var(--sub); transition: color .15s; }
+.cx-drop-t { align-items: center; flex: none; gap: 4px; }
+.cx-drop-t b { font-size: 17px; font-weight: 600; }
+@media (hover: hover) { .cx-drop:hover { border-color: var(--lio); background: var(--lio-bg); } .cx-drop:hover .cx-drop-ic { color: var(--lio); } }
+.cx-drop.over { border-color: var(--lio); background: var(--lio-bg); }
+.cx-drop.over .cx-drop-ic { color: var(--lio); }
+@media (max-width: 760px) {
+  .cx-tr { grid-template-columns: minmax(0, 1fr) auto 92px; }
+}
+@media (max-width: 600px) {
+  .cx-tr { grid-template-columns: minmax(0, 1fr) 92px; }
+  .cx-drop { min-height: 128px; padding: 18px 14px; }
+}
+
+/* Coffre, après audit : liste plus simple, noms entiers, une seule couleur d'icône, palette en variables */
+.cx-th, .cx-tr { grid-template-columns: minmax(0, 1fr) 120px 180px 92px; }
+.cx-ft { width: 40px; height: 40px; background: var(--surf2); color: var(--sub); }
+.cz-dot { background: var(--fc); color: var(--surf); }
+.cz-f.on, .cz-f.on .cz-n { color: var(--ink); }
+.cx-drop { min-height: 112px; gap: 8px; padding: 18px 20px; }
+.cx-drop-t > span { font-size: 15px; color: var(--sub); }
+.cx-search { min-height: 48px; }
+.cx-search input { min-height: 46px; }
+.cz-pb { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 52px; padding: 6px 4px; border-radius: 8px; color: var(--ink); text-align: left; }
+.cz-pb > svg { margin-left: auto; color: var(--sub); }
+.cz-ppl li { min-height: 0; padding: 0; }
+@media (hover: hover) { .cz-pb:hover { background: var(--surf2); } }
+.toast.act { display: flex; align-items: center; gap: 14px; pointer-events: auto; padding: 8px 8px 8px 20px; }
+.toast-b { min-height: 44px; padding: 0 14px; border-radius: 8px; background: rgba(255, 255, 255, .14); color: #fff; font-weight: 600; }
+@media (hover: hover) { .toast-b:hover { background: rgba(255, 255, 255, .24); } }
+.m-person .cx-ppl .cx-ft { width: 32px; height: 32px; }
+@media (max-width: 900px) {
+  .cz-list { flex-wrap: wrap; margin: 0; padding: 0; overflow: visible; }
+}
+@media (max-width: 760px) {
+  .cx-tr { grid-template-columns: minmax(0, 1fr) auto 92px; }
+  .cx-tr > [role="cell"]:nth-child(4) { display: flex; }
+}
+@media (max-width: 600px) {
+  .cx-tr { grid-template-columns: minmax(0, 1fr) 92px; }
+  .cx-nt b { overflow: visible; white-space: normal; overflow-wrap: anywhere; }
+  .cx-name { align-items: flex-start; padding: 6px 0; }
+  .cx-drop { min-height: 96px; padding: 14px; }
+}
 </style>
 <style>/* required styles */
 
@@ -2858,6 +3047,7 @@ function toast(msg, xp = false) {
   const t = $('#toast');
   t.textContent = msg;
   t.classList.toggle('xp', xp);
+  t.classList.remove('act');
   t.classList.add('on');
   clearTimeout(toastT);
   toastT = setTimeout(() => t.classList.remove('on'), 2600);
@@ -3013,7 +3203,6 @@ function topbar() {
   let t = TITLES[id] || '';
   let back = !!PARENT[id];
   if (id === 'demarches' && DM.board && B()) { t = B().name; back = true; }
-  if (id === 'coffre' && CF.folder) { t = folderName(CF.folder); back = true; }
   if ((id === 'besoins' || id === 'coffre') && innerWidth <= 600) back = true;
   if (id === 'lio' && innerWidth <= 600) back = false;
   $('#tbTitle').textContent = t;
@@ -4167,16 +4356,15 @@ document.addEventListener('input', (e) => { if (e.target.id === 'anSearch') { AN
 ENTER.annuaire = anRender;
 
 const FOLDERS = [
-  { id: 'fac', name: 'Fac', c: '#8A6412', bg: '#FBE7A1' },
-  { id: 'bilans', name: 'Bilans', c: '#2F7F77', bg: '#BDE8E2' },
-  { id: 'mdph', name: 'MDPH', c: '#6552C9', bg: '#DCD6F7' },
-  { id: 'pap', name: 'PAP et PPS', c: '#3B64A8', bg: '#D2E2F6' },
-  { id: 'rqth', name: 'RQTH', c: '#B4533A', bg: '#F9CDB7' },
+  { id: 'fac', name: 'Fac', k: 'car' },
+  { id: 'bilans', name: 'Bilans', k: 'lio' },
+  { id: 'mdph', name: 'MDPH', k: 'vio' },
+  { id: 'pap', name: 'PAP et PPS', k: 'dem' },
+  { id: 'rqth', name: 'RQTH', k: 'aut' },
 ];
 const ago = (n) => (n === 0 ? 'à l’instant' : n === 1 ? 'hier' : n < 30 ? `il y a ${n} jours` : n < 365 ? `il y a ${Math.round(n / 30)} mois` : `il y a ${Math.round(n / 365)} an${n >= 548 ? 's' : ''}`);
 const folderName = (id) => (FOLDERS.find((f) => f.id === id) || { name: 'Coffre' }).name;
-const TYPES = { pdf: ['PDF', '#B23A2E', '#FBE4DF', 'file'], img: ['Image', '#2F7F77', '#E6F3F1', 'image'], doc: ['Texte', '#3B64A8', '#E9EFF8', 'file'] };
-const fileIcon = (f, s = 40) => { const t = TYPES[f.type] || TYPES.pdf; return `<span class="cf-ft" style="width: ${s}px; height: ${s}px; background: ${t[2]}; color: ${t[1]};">${ic(t[3], Math.round(s * 0.48))}<i>${t[0]}</i></span>`; };
+const TYPES = { pdf: ['PDF', 'file'], img: ['Image', 'image'], doc: ['Texte', 'file'] };
 let fN = 1;
 const FILES = [
   ['Certificat de scolarité 2026-2027', 'fac', 1, [], 'pdf', 184, ['Certificat de scolarité', 'Année 2026-2027', 'Adam C. est inscrit en licence 2 d’histoire.']],
@@ -4187,84 +4375,135 @@ const FILES = [
   ['Compte rendu ergothérapie', 'bilans', 300, [], 'doc', 96, ['Compte rendu de séance', 'Clavier recommandé.', 'Logiciel de dictée conseillé.']],
   ['Photo carte étudiante', 'fac', 40, [], 'img', 1240, ['Carte étudiante', 'Université, campus des Chênes.']],
 ].map(([name, folder, age, shared, type, kb, text]) => ({ id: `f${fN++}`, name, folder, age, shared, type, kb, text }));
-const CF = { folder: null, q: '', filter: 'all', view: 'list' };
+const CF = { folder: null, q: '', filter: 'all' };
 const size = (kb) => (kb >= 1000 ? `${(kb / 1000).toFixed(1).replace('.', ',')} Mo` : `${kb} Ko`);
-const sharedAv = (f, s = 26) => (f.shared.length ? `<span class="avs">${f.shared.map((w) => avatar(w, s)).join('')}</span>` : `<span class="row tiny muted" style="gap: 5px;">${ic('lock', 14)}Privé</span>`);
 const old = (f) => f.folder === 'bilans' && f.age > 365;
-const CF_FILTERS = [['all', 'Tous'], ['pdf', 'PDF'], ['img', 'Images'], ['shared', 'Partagés'], ['old', 'À renouveler']];
+const typeOf = (f) => TYPES[f.type] || TYPES.pdf;
+const fileIcon = (f) => `<span class="cx-ft" aria-hidden="true">${ic(typeOf(f)[1], 20)}</span>`;
+const first = (w) => M(w).name.split(' ')[0];
+const whoSees = (f) => (f.shared.length ? `<span class="cx-priv">${ic('users', 16)}Toi et ${f.shared.map(first).join(', ')}</span>` : `<span class="cx-priv">${ic('lock', 16)}Seulement toi</span>`);
+const CF_FILTERS = [['all', 'Tous'], ['shared', 'Partagés'], ['old', 'À renouveler']];
 function cfList() {
-  const q = CF.q.toLowerCase();
+  const qq = CF.q.toLowerCase();
   return FILES.filter((f) => (!CF.folder || f.folder === CF.folder)
-    && (!q || `${f.name} ${folderName(f.folder)}`.toLowerCase().includes(q))
-    && (CF.filter === 'all' || (CF.filter === 'shared' ? f.shared.length : CF.filter === 'old' ? old(f) : f.type === CF.filter)))
+    && (!qq || `${f.name} ${folderName(f.folder)}`.toLowerCase().includes(qq))
+    && (CF.filter === 'all' || (CF.filter === 'shared' ? f.shared.length : old(f))))
     .sort((a, b) => a.age - b.age);
 }
+const docSub = (f) => `${typeOf(f)[0]}${CF.folder ? '' : ` · ${esc(folderName(f.folder))}`}`;
 function cfRows(l) {
-  if (!l.length) return `<div class="empty"><span class="circle">${ic('search', 24)}</span><b style="color: var(--ink);">Aucun document ici</b><span class="small">Change de filtre ou ajoute un document.</span></div>`;
-  if (CF.view === 'grid') return `<div class="cf-grid">${l.map((f) => `<div class="cf-tile"><button class="cf-thumb" data-act="cfOpen" data-id="${f.id}" aria-label="Ouvrir ${esc(f.name)}"><span class="hm-page"><i style="width: 70%; height: 5px; background: #34475F;"></i><i></i><i style="width: 80%;"></i><i></i><i style="width: 60%;"></i></span>${fileIcon(f, 30)}</button><div class="row" style="gap: 6px; padding: 10px 10px 12px 14px;"><button class="grow" data-act="cfOpen" data-id="${f.id}" style="text-align: left; min-width: 0;"><span class="ac-t">${esc(f.name)}</span><span class="tiny muted">${ago(f.age)}</span></button><button class="ib" data-act="cfMore" data-id="${f.id}" aria-label="Actions sur ${esc(f.name)}">${ic('more', 18)}</button></div></div>`).join('')}</div>`;
-  return `<div class="cf-table"><div class="cf-th"><span>Nom</span><span>Modifié</span><span>Partagé avec</span><span>Taille</span><span></span></div>${l.map((f) => `<div class="cf-tr"><button class="cf-name" data-act="cfOpen" data-id="${f.id}">${fileIcon(f, 40)}<span style="min-width: 0;"><span class="ac-t">${esc(f.name)}</span><span class="tiny muted">${CF.folder ? size(f.kb) : folderName(f.folder)}${old(f) ? ' · <b style="color: var(--aut); font-weight: 600;">plus d’un an</b>' : ''}</span></span></button><span class="small muted cf-c">${ago(f.age)}</span><span class="cf-c">${sharedAv(f)}</span><span class="small muted cf-c">${size(f.kb)}</span><button class="ib" data-act="cfMore" data-id="${f.id}" aria-label="Actions sur ${esc(f.name)}">${ic('more')}</button></div>`).join('')}</div>`;
+  if (!l.length) return `<p class="cx-empty">${CF.q ? `Aucun document ne correspond à ${q(esc(CF.q))}.` : CF.filter !== 'all' ? 'Aucun document dans ce filtre.' : 'Ce dossier est vide. Ajoute un premier document.'}</p>`;
+  return `<div class="cx-table" role="table" aria-label="Documents"><div class="cx-th" role="row"><span role="columnheader">Nom</span><span role="columnheader">Ajouté</span><span role="columnheader">Qui le voit</span><span role="columnheader"><span class="vh">Actions</span></span></div>
+    ${l.map((f) => `<div class="cx-tr" role="row"><span role="cell" class="cx-cn"><button class="cx-name" data-act="cfOpen" data-id="${f.id}" tabindex="-1">${fileIcon(f)}<span class="cx-nt"><b>${esc(f.name)}</b><span>${docSub(f)}<span class="cx-m"> · ${ago(f.age)}</span>${old(f) ? ' · <span class="cx-old">plus d’un an</span>' : ''}</span></span></button></span><span role="cell" class="cx-c">${ago(f.age)}</span><span role="cell" class="cx-c cx-who">${whoSees(f)}</span><span role="cell" class="cx-acts"><button class="ib cx-eye" data-act="cfOpen" data-id="${f.id}" aria-label="Aperçu de ${q(esc(f.name))}" title="Aperçu">${ic('eye', 20)}</button><button class="ib" data-act="cfMore" data-id="${f.id}" aria-label="Partager et ranger ${q(esc(f.name))}" title="Partager et ranger">${ic('dots', 18)}</button></span></div>`).join('')}</div>`;
 }
 function cfTools() {
-  return `<div class="cf-tools"><div class="mp-search grow" style="min-width: 220px;">${ic('search', 18)}<input id="cfSearch" placeholder="Chercher un document" value="${esc(CF.q)}" aria-label="Chercher un document"></div>
-    <div class="chips cf-filters">${CF_FILTERS.map(([k, l]) => `<button class="chip${CF.filter === k ? ' on' : ''}" data-act="cfFilter" data-f="${k}">${l}</button>`).join('')}</div>
-    <div class="seg" aria-label="Affichage"><button class="${CF.view === 'list' ? 'on' : ''}" data-act="cfView" data-v="list" aria-label="Liste">${ic('list', 18)}</button><button class="${CF.view === 'grid' ? 'on' : ''}" data-act="cfView" data-v="grid" aria-label="Vignettes">${ic('grid', 18)}</button></div></div>`;
+  return `<div class="cx-tools"><label class="cx-search">${ic('search', 18)}<span class="vh">Chercher un document</span><input id="cfSearch" placeholder="Chercher un document" value="${esc(CF.q)}" autocomplete="off"></label>
+    <div class="seg cx-filter" role="group" aria-label="Filtrer">${CF_FILTERS.map(([k, l]) => `<button class="${CF.filter === k ? 'on' : ''}" aria-pressed="${CF.filter === k}" data-act="cfFilter" data-f="${k}">${l}</button>`).join('')}</div></div>`;
 }
-function cfAside() {
-  const used = FILES.reduce((a, f) => a + f.kb, 0);
-  const people = [['samir', 'Samir Charfi'], ['nadia', 'Nadia Charfi']].map(([w, n]) => [w, n, FILES.filter((f) => f.shared.includes(w)).length]);
-  return `<aside class="cf-aside"><div class="ac-box"><b class="t3" style="font-size: 17px;">Espace utilisé</b><div class="bar" style="margin: 12px 0 8px;"><i style="width: ${Math.max(3, used / 10000)}%; background: var(--navy);"></i></div><span class="small muted">${size(used)} sur 1 Go</span></div>
-    <div class="ac-box"><b class="t3" style="font-size: 17px;">Partagé avec</b>${people.map(([w, n, k]) => `<div class="row" style="margin-top: 12px;">${avatar(w, 34)}<span class="grow"><b style="font-weight: 600; display: block; font-size: 15px;">${n}</b><span class="tiny muted">${k ? `${k} document${k > 1 ? 's' : ''}` : 'Rien pour l’instant'}</span></span></div>`).join('')}</div>
-    <div class="ac-box"><div class="row" style="gap: 10px;"><span class="ac-ic" style="width: 38px; height: 38px; background: var(--lio-bg); color: var(--lio);">${ic('shield', 18)}</span><b class="t3" style="font-size: 17px;">Protégé</b></div><p class="small muted" style="margin-top: 10px;">Tes documents sont chiffrés. Tu choisis qui les voit, et tu peux arrêter de partager à tout moment.</p></div></aside>`;
+function cfShare(cls) {
+  const people = ['samir', 'nadia'].map((w) => [w, FILES.filter((f) => f.shared.includes(w)).length]);
+  return `<section class="${cls}" aria-label="Partage"><h2 class="cz-h">Partage</h2><ul class="cx-ppl cz-ppl">${people.map(([w, k]) => `<li><button class="cz-pb" data-act="cfPerson" data-w="${w}">${avatar(w, 32)}<span class="grow"><b>${esc(M(w).name)}</b><span>${k ? `voit ${k} document${k > 1 ? 's' : ''}` : 'ne voit aucun document'}</span></span>${ic('right', 18)}</button></li>`).join('')}</ul><p class="cx-safe">${ic('lock', 16)}<span>Tes documents sont chiffrés. Tu choisis qui voit chaque document.</span></p></section>`;
 }
 function cfRender() {
   if (typeof topbar === 'function' && cur() === 'coffre') setTimeout(topbar);
   const fo = CF.folder && FOLDERS.find((x) => x.id === CF.folder);
   const l = cfList();
   const alert = FILES.find(old);
-  const head = fo
-    ? `<nav class="cf-crumb" aria-label="Fil d’Ariane"><button data-act="cfRoot">Mon coffre</button>${ic('right', 14)}<b>${esc(fo.name)}</b></nav><div class="page-h fade"><div><h1 class="t1 row" style="gap: 14px;"><span class="cf-fold-ic" style="background: ${fo.bg}; color: ${fo.c};">${ic('folder', 26)}</span>${esc(fo.name)}</h1></div><div class="row wrap hide-m"><button class="btn pri" data-act="cfAdd">${ic('upload', 18)}Ajouter ici</button></div></div>`
-    : `<div class="page-h fade"><div><h1 class="t1">Mon coffre</h1><p class="lead">Tes documents, rangés et prêts pour la prochaine démarche.</p></div><div class="row wrap"><button class="btn sec" data-act="cfNewFolder">${ic('folderplus', 18)}Nouveau dossier</button><button class="btn pri hide-m" data-act="cfAdd">${ic('upload', 18)}Ajouter un document</button></div></div>`;
-  $('#cfView').innerHTML = `${head}<div class="cf-layout"><div class="cf-main">
-    ${!fo && alert ? `<div class="cf-alert fade">${ic('alert', 20)}<span class="grow"><b>« ${esc(alert.name)} » a plus d’un an.</b> La MDPH demande souvent un bilan récent.</span><button class="btn sec sm" data-act="cfOpen" data-id="${alert.id}">Voir</button></div>` : ''}
-    ${fo ? '' : `<div class="cf-folders fade">${FOLDERS.map((f) => { const n = FILES.filter((x) => x.folder === f.id); const sh = [...new Set(n.flatMap((x) => x.shared))]; return `<button class="cf-folder" data-act="cfFolder" data-f="${f.id}" style="--fc: ${f.bg}; --fi: ${f.c};"><span class="cf-tab"></span><span class="cf-body"><span class="row" style="justify-content: space-between; align-items: flex-start;"><span class="cf-fold-ic">${ic('folder', 22)}</span>${sh.length ? `<span class="avs">${sh.map((w) => avatar(w, 24)).join('')}</span>` : ''}</span><b>${esc(f.name)}</b><span class="small">${n.length ? `${n.length} document${n.length > 1 ? 's' : ''}` : 'Vide'}</span></span></button>`; }).join('')}</div>`}
-    <div class="fade">${fo ? '' : '<h2 class="t3" style="margin: 30px 0 14px;">Tous mes documents</h2>'}${cfTools()}
-      <div class="cf-drop" id="cfDrop">${cfRows(l)}<button class="cf-dz" data-act="cfAdd">${ic('upload', 20)}Glisse un fichier ici, ou clique pour l’ajouter${fo ? ` dans « ${esc(fo.name)} »` : ''}</button></div></div>
-  </div>${cfAside()}</div><button class="fab" data-act="cfAdd" aria-label="Ajouter un document">${ic('upload', 24, '#fff', 2.2)}</button>`;
+  const shared = FILES.filter((f) => f.shared.length).length;
+  const items = [{ id: '', name: 'Tous les documents', n: FILES.length }, ...FOLDERS.map((f) => ({ ...f, n: FILES.filter((x) => x.folder === f.id).length }))];
+  $('#cfView').innerHTML = `<div class="page-h cx-head"><div><h1 class="t1">Mon coffre</h1><p class="lead">${FILES.length} document${FILES.length > 1 ? 's' : ''}${shared ? ` · ${shared} partagé${shared > 1 ? 's' : ''} avec ta famille` : ''}</p></div></div>
+    <div class="cz-layout">
+      <aside class="cz-side" aria-label="Dossiers et partage"><section class="cz-box cz-fo" aria-labelledby="czFoT"><h2 class="cz-h" id="czFoT">Dossiers</h2><ul class="cz-list">${items.map((t) => { const on = (CF.folder || '') === t.id; return `<li><button class="cz-f${on ? ' on' : ''}" data-act="cfFolder" data-f="${t.id}" ${on ? 'aria-current="true"' : ''} style="--fb: var(--${t.k || 'navy'}-bg, var(--surf2)); --fc: var(--${t.k || 'navy'});"><span class="cz-dot" aria-hidden="true">${ic(t.id ? 'folder' : 'grid', 16)}</span><span class="cz-fn">${esc(t.name)}</span><span class="cz-n">${t.n}</span></button></li>`; }).join('')}</ul>
+        <button class="cz-new" data-act="cfNewFolder">${ic('folderplus', 18)}Nouveau dossier</button></section>
+        ${cfShare('cz-box cz-share-side')}</aside>
+      <div class="cz-main">
+        <button class="cx-drop" id="cfDrop" data-act="cfAdd"><span class="cx-drop-ic" aria-hidden="true">${ic('upload', 26)}</span><span class="cx-drop-t"><b>Ajouter un document</b><span><span class="cx-d-l">ou glisse-le ici · </span>${fo ? `Il arrive dans le dossier ${q(esc(fo.name))}.` : 'PDF, photo ou texte'}</span></span></button>
+        ${alert && !fo ? `<div class="cx-alert" role="note">${ic('alert', 22)}<p class="grow"><b>Le document ${q(esc(alert.name))} a plus d’un an.</b> La MDPH demande souvent un bilan de moins d’un an.</p><button class="btn sec" data-act="cfOpen" data-id="${alert.id}">Voir le document</button></div>` : ''}
+        <section class="cz-docs" aria-labelledby="czT"><h2 class="cx-h2 cz-t" id="czT">${fo ? esc(fo.name) : 'Tous les documents'}</h2>${cfTools()}<p class="vh" id="cfLive" aria-live="polite"></p><div class="cx-list" id="cfList">${cfRows(l)}</div></section>
+        ${cfShare('cz-box cz-share-bottom')}
+      </div>
+    </div>`;
 }
-ACT.cfFolder = (el) => { CF.folder = el.dataset.f; CF.filter = 'all'; CF.q = ''; cfRender(); scrollTo(0, 0); };
-ACT.cfRoot = () => { CF.folder = null; cfRender(); };
-ACT.cfFilter = (el) => { CF.filter = el.dataset.f; cfRender(); };
-ACT.cfView = (el) => { CF.view = el.dataset.v; cfRender(); };
+ACT.cfFolder = (el) => { CF.folder = el.dataset.f || null; CF.filter = 'all'; cfRender(); const t = $(`.cz-f[data-f="${CF.folder || ''}"]`); if (t) t.focus(); };
+ACT.cfFilter = (el) => { CF.filter = el.dataset.f; cfRender(); const b = $(`.cx-filter [data-f="${CF.filter}"]`); if (b) b.focus(); };
 ACT.cfAdd = () => $('#file').click();
-document.addEventListener('input', (e) => { if (e.target.id !== 'cfSearch') return; CF.q = e.target.value; const pos = e.target.selectionStart; cfRender(); const i = $('#cfSearch'); i.focus(); i.setSelectionRange(pos, pos); });
+let cfLiveT;
+document.addEventListener('input', (e) => {
+  if (e.target.id !== 'cfSearch') return;
+  CF.q = e.target.value; const l = cfList(); $('#cfList').innerHTML = cfRows(l);
+  clearTimeout(cfLiveT); cfLiveT = setTimeout(() => { $('#cfLive').textContent = CF.q ? `${l.length || 'Aucun'} document${l.length > 1 ? 's' : ''} trouvé${l.length > 1 ? 's' : ''}` : ''; }, 600);
+});
 document.addEventListener('dragover', (e) => { const d = e.target.closest && e.target.closest('#cfDrop'); if (!d) return; e.preventDefault(); d.classList.add('over'); });
 document.addEventListener('dragleave', (e) => { const d = e.target.closest && e.target.closest('#cfDrop'); if (d && !d.contains(e.relatedTarget)) d.classList.remove('over'); });
 document.addEventListener('drop', (e) => { const d = e.target.closest && e.target.closest('#cfDrop'); if (!d) return; e.preventDefault(); d.classList.remove('over'); [...e.dataTransfer.files].forEach(addFile); cfRender(); });
 const FF = (id) => FILES.find((f) => f.id === id);
 ACT.cfOpen = (el) => {
   const f = FF(el.dataset.id);
-  modal(`${mHead(esc(f.name))}<div class="doc-page"><div class="doc-wm">Document fictif</div><b style="font-family: var(--title); font-size: 20px; display: block; border-bottom: 2px solid #1D2B3A; padding-bottom: 10px; margin-bottom: 14px;">${esc(f.text[0])}</b>${f.text.slice(1).map((t) => `<p style="margin-bottom: 10px; line-height: 1.7;">${esc(t)}</p>`).join('')}${[90, 75, 85, 60].map((w) => `<i style="display: block; height: 7px; width: ${w}%; background: #ECE8DF; border-radius: 4px; margin-top: 10px;"></i>`).join('')}</div>
-    <div class="cf-meta"><span><span class="tiny muted">Dossier</span><b>${folderName(f.folder)}</b></span><span><span class="tiny muted">Ajouté</span><b>${ago(f.age)}</b></span><span><span class="tiny muted">Taille</span><b>${size(f.kb)}</b></span><span><span class="tiny muted">Partagé</span>${sharedAv(f, 24)}</span></div>
-    <div class="cf-log"><span class="flabel">Qui l’a consulté</span>${(() => { const l = ACCESS.filter((a) => a.what === f.name); return l.length ? l.map(accessRow).join('') : '<p class="small muted">Personne d’autre que toi.</p>'; })()}</div>
-    <div class="modal-f"><button class="btn ghost" data-act="say" data-t="${esc(f.text.join('. '))}">${ic('volume', 18)}Écouter</button><button class="btn sec" data-act="cfDl" data-id="${f.id}">${ic('download', 18)}Télécharger</button><button class="btn pri" data-act="cfMore" data-id="${f.id}">${ic('users', 18)}Partager et ranger</button></div>`);
+  const log = ACCESS.filter((a) => a.what === f.name);
+  const o = modal(`${mHeadD(esc(f.name), `${typeOf(f)[0]} · ${esc(folderName(f.folder))} · ajouté ${ago(f.age)} · ${size(f.kb)}`)}
+    <div class="doc-page"><div class="doc-wm" aria-hidden="true">Document fictif</div><b class="doc-t">${esc(f.text[0])}</b>${f.text.slice(1).map((t) => `<p class="doc-p">${esc(t)}</p>`).join('')}${[90, 75, 85, 60].map((w) => `<i class="doc-l" style="width: ${w}%;" aria-hidden="true"></i>`).join('')}</div>
+    <section class="cx-sec" aria-labelledby="cxWhoT"><h3 class="cx-h3" id="cxWhoT">Qui peut le voir</h3><div class="cx-sec-r">${f.shared.length ? f.shared.map((w) => `<span class="cx-pp">${avatar(w, 32)}${esc(M(w).name)}</span>`).join('') : `<span class="cx-priv">${ic('lock', 16)}Seulement toi</span>`}</div></section>
+    <section class="cx-sec" aria-labelledby="cxLogT"><h3 class="cx-h3" id="cxLogT">Qui l’a ouvert</h3>${log.length ? log.map(accessRow).join('') : '<p class="cx-none">Personne d’autre que toi.</p>'}</section>
+    <div class="modal-f"><button class="btn ghost cx-f-left" data-act="say" data-t="${esc(f.text.join('. '))}">${ic('volume', 18)}Écouter</button><button class="btn sec" data-act="cfDl" data-id="${f.id}">${ic('download', 18)}Télécharger</button><button class="btn pri" data-act="cfMore" data-id="${f.id}">${ic('users', 18)}Partager et ranger</button></div>`);
+  $('.modal', o).classList.add('m-doc');
 };
-ACT.cfDl = (el) => toast(`« ${FF(el.dataset.id).name} » téléchargé`);
+ACT.cfDl = (el) => toast(`${q(FF(el.dataset.id).name)} téléchargé`);
 ACT.cfMore = (el) => {
   const f = FF(el.dataset.id);
-  const sw = (w) => { const m = M(w); const on = f.shared.includes(w); return `<div class="row" style="padding: 10px 0;">${avatar(w, 36)}<span class="grow"><b style="font-weight: 600;">${m.name}</b><span class="small muted" style="display: block;">${m.role} · ${on ? 'peut voir ce document' : 'ne le voit pas'}</span></span><button class="tgl${on ? ' on' : ''}" data-act="cfShare" data-id="${f.id}" data-w="${w}" role="switch" aria-checked="${on}" aria-label="Partager avec ${m.name}"></button></div>`; };
-  modal(`${mHead(esc(f.name))}<div><span class="flabel">Qui le voit</span>${sw('samir')}${sw('nadia')}</div>
-    <label><span class="flabel">Nom du document</span><input class="field" id="cfName" value="${esc(f.name)}"></label>
-    <div><span class="flabel">Ranger dans</span><div class="chips" id="cfMove">${FOLDERS.map((x) => `<button class="chip${x.id === f.folder ? ' on' : ''}" data-act="cfMoveTo" data-f="${x.id}">${esc(x.name)}</button>`).join('')}</div></div>
-    <div class="modal-f" style="justify-content: space-between;"><button class="btn bad sm" data-act="cfDel" data-id="${f.id}">${ic('trash', 16)}Supprimer</button><button class="btn pri" data-act="cfSave" data-id="${f.id}">Enregistrer</button></div>`);
+  const sw = (w) => { const m = M(w); const on = f.shared.includes(w); return `<li>${avatar(w, 32)}<span class="grow"><b>${esc(m.name)}</b><span>${m.role} · ${on ? 'peut voir ce document' : 'ne le voit pas'}</span></span><button class="tgl${on ? ' on' : ''}" data-act="cfShare" data-id="${f.id}" data-w="${w}" role="switch" aria-checked="${on}" aria-label="Partager avec ${esc(m.name)}"></button></li>`; };
+  const o = modal(`${mHeadD(esc(f.name), 'Partager et ranger')}
+    <section class="cx-sec" aria-labelledby="cxShareT"><h3 class="cx-h3" id="cxShareT">Qui peut le voir</h3><ul class="cx-ppl">${sw('samir')}${sw('nadia')}</ul></section>
+    <label><span class="flabel">Nom du document</span><input class="field" id="cfName" value="${esc(f.name)}" autocomplete="off"></label>
+    <label><span class="flabel">Dossier</span><select class="field" id="cfMove">${FOLDERS.map((x) => `<option value="${x.id}" ${x.id === f.folder ? 'selected' : ''}>${esc(x.name)}</option>`).join('')}</select></label>
+    <div class="modal-f"><button class="btn bad cx-f-left" data-act="cfDel" data-id="${f.id}">${ic('trash', 18)}<span>Supprimer</span></button><button class="btn ghost" data-act="close">Annuler</button><button class="btn pri" data-act="cfSave" data-id="${f.id}">Enregistrer</button></div>`);
+  $('.modal', o).classList.add('m-more');
 };
-ACT.cfMoveTo = (el) => $$('#cfMove .chip').forEach((c) => c.classList.toggle('on', c === el));
-ACT.cfShare = (el) => { const f = FF(el.dataset.id); const w = el.dataset.w; f.shared = f.shared.includes(w) ? f.shared.filter((x) => x !== w) : [...f.shared, w]; ACT.cfMore(el); cfRender(); toast(f.shared.includes(w) ? 'Document partagé' : 'Partage arrêté. L’accès est retiré tout de suite.'); };
-ACT.cfSave = (el) => { const f = FF(el.dataset.id); const v = $('#cfName').value.trim(); if (v) f.name = v; const to = $('#cfMove .on'); if (to && to.dataset.f !== f.folder) { f.folder = to.dataset.f; toast(`Rangé dans « ${folderName(f.folder)} »`); } else toast('Enregistré'); closeModal(); cfRender(); };
-ACT.cfDel = (el) => { if (el.dataset.ok !== '1') { el.dataset.ok = '1'; el.innerHTML = `${ic('trash', 16)}Confirmer`; return; } FILES.splice(FILES.findIndex((f) => f.id === el.dataset.id), 1); closeModal(); cfRender(); toast('Document supprimé'); };
-const SWATCH = [['#FBE7A1', '#8A6412'], ['#BDE8E2', '#2F7F77'], ['#D2E2F6', '#3B64A8'], ['#F9CDB7', '#B4533A'], ['#DCD6F7', '#6552C9']];
-ACT.cfNewFolder = () => modal(`${mHead('Nouveau dossier')}<label><span class="flabel">Nom</span><input class="field" id="nfName" placeholder="Par exemple : Stage"></label><div><span class="flabel">Couleur</span><div class="row" style="gap: 10px;" id="nfCol">${SWATCH.map(([bg], i) => `<button class="swatch${i ? '' : ' on'}" style="background: ${bg};" data-act="nfCol" data-i="${i}" aria-label="Couleur ${i + 1}"></button>`).join('')}</div></div><div class="modal-f"><button class="btn ghost" data-act="close">Annuler</button><button class="btn pri" data-act="nfOk">Créer</button></div>`);
-ACT.nfCol = (el) => $$('#nfCol .swatch').forEach((s) => s.classList.toggle('on', s === el));
-ACT.nfOk = () => { const v = $('#nfName').value.trim(); if (!v) return $('#nfName').focus(); const [bg, c] = SWATCH[Number($('#nfCol .on').dataset.i)]; FOLDERS.push({ id: `d${fN++}`, name: v, bg, c }); closeModal(); cfRender(); toast(`Dossier « ${v} » créé`); };
+ACT.cfShare = (el) => { const on = el.getAttribute('aria-checked') !== 'true'; el.classList.toggle('on', on); el.setAttribute('aria-checked', on); const s = el.closest('li').querySelector('.grow > span'); const w = M(el.dataset.w); if (s) s.textContent = el.dataset.f ? (on ? 'peut le voir' : 'ne le voit pas') : `${w.role} · ${on ? 'peut voir ce document' : 'ne le voit pas'}`; };
+ACT.cfSave = (el) => {
+  const f = FF(el.dataset.id); const v = $('#cfName').value.trim(); if (!v) return fieldErr($('#cfName'), 'Écris le nom du document.');
+  const was = f.shared.length; f.shared = $$('.m-more [data-act="cfShare"]').filter((t) => t.getAttribute('aria-checked') === 'true').map((t) => t.dataset.w);
+  f.name = v; const to = $('#cfMove').value; const moved = to !== f.folder; f.folder = to; closeModal(); cfRender();
+  toast(moved ? `Rangé dans ${q(folderName(to))}` : f.shared.length < was ? 'Enregistré. L’accès retiré est coupé tout de suite.' : 'Enregistré');
+};
+ACT.cfPerson = (el) => {
+  const w = el.dataset.w; const m = M(w);
+  const o = modal(`${mHeadD(`Ce que voit ${esc(first(w))}`, `${m.role}. Choisis les documents que ${esc(first(w))} peut ouvrir.`)}
+    <ul class="cx-ppl">${FILES.map((f) => { const on = f.shared.includes(w); return `<li>${fileIcon(f)}<span class="grow"><b>${esc(f.name)}</b><span>${on ? 'peut le voir' : 'ne le voit pas'}</span></span><button class="tgl${on ? ' on' : ''}" data-act="cfShare" data-f="${f.id}" data-w="${w}" role="switch" aria-checked="${on}" aria-label="${esc(first(w))} peut voir ${esc(f.name)}"></button></li>`; }).join('')}</ul>
+    <div class="modal-f"><button class="btn ghost" data-act="close">Annuler</button><button class="btn pri" data-act="cfPersonOk" data-w="${w}">Enregistrer</button></div>`);
+  $('.modal', o).classList.add('m-more', 'm-person');
+};
+ACT.cfPersonOk = (el) => {
+  const w = el.dataset.w;
+  $$('.m-person [data-act="cfShare"]').forEach((t) => { const f = FF(t.dataset.f); const on = t.getAttribute('aria-checked') === 'true'; f.shared = on ? [...new Set([...f.shared, w])] : f.shared.filter((x) => x !== w); });
+  closeModal(); cfRender(); toast('Enregistré');
+};
+ACT.cfDel = (el) => { if (el.dataset.ok !== '1') { el.dataset.ok = '1'; el.innerHTML = `${ic('trash', 18)}<span>Oui, supprimer</span>`; el.setAttribute('aria-label', 'Oui, supprimer ce document. C’est définitif.'); return; } const i = FILES.findIndex((f) => f.id === el.dataset.id); const [gone] = FILES.splice(i, 1); closeModal(); cfRender();
+  undoToast('Document supprimé', () => { FILES.splice(i, 0, gone); cfRender(); toast('Document remis'); }); };
+function undoToast(msg, undo) {
+  const t = $('#toast'); t.textContent = msg; t.classList.remove('xp'); t.classList.add('on', 'act');
+  const b = document.createElement('button'); b.type = 'button'; b.className = 'toast-b'; b.textContent = 'Annuler';
+  b.onclick = () => { clearTimeout(toastT); t.classList.remove('act'); undo(); };
+  t.append(b); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on', 'act'), 7000);
+}
+const SWATCH = [['car', 'Or'], ['lio', 'Vert'], ['dem', 'Bleu'], ['aut', 'Corail'], ['vio', 'Violet'], ['navy', 'Marine']];
+ACT.cfNewFolder = () => {
+  const o = modal(`${mHeadD('Nouveau dossier', 'Pour ranger tes documents par thème.')}<label><span class="flabel">Nom du dossier</span><input class="field" id="nfName" placeholder="Par exemple : Stage" autocomplete="off"></label>
+    <fieldset class="cx-fs"><legend class="flabel">Couleur</legend><div class="lb-sw" role="radiogroup" id="nfCol">${SWATCH.map(([k, n], i) => `<button type="button" role="radio" aria-checked="${i === 0}" aria-label="${n}" tabindex="${i === 0 ? 0 : -1}" class="lb-c${i === 0 ? ' on' : ''}" data-act="nfCol" data-i="${i}" style="background: var(--${k});">${ic('check', 18, 'var(--surf)', 2.6)}</button>`).join('')}</div></fieldset>
+    <div class="modal-f"><button class="btn ghost" data-act="close">Annuler</button><button class="btn pri" data-act="nfOk">Créer le dossier</button></div>`);
+  $('.modal', o).classList.add('m-nf');
+};
+ACT.nfCol = (el) => $$('#nfCol .lb-c').forEach((s) => { const on = s === el; s.classList.toggle('on', on); s.setAttribute('aria-checked', on); s.tabIndex = on ? 0 : -1; });
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && e.target.id === 'nfName') { e.preventDefault(); ACT.nfOk(); }
+  if (e.key === 'Enter' && e.target.id === 'cfName') { e.preventDefault(); ACT.cfSave($('[data-act="cfSave"]')); }
+  if (!e.target.closest || !e.target.closest('#nfCol')) return;
+  const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+  if (!step) return;
+  e.preventDefault();
+  const all = $$('#nfCol .lb-c'); const n = all[(all.indexOf(e.target) + step + all.length) % all.length];
+  ACT.nfCol(n); n.focus();
+});
+ACT.nfOk = () => { const v = $('#nfName').value.trim(); if (!v) return fieldErr($('#nfName'), 'Écris le nom du dossier.'); const [k] = SWATCH[Number($('#nfCol .on').dataset.i)]; FOLDERS.push({ id: `d${fN++}`, name: v, k }); closeModal(); cfRender(); toast(`Dossier ${q(v)} créé`); };
 function addFile(file) {
   const type = /^image\//.test(file.type) ? 'img' : /pdf/.test(file.type) ? 'pdf' : 'doc';
   FILES.unshift({ id: `f${fN++}`, name: file.name.replace(/\.[^.]+$/, ''), folder: CF.folder || 'fac', age: 0, shared: [], type, kb: Math.max(1, Math.round(file.size / 1000)), text: [file.name, 'Ajouté depuis ton appareil.', 'Aperçu non disponible dans le prototype.'] });
@@ -4272,6 +4511,7 @@ function addFile(file) {
 }
 $('#file').addEventListener('change', (e) => { [...e.target.files].forEach(addFile); e.target.value = ''; if (cur() === 'coffre') cfRender(); else go('coffre'); });
 ENTER.coffre = cfRender;
+ACT.cfRoot = () => { CF.folder = null; cfRender(); };
 
 const STAGES = {
   Primaire: ['school', [['Qu’on me lise les consignes', 'volume'], ['Une consigne à la fois', 'steps'], ['Moins recopier', 'pen'], ['Répondre à l’oral', 'mic'], ['Être placé devant', 'users']], 'École Jules-Ferry · CM1'],
