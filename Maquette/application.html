@@ -3624,7 +3624,7 @@ document.addEventListener('contextmenu', (e) => { if (e.target.closest && e.targ
 const same = (a, z) => a && z && a.toDateString() === z.toDateString();
 const hh = (t) => t.replace(':', ' h ');
 const dayItems = (bs, d) => [
-  ...EVENTS.filter((e) => bs.some((b) => b.id === e.board) && same(e.date, d)).sort((x, y) => x.time.localeCompare(y.time)).map((e) => { const b = BOARDS.find((x) => x.id === e.board); return { k: 'ev', b, t: e.title, time: e.time, act: `data-act="openEvent" data-e="${e.id}"` }; }),
+  ...EVENTS.filter((e) => (!e.board || bs.some((b) => b.id === e.board)) && same(e.date, d)).sort((x, y) => x.time.localeCompare(y.time)).map((e) => { const b = BOARDS.find((x) => x.id === e.board) || null; return { k: 'ev', b, t: e.title, time: e.time, act: `data-act="openEvent" data-e="${e.id}"` }; }),
   ...bs.flatMap((b) => b.cards.filter((c) => same(c.due, d)).map((c) => ({ k: isDone(b, c) ? 'dn' : 'tk', b, t: c.title, act: `data-act="openCard" data-card="${c.id}" data-b="${b.id}"` }))),
 ];
 function calView() {
@@ -3635,8 +3635,8 @@ function calView() {
   const dim = new Date(m.getFullYear(), m.getMonth() + 1, 0).getDate();
   const days = Array.from({ length: Math.ceil((off + dim) / 7) * 7 }, (_, i) => new Date(m.getFullYear(), m.getMonth(), 1 - off + i));
   const focusDay = DM.day && DM.day.getMonth() === m.getMonth() ? DM.day : (same(new Date(m.getFullYear(), m.getMonth(), today0().getDate()), today0()) ? today0() : new Date(m));
-  const chip = (x) => `<button class="cal-i ${x.k}" ${x.act} title="${esc(x.b.name)}">${x.k === 'ev' ? `${hh(x.time)} ` : ic('check', 14, 'currentColor', 2.4)}${esc(x.t)}<span class="vh">, ${esc(x.b.name)}</span></button>`;
-  const up = [...EVENTS.filter((e) => e.date >= today0()).map((e) => { const b = BOARDS.find((x) => x.id === e.board); return { d: e.date, t: e.title, s: `${hh(e.time)} · ${b.name}`, b, k: 'ev', act: `data-act="openEvent" data-e="${e.id}"` }; }), ...bs.flatMap((b) => b.cards.filter((c) => c.due && c.due >= today0() && !isDone(b, c)).map((c) => ({ d: c.due, t: c.title, s: `Étape · ${b.name}`, b, k: 'tk', act: `data-act="openCard" data-card="${c.id}" data-b="${b.id}"` })))].sort((x, y) => x.d - y.d).slice(0, 6);
+  const chip = (x) => `<button class="cal-i ${x.k}" ${x.act} ${x.b ? `title="${esc(x.b.name)}"` : ''}>${x.k === 'ev' ? `${hh(x.time)} ` : ic('check', 14, 'currentColor', 2.4)}${esc(x.t)}${x.b ? `<span class="vh">, ${esc(x.b.name)}</span>` : ''}</button>`;
+  const up = [...EVENTS.filter((e) => e.date >= today0()).map((e) => { const b = BOARDS.find((x) => x.id === e.board) || null; return { d: e.date, t: e.title, s: b ? `${hh(e.time)} · ${b.name}` : hh(e.time), b, k: 'ev', act: `data-act="openEvent" data-e="${e.id}"` }; }), ...bs.flatMap((b) => b.cards.filter((c) => c.due && c.due >= today0() && !isDone(b, c)).map((c) => ({ d: c.due, t: c.title, s: `Étape · ${b.name}`, b, k: 'tk', act: `data-act="openCard" data-card="${c.id}" data-b="${b.id}"` })))].sort((x, y) => x.d - y.d).slice(0, 6);
   $('#dmCal').innerHTML = `<div class="cv-grid"><div class="card cv-main">
       <div class="cv-head"><button class="ib" data-act="calM" data-d="-1" aria-label="Mois précédent">${ic('left')}</button><h2 class="t3 cv-month" id="calM" aria-live="polite">${cap(m.toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' }))}</h2><button class="ib" data-act="calM" data-d="1" aria-label="Mois suivant">${ic('right')}</button><button class="btn ghost" data-act="calToday">Aujourd’hui</button><span class="grow"></span><span class="cal-key ev">Rendez-vous</span><span class="cal-key tk">Étape</span></div>
       <div class="cal cal-wd" aria-hidden="true">${['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'].map((d) => `<span>${d}</span>`).join('')}</div>
@@ -3652,9 +3652,8 @@ function evDialog({ e = null, date = '' } = {}) {
   if (e) DM.ctx = e.board;
   const b = e ? BOARDS.find((x) => x.id === e.board) : (DM.board ? B() : null);
   const d = e ? iso(e.date) : date || iso(today0());
-  const o = modal(`${mHeadD(e ? 'Modifier le rendez-vous' : 'Nouveau rendez-vous', e ? esc(b.name) : longDay(fromIso(d)))}
+  const o = modal(`${mHeadD(e ? 'Modifier le rendez-vous' : 'Nouveau rendez-vous', e && b ? esc(b.name) : longDay(fromIso(d)))}
     <label><span class="flabel">Titre</span><input class="field" id="evT" value="${e ? esc(e.title) : ''}" placeholder="Rendez-vous orthophoniste" autocomplete="off"></label>
-    ${!e && !b ? `<label><span class="flabel">Démarche</span><select class="field" id="evB">${BOARDS.map((x) => `<option value="${x.id}">${esc(x.name)}</option>`).join('')}</select></label>` : ''}
     <div class="ev-2"><label><span class="flabel">Date</span><input class="field" type="date" id="evD" value="${d}"></label><label><span class="flabel">Heure</span><input class="field" type="time" id="evH" value="${e ? e.time : '10:00'}"></label></div>
     <label><span class="flabel">Lieu <span class="ev-opt">facultatif</span></span><input class="field" id="evP" value="${e ? esc(e.place) : ''}" placeholder="Adresse ou salle" autocomplete="off"></label>
     <div class="modal-f">${e ? `<button class="btn bad ev-del" data-act="evDel" data-e="${e.id}">${ic('trash', 18)}<span>Supprimer</span></button>` : ''}<button class="btn ghost" data-act="close">Annuler</button><button class="btn pri" data-act="evOk" ${e ? `data-e="${e.id}"` : ''}>${e ? 'Enregistrer' : 'Ajouter'}</button></div>`);
@@ -3666,12 +3665,12 @@ ACT.evOk = (el) => {
   const title = $('#evT').value.trim();
   if (!title) return fieldErr($('#evT'), 'Écris un titre pour ce rendez-vous.');
   const date = fromIso($('#evD').value) || today0();
-  const b = $('#evB') ? BOARDS.find((x) => x.id === $('#evB').value) : B();
+  const b = DM.board ? B() : null;
   if (el.dataset.e) {
     Object.assign(EVENTS.find((x) => x.id === el.dataset.e), { title, date, time: $('#evH').value || '10:00', place: $('#evP').value.trim() });
     closeModal(); render(); return toast('Rendez-vous enregistré');
   }
-  EVENTS.push({ id: `e${kN++}`, date, time: $('#evH').value || '10:00', title, place: $('#evP').value.trim(), board: b.id });
+  EVENTS.push({ id: `e${kN++}`, date, time: $('#evH').value || '10:00', title, place: $('#evP').value.trim(), board: b ? b.id : null });
   DM.cal = new Date(date.getFullYear(), date.getMonth(), 1);
   closeModal(); render(); toast('Rendez-vous ajouté. Tu auras un rappel la veille.');
 };
@@ -3901,7 +3900,7 @@ document.addEventListener('keydown', (e) => {
 });
 ACT.dayAll = (el) => {
   const d = fromIso(el.dataset.date); const its = dayItems(BOARDS, d);
-  modal(`${mHeadD(longDay(d), `${its.length} élément${its.length > 1 ? 's' : ''}`)}<ul class="day-l">${its.map((x) => `<li><button class="day-i ${x.k}" ${x.act}><i aria-hidden="true"></i><span class="grow"><b>${x.k === 'ev' ? `${hh(x.time)} · ` : ''}${esc(x.t)}</b><span>${x.k === 'ev' ? 'Rendez-vous' : 'Étape'} · ${esc(x.b.name)}</span></span>${ic('right', 16)}</button></li>`).join('')}</ul>
+  modal(`${mHeadD(longDay(d), `${its.length} élément${its.length > 1 ? 's' : ''}`)}<ul class="day-l">${its.map((x) => `<li><button class="day-i ${x.k}" ${x.act}><i aria-hidden="true"></i><span class="grow"><b>${x.k === 'ev' ? `${hh(x.time)} · ` : ''}${esc(x.t)}</b><span>${x.k === 'ev' ? 'Rendez-vous' : 'Étape'}${x.b ? ` · ${esc(x.b.name)}` : ''}</span></span>${ic('right', 16)}</button></li>`).join('')}</ul>
     <div class="modal-f"><button class="btn sec" data-act="evNew" data-date="${iso(d)}">${ic('plus', 18)}Ajouter un rendez-vous</button></div>`);
 };
 
