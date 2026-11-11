@@ -3,59 +3,60 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Pass’Dys · Des repères pour mieux avancer</title>
+<title>Pass’Dys · Le carnet des démarches dys</title>
 <meta name="description" content="Pass’Dys réunit les démarches, les besoins et les documents des personnes dys dans un seul carnet, avec Lio, un compagnon qui aide à lire, écrire et s’organiser.">
 <meta name="theme-color" content="#F8F6F1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Lexend:wght@300;400;500;600&family=Caveat:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&family=Andika&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap">
 <style>
 :root {
   --bg: #F8F6F1; --tint: #E4F3F1; --paper: #FFFDF7; --surf: #FFFFFF; --line: #E3DDD2; --ink: #1D2B3A; --navy: #34475F; --navy2: #2A3A4F; --encre: #3E3A63; --sub: #5E6B7C;
   --eau: #97D4D0; --eau2: #7CC5BF; --teal: #4FA9A2; --lio: #2F7F77; --postit: #FBE7A1; --postit2: #EFD27A; --menthe: #BDE8E2; --menthe2: #93D3CA; --corail: #F9CDB7; --corail2: #EDAE92; --pale: #D2E2F6; --pale2: #AFC8EA;
-  --font: 'Lexend', 'Segoe UI', sans-serif; --title: 'Inter Tight', 'Lexend', sans-serif; --hand: 'Caveat', cursive;
+  --font: 'Lexend', 'Segoe UI', sans-serif; --title: 'Inter Tight', 'Lexend', sans-serif; --hand: var(--font); --vert: #18837A; --vert2: #0F5F58; --focus: #3B64A8;
   --wrap: 1320px; --gut: clamp(16px, 3vw, 32px); --sec: clamp(72px, 9vw, 120px);
   color-scheme: light;
+  --c1: #E5E5E5; --c2: #F7F7F7; --c3: #E2ECF1;
+  --d1: #6552C9; --d2: #8A6412; --d3: #B4533A; --d4: #D3ECEA; --d5: #DCD6F7;
 }
 @font-face { font-family: 'OpenDyslexic'; src: url('polices/opendyslexic-400.woff2') format('woff2'); font-weight: 400; font-display: swap; }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 84px; }
 html, body { margin: 0; }
-body { background: var(--bg); color: var(--navy); font-family: var(--font); font-size: 17px; line-height: 1.6; letter-spacing: .01em; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body { background: var(--bg); color: var(--navy); font-family: var(--font); font-size: 18px; line-height: 1.6; letter-spacing: .01em; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; cursor: pointer; background: none; border: 0; padding: 0; }
-:focus-visible { outline: 3px solid #3B64A8; outline-offset: 3px; border-radius: 8px; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 8px; }
 h1, h2, h3 { font-family: var(--title); font-weight: 700; letter-spacing: -.03em; line-height: 1.1; margin: 0; color: var(--navy); }
 p { margin: 0; }
 ul, ol { margin: 0; padding: 0; list-style: none; }
 .wrap { max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gut); }
-.skip { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--navy); color: #fff; padding: 10px 16px; border-radius: 10px; }
+.skip { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--navy); color: #fff; padding: 10px 16px; border-radius: 12px; }
 .skip:focus { top: 12px; }
-.hand { font-family: var(--hand); font-weight: 600; letter-spacing: 0; }
+.hand { font-family: var(--font); font-weight: 500; }
 .dots { position: absolute; top: 0; bottom: 0; pointer-events: none; background: radial-gradient(circle at 3px 3px, #BFE2DE 1.8px, transparent 0) 0 0 / 34px 34px; }
 
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding: 0 24px; border-radius: 16px; border: 2px solid transparent; border-bottom-width: 5px; font-size: 16.5px; font-weight: 600; white-space: nowrap; transition: background .15s, filter .15s, transform .08s, border-bottom-width .08s; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding: 0 24px; border-radius: 16px; border: 2px solid transparent; border-bottom-width: 5px; font-size: 16px; font-weight: 600; white-space: nowrap; transition: background .15s, filter .15s, transform .08s, border-bottom-width .08s; }
 .btn:active { transform: translateY(3px); border-bottom-width: 2px; margin-bottom: 3px; }
-.btn.pri { background: #18837A; border-color: #0F5F58; color: #fff; } .btn.pri:hover { filter: brightness(1.1); }
-.btn.out { background: #fff; border-color: #E3DDD2; color: #18837A; } .btn.out:hover { background: #F7F7F7; }
-.btn.sm { min-height: 44px; padding: 0 18px; font-size: 16px; border-radius: 14px; border-bottom-width: 4px; }
+.btn.pri { background: var(--vert); border-color: var(--vert2); color: #fff; } .btn.pri:hover { filter: brightness(1.1); }
+.btn.out { background: #fff; border-color: var(--line); color: var(--vert); } .btn.out:hover { background: var(--c2); }
+.btn.sm { min-height: 44px; padding: 0 18px; font-size: 16px; border-radius: 16px; border-bottom-width: 4px; }
 .btn svg { transition: transform .3s; } .btn:hover svg { transform: translateX(3px); }
-.box { width: 24px; height: 24px; border-radius: 7px; border: 1.8px solid var(--encre); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; background: var(--paper); }
+.box { width: 24px; height: 24px; border-radius: 8px; border: 1.8px solid var(--encre); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; background: var(--paper); }
 .box.on { background: var(--eau2); }
 .ticks { display: grid; gap: 10px; }
-.ticks li { display: flex; align-items: center; gap: 12px; font-size: 16.5px; }
+.ticks li { display: flex; align-items: center; gap: 12px; font-size: 16px; }
 
 /* en-tête */
 .hd { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 2px solid transparent; transition: border-color .2s; }
-.hd.scrolled { border-bottom-color: #E5E5E5; }
+.hd.scrolled { border-bottom-color: var(--c1); }
 .hd-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 72px; }
-.brand { display: inline-flex; align-items: center; gap: 10px; font-family: 'Nunito', var(--title); font-weight: 900; font-size: 27px; letter-spacing: -.02em; color: #18837A; }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--title); font-weight: 800; font-size: 27px; letter-spacing: -.02em; color: var(--vert); }
 .hd-acts { display: flex; gap: 10px; align-items: center; }
-.hd .btn { font-family: 'Nunito', var(--font); font-weight: 800; font-size: 15.5px; }
-.hd .btn.pri { background: #18837A; border-color: #0F5F58; color: #fff; }
-.hd .btn.out { background: #fff; border-color: #E5E5E5; color: #18837A; } .hd .btn.out:hover { background: #F7F7F7; }
+.hd .btn { font-weight: 600; font-size: 16px; }
+.hd .btn.pri { background: var(--vert); border-color: var(--vert2); color: #fff; }
+.hd .btn.out { background: #fff; border-color: var(--c1); color: var(--vert); } .hd .btn.out:hover { background: var(--c2); }
 
 /* titres façon carnet */
 .tt .s { display: block; font-size: clamp(19px, 1.9vw, 25px); font-weight: 600; letter-spacing: -.035em; }
@@ -65,7 +66,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .u path { stroke-dasharray: 460; stroke-dashoffset: 460; }
 .hero .u path { animation: draw 1s .7s cubic-bezier(.5, 0, .2, 1) forwards; }
 .rv.in .u path { animation: draw 1s .35s cubic-bezier(.5, 0, .2, 1) forwards; }
-.txt { font-size: 17.5px; color: var(--sub); max-width: 46ch; margin-top: 22px; }
+.txt { font-size: 18px; color: var(--sub); max-width: 46ch; margin-top: 22px; }
 
 /* hero */
 .hero { position: relative; padding-block: clamp(32px, 5vw, 64px) clamp(48px, 6vw, 80px); overflow: clip; }
@@ -75,22 +76,22 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .hero-in { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(24px, 5vw, 64px); align-items: center; }
 .hero-art { position: relative; display: flex; justify-content: center; }
 .nb-box { z-index: 2; }
-.lio-says { position: absolute; left: 0; bottom: 4%; z-index: 6; display: flex; align-items: flex-end; gap: 4px; animation: bob 5s ease-in-out infinite; pointer-events: none; }
-.lio-says p { background: var(--paper); border: 2px solid var(--encre); border-bottom-width: 4px; border-radius: 18px 18px 18px 4px; padding: 8px 14px; font-size: 22px; line-height: 1.05; color: var(--navy2); transform: rotate(-3deg); margin-bottom: 46px; white-space: nowrap; }
+.lio-says { position: absolute; left: 0; bottom: 4%; z-index: 6; display: flex; align-items: flex-end; gap: 4px; animation: bob 5s ease-in-out 1; pointer-events: none; }
+.lio-says p { background: var(--paper); border: 2px solid var(--encre); border-bottom-width: 4px; border-radius: 18px 18px 18px 4px; padding: 8px 14px; font-size: 21px; line-height: 1.05; color: var(--navy2); transform: rotate(-3deg); margin-bottom: 46px; white-space: nowrap; }
 .hero-txt { display: flex; flex-direction: column; align-items: center; text-align: center; }
-.hero h1 { display: flex; flex-direction: column; align-items: center; font-size: clamp(38px, 4.6vw, 62px); font-weight: 800; letter-spacing: -.05em; line-height: 1.05; }
+.hero h1 { display: flex; flex-direction: column; align-items: center; font-size: clamp(34px, 3.7vw, 56px); font-weight: 800; letter-spacing: -.05em; line-height: 1.05; }
 .hero h1 .s { font-size: .48em; font-weight: 600; letter-spacing: -.035em; margin-bottom: 4px; }
-.hero-txt p { font-size: 17.5px; color: var(--sub); margin-top: 26px; max-width: 34ch; }
+.hero-txt p { font-size: 18px; color: var(--sub); margin-top: 26px; max-width: 34ch; }
 .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 24px; }
 .hero-txt .hero-cta { flex-direction: column; flex-wrap: nowrap; gap: 14px; width: 100%; margin-top: 30px; }
 .btn.wide { width: 100%; max-width: 340px; }
-.hero-note { margin-top: 16px; font-size: 15px; color: var(--sub); }
+.hero-note { margin-top: 16px; font-size: 16px; color: var(--sub); }
 
 /* le carnet */
 .nb-box { --s: .76; --open: 200px; position: relative; width: calc(480px * var(--s)); height: calc(650px * var(--s)); }
 .nb-scale { position: absolute; left: calc(24px * var(--s)); top: calc(22px * var(--s)); width: 432px; height: 602px; transform: scale(var(--s)); transform-origin: 0 0; }
 .nb { position: relative; width: 420px; height: 590px; transform: rotate(7deg); animation: nbIn 1.2s .2s cubic-bezier(.2, .9, .25, 1.1) both; }
-.nb-in { position: relative; width: 420px; height: 590px; animation: sway 7s 1.6s ease-in-out infinite; }
+.nb-in { position: relative; width: 420px; height: 590px; animation: sway 7s 1.6s ease-in-out 1; }
 .nb-back { position: absolute; width: 420px; height: 590px; border: 2px solid var(--encre); border-radius: 10px 28px 28px 10px; }
 .nb-back.b1 { left: 12px; top: 12px; background: #F3EDDF; }
 .nb-back.b2 { left: 6px; top: 6px; background: var(--paper); overflow: hidden; }
@@ -101,7 +102,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .pi-in { position: absolute; left: 66px; right: 36px; top: 14px; opacity: 0; transform: translateX(-12px); transition: opacity .3s, transform .45s; }
 .pi-in b { display: block; font-family: var(--title); font-weight: 700; font-size: 23px; letter-spacing: -.03em; line-height: 1.05; }
 .pi-in span { display: block; font-size: 14px; line-height: 1.35; margin-top: 5px; }
-.pi-in em { display: flex; align-items: center; gap: 4px; font-style: normal; font-size: 12px; font-weight: 600; margin-top: 8px; color: var(--lio); }
+.pi-in em { display: flex; align-items: center; gap: 4px; font-style: normal; font-size: 14px; font-weight: 600; margin-top: 8px; color: #1F5F59; }
 .pi:focus-visible, .nb.open .pi { transform: translateX(var(--open)) rotate(-5deg) scale(1.04); z-index: 3; }
 .pi:focus-visible .pi-in, .nb.open .pi-in { opacity: 1; transform: none; transition-delay: .12s; }
 .nb.open .pi:nth-of-type(2) { transition-delay: .06s; } .nb.open .pi:nth-of-type(3) { transition-delay: .12s; } .nb.open .pi:nth-of-type(4) { transition-delay: .18s; }
@@ -111,16 +112,16 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .cv-spine { left: 0; top: 0; bottom: 0; width: 44px; background: var(--eau2); border-right: 2px solid var(--encre); }
 .cv-stitch { left: 13px; top: 0; bottom: 0; width: 2px; background: repeating-linear-gradient(transparent 0 8px, rgba(62, 58, 99, .35) 8px 16px); }
 .cv-frame { left: 58px; top: 14px; right: 14px; bottom: 14px; border: 2px dashed rgba(62, 58, 99, .28); border-radius: 6px 20px 20px 6px; }
-.cv-label { left: 87px; top: 78px; width: 244px; height: 124px; background: #F8F6F1; border: 2px solid var(--encre); border-radius: 16px; text-align: center; }
+.cv-label { left: 87px; top: 78px; width: 244px; height: 124px; background: var(--bg); border: 2px solid var(--encre); border-radius: 16px; text-align: center; }
 .cv-label b { display: block; font-family: var(--hand); font-weight: 600; font-size: 42px; line-height: 1; margin-top: 34px; color: var(--navy2); }
 .cv-label i { display: block; height: 1.5px; background: var(--navy); opacity: .3; margin: 12px 38px 0; }
 .cv-cross { inset: 0; transition: transform .5s cubic-bezier(.3, 1.6, .5, 1); transform-origin: 209px 392px; }
-.cv-cross i { position: absolute; border-radius: 13px; background: #F8F6F1; }
+.cv-cross i { position: absolute; border-radius: 13px; background: var(--bg); }
 .cv-band { right: 24px; top: -4px; width: 20px; height: 600px; background: var(--navy); border-left: 2px solid var(--encre); border-right: 2px solid var(--encre); }
 .cv-brand { left: 119px; width: 180px; text-align: center; bottom: 34px; font-size: 11px; font-weight: 600; letter-spacing: .18em; color: var(--navy2); opacity: .55; }
 .nb.open .cover { transform: perspective(2600px) rotateY(-42deg); }
 .nb.open .cv-cross { transform: rotate(45deg) scale(.9); }
-.cover:focus-visible { outline: 4px solid #3B64A8; outline-offset: 4px; }
+.cover:focus-visible { outline: 4px solid var(--focus); outline-offset: 4px; }
 @media (hover: hover) {
   .cover { cursor: pointer; }
   .pi:hover { transform: translateX(var(--open)) rotate(-5deg) scale(1.06); z-index: 3; }
@@ -133,19 +134,19 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 /* bandeau dys */
 .strip { background: var(--paper); border-block: 1.5px dashed var(--line); }
 .strip-in { display: flex; align-items: center; justify-content: space-between; gap: 14px 32px; padding-block: 22px; flex-wrap: wrap; }
-.strip p { font-size: 22px; color: var(--teal); transform: rotate(-2deg); }
+.strip p { font-size: 18px; font-weight: 600; color: var(--navy); }
 .strip ul { display: flex; flex-wrap: wrap; gap: 10px; }
 .strip li { display: inline-flex; align-items: center; gap: 9px; min-height: 40px; padding: 0 16px; border-radius: 999px; border: 1.5px solid var(--encre); background: var(--bg); font-size: 16px; font-weight: 500; transition: transform .3s cubic-bezier(.3, 1.6, .5, 1); }
-.strip li:hover { transform: translateY(-3px) rotate(-2deg); }
+
 .strip li { padding-left: 6px; }
-.strip li span { width: 30px; height: 30px; border-radius: 9px; display: flex; align-items: center; justify-content: center; border: 1.5px solid rgba(62, 58, 99, .25); border-bottom-width: 3px; }
+.strip li span { width: 30px; height: 30px; border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1.5px solid rgba(62, 58, 99, .25); border-bottom-width: 3px; }
 
 /* objets papier */
 .paper { position: relative; background: var(--paper); border: 2px solid var(--encre); border-radius: 6px 22px 22px 6px; }
-.lined { background-image: repeating-linear-gradient(transparent 0 33px, #E2ECF1 33px 34px); background-position: 0 20px; }
+.lined { background-image: repeating-linear-gradient(transparent 0 33px, var(--c3) 33px 34px); background-position: 0 20px; }
 .lined::before { content: ''; position: absolute; left: 30px; top: 0; bottom: 0; width: 1.5px; background: #F1B8AA; }
-.cap { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
-.sticky { position: absolute; z-index: 3; padding: 10px 26px 14px 14px; font-family: var(--hand); font-weight: 600; font-size: 21px; line-height: 1.05; color: var(--ink); clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%); transition: transform .4s cubic-bezier(.3, 1.5, .45, 1); }
+.cap { font-size: 14px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.sticky { position: absolute; z-index: 3; padding: 10px 26px 14px 14px; font-family: var(--font); font-weight: 600; font-size: 15px; line-height: 1.25; color: var(--ink); clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%); transition: transform .4s cubic-bezier(.3, 1.5, .45, 1); }
 .sticky::after { content: ''; position: absolute; right: 0; bottom: 0; width: 16px; height: 16px; background: rgba(62, 58, 99, .14); clip-path: polygon(0 0, 100% 0, 0 100%); }
 .sticky:hover { transform: rotate(0deg) translateY(-4px) !important; }
 .tape { position: absolute; top: -11px; left: 50%; width: 70px; height: 20px; margin-left: -35px; background: rgba(211, 236, 234, .9); transform: rotate(-3deg); }
@@ -164,7 +165,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .path .k { display: flex; flex-direction: column; align-items: center; }
 .path .c { width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--encre); background: var(--paper); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; }
 .path .done .c { background: var(--navy); }
-.path .now .c { background: var(--eau2); animation: ring 2.2s ease-in-out infinite; }
+.path .now .c { background: var(--eau2); animation: ring 2.2s ease-in-out 2; }
 .path .todo .c { border-style: dashed; }
 .path .bar { width: 2px; height: 34px; background: var(--navy); }
 .path .now .bar { background: var(--line); }
@@ -172,14 +173,14 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .path .now span { font-weight: 600; }
 .path .todo span { color: var(--sub); }
 .dem .paper { padding: 26px 28px 24px 54px; transform: rotate(.6deg); }
-.dem h3 { font-size: 26px; margin-top: 6px; }
+.dem h3 { font-size: 24px; margin-top: 6px; }
 .dem .ticks { margin-top: 16px; gap: 12px; }
 .dem .ticks li { font-size: 16px; font-weight: 500; }
 .dem s { opacity: .55; }
-.src { display: flex; align-items: center; gap: 8px; margin-top: 18px; font-size: 12.5px; color: var(--sub); }
+.src { display: flex; align-items: center; gap: 8px; margin-top: 18px; font-size: 14px; color: var(--sub); }
 
 .lio-vis { position: relative; padding: 0 0 20px; }
-.said { width: 270px; padding: 16px 20px; transform: rotate(-1.2deg); background-image: repeating-linear-gradient(transparent 0 31px, #E2ECF1 31px 32px); background-position: 0 12px; border-radius: 4px 14px 14px 4px; }
+.said { width: 270px; padding: 16px 20px; transform: rotate(-1.2deg); background-image: repeating-linear-gradient(transparent 0 31px, var(--c3) 31px 32px); background-position: 0 12px; border-radius: 4px 14px 14px 4px; }
 .said p { font-size: 25px; line-height: 32px; color: var(--navy2); }
 .mail { max-width: 420px; margin: -14px 0 0 auto; padding: 22px 26px; border-radius: 8px; transform: rotate(.8deg); }
 .mail-h { display: flex; align-items: center; gap: 10px; font-size: 13.5px; font-weight: 600; color: var(--lio); }
@@ -193,40 +194,40 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .need::after { content: ''; position: absolute; right: 18px; top: -4px; bottom: -4px; width: 15px; background: var(--navy); border-inline: 2px solid var(--encre); }
 .need-h { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
 .need-h b { display: block; font-size: 38px; line-height: 1; margin-top: 4px; color: var(--navy2); }
-.qr { width: 60px; height: 60px; background: #F8F6F1; border: 2px solid var(--encre); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.qr { width: 60px; height: 60px; background: var(--bg); border: 2px solid var(--encre); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .need ul { display: grid; gap: 8px; margin-top: 14px; }
-.need li { display: flex; align-items: center; gap: 10px; background: #F8F6F1; border: 1.5px solid var(--encre); border-radius: 10px; padding: 7px 12px; font-size: 15px; font-weight: 500; }
+.need li { display: flex; align-items: center; gap: 10px; background: var(--bg); border: 1.5px solid var(--encre); border-radius: 10px; padding: 7px 12px; font-size: 15px; font-weight: 500; }
 .vault { display: grid; gap: 9px; width: min(100%, 400px); margin: -20px 0 0 auto; position: relative; }
 .row { display: flex; align-items: stretch; transition: transform .35s cubic-bezier(.3, 1.4, .5, 1); }
 .row:hover { transform: translateX(8px); }
 .row .tg { width: 66px; flex-shrink: 0; border: 1.5px solid var(--encre); border-right: 0; border-radius: 12px 0 0 12px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; letter-spacing: .12em; }
 .row .bd { flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px; padding: 10px 16px; border: 1.5px solid var(--encre); border-radius: 0 12px 12px 0; background: var(--paper); }
 .row b { display: block; font-size: 16px; font-weight: 600; }
-.row small { font-size: 12px; color: var(--sub); }
+.row small { font-size: 14px; color: var(--sub); }
 
 .set { padding: 14px 28px; border-radius: 8px 22px 22px 8px; transform: rotate(-.5deg); }
 .set-row { display: flex; align-items: center; justify-content: space-between; gap: 10px 16px; padding: 13px 0; border-bottom: 1.5px dashed var(--line); font-size: 16px; font-weight: 600; flex-wrap: wrap; }
 .set-row:last-of-type { border-bottom: 0; }
 .set-row > span { display: inline-flex; align-items: center; gap: 10px; }
 .seg { display: inline-flex; flex-wrap: wrap; border: 1.5px solid var(--navy); border-radius: 999px; padding: 3px; }
-.seg button { padding: 6px 13px; border-radius: 999px; font-size: 13.5px; font-weight: 500; transition: background .2s; }
+.seg button { min-height: 44px; padding: 0 14px; border-radius: 999px; font-size: 14px; font-weight: 500; transition: background .2s; }
 .seg button:hover { background: #D3ECEA; }
-.seg button[aria-pressed="true"] { background: var(--navy); color: #F8F6F1; }
+.seg button[aria-pressed="true"] { background: var(--navy); color: var(--bg); }
 .sw { width: 52px; height: 30px; border-radius: 999px; border: 1.5px solid var(--encre); background: var(--paper); position: relative; flex-shrink: 0; transition: background .2s; }
-.sw::after { content: ''; position: absolute; top: 3px; left: 3px; width: 21px; height: 21px; border-radius: 50%; background: #F8F6F1; border: 1.5px solid var(--encre); transition: left .2s; }
+.sw::after { content: ''; position: absolute; top: 3px; left: 3px; width: 21px; height: 21px; border-radius: 50%; background: var(--bg); border: 1.5px solid var(--encre); transition: left .2s; }
 .sw[aria-checked="true"] { background: var(--eau2); }
 .sw[aria-checked="true"]::after { left: 24px; }
 .preview { margin: 6px 0 12px; padding: 14px 16px; border-radius: 12px; background: var(--tint); font-size: 16px; line-height: 1.6; font-weight: 400; transition: font-size .2s; }
 .preview.hc { color: #000; background: #FFF6CF; }
 
-.cta { position: relative; background: var(--navy); border-radius: 32px; padding: clamp(56px, 8vw, 104px) var(--gut); text-align: center; overflow: hidden; color: #F8F6F1; }
+.cta { position: relative; background: var(--navy); border-radius: 24px; padding: clamp(56px, 8vw, 104px) var(--gut); text-align: center; overflow: hidden; color: var(--bg); }
 .cta .dots { inset: 0; width: auto; opacity: .25; }
-.cta h2 { position: relative; color: #F8F6F1; }
+.cta h2 { position: relative; color: var(--bg); }
 .cta .tt .b { font-size: clamp(32px, 5vw, 64px); }
-.cta p { position: relative; color: #C7D1DD; margin-top: 26px; font-size: 17.5px; }
+.cta p { position: relative; color: #C7D1DD; margin-top: 26px; font-size: 18px; }
 .cta .hero-cta { position: relative; justify-content: center; margin-top: 28px; }
 .cta .btn.pri { background: var(--eau); border-color: #5DAFA8; color: var(--navy2); }
-.cta .btn.out { background: transparent; border-color: rgba(248, 246, 241, .55); color: #F8F6F1; } .cta .btn.out:hover { background: rgba(255, 255, 255, .08); }
+.cta .btn.out { background: transparent; border-color: rgba(248, 246, 241, .55); color: var(--bg); } .cta .btn.out:hover { background: rgba(255, 255, 255, .08); }
 .cta-pi { position: absolute; width: 140px; height: 112px; padding: 14px 16px; text-align: left; color: var(--ink); clip-path: polygon(0 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%); transition: transform .45s cubic-bezier(.3, 1.5, .45, 1); }
 .cta-pi:hover { transform: rotate(0deg) translateY(-6px) !important; }
 .cta-pi .box { margin-left: auto; }
@@ -236,17 +237,17 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .ft { background: var(--lio); color: #fff; padding-block: 28px 52px; }
 .ft-in { display: grid; grid-template-columns: 1.3fr repeat(3, 1fr); gap: 32px; }
 .ft .brand { color: #fff; }
-.ft-in > div > p { color: rgba(255, 255, 255, .85); font-size: 15.5px; margin-top: 12px; max-width: 30ch; }
-.ft h3 { color: #fff; font-size: 17px; }
+.ft-in > div > p { color: rgba(255, 255, 255, .85); font-size: 16px; margin-top: 12px; max-width: 30ch; }
+.ft h3 { color: #fff; font-size: 18px; }
 .ft ul { display: grid; gap: 9px; margin-top: 14px; }
-.ft ul a, .ft ul button { font-size: 15.5px; color: rgba(255, 255, 255, .88); text-align: left; }
+.ft ul a, .ft ul button { font-size: 16px; color: rgba(255, 255, 255, .88); text-align: left; }
 .ft ul a:hover, .ft ul button:hover { color: #fff; text-decoration: underline; text-underline-offset: 4px; }
 .ft :focus-visible { outline-color: #fff; }
 
 .nm { display: inline-block; transition: opacity .26s, transform .26s; }
 .cv-label .nm { display: block; }
 .nm.swap { opacity: 0; transform: translateY(-6px); }
-.toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px); background: var(--ink); color: #fff; font-size: 14.5px; padding: 12px 18px; border-radius: 12px; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 3000; max-width: calc(100vw - 32px); text-align: center; }
+.toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px); background: var(--ink); color: #fff; font-size: 14px; padding: 12px 18px; border-radius: 12px; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 3000; max-width: calc(100vw - 32px); text-align: center; }
 .toast.on { opacity: 1; transform: translate(-50%, 0); }
 .js .rv { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2, .8, .2, 1); }
 .js .rv.in { opacity: 1; transform: none; }
@@ -275,11 +276,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 @media (max-width: 600px) {
   .lio-says { left: -6px; bottom: 0; }
   .lio-says .logo { width: 54px; height: auto; }
-  .lio-says p { font-size: 19px; margin-bottom: 36px; }
-  body { font-size: 16.5px; }
+  .lio-says p { font-size: 18px; margin-bottom: 36px; }
+  body { font-size: 16px; }
   html { scroll-padding-top: 70px; }
   .hd-in { height: 64px; }
-  .brand { font-size: 23px; }
+  .brand { font-size: 24px; }
   .hd-acts .out { display: none; }
   .nb-box { --s: .56; --open: 130px; }
   .dem { grid-template-columns: 1fr; gap: 22px; }
@@ -288,18 +289,128 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .said { width: auto; max-width: 300px; }
   .mail { padding: 18px; }
   .mail .sticky { left: -6px !important; bottom: -26px !important; }
-  .seg { border-radius: 20px; }
+  .seg { border-radius: 24px; }
   .need { padding: 20px 44px 20px 50px; }
   .vault { margin-top: 18px; }
   .set { padding: 10px 18px; }
   .strip-in { justify-content: center; text-align: center; }
   .strip ul { justify-content: center; }
-  .cta { border-radius: 22px; }
+  .cta { border-radius: 24px; }
   .ft-in { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 380px) {
   .nb-box { --s: .5; --open: 110px; }
 }
+
+
+
+/* sobriété : un seul soulignement (H1), pas de pois, titres simples */
+.dots { display: none; }
+.cta .dots { display: block; }
+.cta-sec { padding-top: clamp(56px, 7vw, 96px) !important; }
+.h2 { font-size: clamp(28px, 3.2vw, 40px); font-weight: 800; letter-spacing: -.035em; line-height: 1.15; max-width: 18ch; }
+.cta .h2 { color: var(--bg); max-width: none; }
+
+/* parents et questions fréquentes */
+.par { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+.par-l { display: grid; gap: 0; border-top: 1.5px solid var(--line); }
+.par-l li { display: flex; flex-direction: column; gap: 4px; padding: 18px 0; border-bottom: 1.5px solid var(--line); }
+.par-l b { font-size: 18px; color: var(--ink); }
+.par-l span { color: var(--sub); font-size: 16px; }
+.faq { max-width: 860px; }
+.faq-l { margin-top: 24px; border-top: 1.5px solid var(--line); }
+.faq details { border-bottom: 1.5px solid var(--line); }
+.faq summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 60px; padding: 12px 0; font-weight: 600; font-size: 18px; color: var(--ink); cursor: pointer; list-style: none; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: '+'; font-size: 24px; font-weight: 400; color: var(--vert); line-height: 1; }
+.faq details[open] summary::after { content: '–'; }
+.faq details p, .faq dl { padding: 0 0 18px; color: var(--sub); font-size: 16px; max-width: 65ch; }
+.faq dl { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; margin: 0; }
+.faq dt { font-weight: 700; color: var(--ink); }
+.faq dd { margin: 0; }
+abbr[title] { text-decoration: underline dotted; text-underline-offset: 3px; cursor: help; }
+@media (max-width: 760px) { .par { grid-template-columns: 1fr; } .faq dl { grid-template-columns: 1fr; gap: 2px; } .faq dd { margin-bottom: 8px; } }
+
+/* hero téléphone : le texte d'abord, le carnet en dessous */
+@media (min-width: 921px) { .hero-art { order: -1; } }
+@media (max-width: 600px) { .nb-box { --s: .46; --open: 100px; } .hero-in { gap: 20px; } }
+.brand { min-height: 44px; }
+.set .sw { width: 72px; height: 44px; }
+.set .sw::after { width: 34px; height: 34px; top: 3px; left: 3px; }
+.set .sw[aria-checked="true"]::after { left: 31px; }
+.strip p { font-size: 16px; }
+.strip ul { gap: 8px; }
+.strip-in { column-gap: 20px; }
+@media (max-width: 1340px) { .strip li { font-size: 15px; padding-right: 13px; } }
+.pi:focus-visible { outline: 0; box-shadow: inset 0 0 0 3px var(--focus); }
+
+/* icônes : couleur héritée du conteneur */
+.pi-ic { color: var(--navy2); }
+.src svg { color: var(--teal); }
+.qr { color: var(--encre); }
+.need li > svg { color: var(--lio); }
+.row .bd > svg { color: var(--navy2); }
+.box { color: var(--encre); }
+.path .done .c svg { color: var(--bg); }
+.u svg { color: var(--eau2); }
+.wave { color: var(--lio); }
+/* zones cliquables et petits textes */
+.sw { position: relative; }
+.sw::before { content: ''; position: absolute; inset: -8px -4px; }
+.ft ul { gap: 0 !important; }
+.ft ul a, .ft ul button { display: inline-flex; align-items: center; min-height: 44px; }
+.row small, .cap, .src, .mail-h { font-size: 14px !important; }
+/* réglages au max : les titres passent à la ligne au lieu de déborder */
+.u { display: inline-block; max-width: 100%; }
+html.sp2 .u, html.sp3 .u, html.f-dys .u, html.z .u { white-space: normal; }
+html.sp2 :is(h1, h2, h3, .btn, .brand), html.sp3 :is(h1, h2, h3, .btn, .brand) { letter-spacing: .01em; word-spacing: .06em; }
+html.f-dys h1 .u, html.f-dys .tt .b { font-size: .82em; }
+.hero-txt, .feat > div, .par > div, .faq, .cta { min-width: 0; overflow-wrap: anywhere; }
+/* l'en-tête garde sa taille quels que soient les réglages */
+html.sp2 .hd, html.sp3 .hd { letter-spacing: normal; word-spacing: normal; }
+html.f-dys .hd, html.f-atk .hd { --font: 'Lexend', 'Segoe UI', sans-serif; --title: 'Inter Tight', 'Lexend', sans-serif; }
+html.f-dys .hd .aa-panel { --font: 'OpenDyslexic', sans-serif; }
+.hd-in { min-width: 0; }
+@media (max-width: 400px) { .hd .brand span { display: none; } }
+/* réglages au max : rien ne déborde */
+.hd { font-family: var(--font); }
+html:is(.sp2, .sp3, .f-dys, .z) .btn { white-space: normal; max-width: 100%; height: auto; padding-block: 8px; text-align: center; }
+html:is(.sp2, .sp3, .f-dys, .z) .hero-cta { flex-wrap: wrap; }
+html:is(.sp2, .sp3, .f-dys, .z) .u svg { bottom: -.34em; }
+.ft-in > * { min-width: 0; overflow-wrap: anywhere; }
+@media (max-width: 400px) { .ft-in { grid-template-columns: 1fr !important; } }
+/* le titre du hero passe à la ligne plutôt que de déborder sur le carnet */
+.hero h1 .u { white-space: normal; text-wrap: balance; }
+.tt .u { white-space: normal; text-wrap: balance; }
+/* confort de lecture (Aa) */
+.aa { width: 48px; height: 44px; border-radius: 16px; border: 2px solid var(--c1); border-bottom-width: 4px; background: #fff; color: var(--navy); font-family: var(--title); font-weight: 800; font-size: 18px; letter-spacing: -.02em; }
+.aa[aria-expanded="true"] { background: var(--navy); border-color: var(--navy2); color: #fff; }
+.hd-in { position: relative; }
+.aa-panel { position: absolute; right: max(var(--gut), calc((100vw - var(--wrap)) / 2 + var(--gut))); top: calc(100% + 8px); width: min(420px, calc(100vw - 2 * var(--gut))); max-height: calc(100vh - 100px); overflow: auto; overscroll-behavior: contain; padding: 18px 20px; border-radius: 16px; background: #fff; border: 2px solid var(--line); border-bottom-width: 4px; color: var(--ink); z-index: 60; }
+.aa-panel[hidden] { display: none; }
+.aa-h { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+.aa-h h2 { font-size: 21px; letter-spacing: -.02em; }
+.aa-x { width: 44px; height: 44px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; margin-right: -8px; }
+.aa-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding: 12px 0; border-bottom: 1.5px dashed var(--line); font-weight: 600; font-size: 16px; }
+.aa-panel .seg button { min-height: 40px; padding: 0 14px; font-size: 14px; }
+.aa-panel .sw { width: 56px; height: 34px; }
+.aa-panel .sw::after { width: 25px; height: 25px; }
+.aa-panel .sw[aria-checked="true"]::after { left: 24px; }
+.aa-f { display: flex; flex-direction: column; gap: 6px; padding-top: 12px; }
+.aa-reset { align-self: flex-start; min-height: 44px; font-weight: 600; color: var(--vert); text-decoration: underline; text-underline-offset: 4px; }
+.aa-f p { font-size: 14px; color: var(--sub); }
+html.z main { zoom: var(--z); }
+html.sp2 body { letter-spacing: .035em; word-spacing: .12em; line-height: 1.8; }
+html.sp3 body { letter-spacing: .07em; word-spacing: .22em; line-height: 2; }
+html.f-dys { --font: 'OpenDyslexic', sans-serif; --title: 'OpenDyslexic', sans-serif; }
+html.f-atk { --font: 'Atkinson Hyperlegible', sans-serif; }
+html.hc { --sub: #26313D; --line: #8C8576; --navy: var(--ink); }
+html.hc .hand { font-family: var(--font); }
+html.hc .dots { display: none; }
+html.calm *, html.calm *::before, html.calm *::after { animation: none !important; transition: none !important; }
+html.calm .u path, html.calm .hero-line path { stroke-dashoffset: 0; }
+html.calm { scroll-behavior: auto; }
+@media (max-width: 600px) { .aa { width: 46px; } .aa-panel { left: 12px; right: 12px; width: auto; top: calc(100% + 6px); } }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .u path, .hero-line path { stroke-dashoffset: 0; }
@@ -313,19 +424,33 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 <header class="hd" id="hd">
   <div class="wrap hd-in">
     <a class="brand" href="#" aria-label="Pass’Dys, accueil"><svg class="logo" width="47" height="38" viewBox="28 42 272 222" aria-hidden="true"><defs><clipPath id="lb1"><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z"/></clipPath><clipPath id="lc1"><path d="M70 130 C72 58 230 56 234 126 Z"/></clipPath></defs><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z" fill="#9fdcd5"/><g clip-path="url(#lb1)"><ellipse cx="160" cy="262" rx="150" ry="48" fill="#7cc7bf"/></g><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z" fill="none" stroke="#21293f" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/><g class="lio-cap"><path d="M70 130 C72 58 230 56 234 126 Z" fill="#116176" stroke="#21293f" stroke-width="11" stroke-linejoin="round"/><path d="M92 100 C108 78 146 70 174 76 C146 80 120 90 104 108 Z" fill="#1b7a92" clip-path="url(#lc1)"/><path d="M214 118 C246 110 278 116 286 132 C260 142 230 140 206 132 Z" fill="#116176" stroke="#21293f" stroke-width="11" stroke-linejoin="round"/><circle cx="152" cy="66" r="9" fill="#21293f"/></g><g class="lio-eyes"><ellipse cx="128" cy="160" rx="11" ry="15" fill="#21293f"/><ellipse cx="186" cy="160" rx="11" ry="15" fill="#21293f"/><circle cx="132" cy="154" r="4" fill="#fff"/><circle cx="190" cy="154" r="4" fill="#fff"/></g><ellipse cx="96" cy="186" rx="13" ry="8" fill="#f7a58c"/><ellipse cx="220" cy="186" rx="13" ry="8" fill="#f7a58c"/><path class="lio-mouth" d="M126 194 C140 214 176 214 190 194" fill="none" stroke="#21293f" stroke-width="11" stroke-linecap="round"/></svg><span>Pass’Dys</span></a>
-    <div class="hd-acts"><a class="btn out sm" href="inscription.html#connexion">Se connecter</a><a class="btn pri sm" href="inscription.html#compte">Créer mon carnet</a></div>
+    <div class="hd-acts"><button class="aa" id="aaBtn" aria-expanded="false" aria-controls="aaPanel" aria-label="Confort de lecture" title="Confort de lecture">Aa</button><a class="btn out sm" href="inscription.html#connexion">Se connecter</a><a class="btn pri sm" href="inscription.html#compte">Créer mon carnet</a></div>
+  </div>
+  <div class="aa-panel" id="aaPanel" role="dialog" aria-labelledby="aaT" hidden>
+    <div class="aa-h"><h2 id="aaT">Confort de lecture</h2><button class="aa-x" data-aa="close" aria-label="Fermer"><svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg></button></div>
+    <div class="aa-row"><span>Police</span><div class="seg" data-k="font" role="group" aria-label="Police"><button data-v="lexend" style="font-family: Lexend, sans-serif;">Lexend</button><button data-v="atkinson" style="font-family: 'Atkinson Hyperlegible', sans-serif;">Atkinson</button><button data-v="dys" style="font-family: OpenDyslexic, sans-serif;">OpenDyslexic</button></div></div>
+    <div class="aa-row"><span>Taille du texte</span><div class="seg" data-k="size" role="group" aria-label="Taille du texte"><button data-v="1" aria-label="Normale" style="font-size: 15px;">A</button><button data-v="1.08" aria-label="Grande" style="font-size: 18px;">A</button><button data-v="1.16" aria-label="Très grande" style="font-size: 21px;">A</button></div></div>
+    <div class="aa-row"><span>Espacement</span><div class="seg" data-k="space" role="group" aria-label="Espacement"><button data-v="1">Normal</button><button data-v="2">Aéré</button><button data-v="3">Très aéré</button></div></div>
+    <div class="aa-row"><span>Contraste renforcé</span><button class="sw" role="switch" aria-checked="false" data-k="hc" aria-label="Contraste renforcé"></button></div>
+    <div class="aa-row"><span>Réduire les animations</span><button class="sw" role="switch" aria-checked="false" data-k="calm" aria-label="Réduire les animations"></button></div>
+    <div class="aa-f"><button class="aa-reset" data-aa="reset">Revenir aux réglages de base</button><p>Tes réglages te suivent dans l’application.</p></div>
   </div>
 </header>
 
 <main id="contenu">
 <section class="hero" aria-labelledby="heroT">
-  <span class="dots l"></span><span class="dots r"></span>
   <div class="wrap hero-in">
+    <div class="hero-txt">
+      <h1 id="heroT"><span class="s">Ton carnet pour</span><span class="u">les démarches dys.<svg viewBox="0 0 440 30" preserveAspectRatio="none" aria-hidden="true"><path d="M6 18 C 110 6, 230 26, 434 10" stroke="currentColor" stroke-width="8" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></span></h1>
+      <p>Tes démarches, tes besoins et tes documents dans un seul carnet. Lio t’aide à lire, à écrire et à t’organiser.</p>
+      <div class="hero-cta"><a class="btn pri wide" href="inscription.html#compte">Créer mon carnet</a><a class="btn out wide" href="inscription.html#connexion">Se connecter</a></div>
+      <p class="hero-note">2 minutes · aucun diagnostic demandé</p>
+    </div>
     <div class="hero-art">
       
 <div class="nb-box"><div class="nb-scale"><div class="nb" id="nb"><div class="nb-in">
   <span class="nb-back b1"></span><span class="nb-back b2"></span>
-  <a class="pi" href="#demarches" style="top: 64px; background: #FBE7A1; animation-delay: 1.30s;"><span class="fold" style="background: #EFD27A;"></span><span class="pi-ic"><svg width="18" height="18" viewBox="0 0 256 256" fill="#2A3A4F" aria-hidden="true" style="flex-shrink:0"><path d="M238.76,51.73A8,8,0,0,0,232,48H40a8,8,0,0,0-5.66,13.66L76.69,104,34.34,146.34A8,8,0,0,0,40,160H173.62l-28.84,60.56a8,8,0,1,0,14.44,6.88l80-168A8,8,0,0,0,238.76,51.73ZM181.23,144H59.31l34.35-34.34a8,8,0,0,0,0-11.32L59.31,64h160Z"/></svg></span><span class="pi-in"><b>Démarches</b><span>PAP, fac, RQTH en étapes claires</span><em>Découvrir <svg width="12" height="12" viewBox="0 0 256 256" fill="#2F7F77" aria-hidden="true" style="flex-shrink:0"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg></em></span></a><a class="pi" href="#lio" style="top: 194px; background: #BDE8E2; animation-delay: 1.42s;"><span class="fold" style="background: #93D3CA;"></span><span class="pi-ic"><svg width="18" height="18" viewBox="0 0 256 256" fill="#2A3A4F" aria-hidden="true" style="flex-shrink:0"><path d="M128,176a48.05,48.05,0,0,0,48-48V64a48,48,0,0,0-96,0v64A48.05,48.05,0,0,0,128,176ZM96,64a32,32,0,0,1,64,0v64a32,32,0,0,1-64,0Zm40,143.6V240a8,8,0,0,1-16,0V207.6A80.11,80.11,0,0,1,48,128a8,8,0,0,1,16,0,64,64,0,0,0,128,0,8,8,0,0,1,16,0A80.11,80.11,0,0,1,136,207.6Z"/></svg></span><span class="pi-in"><b>Lio</b><span>Il lit et écrit avec ta voix</span><em>Découvrir <svg width="12" height="12" viewBox="0 0 256 256" fill="#2F7F77" aria-hidden="true" style="flex-shrink:0"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg></em></span></a><a class="pi" href="#carte" style="top: 324px; background: #F9CDB7; animation-delay: 1.54s;"><span class="fold" style="background: #EDAE92;"></span><span class="pi-ic"><svg width="18" height="18" viewBox="0 0 256 256" fill="#2A3A4F" aria-hidden="true" style="flex-shrink:0"><path d="M200,112a8,8,0,0,1-8,8H152a8,8,0,0,1,0-16h40A8,8,0,0,1,200,112Zm-8,24H152a8,8,0,0,0,0,16h40a8,8,0,0,0,0-16Zm40-80V200a16,16,0,0,1-16,16H40a16,16,0,0,1-16-16V56A16,16,0,0,1,40,40H216A16,16,0,0,1,232,56ZM216,200V56H40V200H216Zm-80.26-34a8,8,0,1,1-15.5,4c-2.63-10.26-13.06-18-24.25-18s-21.61,7.74-24.25,18a8,8,0,1,1-15.5-4,39.84,39.84,0,0,1,17.19-23.34,32,32,0,1,1,45.12,0A39.76,39.76,0,0,1,135.75,166ZM96,136a16,16,0,1,0-16-16A16,16,0,0,0,96,136Z"/></svg></span><span class="pi-in"><b>Carte de besoins</b><span>Tes besoins en un QR code</span><em>Découvrir <svg width="12" height="12" viewBox="0 0 256 256" fill="#2F7F77" aria-hidden="true" style="flex-shrink:0"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg></em></span></a><a class="pi" href="#carte" style="top: 454px; background: #D2E2F6; animation-delay: 1.66s;"><span class="fold" style="background: #AFC8EA;"></span><span class="pi-ic"><svg width="18" height="18" viewBox="0 0 256 256" fill="#2A3A4F" aria-hidden="true" style="flex-shrink:0"><path d="M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80ZM96,56a32,32,0,0,1,64,0V80H96ZM208,208H48V96H208V208Z"/></svg></span><span class="pi-in"><b>Coffre</b><span>Bilans et PPS, toujours là</span><em>Découvrir <svg width="12" height="12" viewBox="0 0 256 256" fill="#2F7F77" aria-hidden="true" style="flex-shrink:0"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg></em></span></a>
+  <a class="pi" href="#demarches" style="top: 64px; background: var(--postit); animation-delay: 1.30s;"><span class="fold" style="background: var(--postit2);"></span><span class="pi-ic"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M238.76,51.73A8,8,0,0,0,232,48H40a8,8,0,0,0-5.66,13.66L76.69,104,34.34,146.34A8,8,0,0,0,40,160H173.62l-28.84,60.56a8,8,0,1,0,14.44,6.88l80-168A8,8,0,0,0,238.76,51.73ZM181.23,144H59.31l34.35-34.34a8,8,0,0,0,0-11.32L59.31,64h160Z"/></svg></span><span class="pi-in"><b>Démarches</b><span>PAP, fac, RQTH en étapes claires</span><em>Découvrir <svg width="12" height="12" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg></em></span></a><a class="pi" href="#lio" style="top: 194px; background: var(--menthe); animation-delay: 1.42s;"><span class="fold" style="background: var(--menthe2);"></span><span class="pi-ic"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M128,176a48.05,48.05,0,0,0,48-48V64a48,48,0,0,0-96,0v64A48.05,48.05,0,0,0,128,176ZM96,64a32,32,0,0,1,64,0v64a32,32,0,0,1-64,0Zm40,143.6V240a8,8,0,0,1-16,0V207.6A80.11,80.11,0,0,1,48,128a8,8,0,0,1,16,0,64,64,0,0,0,128,0,8,8,0,0,1,16,0A80.11,80.11,0,0,1,136,207.6Z"/></svg></span><span class="pi-in"><b>Lio</b><span>Il lit et écrit avec ta voix</span><em>Découvrir <svg width="12" height="12" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg></em></span></a><a class="pi" href="#carte" style="top: 324px; background: var(--corail); animation-delay: 1.54s;"><span class="fold" style="background: var(--corail2);"></span><span class="pi-ic"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M200,112a8,8,0,0,1-8,8H152a8,8,0,0,1,0-16h40A8,8,0,0,1,200,112Zm-8,24H152a8,8,0,0,0,0,16h40a8,8,0,0,0,0-16Zm40-80V200a16,16,0,0,1-16,16H40a16,16,0,0,1-16-16V56A16,16,0,0,1,40,40H216A16,16,0,0,1,232,56ZM216,200V56H40V200H216Zm-80.26-34a8,8,0,1,1-15.5,4c-2.63-10.26-13.06-18-24.25-18s-21.61,7.74-24.25,18a8,8,0,1,1-15.5-4,39.84,39.84,0,0,1,17.19-23.34,32,32,0,1,1,45.12,0A39.76,39.76,0,0,1,135.75,166ZM96,136a16,16,0,1,0-16-16A16,16,0,0,0,96,136Z"/></svg></span><span class="pi-in"><b>Carte de besoins</b><span>Tes besoins en un QR code</span><em>Découvrir <svg width="12" height="12" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg></em></span></a><a class="pi" href="#carte" style="top: 454px; background: var(--pale); animation-delay: 1.66s;"><span class="fold" style="background: var(--pale2);"></span><span class="pi-ic"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80ZM96,56a32,32,0,0,1,64,0V80H96ZM208,208H48V96H208V208Z"/></svg></span><span class="pi-in"><b>Coffre</b><span>Bilans et PPS, toujours là</span><em>Découvrir <svg width="12" height="12" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg></em></span></a>
   <span class="nb-rib" aria-hidden="true"></span>
   <button class="cover" id="cover" aria-expanded="false" aria-label="Ouvrir le carnet">
     <span class="cv-spine"></span><span class="cv-stitch"></span><span class="cv-frame"></span>
@@ -335,43 +460,34 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
     <span class="cv-brand">PASS’DYS · 2026</span>
   </button>
 </div></div></div></div>
-      <div class="lio-says" aria-hidden="true"><svg class="logo" width="83" height="68" viewBox="28 42 272 222" aria-hidden="true"><defs><clipPath id="lb2"><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z"/></clipPath><clipPath id="lc2"><path d="M70 130 C72 58 230 56 234 126 Z"/></clipPath></defs><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z" fill="#9fdcd5"/><g clip-path="url(#lb2)"><ellipse cx="160" cy="262" rx="150" ry="48" fill="#7cc7bf"/></g><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z" fill="none" stroke="#21293f" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/><g class="lio-cap"><path d="M70 130 C72 58 230 56 234 126 Z" fill="#116176" stroke="#21293f" stroke-width="11" stroke-linejoin="round"/><path d="M92 100 C108 78 146 70 174 76 C146 80 120 90 104 108 Z" fill="#1b7a92" clip-path="url(#lc2)"/><path d="M214 118 C246 110 278 116 286 132 C260 142 230 140 206 132 Z" fill="#116176" stroke="#21293f" stroke-width="11" stroke-linejoin="round"/><circle cx="152" cy="66" r="9" fill="#21293f"/></g><g class="lio-eyes"><ellipse cx="128" cy="160" rx="11" ry="15" fill="#21293f"/><ellipse cx="186" cy="160" rx="11" ry="15" fill="#21293f"/><circle cx="132" cy="154" r="4" fill="#fff"/><circle cx="190" cy="154" r="4" fill="#fff"/></g><ellipse cx="96" cy="186" rx="13" ry="8" fill="#f7a58c"/><ellipse cx="220" cy="186" rx="13" ry="8" fill="#f7a58c"/><path class="lio-mouth" d="M126 194 C140 214 176 214 190 194" fill="none" stroke="#21293f" stroke-width="11" stroke-linecap="round"/></svg><p class="hand">Ouvre le carnet !</p></div>
-    </div>
-    <div class="hero-txt">
-      <h1 id="heroT"><span class="s">Des repères pour</span><span class="u">mieux avancer.<svg viewBox="0 0 440 30" preserveAspectRatio="none" aria-hidden="true"><path d="M6 18 C 110 6, 230 26, 434 10" stroke="#7CC5BF" stroke-width="8" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></span></h1>
-      <p>Tes démarches, tes besoins et tes documents dans un seul carnet. Lio t’aide à lire, à écrire et à t’organiser.</p>
-      <div class="hero-cta"><a class="btn pri wide" href="inscription.html#compte">Créer mon carnet</a><a class="btn out wide" href="inscription.html#connexion">J’ai déjà un compte</a></div>
-      <p class="hero-note">2 minutes · aucun diagnostic demandé</p>
     </div>
   </div>
 </section>
 
 <section class="strip" aria-label="Pensé pour">
-  <div class="wrap strip-in"><p class="hand">Pensé avec et pour les personnes concernées par</p><ul><li><span style="background: #D2E2F6;"><svg width="16" height="16" viewBox="0 0 256 256" fill="#3B64A8" aria-hidden="true" style="flex-shrink:0"><path d="M232,44H160a43.86,43.86,0,0,0-32,13.85A43.86,43.86,0,0,0,96,44H24A12,12,0,0,0,12,56V200a12,12,0,0,0,12,12H96a20,20,0,0,1,20,20,12,12,0,0,0,24,0,20,20,0,0,1,20-20h72a12,12,0,0,0,12-12V56A12,12,0,0,0,232,44ZM96,188H36V68H96a20,20,0,0,1,20,20V192.81A43.79,43.79,0,0,0,96,188Zm124,0H160a43.71,43.71,0,0,0-20,4.83V88a20,20,0,0,1,20-20h60Z"/></svg></span>Dyslexie</li><li><span style="background: #FBE7A1;"><svg width="16" height="16" viewBox="0 0 256 256" fill="#8A6412" aria-hidden="true" style="flex-shrink:0"><path d="M200,20H56A20,20,0,0,0,36,40V216a20,20,0,0,0,20,20H200a20,20,0,0,0,20-20V40A20,20,0,0,0,200,20Zm-4,192H60V44H196ZM80,76A12,12,0,0,1,92,64h72a12,12,0,0,1,0,24H92A12,12,0,0,1,80,76Zm40,52a16,16,0,1,1-16-16A16,16,0,0,1,120,128Zm48,0a16,16,0,1,1-16-16A16,16,0,0,1,168,128Zm-48,48a16,16,0,1,1-16-16A16,16,0,0,1,120,176Zm48,0a16,16,0,1,1-16-16A16,16,0,0,1,168,176Z"/></svg></span>Dyscalculie</li><li><span style="background: #DCD6F7;"><svg width="16" height="16" viewBox="0 0 256 256" fill="#6552C9" aria-hidden="true" style="flex-shrink:0"><path d="M216.49,184.49l-32,32a12,12,0,0,1-17-17L179,188H48a12,12,0,0,1,0-24H179l-11.52-11.51a12,12,0,0,1,17-17l32,32A12,12,0,0,1,216.49,184.49Zm-145-64a12,12,0,0,0,17-17L77,92H208a12,12,0,0,0,0-24H77L88.49,56.49a12,12,0,0,0-17-17l-32,32a12,12,0,0,0,0,17Z"/></svg></span>Dysphasie</li><li><span style="background: #F9CDB7;"><svg width="16" height="16" viewBox="0 0 256 256" fill="#B4533A" aria-hidden="true" style="flex-shrink:0"><path d="M228,128a12,12,0,0,1-12,12H128a12,12,0,0,1,0-24h88A12,12,0,0,1,228,128ZM128,76h88a12,12,0,0,0,0-24H128a12,12,0,0,0,0,24Zm88,104H128a12,12,0,0,0,0,24h88a12,12,0,0,0,0-24ZM79.51,39.51,56,63l-7.51-7.52a12,12,0,0,0-17,17l16,16a12,12,0,0,0,17,0l32-32a12,12,0,0,0-17-17Zm0,64L56,127l-7.51-7.52a12,12,0,1,0-17,17l16,16a12,12,0,0,0,17,0l32-32a12,12,0,0,0-17-17Zm0,64L56,191l-7.51-7.52a12,12,0,1,0-17,17l16,16a12,12,0,0,0,17,0l32-32a12,12,0,0,0-17-17Z"/></svg></span>Dyspraxie</li><li><span style="background: #BDE8E2;"><svg width="16" height="16" viewBox="0 0 256 256" fill="#2F7F77" aria-hidden="true" style="flex-shrink:0"><path d="M230.14,70.54,185.46,25.85a20,20,0,0,0-28.29,0L33.86,149.17A19.85,19.85,0,0,0,28,163.31V208a20,20,0,0,0,20,20H92.69a19.86,19.86,0,0,0,14.14-5.86L230.14,98.82a20,20,0,0,0,0-28.28ZM91,204H52V165l84-84,39,39ZM192,103,153,64l18.34-18.34,39,39Z"/></svg></span>Dysgraphie</li></ul></div>
+  <div class="wrap strip-in"><p class="hand">Pensé avec et pour les personnes concernées par</p><ul><li><span style="background: var(--pale); color: var(--focus);"><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M232,44H160a43.86,43.86,0,0,0-32,13.85A43.86,43.86,0,0,0,96,44H24A12,12,0,0,0,12,56V200a12,12,0,0,0,12,12H96a20,20,0,0,1,20,20,12,12,0,0,0,24,0,20,20,0,0,1,20-20h72a12,12,0,0,0,12-12V56A12,12,0,0,0,232,44ZM96,188H36V68H96a20,20,0,0,1,20,20V192.81A43.79,43.79,0,0,0,96,188Zm124,0H160a43.71,43.71,0,0,0-20,4.83V88a20,20,0,0,1,20-20h60Z"/></svg></span>Dyslexie</li><li><span style="background: var(--postit); color: var(--d2);"><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M200,20H56A20,20,0,0,0,36,40V216a20,20,0,0,0,20,20H200a20,20,0,0,0,20-20V40A20,20,0,0,0,200,20Zm-4,192H60V44H196ZM80,76A12,12,0,0,1,92,64h72a12,12,0,0,1,0,24H92A12,12,0,0,1,80,76Zm40,52a16,16,0,1,1-16-16A16,16,0,0,1,120,128Zm48,0a16,16,0,1,1-16-16A16,16,0,0,1,168,128Zm-48,48a16,16,0,1,1-16-16A16,16,0,0,1,120,176Zm48,0a16,16,0,1,1-16-16A16,16,0,0,1,168,176Z"/></svg></span>Dyscalculie</li><li><span style="background: var(--d5); color: var(--d1);"><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M216.49,184.49l-32,32a12,12,0,0,1-17-17L179,188H48a12,12,0,0,1,0-24H179l-11.52-11.51a12,12,0,0,1,17-17l32,32A12,12,0,0,1,216.49,184.49Zm-145-64a12,12,0,0,0,17-17L77,92H208a12,12,0,0,0,0-24H77L88.49,56.49a12,12,0,0,0-17-17l-32,32a12,12,0,0,0,0,17Z"/></svg></span>Dysphasie</li><li><span style="background: var(--corail); color: var(--d3);"><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M228,128a12,12,0,0,1-12,12H128a12,12,0,0,1,0-24h88A12,12,0,0,1,228,128ZM128,76h88a12,12,0,0,0,0-24H128a12,12,0,0,0,0,24Zm88,104H128a12,12,0,0,0,0,24h88a12,12,0,0,0,0-24ZM79.51,39.51,56,63l-7.51-7.52a12,12,0,0,0-17,17l16,16a12,12,0,0,0,17,0l32-32a12,12,0,0,0-17-17Zm0,64L56,127l-7.51-7.52a12,12,0,1,0-17,17l16,16a12,12,0,0,0,17,0l32-32a12,12,0,0,0-17-17Zm0,64L56,191l-7.51-7.52a12,12,0,1,0-17,17l16,16a12,12,0,0,0,17,0l32-32a12,12,0,0,0-17-17Z"/></svg></span>Dyspraxie</li><li><span style="background: var(--menthe); color: var(--lio);"><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M230.14,70.54,185.46,25.85a20,20,0,0,0-28.29,0L33.86,149.17A19.85,19.85,0,0,0,28,163.31V208a20,20,0,0,0,20,20H92.69a19.86,19.86,0,0,0,14.14-5.86L230.14,98.82a20,20,0,0,0,0-28.28ZM91,204H52V165l84-84,39,39ZM192,103,153,64l18.34-18.34,39,39Z"/></svg></span>Dysgraphie</li></ul></div>
 </section>
 
 <section class="block" id="fonctionnalites" aria-label="Fonctionnalités">
-  <span class="dots"></span>
   <div class="wrap">
     <div class="feat" id="demarches">
       <div class="rv">
-        <h2 class="tt"><span class="s">Tes démarches,</span><span class="b"><span class="u">enfin claires.<svg viewBox="0 0 440 30" preserveAspectRatio="none" aria-hidden="true"><path d="M6 18 C 110 6, 230 26, 434 10" stroke="#7CC5BF" stroke-width="7" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></span></span></h2>
-        <p class="txt">PAP, PPS, MDPH, fac, RQTH : chaque démarche est découpée en petites étapes, avec les documents à fournir et des sources vérifiées.</p>
-        <ul class="ticks"><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3E3A63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Une étape à la fois</li><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3E3A63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Les bons papiers, au bon moment</li><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3E3A63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>« Explique-moi » à chaque étape</li></ul>
+        <h2 class="tt"><span class="s">Tes démarches,</span><span class="b">enfin claires.</span></h2>
+        <p class="txt"><abbr title="Plan d’accompagnement personnalisé">PAP</abbr>, <abbr title="Projet personnalisé de scolarisation">PPS</abbr>, <abbr title="Maison départementale des personnes handicapées">MDPH</abbr>, fac, <abbr title="Reconnaissance de la qualité de travailleur handicapé">RQTH</abbr> : chaque démarche est découpée en petites étapes, avec les documents à fournir et des sources vérifiées.</p>
+        <ul class="ticks"><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Une étape à la fois</li><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Les bons papiers, au bon moment</li><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>« Explique-moi » à chaque étape</li></ul>
       </div>
       <div class="vis dem rv" aria-hidden="true">
         <ol class="path">
-          <li class="done"><span class="k"><span class="c"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F8F6F1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="bar"></span></span><span>Contacter le service handicap</span></li>
-          <li class="done"><span class="k"><span class="c"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F8F6F1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="bar"></span></span><span>Voir le médecin du service</span></li>
+          <li class="done"><span class="k"><span class="c"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="bar"></span></span><span>Contacter le service handicap</span></li>
+          <li class="done"><span class="k"><span class="c"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="bar"></span></span><span>Voir le médecin du service</span></li>
           <li class="now"><span class="k"><span class="c">3</span><span class="bar"></span></span><span>Rassembler tes documents</span></li>
           <li class="todo"><span class="k"><span class="c">4</span></span><span>Envoyer la demande</span></li>
         </ol>
         <div class="paper lined">
           <span class="cap" style="color: var(--teal);">Étape 3</span>
           <h3>Rassemble tes documents</h3>
-          <ul class="ticks"><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3E3A63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><s>Bilan orthophonique</s></li><li><span class="box"></span>Certificat de scolarité</li><li><span class="box"></span>Aménagements du bac</li></ul>
-          <span class="src"><svg width="15" height="15" viewBox="0 0 256 256" fill="#4FA9A2" aria-hidden="true" style="flex-shrink:0"><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"/></svg>Sources officielles</span>
-          <span class="sticky" style="background: var(--menthe); right: 22px; top: -44px; transform: rotate(7deg);" aria-hidden="true">déjà dans<br>ton coffre</span>
+          <ul class="ticks"><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><s>Bilan orthophonique</s></li><li><span class="box"></span>Certificat de scolarité</li><li><span class="box"></span>Aménagements du bac</li></ul>
+          <span class="src"><svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"/></svg>Sources officielles</span>
         </div>
       </div>
     </div>
@@ -382,18 +498,16 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   <div class="wrap">
     <div class="feat rev" id="lio">
       <div class="rv">
-        <h2 class="tt"><span class="s">Dis-le,</span><span class="b"><span class="u">Lio l’écrit.<svg viewBox="0 0 440 30" preserveAspectRatio="none" aria-hidden="true"><path d="M6 18 C 110 6, 230 26, 434 10" stroke="#7CC5BF" stroke-width="7" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></span></span></h2>
+        <h2 class="tt"><span class="s">Dis-le,</span><span class="b">Lio l’écrit.</span></h2>
         <p class="txt">Tu parles avec tes mots, Lio rédige un mail clair. Il lit aussi tes documents à voix haute et t’entraîne avant un rendez-vous.</p>
-        <ul class="ticks"><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3E3A63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Dicter un mail</li><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3E3A63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Lire un document</li><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3E3A63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Préparer un rendez-vous</li></ul>
       </div>
       <div class="vis lio-vis rv" aria-hidden="true">
         <div class="paper said"><span class="cap" style="color: var(--sub);">Ce que tu as dit</span><p class="hand">« j’ai pas eu mon tiers-temps au partiel… »</p></div>
         <div class="paper mail">
-          <div class="mail-h"><svg class="logo" width="37" height="30" viewBox="28 42 272 222" aria-hidden="true"><defs><clipPath id="lb3"><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z"/></clipPath><clipPath id="lc3"><path d="M70 130 C72 58 230 56 234 126 Z"/></clipPath></defs><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z" fill="#9fdcd5"/><g clip-path="url(#lb3)"><ellipse cx="160" cy="262" rx="150" ry="48" fill="#7cc7bf"/></g><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z" fill="none" stroke="#21293f" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/><g class="lio-cap"><path d="M70 130 C72 58 230 56 234 126 Z" fill="#116176" stroke="#21293f" stroke-width="11" stroke-linejoin="round"/><path d="M92 100 C108 78 146 70 174 76 C146 80 120 90 104 108 Z" fill="#1b7a92" clip-path="url(#lc3)"/><path d="M214 118 C246 110 278 116 286 132 C260 142 230 140 206 132 Z" fill="#116176" stroke="#21293f" stroke-width="11" stroke-linejoin="round"/><circle cx="152" cy="66" r="9" fill="#21293f"/></g><g class="lio-eyes"><ellipse cx="128" cy="160" rx="11" ry="15" fill="#21293f"/><ellipse cx="186" cy="160" rx="11" ry="15" fill="#21293f"/><circle cx="132" cy="154" r="4" fill="#fff"/><circle cx="190" cy="154" r="4" fill="#fff"/></g><ellipse cx="96" cy="186" rx="13" ry="8" fill="#f7a58c"/><ellipse cx="220" cy="186" rx="13" ry="8" fill="#f7a58c"/><path class="lio-mouth" d="M126 194 C140 214 176 214 190 194" fill="none" stroke="#21293f" stroke-width="11" stroke-linecap="round"/></svg>Proposition de Lio</div>
+          <div class="mail-h"><svg class="logo" width="37" height="30" viewBox="28 42 272 222" aria-hidden="true"><defs><clipPath id="lb2"><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z"/></clipPath><clipPath id="lc2"><path d="M70 130 C72 58 230 56 234 126 Z"/></clipPath></defs><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z" fill="#9fdcd5"/><g clip-path="url(#lb2)"><ellipse cx="160" cy="262" rx="150" ry="48" fill="#7cc7bf"/></g><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z" fill="none" stroke="#21293f" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/><g class="lio-cap"><path d="M70 130 C72 58 230 56 234 126 Z" fill="#116176" stroke="#21293f" stroke-width="11" stroke-linejoin="round"/><path d="M92 100 C108 78 146 70 174 76 C146 80 120 90 104 108 Z" fill="#1b7a92" clip-path="url(#lc2)"/><path d="M214 118 C246 110 278 116 286 132 C260 142 230 140 206 132 Z" fill="#116176" stroke="#21293f" stroke-width="11" stroke-linejoin="round"/><circle cx="152" cy="66" r="9" fill="#21293f"/></g><g class="lio-eyes"><ellipse cx="128" cy="160" rx="11" ry="15" fill="#21293f"/><ellipse cx="186" cy="160" rx="11" ry="15" fill="#21293f"/><circle cx="132" cy="154" r="4" fill="#fff"/><circle cx="190" cy="154" r="4" fill="#fff"/></g><ellipse cx="96" cy="186" rx="13" ry="8" fill="#f7a58c"/><ellipse cx="220" cy="186" rx="13" ry="8" fill="#f7a58c"/><path class="lio-mouth" d="M126 194 C140 214 176 214 190 194" fill="none" stroke="#21293f" stroke-width="11" stroke-linecap="round"/></svg>Proposition de Lio</div>
           <div class="mail-o"><span style="color: var(--sub);">Objet</span> · <b style="font-weight: 600;">Tiers-temps non appliqué</b></div>
           <p class="mail-b">Bonjour Madame Martin,<br>Lors du partiel du 12 mars, mon tiers-temps n’a pas été appliqué. Pourriez-vous m’indiquer comment régulariser la situation ?<br>Cordialement, <span class="nm">Julien</span></p>
           <div class="acts"><span class="btn pri sm">Envoyer <svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M227.32,28.68a16,16,0,0,0-15.66-4.08l-.15,0L19.57,82.84a16,16,0,0,0-2.49,29.8L102,154l41.3,84.87A15.86,15.86,0,0,0,157.74,248q.69,0,1.38-.06a15.88,15.88,0,0,0,14-11.51l58.2-191.94c0-.05,0-.1,0-.15A16,16,0,0,0,227.32,28.68ZM157.83,231.85l-.05.14,0-.07-40.06-82.3,48-48a8,8,0,0,0-11.31-11.31l-48,48L24.08,98.25l-.07,0,.14,0L216,40Z"/></svg></span></div>
-          <span class="sticky" style="background: var(--corail); left: -26px; bottom: -22px; transform: rotate(-6deg);" aria-hidden="true">relu et corrigé</span>
         </div>
       </div>
     </div>
@@ -401,21 +515,20 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 </section>
 
 <section class="block" aria-label="Carte de besoins et coffre">
-  <span class="dots"></span>
   <div class="wrap">
     <div class="feat" id="carte">
       <div class="rv">
-        <h2 class="tt"><span class="s">Tes besoins, tes papiers,</span><span class="b"><span class="u">bien rangés.<svg viewBox="0 0 440 30" preserveAspectRatio="none" aria-hidden="true"><path d="M6 18 C 110 6, 230 26, 434 10" stroke="#7CC5BF" stroke-width="7" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></span></span></h2>
+        <h2 class="tt"><span class="s">Tes besoins, tes papiers,</span><span class="b">bien rangés.</span></h2>
         <p class="txt">Ta carte de besoins se partage en un QR code, sans jamais afficher de diagnostic. Tes bilans et notifications restent dans ton coffre.</p>
-        <ul class="ticks"><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3E3A63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Une carte à montrer en cours ou en examen</li><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3E3A63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Un coffre privé pour tes documents</li><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3E3A63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Rien n’est partagé sans ton accord</li></ul>
+        <ul class="ticks"><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Une carte à montrer en cours ou en examen</li><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Un coffre privé pour tes documents</li><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Rien n’est partagé sans ton accord</li></ul>
       </div>
       <div class="vis card-vis rv" aria-hidden="true">
         <div class="need">
-          <div class="need-h"><div><span class="cap" style="opacity: .7;">Ce qui m’aide</span><b class="hand nm">Julien</b></div><span class="qr"><svg width="40" height="40" viewBox="0 0 256 256" fill="#3E3A63" aria-hidden="true" style="flex-shrink:0"><path d="M104,40H56A16,16,0,0,0,40,56v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,104,40Zm0,64H56V56h48v48Zm0,32H56a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,104,136Zm0,64H56V152h48v48ZM200,40H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Zm0,64H152V56h48v48Zm-64,72V144a8,8,0,0,1,16,0v32a8,8,0,0,1-16,0Zm80-16a8,8,0,0,1-8,8H184v40a8,8,0,0,1-8,8H144a8,8,0,0,1,0-16h24V144a8,8,0,0,1,16,0v8h24A8,8,0,0,1,216,160Zm0,32v16a8,8,0,0,1-16,0V192a8,8,0,0,1,16,0Z"/></svg></span></div>
-          <ul><li><svg width="15" height="15" viewBox="0 0 256 256" fill="#2F7F77" aria-hidden="true" style="flex-shrink:0"><path d="M155.51,24.81a8,8,0,0,0-8.42.88L77.25,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V32A8,8,0,0,0,155.51,24.81ZM32,96H72v64H32ZM144,207.64,88,164.09V91.91l56-43.55Zm54-106.08a40,40,0,0,1,0,52.88,8,8,0,0,1-12-10.58,24,24,0,0,0,0-31.72,8,8,0,0,1,12-10.58ZM248,128a79.9,79.9,0,0,1-20.37,53.34,8,8,0,0,1-11.92-10.67,64,64,0,0,0,0-85.33,8,8,0,1,1,11.92-10.67A79.83,79.83,0,0,1,248,128Z"/></svg>On me lit les consignes</li><li><svg width="15" height="15" viewBox="0 0 256 256" fill="#2F7F77" aria-hidden="true" style="flex-shrink:0"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212Zm68-84a12,12,0,0,1-12,12H128a12,12,0,0,1-12-12V72a12,12,0,0,1,24,0v44h44A12,12,0,0,1,196,128Z"/></svg>Du temps en plus</li><li><svg width="15" height="15" viewBox="0 0 256 256" fill="#2F7F77" aria-hidden="true" style="flex-shrink:0"><path d="M216.49,79.52l-56-56A12,12,0,0,0,152,20H56A20,20,0,0,0,36,40V216a20,20,0,0,0,20,20H200a20,20,0,0,0,20-20V88A12,12,0,0,0,216.49,79.52ZM160,57l23,23H160ZM60,212V44h76V92a12,12,0,0,0,12,12h48V212Zm112-80a12,12,0,0,1-12,12H96a12,12,0,0,1,0-24h64A12,12,0,0,1,172,132Zm0,40a12,12,0,0,1-12,12H96a12,12,0,0,1,0-24h64A12,12,0,0,1,172,172Z"/></svg>Les supports à l’avance</li></ul>
+          <div class="need-h"><div><span class="cap" style="opacity: .7;">Ce qui m’aide</span><b class="hand nm">Julien</b></div><span class="qr"><svg width="40" height="40" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M104,40H56A16,16,0,0,0,40,56v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,104,40Zm0,64H56V56h48v48Zm0,32H56a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,104,136Zm0,64H56V152h48v48ZM200,40H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Zm0,64H152V56h48v48Zm-64,72V144a8,8,0,0,1,16,0v32a8,8,0,0,1-16,0Zm80-16a8,8,0,0,1-8,8H184v40a8,8,0,0,1-8,8H144a8,8,0,0,1,0-16h24V144a8,8,0,0,1,16,0v8h24A8,8,0,0,1,216,160Zm0,32v16a8,8,0,0,1-16,0V192a8,8,0,0,1,16,0Z"/></svg></span></div>
+          <ul><li><svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M155.51,24.81a8,8,0,0,0-8.42.88L77.25,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V32A8,8,0,0,0,155.51,24.81ZM32,96H72v64H32ZM144,207.64,88,164.09V91.91l56-43.55Zm54-106.08a40,40,0,0,1,0,52.88,8,8,0,0,1-12-10.58,24,24,0,0,0,0-31.72,8,8,0,0,1,12-10.58ZM248,128a79.9,79.9,0,0,1-20.37,53.34,8,8,0,0,1-11.92-10.67,64,64,0,0,0,0-85.33,8,8,0,1,1,11.92-10.67A79.83,79.83,0,0,1,248,128Z"/></svg>On me lit les consignes</li><li><svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212Zm68-84a12,12,0,0,1-12,12H128a12,12,0,0,1-12-12V72a12,12,0,0,1,24,0v44h44A12,12,0,0,1,196,128Z"/></svg>Du temps en plus</li><li><svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M216.49,79.52l-56-56A12,12,0,0,0,152,20H56A20,20,0,0,0,36,40V216a20,20,0,0,0,20,20H200a20,20,0,0,0,20-20V88A12,12,0,0,0,216.49,79.52ZM160,57l23,23H160ZM60,212V44h76V92a12,12,0,0,0,12,12h48V212Zm112-80a12,12,0,0,1-12,12H96a12,12,0,0,1,0-24h64A12,12,0,0,1,172,132Zm0,40a12,12,0,0,1-12,12H96a12,12,0,0,1,0-24h64A12,12,0,0,1,172,172Z"/></svg>Les supports à l’avance</li></ul>
         </div>
         <div class="vault">
-          <div class="row"><span class="tg" style="background: #BDE8E2;">BILAN</span><span class="bd"><svg width="18" height="18" viewBox="0 0 256 256" fill="#2A3A4F" aria-hidden="true" style="flex-shrink:0"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z"/></svg><span><b>Bilan orthophonique</b><small>Mai 2019</small></span></span></div><div class="row"><span class="tg" style="background: #D2E2F6;">FAC</span><span class="bd"><svg width="18" height="18" viewBox="0 0 256 256" fill="#2A3A4F" aria-hidden="true" style="flex-shrink:0"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z"/></svg><span><b>Certificat de scolarité</b><small>Sept. 2026</small></span></span></div><div class="row"><span class="tg" style="background: #FBE7A1;">PPS</span><span class="bd"><svg width="18" height="18" viewBox="0 0 256 256" fill="#2A3A4F" aria-hidden="true" style="flex-shrink:0"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z"/></svg><span><b>PPS lycée</b><small>Sept. 2022</small></span></span></div><div class="row"><span class="tg" style="background: #D3ECEA;">MDPH</span><span class="bd"><svg width="18" height="18" viewBox="0 0 256 256" fill="#2A3A4F" aria-hidden="true" style="flex-shrink:0"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z"/></svg><span><b>Notification MDPH</b><small>Juin 2018</small></span></span></div>
+          <div class="row"><span class="tg" style="background: var(--menthe);">BILAN</span><span class="bd"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z"/></svg><span><b>Bilan orthophonique</b><small>Mai 2019</small></span></span></div><div class="row"><span class="tg" style="background: var(--pale);">FAC</span><span class="bd"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z"/></svg><span><b>Certificat de scolarité</b><small>Sept. 2026</small></span></span></div><div class="row"><span class="tg" style="background: var(--postit);">PPS</span><span class="bd"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z"/></svg><span><b>PPS lycée</b><small>Sept. 2022</small></span></span></div><div class="row"><span class="tg" style="background: var(--d4);">MDPH</span><span class="bd"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z"/></svg><span><b>Notification MDPH</b><small>Juin 2018</small></span></span></div>
         </div>
       </div>
     </div>
@@ -426,9 +539,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   <div class="wrap">
     <div class="feat rev" id="lecture">
       <div class="rv">
-        <h2 class="tt"><span class="s">Une app qui s’adapte</span><span class="b"><span class="u">à ta lecture.<svg viewBox="0 0 440 30" preserveAspectRatio="none" aria-hidden="true"><path d="M6 18 C 110 6, 230 26, 434 10" stroke="#7CC5BF" stroke-width="7" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></span></span></h2>
+        <h2 class="tt"><span class="s">Une app qui s’adapte</span><span class="b">à ta lecture.</span></h2>
         <p class="txt">Police pensée pour les dys, texte plus grand, lignes aérées, contraste renforcé, lecture à voix haute : tu règles tout dès l’inscription. Essaie ici.</p>
-        <ul class="ticks"><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3E3A63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Quatre polices, dont OpenDyslexic</li><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3E3A63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Son coupé par défaut</li><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3E3A63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Tes réglages partout, même sur téléphone</li></ul>
+        <ul class="ticks"><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Quatre polices, dont OpenDyslexic</li><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Son coupé par défaut</li><li><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Tes réglages partout, même sur téléphone</li></ul>
       </div>
       <div class="vis rv" style="position: relative;">
         <div class="paper set" id="demo">
@@ -439,18 +552,51 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
           <div class="set-row"><span><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M155.51,24.81a8,8,0,0,0-8.42.88L77.25,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V32A8,8,0,0,0,155.51,24.81ZM32,96H72v64H32ZM144,207.64,88,164.09V91.91l56-43.55Zm54-106.08a40,40,0,0,1,0,52.88,8,8,0,0,1-12-10.58,24,24,0,0,0,0-31.72,8,8,0,0,1,12-10.58ZM248,128a79.9,79.9,0,0,1-20.37,53.34,8,8,0,0,1-11.92-10.67,64,64,0,0,0,0-85.33,8,8,0,1,1,11.92-10.67A79.83,79.83,0,0,1,248,128Z"/></svg>Lecture à voix haute</span><button class="sw" role="switch" aria-checked="false" data-k="voice" aria-label="Lecture à voix haute"></button></div>
           <p class="preview" id="preview">Ce texte change en direct. Ton carnet t’attend avec ta prochaine étape, rien de plus.</p>
         </div>
-        <span class="sticky" style="background: var(--menthe); right: -14px; bottom: -36px; transform: rotate(6deg);" aria-hidden="true">tout se change<br>en un clic</span>
       </div>
     </div>
   </div>
 </section>
 
-<section class="block" style="padding-top: 0;" aria-labelledby="ctaT">
+<section class="block" aria-labelledby="parentsT">
+  <div class="wrap">
+    <div class="par" id="parents">
+      <div class="rv">
+        <h2 class="tt" id="parentsT"><span class="s">Parents, aidants :</span><span class="b">on vous guide.</span></h2>
+        <p class="txt">Pass’Dys sert aussi aux parents et aux aidants. Vous suivez les démarches avec lui, sans faire à sa place.</p>
+      </div>
+      <ul class="par-l">
+        <li><b>Préparer le PAP ou le PPS avec l’école</b><span>Les étapes, les documents à fournir et les bons interlocuteurs.</span></li>
+        <li><b>Partager la carte de besoins</b><span>Un QR code à montrer aux enseignants. Aucun diagnostic n’est affiché.</span></li>
+        <li><b>Garder les bilans au même endroit</b><span>Orthophonie, ergothérapie, notifications MDPH : tout est rangé dans le coffre.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block tint" aria-labelledby="faqT">
+  <div class="wrap faq rv" id="faq">
+    <h2 class="tt" id="faqT"><span class="b">Questions fréquentes.</span></h2>
+    <div class="faq-l">
+      <details><summary>C’est gratuit ?</summary><p>Oui. Pass’Dys est entièrement gratuit : pas d’abonnement, pas de paiement.</p></details>
+      <details><summary>Faut-il un diagnostic pour s’inscrire ?</summary><p>Non. Aucun diagnostic n’est demandé, ni à l’inscription ni ensuite.</p></details>
+      <details><summary>Où sont gardées mes données ?</summary><p>Elles seront confiées à un hébergeur certifié pour les données de santé (HDS). Tes documents sont chiffrés et rien n’est partagé sans ton accord.</p></details>
+      <details><summary>Je suis parent : je peux créer le carnet ?</summary><p>Oui. Vous pouvez créer le carnet avec votre enfant et le remplir ensemble.</p></details>
+      <details><summary>Que veulent dire PAP, PPS, MDPH et RQTH ?</summary><dl>
+        <dt>PAP</dt><dd>Plan d’accompagnement personnalisé. Des aménagements à l’école, sans passer par la MDPH.</dd>
+        <dt>PPS</dt><dd>Projet personnalisé de scolarisation. Décidé par la MDPH, il peut prévoir un AESH ou du matériel.</dd>
+        <dt>MDPH</dt><dd>Maison départementale des personnes handicapées. Elle étudie les demandes d’aides et de droits.</dd>
+        <dt>RQTH</dt><dd>Reconnaissance de la qualité de travailleur handicapé. Elle ouvre des aménagements au travail.</dd>
+      </dl></details>
+    </div>
+  </div>
+</section>
+
+<section class="block cta-sec" aria-labelledby="ctaT">
   <div class="wrap">
     <div class="cta rv">
       <span class="dots"></span>
-      <span class="cta-pi" style="background: #D2E2F6; left: 40px; top: 56px; transform: rotate(-8deg);" aria-hidden="true"><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3E3A63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><b>Lire</b></span><span class="cta-pi" style="background: #FBE7A1; right: 48px; top: 44px; transform: rotate(6deg);" aria-hidden="true"><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3E3A63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><b>Écrire</b></span><span class="cta-pi" style="background: #F9CDB7; left: 70px; bottom: 50px; transform: rotate(5deg);" aria-hidden="true"><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3E3A63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><b>Compter</b></span><span class="cta-pi" style="background: #BDE8E2; right: 70px; bottom: 56px; transform: rotate(-6deg);" aria-hidden="true"><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3E3A63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><b>Parler</b></span>
-      <h2 class="tt" id="ctaT"><span class="s">Alors,</span><span class="b"><span class="u">on ouvre ton carnet ?<svg viewBox="0 0 440 30" preserveAspectRatio="none" aria-hidden="true"><path d="M6 18 C 110 6, 230 26, 434 10" stroke="#7CC5BF" stroke-width="7" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></span></span></h2>
+      <span class="cta-pi" style="background: var(--pale); left: 40px; top: 56px; transform: rotate(-8deg);" aria-hidden="true"><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><b>Lire</b></span><span class="cta-pi" style="background: var(--postit); right: 48px; top: 44px; transform: rotate(6deg);" aria-hidden="true"><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><b>Écrire</b></span><span class="cta-pi" style="background: var(--corail); left: 70px; bottom: 50px; transform: rotate(5deg);" aria-hidden="true"><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><b>Compter</b></span><span class="cta-pi" style="background: var(--menthe); right: 70px; bottom: 56px; transform: rotate(-6deg);" aria-hidden="true"><span class="box on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><b>Parler</b></span>
+      <h2 class="tt" id="ctaT"><span class="s">Alors,</span><span class="b"><span class="u">on ouvre ton carnet ?<svg viewBox="0 0 440 30" preserveAspectRatio="none" aria-hidden="true"><path d="M6 18 C 110 6, 230 26, 434 10" stroke="currentColor" stroke-width="7" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></span></span></h2>
       <p>2 minutes · aucun diagnostic demandé</p>
       <div class="hero-cta"><a class="btn pri" href="inscription.html#compte">Créer mon carnet <svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a><a class="btn out" href="inscription.html#connexion">Se connecter</a></div>
     </div>
@@ -458,13 +604,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 </section>
 </main>
 
-<svg class="wave" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60 C 180 10, 360 10, 540 44 S 900 100, 1080 58 S 1320 16, 1440 40 V 100 H 0 Z" fill="#2F7F77"/></svg>
+<svg class="wave" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60 C 180 10, 360 10, 540 44 S 900 100, 1080 58 S 1320 16, 1440 40 V 100 H 0 Z" fill="currentColor"/></svg>
 <footer class="ft">
   <div class="wrap ft-in">
-    <div><a class="brand" href="#"><svg class="logo" width="42" height="34" viewBox="28 42 272 222" aria-hidden="true"><defs><clipPath id="lb4"><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z"/></clipPath><clipPath id="lc4"><path d="M70 130 C72 58 230 56 234 126 Z"/></clipPath></defs><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z" fill="#9fdcd5"/><g clip-path="url(#lb4)"><ellipse cx="160" cy="262" rx="150" ry="48" fill="#7cc7bf"/></g><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z" fill="none" stroke="#21293f" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/><g class="lio-cap"><path d="M70 130 C72 58 230 56 234 126 Z" fill="#116176" stroke="#21293f" stroke-width="11" stroke-linejoin="round"/><path d="M92 100 C108 78 146 70 174 76 C146 80 120 90 104 108 Z" fill="#1b7a92" clip-path="url(#lc4)"/><path d="M214 118 C246 110 278 116 286 132 C260 142 230 140 206 132 Z" fill="#116176" stroke="#21293f" stroke-width="11" stroke-linejoin="round"/><circle cx="152" cy="66" r="9" fill="#21293f"/></g><g class="lio-eyes"><ellipse cx="128" cy="160" rx="11" ry="15" fill="#21293f"/><ellipse cx="186" cy="160" rx="11" ry="15" fill="#21293f"/><circle cx="132" cy="154" r="4" fill="#fff"/><circle cx="190" cy="154" r="4" fill="#fff"/></g><ellipse cx="96" cy="186" rx="13" ry="8" fill="#f7a58c"/><ellipse cx="220" cy="186" rx="13" ry="8" fill="#f7a58c"/><path class="lio-mouth" d="M126 194 C140 214 176 214 190 194" fill="none" stroke="#21293f" stroke-width="11" stroke-linecap="round"/></svg><span>Pass’Dys</span></a><p>Le carnet des personnes dys, du primaire à l’emploi.</p></div>
-    <div><h3>Découvrir</h3><ul><li><a href="#demarches">Démarches</a></li><li><a href="#lio">Lio</a></li><li><a href="#carte">Carte de besoins</a></li><li><a href="#lecture">Réglages de lecture</a></li></ul></div>
-    <div><h3>Informations</h3><ul><li><a href="informations.html#mentions">Mentions légales</a></li><li><a href="informations.html#cgu">Conditions d’utilisation</a></li><li><a href="informations.html#confidentialite">Confidentialité</a></li><li><button data-act="cookies">Cookies</button></li></ul></div>
-    <div><h3>Aide</h3><ul><li><a href="informations.html#accessibilite">Accessibilité</a></li><li><a href="informations.html#contact">Contact</a></li><li><a href="inscription.html#connexion">Se connecter</a></li></ul></div>
+    <div><a class="brand" href="#"><svg class="logo" width="42" height="34" viewBox="28 42 272 222" aria-hidden="true"><defs><clipPath id="lb3"><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z"/></clipPath><clipPath id="lc3"><path d="M70 130 C72 58 230 56 234 126 Z"/></clipPath></defs><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z" fill="#9fdcd5"/><g clip-path="url(#lb3)"><ellipse cx="160" cy="262" rx="150" ry="48" fill="#7cc7bf"/></g><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z" fill="none" stroke="#21293f" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/><g class="lio-cap"><path d="M70 130 C72 58 230 56 234 126 Z" fill="#116176" stroke="#21293f" stroke-width="11" stroke-linejoin="round"/><path d="M92 100 C108 78 146 70 174 76 C146 80 120 90 104 108 Z" fill="#1b7a92" clip-path="url(#lc3)"/><path d="M214 118 C246 110 278 116 286 132 C260 142 230 140 206 132 Z" fill="#116176" stroke="#21293f" stroke-width="11" stroke-linejoin="round"/><circle cx="152" cy="66" r="9" fill="#21293f"/></g><g class="lio-eyes"><ellipse cx="128" cy="160" rx="11" ry="15" fill="#21293f"/><ellipse cx="186" cy="160" rx="11" ry="15" fill="#21293f"/><circle cx="132" cy="154" r="4" fill="#fff"/><circle cx="190" cy="154" r="4" fill="#fff"/></g><ellipse cx="96" cy="186" rx="13" ry="8" fill="#f7a58c"/><ellipse cx="220" cy="186" rx="13" ry="8" fill="#f7a58c"/><path class="lio-mouth" d="M126 194 C140 214 176 214 190 194" fill="none" stroke="#21293f" stroke-width="11" stroke-linecap="round"/></svg><span>Pass’Dys</span></a><p>Le carnet des personnes dys, du primaire à l’emploi.</p></div>
+    <nav aria-label="Découvrir"><h3>Découvrir</h3><ul><li><a href="#demarches">Démarches</a></li><li><a href="#lio">Lio</a></li><li><a href="#carte">Carte de besoins</a></li><li><a href="#lecture">Réglages de lecture</a></li><li><a href="#parents">Parents et aidants</a></li></ul></nav>
+    <nav aria-label="Informations"><h3>Informations</h3><ul><li><a href="informations.html#mentions">Mentions légales</a></li><li><a href="informations.html#cgu">Conditions d’utilisation</a></li><li><a href="informations.html#confidentialite">Confidentialité</a></li><li><button data-act="cookies">Cookies</button></li></ul></nav>
+    <nav aria-label="Aide"><h3>Aide</h3><ul><li><a href="#faq">Questions fréquentes</a></li><li><a href="informations.html#accessibilite">Accessibilité</a></li><li><a href="informations.html#contact">Contact</a></li><li><a href="inscription.html#connexion">Se connecter</a></li></ul></nav>
   </div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -488,10 +634,12 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
   const NAMES = ['Julien', 'Adam', 'Lyla', 'Jade'];
   let ni = 0;
-  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(() => {
+  const nextName = () => {
+    if (document.documentElement.classList.contains('calm') || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     ni = (ni + 1) % NAMES.length;
     document.querySelectorAll('.nm').forEach((el) => { el.classList.add('swap'); setTimeout(() => { el.textContent = NAMES[ni]; el.classList.remove('swap'); }, 260); });
-  }, 2600);
+  };
+  nb.addEventListener('mouseenter', nextName);
 
   const rv = document.querySelectorAll('.rv');
   if ('IntersectionObserver' in window) {
@@ -519,6 +667,38 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
       if (on) { const u = new SpeechSynthesisUtterance(pv.textContent); u.lang = 'fr-FR'; u.rate = .9; u.onend = () => sw.setAttribute('aria-checked', 'false'); speechSynthesis.speak(u); }
     }
   });
+
+  const KEY = 'passdys:reglages';
+  const read = () => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } };
+  const DEF = { font: 'lexend', size: '1', space: '1', hc: false, calm: false };
+  let R = { ...DEF, ...read() };
+  const root = document.documentElement;
+  const paint = () => {
+    root.classList.toggle('f-dys', R.font === 'dys');
+    root.classList.toggle('f-atk', R.font === 'atkinson');
+    root.classList.toggle('z', String(R.size) !== '1');
+    root.style.setProperty('--z', R.size);
+    root.classList.toggle('sp2', String(R.space) === '2');
+    root.classList.toggle('sp3', String(R.space) === '3');
+    root.classList.toggle('hc', !!R.hc);
+    root.classList.toggle('calm', !!R.calm);
+    document.querySelectorAll('#aaPanel .seg').forEach((g) => g.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(String(R[g.dataset.k]) === b.dataset.v))));
+    document.querySelectorAll('#aaPanel .sw').forEach((w) => w.setAttribute('aria-checked', String(!!R[w.dataset.k])));
+  };
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify({ ...read(), ...R })); } catch (e) {} paint(); };
+  paint();
+  const aaBtn = $('#aaBtn'); const aaP = $('#aaPanel');
+  const aaOpen = (o) => { aaP.hidden = !o; aaBtn.setAttribute('aria-expanded', String(o)); if (o) aaP.querySelector('button[aria-pressed="true"]').focus(); else aaBtn.focus(); };
+  aaBtn.addEventListener('click', (e) => { e.stopPropagation(); aaOpen(aaP.hidden); });
+  aaP.addEventListener('click', (e) => {
+    const b = e.target.closest('.seg button'); if (b) { R[b.parentElement.dataset.k] = b.dataset.v; save(); return; }
+    const w = e.target.closest('.sw'); if (w) { R[w.dataset.k] = !R[w.dataset.k]; save(); return; }
+    const a = e.target.closest('[data-aa]'); if (!a) return;
+    if (a.dataset.aa === 'close') aaOpen(false);
+    if (a.dataset.aa === 'reset') { R = { ...DEF }; save(); }
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !aaP.hidden) aaOpen(false); });
+  document.addEventListener('click', (e) => { if (!aaP.hidden && !aaP.contains(e.target) && !aaBtn.contains(e.target)) { aaP.hidden = true; aaBtn.setAttribute('aria-expanded', 'false'); } });
 
   window.toast = (msg) => { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(window.toast.t); window.toast.t = setTimeout(() => t.classList.remove('on'), 2600); };
 })();
