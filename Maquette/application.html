@@ -2220,6 +2220,186 @@ body.dm-open .topbar { display: none; }
   body.dm-open .tb-ret svg { width: 22px; height: 22px; }
   body.dm-open .tb-ret-l { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 }
+
+/* ================= Autour de moi : carte (panneau léger, fiche sur la carte) et annuaire en fiches ================= */
+.mx-sw { padding: 3px; border-radius: 10px; flex: none; }
+.mx-sw > button { min-height: 44px; padding: 0 14px; border-radius: 8px; font-size: 15px; }
+.mx-search { display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surf); color: var(--sub); box-sizing: border-box; }
+.mx-search:focus-within { outline: 3px solid var(--dem); outline-offset: 2px; }
+.mx-search input { flex: 1; min-width: 0; min-height: 46px; border: 0; outline: 0; background: transparent; font-size: 16px; color: var(--ink); }
+.mx-search input::placeholder { color: var(--sub); }
+.mx-cats { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; margin: -4px -20px -4px -4px; padding: 4px 20px 4px 4px; }
+.mx-cats::-webkit-scrollbar { display: none; }
+.mx-chip { flex: none; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surf); color: var(--ink); font-size: 15px; font-weight: 500; white-space: nowrap; }
+.mx-chip i { width: 10px; height: 10px; border-radius: 50%; }
+.mx-chip.on { background: var(--navy); border-color: var(--navy); color: var(--onnavy); }
+@media (hover: hover) { .mx-chip:not(.on):hover { border-color: var(--navy); } }
+.mx-ic { flex: none; display: grid; place-items: center; border-radius: 10px; background: var(--cb); color: var(--c); }
+.mx-av { flex: none; display: grid; place-items: center; border-radius: 50%; background: var(--cb); color: var(--c); font-weight: 600; }
+.mx-m { display: block; font-size: 15px; color: var(--sub); }
+.mx-st { display: block; font-size: 15px; font-weight: 600; color: var(--sub); }
+.mx-st.on, .mx-ok { color: var(--ok); }
+.mx-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.mx-tags span { padding: 4px 10px; border-radius: 6px; background: var(--surf2); font-size: 14px; color: var(--ink); }
+
+.mx-panel { position: absolute; z-index: 400; left: 16px; top: 16px; bottom: 16px; width: 400px; display: flex; flex-direction: column; overflow: hidden; background: var(--surf); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 6px 24px rgba(29, 43, 58, .08); }
+.mx-head { display: flex; flex-direction: column; gap: 14px; padding: 18px 20px 14px; border-bottom: 1px solid var(--line2); overflow: hidden; }
+.mx-top { display: flex; align-items: center; gap: 12px; }
+.mx-h { flex: 1; min-width: 0; font-size: 26px; letter-spacing: -.02em; }
+.mx-count { margin: 0; padding: 12px 20px 4px; font-size: 15px; color: var(--sub); }
+.mx-rows { flex: 1; min-height: 0; overflow-y: auto; list-style: none; margin: 0; padding: 0 0 8px; overscroll-behavior: contain; }
+.mx-row { display: flex; align-items: center; gap: 14px; width: 100%; min-height: 80px; padding: 12px 20px; text-align: left; color: var(--ink); }
+.mx-row .grow { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.mx-row b { font-size: 16px; font-weight: 600; }
+.mx-row > svg:last-child { flex: none; color: var(--sub); }
+.mx-row.on { background: var(--surf2); }
+@media (hover: hover) { .mx-row:hover { background: var(--surf2); } }
+.mx-fav { flex: none; display: flex; color: var(--lio); }
+.mx-empty { display: flex; flex-direction: column; gap: 4px; padding: 32px 20px; text-align: center; color: var(--sub); }
+.mx-empty b { color: var(--ink); }
+
+.mx-pop { position: absolute; z-index: 410; left: 432px; top: 16px; width: 340px; background: var(--surf); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 8px 28px rgba(29, 43, 58, .14); }
+.mx-pop-h { display: flex; align-items: flex-start; gap: 12px; padding: 16px 16px 12px; }
+.mx-pop-h .grow { min-width: 0; }
+.mx-pop-h h2 { font-size: 19px; }
+.mx-pop-h .ib { margin: -8px -8px 0 0; }
+.mx-pop-b { display: flex; flex-direction: column; gap: 8px; padding: 0 16px 14px; font-size: 15px; }
+.mx-li { display: flex; align-items: center; gap: 8px; color: var(--sub); }
+.mx-li > svg { flex: none; }
+.mx-pop-a { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding: 12px 16px 6px; border-top: 1px solid var(--line2); }
+.mx-pop-a .btn, .mx-det-a .btn, .mx-card-a .btn { min-height: 44px; padding: 0 8px; gap: 6px; border-radius: 8px; font-size: 15px; }
+.mx-more { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; min-height: 44px; margin-bottom: 4px; color: var(--dem); font-size: 15px; font-weight: 600; }
+
+.mx-det { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.mx-back { position: absolute; left: 12px; top: 12px; background: var(--surf); color: var(--ink); border-radius: 50%; }
+.mx-det-h { padding: 16px 20px 8px; }
+.mx-det-h h2 { font-size: 22px; }
+.mx-desc { margin: 8px 0 0; font-size: 15px; line-height: 1.5; }
+.mx-det-a { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding: 8px 20px 16px; border-bottom: 1px solid var(--line2); }
+.mx-det .pl-row { padding: 10px 20px; font-size: 15px; }
+.mx-hours { width: 100%; min-height: 44px; align-items: center !important; text-align: left; color: var(--ink); }
+.mx-week { width: calc(100% - 68px); margin: 0 20px 8px 48px; border-collapse: collapse; font-size: 15px; }
+.mx-week th { text-align: left; font-weight: 400; padding: 4px 0; }
+.mx-week td { text-align: right; padding: 4px 0; }
+.mx-week tr.on { font-weight: 600; }
+.mx-week tr.on th { font-weight: 600; }
+.mx-det-t { padding: 8px 20px 14px; }
+.mx-rev { padding: 16px 20px; border-top: 1px solid var(--line2); }
+.mx-rev h3 { font-size: 17px; }
+.mx-r { margin-top: 14px; }
+.mx-r p { margin: 6px 0 0; font-size: 15px; }
+.mx-star { width: 44px; height: 44px; display: grid; place-items: center; }
+.mx-demo { margin: 0; padding: 0 20px 20px; font-size: 14px; color: var(--sub); }
+.mx-mob { display: none; }
+
+@media (max-width: 1100px) and (min-width: 761px) {
+  .mx-panel { width: 360px; }
+  .mx-pop { left: 392px; width: 320px; }
+}
+@media (max-width: 760px) {
+  .mx-panel { display: none; }
+  .mx-panel.detail { display: flex; inset: 0; width: auto; border: 0; border-radius: 0; box-shadow: none; z-index: 420; }
+  #mpPop { display: none; }
+  .mx-mob { display: block; }
+  .mx-mtop { position: absolute; z-index: 405; left: 12px; right: 12px; top: 12px; display: flex; flex-direction: column; gap: 8px; }
+  .mx-mtop .mx-search { min-height: 52px; box-shadow: 0 4px 16px rgba(29, 43, 58, .10); }
+  .mx-cats-m { margin: -4px -12px -8px -4px; padding: 4px 12px 8px 4px; }
+  .mx-cats-m .mx-chip { box-shadow: 0 2px 8px rgba(29, 43, 58, .08); }
+  .mx-bottom { position: absolute; z-index: 405; left: 0; right: 0; bottom: 12px; display: flex; flex-direction: column; align-items: center; gap: 10px; pointer-events: none; }
+  .mx-bottom > * { pointer-events: auto; }
+  .mx-listbtn { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 22px; background: var(--ink); color: var(--bg); font-size: 15px; font-weight: 600; white-space: nowrap; box-shadow: 0 4px 12px rgba(29, 43, 58, .25); }
+  .mx-cards { width: 100%; box-sizing: border-box; display: flex; gap: 10px; padding: 0 16px 4px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 16px; scrollbar-width: none; }
+  .mx-cards::-webkit-scrollbar { display: none; }
+  .mx-card { flex: 0 0 calc(100% - 56px); max-width: 360px; box-sizing: border-box; scroll-snap-align: start; display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 14px 16px; background: var(--surf); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 6px 20px rgba(29, 43, 58, .12); }
+  .mx-card.on { border: 2px solid var(--ink); padding: 13px 15px; }
+  .mx-card.mx-empty { flex-basis: 100%; }
+  .mx-card-h { display: flex; align-items: center; gap: 12px; }
+  .mx-card-h .grow { min-width: 0; }
+  .mx-card-h h2 { font-family: var(--font); font-size: 17px; font-weight: 600; letter-spacing: 0; }
+  .mx-card-a { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 2px; }
+  .mp .leaflet-control-zoom { display: none; }
+}
+
+.ax-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+.ax-top .t1 { margin: 0; }
+.ax-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 20px; }
+.ax-q { flex: 1 1 360px; max-width: 560px; min-height: 50px; }
+.ax-tgs { display: flex; flex-wrap: wrap; gap: 8px; }
+.ax-tg { display: inline-flex; align-items: center; gap: 6px; min-height: 48px; padding: 0 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surf); color: var(--ink); font-size: 15px; font-weight: 500; white-space: nowrap; }
+.ax-tg.on { border-color: var(--lio); background: var(--lio-bg); color: var(--lio); font-weight: 600; }
+.ax-n1 { min-width: 22px; padding: 0 6px; border-radius: 6px; background: var(--navy); color: var(--onnavy); font-size: 14px; text-align: center; }
+.ax-tabs { display: flex; gap: 8px; margin-top: 24px; border-bottom: 1px solid var(--line); overflow-x: auto; scrollbar-width: none; }
+.ax-tabs::-webkit-scrollbar { display: none; }
+.ax-tab { flex: none; display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 6px; margin-bottom: -1px; border-bottom: 3px solid transparent; color: var(--sub); font-size: 16px; font-weight: 500; }
+.ax-tab span { padding: 1px 8px; border-radius: 6px; background: var(--surf2); font-size: 14px; color: var(--sub); }
+.ax-tab.on { border-bottom-color: var(--navy); color: var(--ink); font-weight: 600; }
+.ax-count { margin: 16px 0 14px; font-size: 15px; color: var(--sub); }
+.ax-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.ax-card { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 24px 20px 20px; background: var(--surf); border: 1px solid var(--line); border-radius: 12px; text-align: center; }
+.ax-av { width: 64px; height: 64px; display: grid; place-items: center; border-radius: 50%; background: var(--cb); color: var(--c); box-shadow: 0 0 0 2px var(--surf), 0 0 0 4px var(--c); font-size: 20px; font-weight: 600; }
+.ax-n { margin: 4px 0 0; font-size: 19px; }
+.ax-pill { padding: 3px 12px; border-radius: 6px; background: var(--cb); color: var(--c); font-size: 14px; font-weight: 600; }
+.ax-d { flex: 1; margin: 2px 0 0; font-size: 15px; line-height: 1.5; color: var(--sub); }
+.ax-ad { display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--sub); }
+.ax-ad svg { flex: none; }
+.ax-st { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--sub); }
+.ax-st i { width: 8px; height: 8px; border-radius: 50%; background: var(--sub); }
+.ax-st.on { color: var(--ok); } .ax-st.on i { background: var(--ok); }
+.ax-acts { display: flex; gap: 8px; width: 100%; margin-top: 6px; }
+.ax-acts .btn { flex: 1; min-height: 46px; border-radius: 8px; }
+.ax-call { width: 46px; height: 46px; border-radius: 8px; background: var(--dem-bg); color: var(--dem); }
+.ax-empty { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 4px; padding: 40px 20px; text-align: center; color: var(--sub); }
+.ax-empty b { color: var(--ink); }
+.ax-more { display: flex; flex-direction: column; gap: 2px; margin: 16px 0; }
+.ax-chk { display: flex; align-items: center; gap: 12px; min-height: 48px; font-size: 16px; }
+.ax-chk input { width: 22px; height: 22px; accent-color: var(--navy); }
+@media (max-width: 600px) {
+  .ax-q { flex-basis: 100%; max-width: none; }
+  .ax-tgs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: -4px -16px -4px -4px; padding: 4px 16px 4px 4px; }
+  .ax-tgs::-webkit-scrollbar { display: none; }
+  .ax-tabs { margin-right: -16px; padding-right: 16px; }
+  .ax-card { padding: 20px 16px 16px; }
+}
+/* contraste : texte coloré sur fond pâle ou gris, un peu plus foncé en clair, un peu plus clair en sombre */
+.mx-av, .ax-av, .ax-pill { color: color-mix(in srgb, var(--c) 72%, var(--ink)); }
+.mx-st.on, .mx-ok, .ax-st.on, .ax-tg.on { color: color-mix(in srgb, var(--ok) 80%, var(--ink)); }
+.mx-rev .btn { min-height: 44px; }
+.ax-demo { margin: 16px 0 0; font-size: 14px; color: var(--sub); }
+/* catégories : une icône de la couleur de la catégorie, et le fond de la catégorie quand elle est choisie */
+.mx-chip > svg { color: var(--c); }
+.mx-chip.on { background: var(--cb); border-color: var(--c); color: color-mix(in srgb, var(--c) 72%, var(--ink)); font-weight: 600; }
+.mx-chip.on > svg { color: currentColor; }
+@media (hover: hover) { .mx-chip:not(.on):hover { border-color: var(--c); } }
+/* panneau de la carte : on peut le masquer sur ordinateur */
+.mx-hide { margin-right: -8px; }
+.mx-show { position: absolute; z-index: 400; left: 16px; top: 16px; min-height: 48px; border-radius: 10px; box-shadow: 0 4px 16px rgba(29, 43, 58, .12); }
+@media (min-width: 761px) {
+  .mp.list-off .mx-panel { display: none; }
+  .mp.list-off .mx-pop { left: 16px; top: 80px; }
+}
+@media (max-width: 760px) { .mx-hide, .mx-show { display: none !important; } }
+.mx-top { gap: 8px; }
+.mx-h { font-size: 23px; white-space: nowrap; }
+.mx-top .mx-sw > button { padding: 0 11px; }
+/* annuaire : les catégories comme des intercalaires de classeur, chacune à sa couleur */
+.ax-tabs { align-items: flex-end; gap: 4px; padding-top: 6px; border-bottom: 3px solid var(--c); }
+.ax-tab { min-height: 46px; padding: 0 14px; margin-bottom: 0; border: 0; border-radius: 8px 8px 0 0; background: var(--cb); color: color-mix(in srgb, var(--c) 72%, var(--ink)); }
+.ax-tab > svg { flex: none; }
+.ax-tab span { background: color-mix(in srgb, currentColor 14%, transparent); color: inherit; }
+.ax-tab.on { min-height: 54px; background: var(--c); color: var(--surf); }
+@media (hover: hover) { .ax-tab:not(.on):hover { background: color-mix(in srgb, var(--c) 22%, var(--cb)); } }
+/* panneau de la carte : il glisse vers la gauche quand on le masque, et revient en glissant */
+@keyframes mxShowIn { from { opacity: 0; transform: translateX(-8px); } }
+@media (min-width: 761px) {
+  .mx-panel { transition: transform .3s cubic-bezier(.2, .7, .2, 1), visibility 0s linear 0s; }
+  .mp.list-off .mx-panel { display: flex; transform: translateX(-110%); visibility: hidden; transition: transform .3s cubic-bezier(.2, .7, .2, 1), visibility 0s linear .3s; }
+  .mx-pop { transition: left .3s cubic-bezier(.2, .7, .2, 1), top .3s cubic-bezier(.2, .7, .2, 1); }
+  .mx-show:not([hidden]) { animation: mxShowIn .2s ease-out .18s both; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mx-panel, .mp.list-off .mx-panel, .mx-pop { transition: none; }
+  .mx-show:not([hidden]) { animation: none; }
+}
 </style>
 <style>/* required styles */
 
@@ -3007,17 +3187,14 @@ svg.leaflet-image-layer.leaflet-interactive path {
     <div class="row fade" style="max-width: 900px; margin-top: 22px; align-items: flex-start;"><div class="float"><svg class="lio-m" width="85" height="69" viewBox="28 42 272 222" aria-hidden="true"><defs><clipPath id="lb15"><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z"/></clipPath><clipPath id="lc15"><path d="M70 130 C72 58 230 56 234 126 Z"/></clipPath></defs><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z" fill="#9fdcd5"/><g clip-path="url(#lb15)"><ellipse cx="160" cy="262" rx="150" ry="48" fill="#7cc7bf"/></g><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z" fill="none" stroke="#21293f" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/><g class="lio-cap"><path d="M70 130 C72 58 230 56 234 126 Z" fill="#116176" stroke="#21293f" stroke-width="11" stroke-linejoin="round"/><path d="M92 100 C108 78 146 70 174 76 C146 80 120 90 104 108 Z" fill="#1b7a92" clip-path="url(#lc15)"/><path d="M214 118 C246 110 278 116 286 132 C260 142 230 140 206 132 Z" fill="#116176" stroke="#21293f" stroke-width="11" stroke-linejoin="round"/><circle cx="152" cy="66" r="9" fill="#21293f"/></g><g class="lio-eyes"><ellipse cx="128" cy="160" rx="11" ry="15" fill="#21293f"/><ellipse cx="186" cy="160" rx="11" ry="15" fill="#21293f"/><circle cx="132" cy="154" r="4" fill="#fff"/><circle cx="190" cy="154" r="4" fill="#fff"/></g><ellipse cx="96" cy="186" rx="13" ry="8" fill="#f7a58c"/><ellipse cx="220" cy="186" rx="13" ry="8" fill="#f7a58c"/><path class="lio-mouth" d="M126 194 C140 214 176 214 190 194" fill="none" stroke="#21293f" stroke-width="11" stroke-linecap="round"/></svg></div><div class="bubble grow"><span class="tiny muted" id="trCount">Question 1 sur 4</span><p id="trQ" style="font-size: 21px; font-weight: 600; margin-top: 4px;"></p></div></div>
     <div id="trA" style="max-width: 900px;"></div>
     <div class="row" style="max-width: 900px; margin-top: 20px; gap: 10px;"><input class="field" id="trInput" placeholder="Réponds ici, ou appuie sur le micro"><button class="lio-mic" style="background: #34475F;" data-act="trMic" aria-label="Répondre à voix haute"><svg width="22" height="22" viewBox="0 0 256 256" fill="#fff" aria-hidden="true" style="flex-shrink:0"><path d="M128,176a48.05,48.05,0,0,0,48-48V64a48,48,0,0,0-96,0v64A48.05,48.05,0,0,0,128,176ZM96,64a32,32,0,0,1,64,0v64a32,32,0,0,1-64,0Zm40,143.6V240a8,8,0,0,1-16,0V207.6A80.11,80.11,0,0,1,48,128a8,8,0,0,1,16,0,64,64,0,0,0,128,0,8,8,0,0,1,16,0A80.11,80.11,0,0,1,136,207.6Z"/></svg></button><button class="btn pri" data-act="trSend">Répondre</button></div></div></section>
-<section class="screen" data-id="lieux"><div class="mp"><div id="map"></div>
-    <div class="seg mp-switch"><button class="on"><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M228.92,49.69a8,8,0,0,0-6.86-1.45L160.93,63.52,99.58,32.84a8,8,0,0,0-5.52-.6l-64,16A8,8,0,0,0,24,56V200a8,8,0,0,0,9.94,7.76l61.13-15.28,61.35,30.68A8.15,8.15,0,0,0,160,224a8,8,0,0,0,1.94-.24l64-16A8,8,0,0,0,232,200V56A8,8,0,0,0,228.92,49.69ZM104,52.94l48,24V203.06l-48-24ZM40,62.25l48-12v127.5l-48,12Zm176,131.5-48,12V78.25l48-12Z"/></svg>Carte</button><button data-act="go" data-to="annuaire"><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M80,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H88A8,8,0,0,1,80,64Zm136,56H88a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Zm0,64H88a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16ZM44,52A12,12,0,1,0,56,64,12,12,0,0,0,44,52Zm0,64a12,12,0,1,0,12,12A12,12,0,0,0,44,116Zm0,64a12,12,0,1,0,12,12A12,12,0,0,0,44,180Z"/></svg>Annuaire</button></div>
-    <button class="btn sec mp-open" data-act="mpToggle" hidden><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM40,56H80V200H40ZM216,200H96V56H216V200Z"/></svg>Liste</button>
-    <aside class="mp-panel" id="mpPanel" aria-label="Lieux"></aside></div></section>
-<section class="screen" data-id="annuaire"><div class="page"><div class="page-h fade"><div><h1 class="t1">Annuaire</h1><p class="lead">Les professionnels près de chez toi. Tu prends rendez-vous sur leur site.</p></div><div class="seg"><button data-act="go" data-to="lieux"><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M228.92,49.69a8,8,0,0,0-6.86-1.45L160.93,63.52,99.58,32.84a8,8,0,0,0-5.52-.6l-64,16A8,8,0,0,0,24,56V200a8,8,0,0,0,9.94,7.76l61.13-15.28,61.35,30.68A8.15,8.15,0,0,0,160,224a8,8,0,0,0,1.94-.24l64-16A8,8,0,0,0,232,200V56A8,8,0,0,0,228.92,49.69ZM104,52.94l48,24V203.06l-48-24ZM40,62.25l48-12v127.5l-48,12Zm176,131.5-48,12V78.25l48-12Z"/></svg>Carte</button><button class="on"><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M80,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H88A8,8,0,0,1,80,64Zm136,56H88a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Zm0,64H88a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16ZM44,52A12,12,0,1,0,56,64,12,12,0,0,0,44,52Zm0,64a12,12,0,1,0,12,12A12,12,0,0,0,44,116Zm0,64a12,12,0,1,0,12,12A12,12,0,0,0,44,180Z"/></svg>Annuaire</button></div></div>
-    <div class="mp-search fade" style="max-width: 560px;"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></svg><input id="anSearch" placeholder="Nom, spécialité, quartier…"></div>
-    <div class="chips fade" id="anSpecs" style="margin-top: 14px;"></div>
-    <div class="chips fade" id="anFilters" style="margin-top: 8px;"></div>
-    <p class="small muted" id="anCount" style="margin: 18px 0 10px;"></p>
-    <div class="card fade" id="anList" style="overflow: hidden;"></div>
-    <p class="tiny mute" style="margin-top: 12px;">Source : Annuaire Santé (CNAM). Données fictives de démonstration.</p></div></section>
+<section class="screen" data-id="lieux"><div class="mp"><div id="map" role="region" aria-label="Carte des lieux"></div>
+    <aside class="mx-panel" id="mpPanel" aria-label="Lieux et soignants"></aside><button class="btn sec mx-show" id="mpShow" data-act="mpShow" hidden><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM40,56H80V200H40ZM216,200H96V56H216V200Z"/></svg>Afficher la liste</button><div id="mpPop"></div><div class="mx-mob" id="mpM"></div></div></section>
+<section class="screen" data-id="annuaire"><div class="page"><div class="ax-top fade"><h1 class="t1">Autour de moi</h1><div class="seg mx-sw" role="group" aria-label="Affichage"><button aria-pressed="false" data-act="go" data-to="lieux">Carte</button><button class="on" aria-pressed="true">Annuaire</button></div></div>
+    <div class="ax-bar fade"><label class="mx-search ax-q"><svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></svg><span class="vh">Rechercher un lieu ou un soignant</span><input id="anSearch" type="search" placeholder="Un nom, un métier, un quartier" autocomplete="off"></label><div class="ax-tgs" id="anBar"></div></div>
+    <div class="ax-tabs fade" id="anTabs" role="group" aria-label="Catégories"></div>
+    <p class="ax-count" id="anCount" aria-live="polite"></p>
+    <ul class="ax-grid fade" id="anList"></ul>
+    <p class="ax-demo">Données fictives de démonstration.</p></div></section>
 <section class="screen" data-id="coffre"><div class="page"><div id="cfView"></div></div></section>
 <section class="screen" data-id="besoins"><div class="page"><div id="bsView"></div></div></section>
 <section class="screen" data-id="reglages"><div class="page"><div class="page-h fade"><div><h1 class="t1">Réglages</h1><p class="lead">Tout s’applique tout de suite, partout.</p></div></div>
@@ -3203,8 +3380,8 @@ ACT.go = (el) => go(el.dataset.to);
 addEventListener('hashchange', () => { const id = location.hash.slice(1); if (id !== cur()) show(id); });
 document.addEventListener('DOMContentLoaded', () => show(location.hash.slice(1) || 'accueil'));
 
-const TITLES = { boutique: 'Boutique dys', accueil: 'Accueil', demarches: 'Démarches', mails: 'Écrire un mail', lio: 'Lio', lire: 'Lire', calculer: 'Calculer', reformuler: 'Reformuler', organiser: 'Organiser', ecrire: 'Écrire', entrainer: 'S’entraîner', lieux: 'Autour de moi', annuaire: 'Annuaire', coffre: 'Coffre', besoins: 'Ma carte', reglages: 'Réglages' };
-const PARENT = { boutique: 'accueil', mails: 'accueil', lio: 'accueil', lire: 'lio', calculer: 'lio', reformuler: 'lio', organiser: 'lio', ecrire: 'lio', entrainer: 'lio', annuaire: 'lieux', reglages: 'accueil' };
+const TITLES = { boutique: 'Boutique dys', accueil: 'Accueil', demarches: 'Démarches', mails: 'Écrire un mail', lio: 'Lio', lire: 'Lire', calculer: 'Calculer', reformuler: 'Reformuler', organiser: 'Organiser', ecrire: 'Écrire', entrainer: 'S’entraîner', lieux: 'Autour de moi', annuaire: 'Autour de moi', coffre: 'Coffre', besoins: 'Ma carte', reglages: 'Réglages' };
+const PARENT = { boutique: 'accueil', mails: 'accueil', lio: 'accueil', lire: 'lio', calculer: 'lio', reformuler: 'lio', organiser: 'lio', ecrire: 'lio', entrainer: 'lio', reglages: 'accueil' };
 const scrolled = () => document.body.classList.toggle('scrolled', scrollY > 64);
 addEventListener('scroll', scrolled, { passive: true });
 function topbar() {
@@ -4195,138 +4372,42 @@ ENTER.mails = () => {
   mlRender();
 };
 
-const LCAT = {
-  lib: ['Bibliothèques', '#3B64A8', 'library'], ortho: ['Orthophonistes', '#B4533A', 'health'], asso: ['Associations', '#6552C9', 'hands'],
-  ulis: ['Dispositifs ULIS', '#8A6412', 'school'], handi: ['Services handicap', '#2F7F77', 'shield'], bilan: ['Centres de bilan', '#34475F', 'target'],
+/* ---------- Autour de moi : une seule liste de lieux et de soignants, vue en carte ou en annuaire */
+const FAM = { soin: ['Soignants', 'aut', 'health'], bilan: ['Bilans', 'vio', 'target'], etudes: ['Études', 'dem', 'school'], lire: ['Lecture', 'lio', 'library'], fam: ['Associations', 'car', 'hands'] };
+const FAMHEX = { soin: '#B4533A', bilan: '#6552C9', etudes: '#3B64A8', lire: '#2F7F77', fam: '#8A6412' };
+const CATFAM = { lib: ['lire', 'Bibliothèque'], ortho: ['soin', 'Orthophoniste'], asso: ['fam', 'Association'], ulis: ['etudes', 'Dispositif ULIS'], handi: ['etudes', 'Service handicap'], bilan: ['bilan', 'Centre de bilan'] };
+const DESC = {
+  Orthophoniste: 'Aide à lire, écrire, parler et compter plus facilement.',
+  Ergothérapeute: 'Aide pour l’écriture à la main, l’ordinateur et l’organisation.',
+  Psychomotricien: 'Travaille les gestes, l’équilibre et l’attention.',
+  Orthoptiste: 'Rééduque les yeux quand lire fatigue vite.',
+  Neuropsychologue: 'Fait le bilan qui confirme un trouble dys.',
+  Psychologue: 'Écoute et aide à reprendre confiance.',
+  'Médecin généraliste': 'Oriente vers les bons soignants et fait les ordonnances.',
+  'Centre de bilan': 'Bilans complets avec plusieurs spécialistes.',
+  Bibliothèque: 'Livres audio, gros caractères et coins calmes.',
+  Association: 'Écoute, conseils et aide pour les dossiers.',
+  'Dispositif ULIS': 'Une classe avec un enseignant spécialisé.',
+  'Service handicap': 'Aménagements d’examens et matériel adapté.',
 };
 const HRS = { lib: ['Fermé', '10:00–19:00', '10:00–19:00', '10:00–20:00', '10:00–19:00', '10:00–18:00', '13:00–18:00'], cab: ['09:00–19:00', '09:00–19:00', '09:00–19:00', '09:00–19:00', '09:00–17:00', 'Fermé', 'Fermé'], asso: ['Fermé', '14:00–18:00', 'Fermé', '14:00–20:00', 'Fermé', '10:00–13:00', 'Fermé'], ecole: ['08:30–16:30', '08:30–16:30', '08:30–12:00', '08:30–16:30', '08:30–16:30', 'Fermé', 'Fermé'], fac: ['09:00–17:00', '09:00–17:00', '09:00–17:00', '09:00–17:00', '09:00–16:00', 'Fermé', 'Fermé'] };
-const PL = [
-  [1, 'Médiathèque des Tilleuls', 'lib', 49.0386, 2.0772, 4.7, 214, '2 place des Tilleuls, Cergy', 'lib', ['Livres audio', 'Format DAISY', 'Gros caractères', 'Personnel formé'], [['Inès M.', 5, 'Le rayon livres audio est super. On m’a montré comment emprunter en DAISY.'], ['Paul R.', 5, 'Salle calme parfaite pour réviser.']]],
-  [2, 'Bibliothèque des Linandes', 'lib', 49.0452, 2.0573, 4.5, 98, '5 rue des Linandes, Cergy', 'lib', ['Livres audio', 'Postes avec synthèse vocale'], [['Jules D.', 5, 'Les postes avec synthèse vocale m’ont aidé pour mes fiches.']]],
-  [3, 'Médiathèque des Bords de l’Oise', 'lib', 49.0498, 2.0985, 4.4, 156, '14 quai de l’Oise, Pontoise', 'lib', ['Livres audio', 'Club lecture facile'], [['Nora B.', 4, 'Le club lecture facile du mercredi est top.']]],
-  [4, 'Cabinet d’orthophonie des Chênes', 'ortho', 49.0322, 2.069, 4.8, 64, '27 avenue des Chênes, Cergy', 'cab', ['Bilans adultes', 'Secteur 1', 'Tiers payant'], [['Camille T.', 5, 'Bilan adulte fait à 24 ans, très à l’écoute.']]],
-  [5, 'Orthophonie du Port', 'ortho', 49.0285, 2.059, 4.6, 41, '8 rue du Port, Cergy', 'cab', ['Enfants et ados', 'Secteur 1'], [['Amadou A.', 5, 'Ma fille y va depuis un an, beaucoup de progrès.']]],
-  [6, 'Cabinet des Linandes', 'ortho', 49.0466, 2.0532, 4.3, 27, '3 allée des Linandes, Cergy', 'cab', ['Adultes', 'Téléconsultation'], [['Hugo F.', 4, 'Bon suivi, trois semaines d’attente.']]],
-  [7, 'Association Dys’Oise', 'asso', 49.04, 2.0812, 4.9, 132, '15 rue de la Gare, Cergy', 'asso', ['Permanence le jeudi', 'Aide au dossier MDPH', 'Groupe de parents'], [['Samir C.', 5, 'Ils m’ont aidé à remplir le dossier MDPH en une soirée.'], ['Léa A.', 5, 'On se sent compris.']]],
-  [8, 'Café des parents dys', 'asso', 49.052, 2.042, 4.6, 58, '40 rue du Hazay, Cergy', 'asso', ['Rencontres le samedi'], [['Nadia C.', 5, 'Un lieu pour souffler entre parents.']]],
-  [9, 'Collège des Cerisiers · ULIS', 'ulis', 49.0255, 2.041, 4.2, 19, '6 rue des Cerisiers, Vauréal', 'ecole', ['ULIS collège', 'AESH présents'], [['Karine V.', 4, 'Équipe ULIS très investie.']]],
-  [10, 'École du Parc · ULIS', 'ulis', 49.056, 2.03, 4.1, 12, '22 rue du Parc, Cergy', 'ecole', ['ULIS école', 'Petits effectifs'], []],
-  [11, 'Relais handicap · Campus des Chênes', 'handi', 49.0338, 2.0718, 4.4, 77, '33 boulevard du Port, Cergy', 'fac', ['Aménagements d’examens', 'Preneurs de notes'], [['Adam C.', 4, 'Réponse rapide par mail, rendez-vous dans la semaine.']]],
-  [12, 'Mission handicap · Campus Saint-Martin', 'handi', 49.0507, 2.0935, 4.0, 33, '2 rue Saint-Martin, Pontoise', 'fac', ['Matériel en prêt'], [['Inès C.', 4, 'Prêt d’ordinateur pour les partiels.']]],
-  [13, 'Centre de bilan adultes Saint-Christophe', 'bilan', 49.043, 2.041, 4.5, 46, '74 rue de la Croix, Cergy', 'cab', ['Bilans adultes', 'Neuropsychologie'], [['Sofia R.', 5, 'Diagnostiquée à 27 ans ici. Tout a pris du sens.']]],
-  [14, 'Centre de référence des apprentissages', 'bilan', 49.0595, 2.069, 4.3, 88, '149 avenue de la Palette, Osny', 'fac', ['Bilans pluridisciplinaires', 'Enfants et adultes'], [['Amadou A.', 4, 'Long à obtenir, mais très complet.']]],
-].map(([id, name, cat, lat, lng, rating, count, addr, h, feats, rev]) => ({ id, name, cat, lat, lng, rating, count, addr, h: HRS[h], feats, rev: rev.map(([a, r, t]) => ({ a, r, t })), tel: `01 99 00 ${20 + id} ${10 + id * 3}` }));
 const HOME = [49.0365, 2.0745];
-const LI = { cat: 'all', tab: 'tous', q: '', sel: null, fav: new Set([7]), recent: [11, 4], map: null, mk: {}, hours: false, stars: 0 };
-const km = (a, b) => { const r = Math.PI / 180, x = Math.sin((b[0] - a[0]) * r / 2) ** 2 + Math.cos(a[0] * r) * Math.cos(b[0] * r) * Math.sin((b[1] - a[1]) * r / 2) ** 2; return 12742 * Math.asin(Math.sqrt(x)); };
-const fkm = (d) => (d < 1 ? `${Math.round(d * 20) * 50} m` : `${d.toFixed(1).replace('.', ',')} km`);
-const JOURS = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'];
-function openNow(p) {
-  const n = new Date(); const di = (n.getDay() + 6) % 7; const m = n.getHours() * 60 + n.getMinutes();
-  const pr = (s) => (s === 'Fermé' ? null : s.split('–').map((x) => { const [h, mm] = x.split(':').map(Number); return h * 60 + mm; }));
-  const t = pr(p.h[di]);
-  if (t && m >= t[0] && m < t[1]) return [true, `Ouvert · ferme à ${p.h[di].split('–')[1].replace(':', ' h ')}`];
-  if (t && m < t[0]) return [false, `Fermé · ouvre à ${p.h[di].split('–')[0].replace(':', ' h ')}`];
-  for (let k = 1; k < 8; k++) { const j = (di + k) % 7; if (p.h[j] !== 'Fermé') return [false, `Fermé · ouvre ${k === 1 ? 'demain' : JOURS[j]}`]; }
-  return [false, 'Fermé'];
-}
-const stars = (r, s = 13) => Array.from({ length: 5 }, (_, i) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink:0"><path d="${P.star.match(/d="([^"]+)"/)[1]}" fill="${i < Math.round(r) ? '#E3A21A' : 'none'}" stroke="${i < Math.round(r) ? '#E3A21A' : 'var(--mute)'}" stroke-width="1.6" stroke-linejoin="round"></path></svg>`).join('');
-function photo(p, h = 170) {
-  const c = LCAT[p.cat][1];
-  const sky = ['#DCEBF5', '#F6E7D6', '#E4EEE3'][p.id % 3];
-  const w = 380;
-  const win = Array.from({ length: 4 }, (_, i) => `<rect x="${84 + i * 57}" y="${h * .34}" width="34" height="${h * .15}" rx="3" fill="#BFD3E2"></rect><rect x="${84 + i * 57}" y="${h * .56}" width="34" height="${h * .15}" rx="3" fill="#BFD3E2"></rect>`).join('');
-  return `<svg viewBox="0 0 ${w} ${h}" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="${w}" height="${h}" fill="${sky}"></rect><circle cx="${w * .88}" cy="${h * .18}" r="${h * .08}" fill="#FBE7A1"></circle><rect x="${w * .14}" y="${h * .22}" width="${w * .72}" height="${h * .66}" fill="#F4EDE1"></rect>${win}<rect x="${w * .14}" y="${h * .14}" width="${w * .72}" height="${h * .09}" rx="4" fill="${c}"></rect><rect x="${w * .45}" y="${h * .66}" width="${w * .1}" height="${h * .22}" rx="3" fill="${c}"></rect><rect y="${h * .88}" width="${w}" height="${h * .12}" fill="#CFC9BD"></rect><circle cx="${w * .06}" cy="${h * .8}" r="${h * .12}" fill="#9CC59A"></circle><circle cx="${w * .95}" cy="${h * .82}" r="${h * .1}" fill="#9CC59A"></circle></svg>`;
-}
-function liData() {
-  let l = PL.map((p) => ({ ...p, d: km(HOME, [p.lat, p.lng]) }));
-  if (LI.tab === 'fav') l = l.filter((p) => LI.fav.has(p.id));
-  if (LI.tab === 'rec') l = LI.recent.map((id) => l.find((p) => p.id === id)).filter(Boolean);
-  if (LI.cat !== 'all') l = l.filter((p) => p.cat === LI.cat);
-  if (LI.q) l = l.filter((p) => `${p.name} ${p.addr} ${LCAT[p.cat][0]}`.toLowerCase().includes(LI.q));
-  return LI.tab === 'rec' ? l : l.sort((a, b) => a.d - b.d);
-}
-function liPanel() {
-  const l = liData();
-  const head = `<div class="mp-head"><div class="row"><div class="grow"><h2 style="font-size: 23px;">Autour de moi</h2><span class="small muted">${l.length} lieu${l.length > 1 ? 'x' : ''}</span></div><button class="ib" data-act="mpToggle" aria-label="Masquer le panneau" title="Masquer le panneau">${ic('sidebar')}</button></div>
-    <label class="mp-search">${ic('search', 18)}<input id="mpQ" placeholder="Rechercher un lieu, une adresse…" value="${esc(LI.q)}" aria-label="Rechercher"></label>
-    <div class="mp-tabs">${[['tous', 'Tous'], ['fav', 'Favoris'], ['rec', 'Récents']].map(([k, t]) => `<button class="${LI.tab === k ? 'on' : ''}" data-act="mpTab" data-t="${k}">${t}</button>`).join('')}</div>
-    <div class="chips"><button class="chip${LI.cat === 'all' ? ' on' : ''}" data-act="mpCat" data-c="all">${ic('grid', 15)}Tout afficher</button>${Object.entries(LCAT).map(([k, [t, , i]]) => `<button class="chip${LI.cat === k ? ' on' : ''}" data-act="mpCat" data-c="${k}">${ic(i, 15)}${t}</button>`).join('')}</div></div>`;
-  let body;
-  const p = LI.sel && PL.find((x) => x.id === LI.sel);
-  if (p) {
-    const [o, ot] = openNow(p);
-    const di = (new Date().getDay() + 6) % 7;
-    body = `<div class="mp-list"><div class="pl-photo">${photo(p)}<button class="ib" data-act="mpBack" aria-label="Retour à la liste" style="position: absolute; left: 12px; top: 12px; background: var(--surf); border-radius: 50%; width: 38px; height: 38px;">${ic('left', 18)}</button></div>
-      <div style="padding: 16px 16px 4px;"><h3 style="font-size: 21px;">${esc(p.name)}</h3><div class="row small" style="gap: 6px; margin-top: 4px;"><b>${String(p.rating).replace('.', ',')}</b><span class="row" style="gap: 1px;">${stars(p.rating)}</span><span class="muted">(${p.count})</span></div><div class="small muted">${LCAT[p.cat][0]} · ${fkm(km(HOME, [p.lat, p.lng]))}</div></div>
-      <div class="pl-acts"><a class="pl-act" href="https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}" target="_blank" rel="noopener"><span class="c" style="background: var(--navy); border-color: var(--navy); color: var(--onnavy);">${ic('nav', 18)}</span>Itinéraire</a><button class="pl-act" data-act="mpFav"><span class="c" style="${LI.fav.has(p.id) ? 'color: var(--lio); border-color: var(--lio);' : ''}">${ic('bookmark', 18)}</span>${LI.fav.has(p.id) ? 'Enregistré' : 'Enregistrer'}</button><button class="pl-act" data-act="mpShare"><span class="c">${ic('share', 18)}</span>Partager</button><button class="pl-act" data-act="mpCall"><span class="c">${ic('phone', 18)}</span>Appeler</button></div>
-      <div class="pl-row">${ic('pin', 18, 'var(--aut)')}<span>${esc(p.addr)}</span></div>
-      <button class="pl-row" data-act="mpHours" style="width: 100%; text-align: left;">${ic('clock', 18, 'var(--aut)')}<span class="grow"><b style="color: ${o ? 'var(--ok)' : 'var(--bad)'}; font-weight: 600;">${ot.split(' · ')[0]}</b> · ${ot.split(' · ')[1] || ''}</span>${ic(LI.hours ? 'up' : 'down', 16)}</button>
-      ${LI.hours ? `<div style="padding: 0 16px 8px 48px;">${JOURS.map((j, i) => `<div class="row small" style="justify-content: space-between; ${i === di ? 'font-weight: 700;' : ''}"><span>${j.charAt(0).toUpperCase() + j.slice(1)}</span><span>${p.h[i].replace(/:/g, ' h ').replace('–', ' – ')}</span></div>`).join('')}</div>` : ''}
-      <div class="pl-row">${ic('phone', 18, 'var(--aut)')}<span>${p.tel}</span></div>
-      <div style="padding: 8px 16px 14px;"><div class="row wrap" style="gap: 6px;">${p.feats.map((f) => `<span class="pill lio">${esc(f)}</span>`).join('')}</div></div>
-      <div style="padding: 14px 16px; border-top: 1px solid var(--line2);"><div class="row"><b class="grow">Avis</b><button class="btn ghost sm" data-act="mpWrite">${ic('edit', 15)}Écrire un avis</button></div>
-        <div id="mpForm" hidden style="margin-top: 10px;"><div class="row" style="gap: 2px;" id="mpStars">${[1, 2, 3, 4, 5].map((n) => `<button data-act="mpStar" data-n="${n}" aria-label="${n} étoile${n > 1 ? 's' : ''}">${stars(n <= LI.stars ? 5 : 0, 26).split('</svg>')[n - 1]}</svg></button>`).join('')}</div><textarea class="field" id="mpTxt" placeholder="Ce qui t’a aidé" style="min-height: 80px; margin-top: 8px;"></textarea><button class="btn pri sm" data-act="mpPub" style="margin-top: 8px;">Publier</button></div>
-        ${p.rev.map((r) => `<div style="margin-top: 14px;"><div class="row small" style="gap: 8px;"><span class="av" style="background: #D2E2F6;">${r.a.split(' ').map((x) => x[0]).join('')}</span><b>${esc(r.a)}</b><span class="row" style="gap: 1px;">${stars(r.r, 12)}</span></div><p class="small" style="margin-top: 6px;">${esc(r.t)}</p></div>`).join('') || '<p class="small muted" style="margin-top: 8px;">Pas encore d’avis.</p>'}</div>
-      <p class="tiny mute" style="padding: 0 16px 16px;">Données fictives de démonstration.</p></div>`;
-  } else {
-    body = `<div class="mp-list">${l.map((x) => { const [o, ot] = openNow(x); return `<button class="mp-item" data-act="mpSel" data-id="${x.id}" data-hov="${x.id}"><span class="mp-ico" style="background: ${LCAT[x.cat][1]};">${ic(LCAT[x.cat][2], 19, '#fff', 2)}</span><span class="grow"><b style="font-weight: 600; display: block;">${esc(x.name)}</b><span class="small muted">${LCAT[x.cat][0]} · ${fkm(x.d)}</span><span class="row small" style="gap: 6px; margin-top: 2px;"><span style="color: ${o ? 'var(--ok)' : 'var(--bad)'}; font-weight: 600;">${ot.split(' · ')[0]}</span><span class="muted">· ${String(x.rating).replace('.', ',')}</span>${ic('star', 13, '#E3A21A')}</span></span>${LI.fav.has(x.id) ? ic('bookmark', 16, 'var(--lio)') : ''}</button>`; }).join('') || `<div class="empty"><span class="circle">${ic('map', 24)}</span><b style="color: var(--ink);">Aucun résultat</b><span class="small">Aucun lieu ne correspond à ces critères.</span></div>`}</div>`;
-  }
-  $('#mpPanel').innerHTML = `<button class="mp-grab" data-act="mpGrab" aria-label="Agrandir ou réduire la liste"><i></i></button>${head}${body}`;
-  liMarkers();
-}
-function liMarkers() {
-  if (!LI.map) return;
-  Object.values(LI.mk).forEach((m) => m.remove());
-  LI.mk = {};
-  liData().forEach((p) => {
-    const sel = p.id === LI.sel;
-    const m = L.marker([p.lat, p.lng], { icon: L.divIcon({ className: '', html: `<div class="pin${sel ? ' sel' : ''}" style="background: ${LCAT[p.cat][1]};">${ic(LCAT[p.cat][2], 16, '#fff', 2.2)}</div>`, iconSize: [34, 34], iconAnchor: [17, 17] }), title: p.name, riseOnHover: true, zIndexOffset: sel ? 1000 : 0 }).addTo(LI.map);
-    m.bindTooltip(p.name, { direction: 'top', offset: [0, -16] });
-    m.on('click', () => liSelect(p.id));
-    LI.mk[p.id] = m;
-  });
-}
-function liSelect(id) {
-  LI.sel = id; LI.hours = false; LI.stars = 0;
-  LI.recent = [id, ...LI.recent.filter((x) => x !== id)].slice(0, 6);
-  $('#mpPanel').classList.remove('closed');
-  if (innerWidth <= 600) $('#mpPanel').classList.add('full');
-  $('.mp-open').hidden = true;
-  const p = PL.find((x) => x.id === id);
-  const off = innerWidth > 760 ? [0, -0.012] : [-0.006, 0];
-  if (LI.map) LI.map.flyTo([p.lat + off[0], p.lng + off[1]], Math.max(LI.map.getZoom(), 14.5), { duration: 0.6 });
-  liPanel();
-}
-ENTER.lieux = () => {
-  liPanel();
-  if (LI.map) { setTimeout(() => LI.map.invalidateSize(), 50); return; }
-  if (!window.L) { $('#map').innerHTML = '<p class="muted" style="padding: 40px 40px 40px 420px;">La carte n’a pas pu se charger.</p>'; return; }
-  const bounds = L.latLngBounds([49.005, 1.985], [49.075, 2.125]);
-  LI.map = L.map('map', { zoomControl: false, minZoom: innerWidth > 900 ? 14 : 13, maxZoom: 17, maxBounds: bounds, maxBoundsViscosity: 1, zoomSnap: 0.5 }).setView([49.04, innerWidth > 760 ? 2.058 : 2.072], 14);
-  L.tileLayer('tuiles/{z}/{x}/{y}.png', { minZoom: 13, maxZoom: 17, maxNativeZoom: 15, bounds, attribution: '© les contributeurs d’OpenStreetMap' }).addTo(LI.map);
-  L.control.zoom({ position: 'topright', zoomInTitle: 'Zoomer', zoomOutTitle: 'Dézoomer' }).addTo(LI.map);
-  LI.map.attributionControl.setPrefix('Leaflet');
-  L.marker(HOME, { icon: L.divIcon({ className: '', html: '<div class="pin-me"></div>', iconSize: [20, 20], iconAnchor: [10, 10] }), keyboard: false }).addTo(LI.map).bindTooltip('Toi', { direction: 'top', offset: [0, -10] });
-  setTimeout(() => LI.map.invalidateSize(), 80);
-  liMarkers();
-};
-ACT.mpSel = (el) => liSelect(Number(el.dataset.id));
-ACT.mpGrab = () => $('#mpPanel').classList.toggle('full');
-ACT.mpBack = () => { if (innerWidth <= 600) $('#mpPanel').classList.remove('full'); LI.sel = null; liPanel(); };
-ACT.mpTab = (el) => { LI.tab = el.dataset.t; LI.sel = null; liPanel(); };
-ACT.mpCat = (el) => { LI.cat = el.dataset.c; LI.sel = null; liPanel(); };
-ACT.mpToggle = () => { const p = $('#mpPanel'); const closed = !p.classList.contains('closed'); p.classList.toggle('closed', closed); $('.mp-open').hidden = !closed || innerWidth <= 760; };
-ACT.mpFav = () => { const id = LI.sel; if (LI.fav.has(id)) { LI.fav.delete(id); toast('Retiré de tes favoris'); } else { LI.fav.add(id); addXp(5, 'lieu enregistré'); } liPanel(); };
-ACT.mpShare = () => { const p = PL.find((x) => x.id === LI.sel); copy(`${p.name}, ${p.addr}`, 'Adresse copiée'); };
-ACT.mpCall = () => { const p = PL.find((x) => x.id === LI.sel); copy(p.tel, `Numéro copié : ${p.tel}`); };
-ACT.mpHours = () => { LI.hours = !LI.hours; liPanel(); };
-ACT.mpWrite = () => { const f = $('#mpForm'); f.hidden = !f.hidden; };
-ACT.mpStar = (el) => { LI.stars = Number(el.dataset.n); $$('#mpStars button').forEach((b, i) => { b.innerHTML = stars(i < LI.stars ? 5 : 0, 26).split('</svg>')[i] + '</svg>'; }); };
-ACT.mpPub = () => { if (!LI.stars) return toast('Choisis une note de 1 à 5 étoiles'); const p = PL.find((x) => x.id === LI.sel); p.rev.unshift({ a: `${PROFIL.prenom} ${PROFIL.nom[0]}.`, r: LI.stars, t: $('#mpTxt').value.trim() || 'Lieu utile.' }); p.count++; liPanel(); addXp(10, 'avis publié'); };
-document.addEventListener('input', (e) => { if (e.target.id === 'mpQ') { LI.q = e.target.value.trim().toLowerCase(); const pos = e.target.selectionStart; LI.sel = null; liPanel(); const n = $('#mpQ'); n.focus(); n.setSelectionRange(pos, pos); } });
-document.addEventListener('mouseover', (e) => { const h = e.target.closest && e.target.closest('[data-hov]'); if (!h || !LI.mk[h.dataset.hov]) return; LI.mk[h.dataset.hov].openTooltip(); });
-
+const PL = [
+  [1, 'Médiathèque des Tilleuls', 'lib', 49.0386, 2.0772, '2 place des Tilleuls, Cergy', 'lib', ['Livres audio', 'Format DAISY', 'Gros caractères', 'Personnel formé']],
+  [2, 'Bibliothèque des Linandes', 'lib', 49.0452, 2.0573, '5 rue des Linandes, Cergy', 'lib', ['Livres audio', 'Postes avec synthèse vocale']],
+  [3, 'Médiathèque des Bords de l’Oise', 'lib', 49.0498, 2.0985, '14 quai de l’Oise, Pontoise', 'lib', ['Livres audio', 'Club lecture facile']],
+  [4, 'Cabinet d’orthophonie des Chênes', 'ortho', 49.0322, 2.069, '27 avenue des Chênes, Cergy', 'cab', ['Bilans adultes', 'Secteur 1', 'Tiers payant']],
+  [5, 'Orthophonie du Port', 'ortho', 49.0285, 2.059, '8 rue du Port, Cergy', 'cab', ['Enfants et ados', 'Secteur 1', 'Nouveaux patients']],
+  [6, 'Cabinet des Linandes', 'ortho', 49.0466, 2.0532, '3 allée des Linandes, Cergy', 'cab', ['Adultes', 'Téléconsultation']],
+  [7, 'Association Dys’Oise', 'asso', 49.04, 2.0812, '15 rue de la Gare, Cergy', 'asso', ['Permanence le jeudi', 'Aide au dossier MDPH', 'Groupe de parents']],
+  [8, 'Café des parents dys', 'asso', 49.052, 2.042, '40 rue du Hazay, Cergy', 'asso', ['Rencontres le samedi']],
+  [9, 'Collège des Cerisiers · ULIS', 'ulis', 49.0255, 2.041, '6 rue des Cerisiers, Vauréal', 'ecole', ['ULIS collège', 'AESH présents']],
+  [10, 'École du Parc · ULIS', 'ulis', 49.056, 2.03, '22 rue du Parc, Cergy', 'ecole', ['ULIS école', 'Petits effectifs']],
+  [11, 'Relais handicap · Campus des Chênes', 'handi', 49.0338, 2.0718, '33 boulevard du Port, Cergy', 'fac', ['Aménagements d’examens', 'Preneurs de notes']],
+  [12, 'Mission handicap · Campus Saint-Martin', 'handi', 49.0507, 2.0935, '2 rue Saint-Martin, Pontoise', 'fac', ['Matériel en prêt']],
+  [13, 'Centre de bilan adultes Saint-Christophe', 'bilan', 49.043, 2.041, '74 rue de la Croix, Cergy', 'cab', ['Bilans adultes', 'Neuropsychologie']],
+  [14, 'Centre de référence des apprentissages', 'bilan', 49.0595, 2.069, '149 avenue de la Palette, Osny', 'fac', ['Bilans pluridisciplinaires', 'Enfants et adultes']],
+].map(([id, name, cat, lat, lng, addr, h, feats]) => ({ id, name, fam: CATFAM[cat][0], what: CATFAM[cat][1], lat, lng, addr, h: HRS[h], feats, tel: `01 99 00 ${20 + id} ${10 + id * 3}` }));
 const PROS = [
   ['Claire Durand', 'Orthophoniste', '12 rue de la Croix, Cergy', 1.4, 'Enfants et adultes', 1, 1, 1],
   ['Hugo Petit', 'Neuropsychologue', '40 avenue des Chênes, Cergy', 2.6, 'Adultes', 0, 0, 1],
@@ -4338,31 +4419,198 @@ const PROS = [
   ['Nadia Haddad', 'Psychologue', '9 rue des Linandes, Cergy', 1.2, 'Adultes', 0, 0, 1],
   ['Élise Robert', 'Orthophoniste', '18 rue du Hazay, Cergy', 1.3, 'Adultes', 1, 1, 1],
   ['Léna Moreau', 'Ergothérapeute', '26 rue du Port, Cergy', 1.0, 'Adultes', 1, 0, 1],
-  ['Centre de référence des apprentissages', 'Centre de bilan', '149 avenue de la Palette, Osny', 4.1, 'Enfants et adultes', 1, 1, 1],
   ['Sophie Blanc', 'Orthophoniste', '11 rue Saint-Martin, Pontoise', 1.7, 'Enfants', 1, 1, 1],
-  ['Marc Girard', 'Neuropsychologue', '74 rue de la Croix, Cergy', 4.6, 'Enfants et adultes', 0, 0, 0],
+  ['Marc Girard', 'Neuropsychologue', '74 rue de la Croix, Cergy', 3.6, 'Enfants et adultes', 0, 0, 0],
   ['Chloé Vincent', 'Orthoptiste', '14 quai de l’Oise, Pontoise', 1.6, 'Adultes', 1, 1, 1],
-].map(([name, spec, addr, dist, pub, s1, tiers, newP], i) => ({ id: i + 1, name, spec, addr, dist, pub, s1: !!s1, tiers: !!tiers, newP: !!newP, tel: `01 99 00 ${60 + i} ${12 + i * 4}` }));
-const SPEC_C = { Orthophoniste: ['#B4533A', '#FBEBE5'], Neuropsychologue: ['#6552C9', '#EFEDFB'], Ergothérapeute: ['#2F7F77', '#E6F3F1'], Psychomotricien: ['#8A6412', '#FCF3DA'], Orthoptiste: ['#3B64A8', '#E9EFF8'], Psychologue: ['#6552C9', '#EFEDFB'], 'Médecin généraliste': ['#34475F', '#ECEFF3'], 'Centre de bilan': ['#3B64A8', '#E9EFF8'] };
-const AN = { spec: 'Tous', q: '', f: new Set(), fav: new Set([1]) };
-const FILTERS = [['s1', 'Secteur 1'], ['tiers', 'Tiers payant'], ['newP', 'Nouveaux patients'], ['fav', 'Mes favoris']];
-function anRender() {
-  const specs = ['Tous', ...Object.keys(SPEC_C)];
-  $('#anSpecs').innerHTML = specs.map((s) => `<button class="chip${AN.spec === s ? ' on' : ''}" data-act="anSpec" data-s="${s}">${s}</button>`).join('');
-  $('#anFilters').innerHTML = FILTERS.map(([k, l]) => `<button class="chip${AN.f.has(k) ? ' on' : ''}" data-act="anF" data-k="${k}">${AN.f.has(k) ? ic('check', 14, 'currentColor', 2.6) : ''}${l}</button>`).join('');
-  const l = PROS.filter((p) => (AN.spec === 'Tous' || p.spec === AN.spec) && (!AN.q || `${p.name} ${p.spec} ${p.addr}`.toLowerCase().includes(AN.q)) && [...AN.f].every((k) => (k === 'fav' ? AN.fav.has(p.id) : p[k]))).sort((a, b) => a.dist - b.dist);
-  $('#anCount').textContent = `${l.length} soignant${l.length > 1 ? 's' : ''} près de chez toi`;
-  $('#anList').innerHTML = l.map((p) => { const [c, bg] = SPEC_C[p.spec]; return `<div class="an-card"><span class="an-ini" style="background: ${bg}; color: ${c};">${p.name.replace(/^Dr /, '').split(' ').map((x) => x[0]).join('').slice(0, 2)}</span><div class="grow"><div class="row wrap" style="gap: 8px;"><b style="font-family: var(--title); font-size: 17px;">${esc(p.name)}</b><span class="pill" style="background: ${bg}; color: ${c};">${p.spec}</span></div><p class="small muted" style="margin-top: 2px;">${esc(p.addr)} · ${String(p.dist).replace('.', ',')} km · ${p.pub}</p><div class="row wrap small" style="gap: 6px; margin-top: 8px;">${p.s1 ? '<span class="pill">Secteur 1</span>' : '<span class="pill">Secteur 2</span>'}${p.tiers ? '<span class="pill">Tiers payant</span>' : ''}${p.newP ? '<span class="pill lio">Nouveaux patients</span>' : ''}</div>
-    <div class="row wrap" style="gap: 6px; margin-top: 12px;"><a class="btn sec sm" href="https://annuaire.sante.fr" target="_blank" rel="noopener">${ic('external', 15)}Prendre rendez-vous</a><button class="btn ghost sm" data-act="anCall" data-id="${p.id}">${ic('phone', 15)}Appeler</button><button class="btn ghost sm" data-act="anLio">${ic('target', 15)}Préparer avec Lio</button><button class="btn ghost sm" data-act="anMail" data-id="${p.id}">${ic('mail', 15)}Écrire</button></div></div>
-    <button class="ib" data-act="anFav" data-id="${p.id}" aria-label="${AN.fav.has(p.id) ? 'Retirer des favoris' : 'Ajouter aux favoris'}" style="color: ${AN.fav.has(p.id) ? 'var(--aut)' : 'var(--mute)'};"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="${P.heart.match(/d="([^"]+)"/)[1]}" fill="${AN.fav.has(p.id) ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"></path></svg></button></div>`; }).join('') || `<div class="empty"><span class="circle">${ic('search', 22)}</span><b style="color: var(--ink);">Personne ne correspond</b><span class="small">Retire un filtre pour voir plus de soignants.</span></div>`;
+].map(([name, what, addr, dist, pub, s1, tiers, newP], i) => {
+  const a = (i + 1) * 2.39996; const r = Math.PI / 180;
+  const lat = Math.min(49.072, Math.max(49.008, HOME[0] + (dist / 111) * Math.cos(a)));
+  const lng = Math.min(2.122, Math.max(1.988, HOME[1] + (dist / (111 * Math.cos(HOME[0] * r))) * Math.sin(a)));
+  return { id: 100 + i, pro: true, name, fam: /Neuropsy/.test(what) ? 'bilan' : 'soin', what, lat, lng, addr, h: HRS.cab, tel: `01 99 00 ${60 + i} ${12 + i * 4}`, feats: [pub, s1 ? 'Secteur 1' : 'Secteur 2', tiers ? 'Tiers payant' : '', newP ? 'Nouveaux patients' : ''].filter(Boolean) };
+});
+const km = (a, b) => { const r = Math.PI / 180, x = Math.sin((b[0] - a[0]) * r / 2) ** 2 + Math.cos(a[0] * r) * Math.cos(b[0] * r) * Math.sin((b[1] - a[1]) * r / 2) ** 2; return 12742 * Math.asin(Math.sqrt(x)); };
+const fkm = (d) => (d < 1 ? `${Math.round(d * 20) * 50} m` : `${d.toFixed(1).replace('.', ',')} km`);
+const ALL = [...PL, ...PROS].map((p) => ({ ...p, d: km(HOME, [p.lat, p.lng]), desc: DESC[p.what] || p.feats.join(', '), s1: p.feats.includes('Secteur 1'), tiers: p.feats.includes('Tiers payant'), newP: p.feats.includes('Nouveaux patients') }));
+const byId = (id) => ALL.find((x) => x.id === id);
+const LI = { fam: 'all', q: '', sel: null, detail: false, f: new Set(), fav: new Set([7, 103]), map: null, mk: {}, hours: false };
+const norm = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+const JOURS = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'];
+const liHh = (s) => { const [h, m] = s.split(':'); return `${Number(h)} h${m !== '00' ? ` ${m}` : ''}`; };
+function openNow(p) {
+  const n = new Date(); const di = (n.getDay() + 6) % 7; const m = n.getHours() * 60 + n.getMinutes();
+  const pr = (s) => (s === 'Fermé' ? null : s.split('–').map((x) => { const [h, mm] = x.split(':').map(Number); return h * 60 + mm; }));
+  const t = pr(p.h[di]);
+  if (t && m >= t[0] && m < t[1]) return [true, `Ouvert · ferme à ${liHh(p.h[di].split('–')[1])}`];
+  if (t && m < t[0]) return [false, `Fermé · ouvre à ${liHh(p.h[di].split('–')[0])}`];
+  for (let k = 1; k < 8; k++) { const j = (di + k) % 7; if (p.h[j] !== 'Fermé') return [false, `Fermé · ouvre ${k === 1 ? 'demain' : JOURS[j]} à ${liHh(p.h[j].split('–')[0])}`]; }
+  return [false, 'Fermé'];
 }
-ACT.anSpec = (el) => { AN.spec = el.dataset.s; anRender(); };
-ACT.anF = (el) => { const k = el.dataset.k; if (AN.f.has(k)) AN.f.delete(k); else AN.f.add(k); anRender(); };
-ACT.anFav = (el) => { const id = Number(el.dataset.id); if (AN.fav.has(id)) AN.fav.delete(id); else { AN.fav.add(id); toast('Ajouté à tes favoris'); } anRender(); };
-ACT.anCall = (el) => { const p = PROS.find((x) => x.id === Number(el.dataset.id)); copy(p.tel, `Numéro copié : ${p.tel}`); };
-ACT.anLio = () => go('entrainer', { scenario: 'Orthophoniste' });
-ACT.anMail = (el) => { const p = PROS.find((x) => x.id === Number(el.dataset.id)); go('mails', { recip: 'Soignant', goal: 'rdv', name: p.name }); };
-document.addEventListener('input', (e) => { if (e.target.id === 'anSearch') { AN.q = e.target.value.trim().toLowerCase(); anRender(); } });
+function liData(full) {
+  let l = ALL;
+  if (LI.fam !== 'all') l = l.filter((p) => p.fam === LI.fam);
+  if (LI.q) { const q = norm(LI.q); l = l.filter((p) => norm(`${p.name} ${p.what} ${p.addr} ${FAM[p.fam][0]}`).includes(q)); }
+  if (full) l = l.filter((p) => [...LI.f].every((k) => (k === 'open' ? openNow(p)[0] : k === 'fav' ? LI.fav.has(p.id) : p[k])));
+  return [...l].sort((a, b) => a.d - b.d);
+}
+
+/* ---------- petits morceaux partagés avec l’annuaire */
+const famVars = (p) => `--c: var(--${FAM[p.fam][1]}); --cb: var(--${FAM[p.fam][1]}-bg);`;
+const initials = (p) => p.name.replace(/^Dr /, '').split(' ').map((w) => w[0]).join('').slice(0, 2);
+const avatarOf = (p, s = 44) => (p.pro
+  ? `<span class="mx-av" style="${famVars(p)} width: ${s}px; height: ${s}px; font-size: ${Math.round(s * .34)}px;" aria-hidden="true">${initials(p)}</span>`
+  : `<span class="mx-ic" style="${famVars(p)} width: ${s}px; height: ${s}px;" aria-hidden="true">${ic(FAM[p.fam][2], Math.round(s * .5))}</span>`);
+const stLine = (p, cls = 'mx-st') => { const [o, t] = openNow(p); return `<span class="${cls}${o ? ' on' : ''}">${t}</span>`; };
+const viewSw = (on) => `<div class="seg mx-sw" role="group" aria-label="Affichage">${[['lieux', 'Carte'], ['annuaire', 'Annuaire']].map(([k, t]) => (k === on ? `<button class="on" aria-pressed="true">${t}</button>` : `<button aria-pressed="false" data-act="go" data-to="${k}">${t}</button>`)).join('')}</div>`;
+const famChips = (cls, act = 'mpCat') => `<div class="${cls}" role="group" aria-label="Catégories">${[['all', 'Tout'], ...Object.entries(FAM).map(([k, [t]]) => [k, t])].map(([k, t]) => `<button class="mx-chip${LI.fam === k ? ' on' : ''}" style="${k === 'all' ? '--c: var(--navy); --cb: var(--surf2);' : `--c: var(--${FAM[k][1]}); --cb: var(--${FAM[k][1]}-bg);`}" aria-pressed="${LI.fam === k}" data-act="${act}" data-c="${k}">${ic(k === 'all' ? 'grid' : FAM[k][2], 18)}${t}</button>`).join('')}</div>`;
+function photo(p, h = 170) {
+  const c = FAMHEX[p.fam];
+  const sky = ['#DCEBF5', '#F6E7D6', '#E4EEE3'][p.id % 3];
+  const w = 380;
+  const win = Array.from({ length: 4 }, (_, i) => `<rect x="${84 + i * 57}" y="${h * .34}" width="34" height="${h * .15}" rx="3" fill="#BFD3E2"></rect><rect x="${84 + i * 57}" y="${h * .56}" width="34" height="${h * .15}" rx="3" fill="#BFD3E2"></rect>`).join('');
+  return `<svg viewBox="0 0 ${w} ${h}" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="${w}" height="${h}" fill="${sky}"></rect><circle cx="${w * .88}" cy="${h * .18}" r="${h * .08}" fill="#FBE7A1"></circle><rect x="${w * .14}" y="${h * .22}" width="${w * .72}" height="${h * .66}" fill="#F4EDE1"></rect>${win}<rect x="${w * .14}" y="${h * .14}" width="${w * .72}" height="${h * .09}" rx="4" fill="${c}"></rect><rect x="${w * .45}" y="${h * .66}" width="${w * .1}" height="${h * .22}" rx="3" fill="${c}"></rect><rect y="${h * .88}" width="${w}" height="${h * .12}" fill="#CFC9BD"></rect><circle cx="${w * .06}" cy="${h * .8}" r="${h * .12}" fill="#9CC59A"></circle><circle cx="${w * .95}" cy="${h * .82}" r="${h * .1}" fill="#9CC59A"></circle></svg>`;
+}
+const dirUrl = (p) => `https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}`;
+
+/* ---------- la carte */
+const liRows = (l) => l.map((p) => `<li><button class="mx-row${p.id === LI.sel ? ' on' : ''}" data-act="mpSel" data-id="${p.id}" data-hov="${p.id}"${p.id === LI.sel ? ' aria-current="true"' : ''}>${avatarOf(p)}<span class="grow"><b>${esc(p.name)}</b><span class="mx-m">${esc(p.what)} · ${fkm(p.d)}</span>${stLine(p)}</span>${LI.fav.has(p.id) ? `<span class="mx-fav">${ic('bookmark', 18)}<span class="vh">, gardé</span></span>` : ''}${ic('right', 18)}</button></li>`).join('')
+  || `<li class="mx-empty"><b>Aucun résultat</b><span>Essaie un autre mot ou choisis « Tout ».</span></li>`;
+const liCards = (l) => l.map((p) => `<article class="mx-card${p.id === LI.sel ? ' on' : ''}" data-id="${p.id}"><div class="mx-card-h">${avatarOf(p, 40)}<div class="grow"><h2>${esc(p.name)}</h2><span class="mx-m">${esc(p.what)} · ${fkm(p.d)}</span></div></div>${stLine(p)}<div class="mx-card-a"><button class="btn pri" data-act="mpCall" data-id="${p.id}">${ic('phone', 18)}Appeler</button><button class="btn sec" data-act="mpFiche" data-id="${p.id}">Voir la fiche</button></div></article>`).join('')
+  || '<p class="mx-card mx-empty"><b>Aucun résultat</b><span>Essaie un autre mot ou choisis « Tout ».</span></p>';
+const countTxt = (n) => `${n} résultat${n > 1 ? 's' : ''}, du plus proche au plus loin`;
+function liPop() {
+  const p = LI.sel && !LI.detail && byId(LI.sel);
+  $('#mpPop').innerHTML = p ? `<section class="mx-pop" aria-label="${esc(p.name)}"><div class="mx-pop-h">${avatarOf(p, 48)}<div class="grow"><h2>${esc(p.name)}</h2><span class="mx-m">${esc(p.what)} · ${fkm(p.d)}</span></div><button class="ib" data-act="mpClose" aria-label="Fermer">${ic('x', 18)}</button></div>
+    <div class="mx-pop-b"><span class="mx-li">${ic('clock', 18)}${stLine(p)}</span><span class="mx-li">${ic('pin', 18)}${esc(p.addr)}</span>${p.feats.length ? `<span class="mx-tags">${p.feats.slice(0, 3).map((t) => `<span>${esc(t)}</span>`).join('')}</span>` : ''}</div>
+    <div class="mx-pop-a"><a class="btn pri" href="${dirUrl(p)}" target="_blank" rel="noopener">${ic('nav', 18)}Y aller</a><button class="btn sec" data-act="mpCall" data-id="${p.id}">${ic('phone', 18)}Appeler</button><button class="btn sec" data-act="mpFav" aria-pressed="${LI.fav.has(p.id)}">${ic('bookmark', 18)}${LI.fav.has(p.id) ? 'Gardé' : 'Garder'}</button></div>
+    <button class="mx-more" data-act="mpFiche" data-id="${p.id}">Horaires, avis et détails${ic('right', 16)}</button></section>` : '';
+}
+function liDetail(p) {
+  const [o, ot] = openNow(p);
+  const di = (new Date().getDay() + 6) % 7;
+  return `<div class="mx-det"><div class="pl-photo">${photo(p)}<button class="ib mx-back" data-act="mpBack" aria-label="Retour à la liste">${ic('left', 20)}</button></div>
+    <div class="mx-det-h"><h2>${esc(p.name)}</h2><p class="mx-m">${esc(p.what)} · ${fkm(p.d)}</p><p class="mx-desc">${esc(p.desc)}</p></div>
+    <div class="mx-det-a"><a class="btn pri" href="${dirUrl(p)}" target="_blank" rel="noopener">${ic('nav', 18)}Y aller</a><button class="btn sec" data-act="mpCall" data-id="${p.id}">${ic('phone', 18)}Appeler</button><button class="btn sec" data-act="mpFav" aria-pressed="${LI.fav.has(p.id)}">${ic('bookmark', 18)}${LI.fav.has(p.id) ? 'Gardé' : 'Garder'}</button><button class="btn sec" data-act="mpShare">${ic('share', 18)}Partager</button></div>
+    <div class="pl-row">${ic('pin', 18, 'var(--sub)')}<span>${esc(p.addr)}</span></div>
+    <button class="pl-row mx-hours" data-act="mpHours" aria-expanded="${LI.hours}">${ic('clock', 18, 'var(--sub)')}<span class="grow"><b class="${o ? 'mx-ok' : ''}">${ot.split(' · ')[0]}</b>${ot.split(' · ')[1] ? ` · ${ot.split(' · ')[1]}` : ''}</span>${ic(LI.hours ? 'up' : 'down', 16)}</button>
+    ${LI.hours ? `<table class="mx-week">${JOURS.map((j, i) => `<tr${i === di ? ' class="on"' : ''}><th scope="row">${j.charAt(0).toUpperCase() + j.slice(1)}${i === di ? ' (aujourd’hui)' : ''}</th><td>${p.h[i] === 'Fermé' ? 'Fermé' : p.h[i].split('–').map(liHh).join(' – ')}</td></tr>`).join('')}</table>` : ''}
+    <div class="pl-row">${ic('phone', 18, 'var(--sub)')}<span>${p.tel}</span></div>
+    ${p.feats.length ? `<div class="mx-tags mx-det-t">${p.feats.map((f) => `<span>${esc(f)}</span>`).join('')}</div>` : ''}
+    <p class="mx-demo">Données fictives de démonstration.</p></div>`;
+}
+function liRender() {
+  const l = liData(false);
+  const p = LI.detail && LI.sel && byId(LI.sel);
+  const pan = $('#mpPanel');
+  $('.mp').classList.toggle('list-off', !!LI.closed);
+  $('#mpShow').hidden = !LI.closed;
+  pan.classList.toggle('detail', !!p);
+  pan.innerHTML = p ? liDetail(p) : `<div class="mx-head"><div class="mx-top"><h1 class="mx-h">Autour de moi</h1>${viewSw('lieux')}<button class="ib mx-hide" data-act="mpHide" aria-label="Masquer la liste" title="Masquer la liste">${ic('sidebar', 20)}</button></div>
+      <label class="mx-search">${ic('search', 20)}<span class="vh">Rechercher un lieu ou un soignant</span><input id="mpQ" type="search" placeholder="Un nom, un métier, une adresse" value="${esc(LI.q)}" autocomplete="off"></label>
+      ${famChips('mx-cats')}</div>
+    <p class="mx-count" id="mpCount" aria-live="polite">${countTxt(l.length)}</p><ul class="mx-rows" id="mpRows">${liRows(l)}</ul>`;
+  $('#mpM').innerHTML = `<div class="mx-mtop"><label class="mx-search">${ic('search', 20)}<span class="vh">Rechercher un lieu ou un soignant</span><input id="mpQm" type="search" placeholder="Un nom, un métier…" value="${esc(LI.q)}" autocomplete="off"></label>${famChips('mx-cats mx-cats-m')}</div>
+    <div class="mx-bottom"><button class="mx-listbtn" data-act="go" data-to="annuaire">${ic('list', 18)}<span id="mpListN">Voir la liste (${l.length})</span></button>
+    <div class="mx-cards" id="mpCards" aria-label="Résultats">${liCards(l)}</div></div>`;
+  liPop();
+  liMarkers(l);
+}
+function liList() {
+  const l = liData(false);
+  if ($('#mpRows')) { $('#mpRows').innerHTML = liRows(l); $('#mpCount').textContent = countTxt(l.length); }
+  $('#mpCards').innerHTML = liCards(l);
+  $('#mpListN').textContent = `Voir la liste (${l.length})`;
+  liMarkers(l);
+}
+function liMarkers(l = liData(false)) {
+  if (!LI.map) return;
+  Object.values(LI.mk).forEach((m) => m.remove());
+  LI.mk = {};
+  l.forEach((p) => {
+    const sel = p.id === LI.sel;
+    const m = L.marker([p.lat, p.lng], { icon: L.divIcon({ className: '', html: `<div class="pin${sel ? ' sel' : ''}" style="background: var(--${FAM[p.fam][1]});">${ic(FAM[p.fam][2], 18, 'var(--surf)', 2.2)}</div>`, iconSize: [38, 38], iconAnchor: [19, 19] }), title: p.name, riseOnHover: true, zIndexOffset: sel ? 1000 : 0 }).addTo(LI.map);
+    m.bindTooltip(p.name, { direction: 'top', offset: [0, -18] });
+    m.on('click', () => liSelect(p.id));
+    LI.mk[p.id] = m;
+  });
+}
+function liFly(p) {
+  if (!LI.map || !p) return;
+  const w = innerWidth;
+  const off = w > 900 ? [0, -0.016] : w > 600 ? [0, -0.01] : [-0.004, 0];
+  LI.map.flyTo([p.lat + off[0], p.lng + off[1]], Math.max(LI.map.getZoom(), 14.5), { duration: 0.6 });
+}
+function liSelect(id, detail = false) {
+  LI.sel = id; LI.detail = detail; LI.hours = false;
+  if (detail) LI.closed = false;
+  liRender();
+  liFly(byId(id));
+  const c = $(`#mpCards [data-id="${id}"]`);
+  if (c) $('#mpCards').scrollLeft = c.offsetLeft - 16;
+  if (detail) setTimeout(() => { const b = $('#mpPanel .mx-back'); if (b) b.focus(); }, 30);
+}
+ENTER.lieux = () => {
+  liRender();
+  if (LI.map) { setTimeout(() => { LI.map.invalidateSize(); if (LI.sel) liFly(byId(LI.sel)); }, 50); return; }
+  if (!window.L) { $('#map').innerHTML = '<p class="muted" style="padding: 40px 40px 40px 440px;">La carte n’a pas pu se charger.</p>'; return; }
+  const bounds = L.latLngBounds([49.005, 1.985], [49.075, 2.125]);
+  LI.map = L.map('map', { zoomControl: false, minZoom: innerWidth > 900 ? 14 : 13, maxZoom: 17, maxBounds: bounds, maxBoundsViscosity: 1, zoomSnap: 0.5 }).setView([49.04, innerWidth > 760 ? 2.058 : 2.072], 14);
+  L.tileLayer('tuiles/{z}/{x}/{y}.png', { minZoom: 13, maxZoom: 17, maxNativeZoom: 15, bounds, attribution: '© les contributeurs d’OpenStreetMap' }).addTo(LI.map);
+  L.control.zoom({ position: 'topright', zoomInTitle: 'Zoomer', zoomOutTitle: 'Dézoomer' }).addTo(LI.map);
+  LI.map.attributionControl.setPrefix('Leaflet');
+  L.marker(HOME, { icon: L.divIcon({ className: '', html: '<div class="pin-me"></div>', iconSize: [20, 20], iconAnchor: [10, 10] }), keyboard: false }).addTo(LI.map).bindTooltip('Toi', { direction: 'top', offset: [0, -10] });
+  setTimeout(() => { LI.map.invalidateSize(); if (LI.sel) liFly(byId(LI.sel)); }, 80);
+  liMarkers();
+};
+ACT.mpHide = () => { LI.closed = true; liRender(); $('#mpShow').focus(); };
+ACT.mpShow = () => { LI.closed = false; liRender(); const b = $('#mpPanel .mx-hide'); if (b) b.focus(); };
+ACT.mpSel = (el) => liSelect(Number(el.dataset.id));
+ACT.mpFiche = (el) => liSelect(Number(el.dataset.id), true);
+ACT.mpClose = () => { const id = LI.sel; LI.sel = null; liRender(); const r = $(`#mpRows [data-id="${id}"]`); if (r) r.focus(); };
+ACT.mpBack = () => { LI.detail = false; liRender(); const r = $(`#mpRows [data-id="${LI.sel}"]`); if (r && r.offsetParent) r.focus(); };
+ACT.mpCat = (el) => { const k = el.dataset.c; const m = !!el.closest('.mx-cats-m'); LI.fam = k; LI.sel = null; LI.detail = false; liRender(); const b = $(`${m ? '.mx-cats-m' : '#mpPanel .mx-cats'} [data-c="${k}"]`); if (b) b.focus(); };
+ACT.mpFav = () => { const id = LI.sel; if (LI.fav.has(id)) { LI.fav.delete(id); toast('Retiré de tes lieux gardés'); } else { LI.fav.add(id); addXp(5, 'lieu gardé'); } liRender(); const b = $('#mpPanel.detail [data-act="mpFav"]') || $('#mpPop [data-act="mpFav"]'); if (b) b.focus(); };
+ACT.mpShare = () => { const p = byId(LI.sel); copy(`${p.name}, ${p.addr}`, 'Adresse copiée'); };
+ACT.mpCall = (el) => { const p = byId(Number(el.dataset.id) || LI.sel); copy(p.tel, `Numéro copié : ${p.tel}`); };
+ACT.mpHours = () => { LI.hours = !LI.hours; liRender(); $('#mpPanel .mx-hours').focus(); };
+document.addEventListener('input', (e) => { if (e.target.id !== 'mpQ' && e.target.id !== 'mpQm') return; LI.q = e.target.value.trim(); const o = $(e.target.id === 'mpQ' ? '#mpQm' : '#mpQ'); if (o) o.value = e.target.value; LI.sel = null; liPop(); liList(); });
+document.addEventListener('mouseover', (e) => { const h = e.target.closest && e.target.closest('[data-hov]'); if (!h || !LI.mk[h.dataset.hov]) return; LI.mk[h.dataset.hov].openTooltip(); });
+
+/* ---------- Autour de moi, vue Annuaire : les mêmes lieux et soignants que la carte, en fiches */
+const AN_QUICK = [['open', 'Ouvert maintenant'], ['newP', 'Nouveaux patients']];
+const AN_MORE = [['s1', 'Secteur 1, sans dépassement'], ['tiers', 'Tiers payant']];
+const anCard = (p) => {
+  const [o, t] = openNow(p);
+  return `<li class="ax-card"><span class="ax-av" style="${famVars(p)}" aria-hidden="true">${p.pro ? initials(p) : ic(FAM[p.fam][2], 28)}</span>
+    <h2 class="ax-n">${esc(p.name)}</h2><span class="ax-pill" style="${famVars(p)}">${esc(p.what)}</span>
+    <p class="ax-d">${esc(p.desc)}</p>
+    <span class="ax-ad">${ic('pin', 16)}${esc(p.addr.split(',')[0])} · ${fkm(p.d)}</span>
+    <span class="ax-st${o ? ' on' : ''}"><i aria-hidden="true"></i>${t}</span>
+    <div class="ax-acts"><button class="btn sec" data-act="anOpen" data-id="${p.id}">Voir la fiche</button><button class="ib ax-call" data-act="mpCall" data-id="${p.id}" aria-label="Appeler ${esc(p.name)}" title="Appeler">${ic('phone', 20)}</button></div></li>`;
+};
+function anRender() {
+  const more = AN_MORE.filter(([k]) => LI.f.has(k)).length;
+  $('#anBar').innerHTML = `${AN_QUICK.map(([k, l]) => `<button class="ax-tg${LI.f.has(k) ? ' on' : ''}" aria-pressed="${LI.f.has(k)}" data-act="anF" data-k="${k}">${LI.f.has(k) ? ic('check', 16) : ''}${l}</button>`).join('')}<button class="ax-tg${more ? ' on' : ''}" data-act="anMore" aria-haspopup="dialog">${ic('list', 16)}Plus de filtres${more ? `<span class="ax-n1">${more}</span>` : ''}</button>`;
+  const fam0 = LI.fam; LI.fam = 'all';
+  const base = liData(true);
+  LI.fam = fam0;
+  const tv = (k) => (k === 'all' ? '--c: var(--navy); --cb: var(--surf2);' : `--c: var(--${FAM[k][1]}); --cb: var(--${FAM[k][1]}-bg);`);
+  $('#anTabs').setAttribute('style', tv(LI.fam));
+  $('#anTabs').innerHTML = [['all', 'Tout'], ...Object.entries(FAM).map(([k, [t]]) => [k, t])].map(([k, t]) => `<button class="ax-tab${LI.fam === k ? ' on' : ''}" style="${tv(k)}" aria-pressed="${LI.fam === k}" data-act="anTab" data-c="${k}">${ic(k === 'all' ? 'grid' : FAM[k][2], 18)}${t}<span>${k === 'all' ? base.length : base.filter((p) => p.fam === k).length}</span></button>`).join('');
+  const l = liData(true);
+  $('#anCount').textContent = countTxt(l.length);
+  $('#anList').innerHTML = l.map(anCard).join('') || `<li class="ax-empty"><b>Personne ne correspond</b><span>Retire un filtre ou choisis « Tout ».</span></li>`;
+  const q = $('#anSearch'); if (q && document.activeElement !== q) q.value = LI.q;
+}
+const anOk = () => { const n = liData(true).length; return n > 1 ? `Voir les ${n} résultats` : n ? 'Voir le résultat' : 'Aucun résultat, retire un filtre'; };
+const anMoreBody = () => `<div class="modal-h"><h2 class="grow">Plus de filtres</h2><button class="ib" data-act="close" aria-label="Fermer">${ic('x')}</button></div>
+  <div class="ax-more">${AN_MORE.map(([k, l]) => `<label class="ax-chk"><input type="checkbox" data-k="${k}"${LI.f.has(k) ? ' checked' : ''}>${l}</label>`).join('')}</div>
+  <div class="modal-f"><button class="btn pri" data-act="close" id="anMoreOk">${anOk()}</button></div>`;
+ACT.anTab = (el) => { LI.fam = el.dataset.c; anRender(); $(`#anTabs [data-c="${LI.fam}"]`).focus(); };
+ACT.anF = (el) => { const k = el.dataset.k; if (LI.f.has(k)) LI.f.delete(k); else LI.f.add(k); anRender(); $(`#anBar [data-k="${k}"]`).focus(); };
+ACT.anMore = () => modal(anMoreBody());
+ACT.anOpen = (el) => { LI.sel = Number(el.dataset.id); LI.detail = true; LI.hours = false; go('lieux'); setTimeout(() => { const b = $('#mpPanel .mx-back'); if (b) b.focus(); }, 60); };
+document.addEventListener('change', (e) => { if (!e.target.matches('.ax-chk input')) return; const k = e.target.dataset.k; if (e.target.checked) LI.f.add(k); else LI.f.delete(k); anRender(); $('#anMoreOk').textContent = anOk(); });
+document.addEventListener('input', (e) => { if (e.target.id === 'anSearch') { LI.q = e.target.value.trim(); anRender(); } });
 ENTER.annuaire = anRender;
 
 const FOLDERS = [
