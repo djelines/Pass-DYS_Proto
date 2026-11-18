@@ -2211,6 +2211,15 @@ summary, .hero-note, .note { text-wrap: balance; }/* accueil : correctifs invisi
   .cx-name { align-items: flex-start; padding: 6px 0; }
   .cx-drop { min-height: 96px; padding: 14px; }
 }
+
+/* Une démarche ouverte prend tout l'écran : plus de barre du haut, le tableau a son propre retour */
+body.dm-open { --top-h: 0px; }
+body.dm-open .topbar { display: none; }
+@media (max-width: 600px) {
+  body.dm-open .tb-ret { display: inline-flex; justify-content: center; width: 44px; padding: 0; margin-left: -8px; }
+  body.dm-open .tb-ret svg { width: 22px; height: 22px; }
+  body.dm-open .tb-ret-l { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
 </style>
 <style>/* required styles */
 
@@ -3203,6 +3212,7 @@ function topbar() {
   let t = TITLES[id] || '';
   let back = !!PARENT[id];
   if (id === 'demarches' && DM.board && B()) { t = B().name; back = true; }
+  document.body.classList.toggle('dm-open', id === 'demarches' && !!DM.board && !!B());
   if ((id === 'besoins' || id === 'coffre') && innerWidth <= 600) back = true;
   if (id === 'lio' && innerWidth <= 600) back = false;
   $('#tbTitle').textContent = t;
@@ -3623,7 +3633,7 @@ function dmBoard() {
   const keepX = $('#tbLists') ? $('#tbLists').scrollLeft : 0;
   $('#dmBoard').innerHTML = `<section class="tb${f}" style="--bc: ${b.color};" aria-labelledby="tbName">
       <header class="tb-bar">
-        <button class="tb-ret" data-act="dmBack">${ic('left', 18)}Mes démarches</button><span class="tb-sep" aria-hidden="true"></span>
+        <button class="tb-ret" data-act="dmBack">${ic('left', 18)}<span class="tb-ret-l">Mes démarches</span></button><span class="tb-sep" aria-hidden="true"></span>
         <h1 class="tb-name" id="tbName">${esc(b.name)}</h1>
         <span class="grow"></span>
         ${b.members.length > 1 ? `<label class="tb-who"><span class="vh">Afficher</span><select id="tbWho">${[['all', 'Toutes les étapes'], ...b.members.map((m) => [m, m === 'adam' ? 'Mes étapes' : `Étapes de ${firstName(m)}`])].map(([v, l]) => `<option value="${v}" ${DM.who === v ? 'selected' : ''}>${l}</option>`).join('')}</select></label>` : ''}
