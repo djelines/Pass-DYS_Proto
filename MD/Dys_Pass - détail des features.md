@@ -83,8 +83,9 @@ Pour chaque feature : **l'idée**, **le but**, **ce qu'on voit à l'écran**, et
 | **Dyspraxie** | Découpe une tâche du quotidien en étapes simples, et sait reprendre à l'étape 2 sans tout recommencer |
 | **Dysgraphie** | Dictée vocale assistée : la personne parle, Lio retranscrit en corrigeant syntaxe et structure |
 | **Entraînement** | Joue le rôle du recruteur, du médecin ou du référent handicap (voir feature 3) |
+| **Faire mes devoirs** | Pour tous les dys : explique la consigne pas à pas et pose des questions pour avancer, sans faire le devoir à la place |
 
-**Le but.** Un seul compagnon qui change de casquette, pas cinq outils séparés à apprendre.
+**Le but.** Un seul compagnon qui change de casquette, pas sept outils séparés à apprendre.
 
 **Techniquement.** La même brique partout : reconnaissance vocale, modèle de langage avec un prompt système qui change selon le mode, synthèse vocale. Un seul avatar, un contexte différent selon l'écran où on l'ouvre.
 
@@ -97,6 +98,18 @@ Pour chaque feature : **l'idée**, **le but**, **ce qu'on voit à l'écran**, et
 **Le partage avec le parent.** Le parent voit ce que la personne décide de montrer : les quêtes, les tâches, les documents, la carte. Elle peut tout révoquer d'un geste.
 
 **La gamification, discrète.** Des points à chaque étape franchie, un niveau, une série de jours, quelques badges. Assez pour encourager, jamais assez pour infantiliser.
+
+---
+
+## 8 · Boutique dys
+
+**L'idée.** Un catalogue du matériel qui aide au quotidien : règles de lecture, stylos ergonomiques, calculatrices parlantes, minuteurs, casques antibruit, logiciels de dictée ou de synthèse vocale.
+
+**Le but.** Savoir quoi acheter, et où, sans passer des soirées à comparer des sites spécialisés.
+
+**À l'écran.** Six rayons (lire, écrire, compter, s'organiser, se concentrer, ordinateur et téléphone), une recherche, des filtres par type de dys et par prix, un tri, une fiche par produit avec sa fourchette de prix et les marchands, et « Ma liste » pour garder des produits de côté.
+
+**Pourquoi ça compte.** Pass'Dys ne vend rien : chaque produit renvoie vers les marchands, ce qui évite tout conflit d'intérêt. La boutique est réservée aux comptes parent et adulte ; un compte enfant ne la voit pas.
 
 ---
 

@@ -24,6 +24,10 @@ Moins sur la lecture, plus sur la **décomposition d'une tâche du quotidien en 
 
 Dictée vocale assistée : la personne parle, le compagnon retranscrit à l'écrit en corrigeant syntaxe et structure — proche du rédacteur de mails qu'on avait, mais intégré dans la même interface conversationnelle plutôt qu'un outil séparé.
 
+**Faire mes devoirs** (pour tous les dys)
+
+La personne montre ou dicte la consigne, le compagnon l'explique pas à pas et pose des questions pour la faire avancer. Il ne fait jamais le devoir à sa place : il aide à comprendre ce qui est demandé, pas à rendre une réponse toute faite.
+
 ## Intégré dans le préparateur d'entretien (feature 3)
 
 Le même compagnon devient le partenaire d'entraînement : au lieu d'un formulaire à remplir avant un rdv, la personne **discute à voix haute avec le compagnon** qui joue le rôle du recruteur, du médecin, ou du référent handicap fac — pose des questions probables, laisse reformuler, corrige gentiment la formulation en direct ("essaie de dire ça plus court", "reformule sans dire je suis nul en maths"). Ça devient un vrai entraînement oral plutôt qu'un exercice écrit — beaucoup plus utile pour quelqu'un qui bloque justement à l'oral sous stress.

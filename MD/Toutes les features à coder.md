@@ -80,6 +80,7 @@
 - [ ]  Mode dyspraxie : découper une tâche du quotidien en étapes, répéter une étape
 - [ ]  Mode dysgraphie : dictée corrigée (syntaxe et structure)
 - [ ]  Mode entraînement : jeu de rôle (voir feature 3)
+- [ ]  Faire mes devoirs : Lio explique la consigne pas à pas, sans faire le devoir à la place
 - [ ]  Historique des échanges
 - [ ]  Garde-fous : clé d'API côté serveur, aucune donnée de santé envoyée au modèle
 
@@ -93,9 +94,19 @@
 - [ ]  Recherche globale
 - [ ]  Responsive mobile
 
-## 8 · Parcours à démontrer au jury
+## 8 · Boutique dys
+
+- [ ]  Catalogue de matériel en six rayons : lire, écrire, compter, s'organiser, se concentrer, ordinateur et téléphone
+- [ ]  Recherche dans le catalogue
+- [ ]  Filtres (type de dys, prix) et tri (pertinence, prix)
+- [ ]  Fiche produit : description, fourchette de prix, liens vers les marchands
+- [ ]  « Ma liste » : garder des produits de côté
+- [ ]  Aucune vente dans l'application : uniquement des liens sortants
+- [ ]  Accès réservé aux comptes parent et adulte (masquée pour les comptes enfant)
+
+## 9 · Parcours à démontrer au jury
 
 - [ ]  Léa, 14 ans : PAP et bibliothèque adaptée
-- [ ]  Karim, 20 ans : aménagement d'examens à la fac
+- [ ]  Adam, 20 ans : aménagement d'examens à la fac
 - [ ]  Sofia, 27 ans : RQTH et mail à l'employeur
 - [ ]  Amadou, parent : suivi MDPH et coffre partagé
