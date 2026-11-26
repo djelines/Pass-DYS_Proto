@@ -3727,6 +3727,17 @@ html.role-parent .tabs .tab[data-nav="lio"], html.role-parent .tabbar .tb-i[data
 .ox-qt { margin: 0; font-family: var(--title); font-size: clamp(26px, 3.2vw, 34px); font-weight: 800; letter-spacing: -.02em; line-height: 1.15; color: var(--ink); }
 .ox-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: var(--sp-12); }
 .ox-opts[data-n="4"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.ox-opts[data-n="5"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.ox-opts[data-n="5"] .ox-autre { grid-column: 1 / -1; }
+.ox-opts .ox-autre.on { border-color: var(--c); box-shadow: var(--relief-4) var(--c); }
+.ox-other { display: flex; flex-direction: column; gap: var(--sp-8); padding: 18px 20px; border: 2px solid var(--line); border-radius: var(--r-8); background: var(--surf); box-shadow: var(--relief-4) var(--line); }
+.ox-other[hidden] { display: none; }
+.ox-other-r { display: flex; align-items: flex-end; gap: var(--sp-12); }
+.ox-other .field { flex: 1; min-width: 0; min-height: 52px; font-size: var(--fs-17); }
+.ox-other textarea.field { resize: vertical; line-height: 1.5; }
+.ox-other .btn { flex: none; min-height: 52px; padding: 0 22px; font-size: var(--fs-16); }
+.ox-err { margin: 0; font-size: var(--fs-15); font-weight: 600; color: var(--bad); }
+.ox-err:empty { display: none; }
 .ox-opts .dc-opt { min-height: 76px; margin: 0 0 var(--sp-4); padding: var(--sp-12) 18px; gap: var(--sp-12); font-size: var(--fs-17); line-height: 1.25; }
 .ox-chg { display: inline-flex; align-items: center; min-height: 28px; margin-left: 10px; padding: 0 10px; border-radius: var(--r-4); background: rgba(255, 255, 255, .2); color: inherit; font-family: var(--title); font-size: var(--fs-14); font-weight: 700; vertical-align: middle; }
 @media (hover: hover) { .ox-chg:hover { background: rgba(255, 255, 255, .32); } }
@@ -3737,6 +3748,8 @@ html.role-parent .tabs .tab[data-nav="lio"], html.role-parent .tabbar .tb-i[data
   .ox-q .ox-f svg { width: 52px; }
   .ox-qt { font-size: 24px; }
   .ox-opts, .ox-opts[data-n] { grid-template-columns: 1fr; gap: 10px; }
+  .ox-other { padding: 14px; }
+  .ox-other-r { flex-direction: column; align-items: stretch; }
   .ox-opts .dc-opt { min-height: 60px; }
 }
 @media (prefers-reduced-motion: reduce) { .og-st { transition: none; } .og-st:active, .btn.og-done:active, .btn.ox-pri:active { transform: none; } }
@@ -5736,6 +5749,7 @@ const CALC_V = {
 let calcV = 'payer';
 function paintCalcImg() {
   const v = CALC_V[calcV]; const box = $('#calcImg'); if (!box) return;
+  box.hidden = !v.img; if (!v.img) return;
   box.innerHTML = `<span class="ox-lbl">${v.img}</span><div class="cs-bar" aria-hidden="true">${Array.from({ length: v.n }, (x, i) => `<span class="${i < v.on ? 'r' : ''}"></span>`).join('')}</div><div class="cs-leg"><b class="r">${v.leg[0]}</b><b>${v.leg[1]}</b></div>`;
 }
 ACT.calcSay = () => { const old = voiceRate; voiceRate = 0.7; speak(CALC_V[calcV].say); voiceRate = old; };
@@ -5783,12 +5797,67 @@ const ASK = {
     opts: [['Service handicap', 'Un rendez-vous au service handicap', 'library', 'dem'], ['Orthophoniste', 'Un bilan chez l’orthophoniste', 'health', 'lio'], ['Entretien d’embauche', 'Un entretien d’embauche', 'hands', 'car'], ['RQTH', 'Une demande de RQTH', 'file', 'vio']],
     pick: (v) => { trTopic = v; $('#trInput').value = ''; trStart(); } },
 };
+const NUM = (t) => Number(String(t).replace(/\s/g, '').replace(',', '.'));
+const frN = (n) => n.toLocaleString('fr-FR', { maximumFractionDigits: 2 });
+const OTHER = {
+  organiser: { l: tv('Pour quoi veux-tu t’organiser ?', 'Pour quoi souhaitez-vous vous organiser ?'), ph: 'Par exemple : préparer ma rentrée',
+    go: (t) => { ORG_V.autre = [up1(t), ['Écrire tout ce qu’il faut faire', 'Découper en petites étapes', 'Commencer par la plus facile', 'Faire une pause de 5 minutes', 'Cocher ce qui est fait']]; ASK.organiser.pick('autre'); } },
+  entrainer: { l: tv('Pour quel rendez-vous ?', 'Pour quel rendez-vous ?'), ph: 'Par exemple : voir mon professeur principal',
+    go: (t) => {
+      TR.Autre = ['Pouvez-vous vous présenter en quelques mots ?', 'Qu’est-ce qui est difficile pour vous ?', 'Qu’est-ce qui vous aiderait le plus ?', 'Avez-vous des questions ?'];
+      TR_EX.Autre = 'J’ai besoin de plus de temps pour lire les documents.';
+      TR_WHO.Autre = `la personne de ${tv('ton', 'votre')} rendez-vous`;
+      ASK.entrainer.pick('Autre');
+    } },
+  lire: { l: tv('Colle ou écris le texte à lire', 'Collez ou écrivez le texte à lire'), ph: 'Le texte du document…', area: true,
+    go: (t) => {
+      const ph = t.split(/(?<=[.!?…])\s+/).filter(Boolean);
+      LIRE_V.autre = { t: 'Mon texte', html: esc(t),
+        res: tv('Dans la maquette, Lio sait résumer seulement les textes d’exemple. Essaie « Simplifier » : il coupe le texte en phrases courtes.', 'Dans la maquette, Lio sait résumer seulement les textes d’exemple. Essayez « Simplifier » : il coupe le texte en phrases courtes.'),
+        simp: `Phrase par phrase : ${ph.map((x, i) => `${i + 1}. ${x}`).join(' ')}` };
+      ASK.lire.pick('autre');
+      $('#lireSay').textContent = tv('Appuie sur « Lire à voix haute », ou essaie les syllabes en couleur.', 'Appuyez sur « Lire à voix haute », ou essayez les syllabes en couleur.');
+    } },
+  calculer: { l: tv('Écris ton calcul', 'Écrivez votre calcul'), ph: 'Par exemple : 45 ÷ 3',
+    go: (t) => {
+      const m = t.replace(/\s+/g, ' ').match(/(\d[\d\s]*(?:[.,]\d+)?)\s*([+\-−x×*÷/:])\s*(\d[\d\s]*(?:[.,]\d+)?)/i);
+      if (!m) return tv('Écris un calcul avec deux nombres, par exemple 45 ÷ 3.', 'Écrivez un calcul avec deux nombres, par exemple 45 ÷ 3.');
+      const a = NUM(m[1]); const b = NUM(m[3]); const o = { '+': '+', '-': '−', '−': '−', x: '×', X: '×', '×': '×', '*': '×', '÷': '÷', '/': '÷', ':': '÷' }[m[2]];
+      if (o === '÷' && b === 0) return 'On ne peut pas diviser par zéro.';
+      const r = { '+': a + b, '−': a - b, '×': a * b, '÷': a / b }[o];
+      const w = { '+': 'plus', '−': 'moins', '×': 'fois', '÷': 'divisé par' }[o];
+      CALC_V.autre = { q: up1(t), steps: [['Le calcul', `${frN(a)} ${o} ${frN(b)}`, frN(r)]], img: '', say: `${frN(a)} ${w} ${frN(b)}, ça fait ${frN(r)}.` };
+      ASK.calculer.pick('autre');
+    } },
+  reformuler: { l: tv('Dis ton idée avec tes mots', 'Dites votre idée avec vos mots'), ph: 'Comme tu le dirais à voix haute…', area: true,
+    go: (t) => { const i = $('#refIn'); if (i) { i.value = t; ACT.refFix(); } } },
+  ecrire: { l: tv('Écris ou dicte ton texte', 'Écrivez ou dictez votre texte'), ph: 'Les fautes, ce n’est pas grave…', area: true,
+    go: (t) => { const i = $('#ecrIn'); if (i) { i.value = t; ACT.ecrFix(); } } },
+};
+ACT.oxOther = (el) => {
+  const f = $(`#oxO-${el.dataset.k}`); const open = f.hidden;
+  f.hidden = !open; el.setAttribute('aria-expanded', open); el.classList.toggle('on', open);
+  if (open) $(`#oxI-${el.dataset.k}`).focus();
+};
+document.addEventListener('submit', (e) => {
+  const f = e.target.closest && e.target.closest('.ox-other'); if (!f) return;
+  e.preventDefault();
+  const k = f.dataset.k; const inp = $(`#oxI-${k}`); const er = $(`#oxE-${k}`);
+  const t = inp.value.trim();
+  if (!t) { er.textContent = tv('Écris quelques mots pour continuer.', 'Écrivez quelques mots pour continuer.'); inp.setAttribute('aria-invalid', 'true'); inp.focus(); return; }
+  const bad = OTHER[k].go(t);
+  if (bad) { er.textContent = bad; inp.setAttribute('aria-invalid', 'true'); inp.focus(); return; }
+  er.textContent = ''; inp.removeAttribute('aria-invalid');
+  oxOf(k).dataset.st = ''; scrollTo(0, 0);
+  const h = $(`[data-id="${k}"] .ox-t`); if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); }
+});
+document.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !e.shiftKey && e.target.matches && e.target.matches('.ox-other textarea')) { e.preventDefault(); e.target.form.requestSubmit(); } });
 const oxOf = (k) => $(`[data-id="${k}"] .ox`);
 function oxAsk(k) {
   const A = ASK[k]; const ox = oxOf(k); if (!ox) return;
   const col = (c) => `--c: var(--${c}); --cb: var(--${c === 'navy' ? 'surf2' : `${c}-bg`});`;
   ox.dataset.st = 'ask';
-  $('.ox-ask', ox).innerHTML = `<div class="ox-q"><span class="ox-f" aria-hidden="true">${lioCopy()}</span><p class="ox-qt" id="oxQ-${k}">${A.q}</p></div><div class="ox-opts" data-n="${A.opts.length}" role="group" aria-labelledby="oxQ-${k}">${A.opts.map(([v, l, i, c]) => `<button class="dc-opt" style="${col(c || A.c)}" data-act="oxPick" data-k="${k}" data-v="${esc(v)}">${ic(i, 24)}<span>${l}</span></button>`).join('')}</div>`;
+  $('.ox-ask', ox).innerHTML = `<div class="ox-q"><span class="ox-f" aria-hidden="true">${lioCopy()}</span><p class="ox-qt" id="oxQ-${k}">${A.q}</p></div><div class="ox-opts" data-n="${A.opts.length + 1}" role="group" aria-labelledby="oxQ-${k}">${A.opts.map(([v, l, i, c]) => `<button class="dc-opt" style="${col(c || A.c)}" data-act="oxPick" data-k="${k}" data-v="${esc(v)}">${ic(i, 24)}<span>${l}</span></button>`).join('')}<button class="dc-opt ox-autre" style="${col(A.c)}" data-act="oxOther" data-k="${k}" aria-expanded="false" aria-controls="oxO-${k}">${ic('edit', 24)}<span>Autre</span></button></div><form class="ox-other" id="oxO-${k}" data-k="${k}" hidden novalidate><label class="ox-lbl" for="oxI-${k}">${OTHER[k].l}</label><div class="ox-other-r">${OTHER[k].area ? `<textarea class="field" id="oxI-${k}" rows="3" placeholder="${OTHER[k].ph}" aria-describedby="oxE-${k}"></textarea>` : `<input class="field" id="oxI-${k}" placeholder="${OTHER[k].ph}" autocomplete="off" aria-describedby="oxE-${k}">`}<button class="btn ox-pri" type="submit">Continuer ${ic('arrow', 18)}</button></div><p class="ox-err" id="oxE-${k}" role="alert"></p></form>`;
 }
 ACT.oxPick = (el) => { const k = el.dataset.k; ASK[k].pick(el.dataset.v); oxOf(k).dataset.st = ''; scrollTo(0, 0); const t = $(`[data-id="${k}"] .ox-t`); if (t) { t.tabIndex = -1; t.focus({ preventScroll: true }); } };
 ACT.oxAsk = (el) => { oxAsk(el.dataset.k); scrollTo(0, 0); };
