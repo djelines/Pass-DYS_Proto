@@ -5190,7 +5190,7 @@ let calcN = 1;
 function paintCalc() {
   const nb = $('[data-act="calcNext"]');
   if (nb) { const end = calcN >= CALC.length; nb.disabled = end; nb.innerHTML = end ? `${ic('check', 18)}Calcul terminé` : `Étape suivante ${ic('arrow', 18)}`; }
-  const cc = $('#calcCount'); if (cc) cc.innerHTML = `<b>${calcN}</b> sur ${CALC.length}<small>${calcN > 1 ? 'faites' : 'faite'}</small>`;
+  const cc = $('#calcCount'); if (cc) cc.innerHTML = `<b>${calcN}</b><small>${calcN > 1 ? 'étapes faites' : 'étape faite'} sur ${CALC.length}</small>`;
   $('#calcSteps').innerHTML = CALC.map(([l, c, r], i) => { const st = i < calcN ? 2 : i === calcN ? 1 : 0; return `<div class="cs-r s${st}"><span class="cs-n">${st === 2 ? ic('check', 18, 'currentColor', 3) : i + 1}</span><div><div class="cs-l">${l}</div><div class="cs-c">${c} <span>= ${st === 0 ? '?' : r}</span></div></div></div>`; }).join('');
 }
 ENTER.calculer = () => { calcN = 1; paintCalc(); };
@@ -5242,7 +5242,7 @@ let ORG = ['Mettre la carte étudiante dans le sac', 'Prendre deux stylos', 'Rem
 let orgI = 0;
 function paintOrg() {
   const n = ORG.length; const end = orgI >= n;
-  $('#orgCount').innerHTML = `<b>${Math.min(orgI, n)}</b> sur ${n}<small>${orgI > 1 ? 'faites' : 'faite'}</small>`;
+  $('#orgCount').innerHTML = `<b>${Math.min(orgI, n)}</b><small>${orgI > 1 ? 'étapes faites' : 'étape faite'} sur ${n}</small>`;
   $('#orgLbl').textContent = end ? 'Terminé' : `Étape ${orgI + 1} sur ${n}`;
   $('#orgNow').textContent = end ? tv('Ton sac est prêt.', 'Votre sac est prêt.') : ORG[orgI];
   $('#orgNext').textContent = end ? tv('Bonne chance pour ton examen.', 'Bonne chance pour votre examen.') : orgI + 1 < n ? `Ensuite : ${ORG[orgI + 1]}` : 'C’est la dernière étape.';
@@ -5284,7 +5284,7 @@ const TR = {
   RQTH: ['Qu’est-ce qui est difficile au travail ?', 'Qu’est-ce qui vous aiderait au quotidien ?', 'En avez-vous parlé à votre employeur ?', 'Que souhaitez-vous demander ?'],
 };
 const TR_EX = { 'Service handicap': 'Lire les consignes vite, et le bruit dans la salle.', Orthophoniste: 'Depuis le CP, surtout quand le texte est long.', 'Entretien d’embauche': 'J’ai organisé la collecte de mon association.', RQTH: 'Les mails longs, je dois les relire plusieurs fois.' };
-const TR_WHO = { 'Service handicap': 'le service handicap', Orthophoniste: 'l’orthophoniste', 'Entretien d’embauche': 'le recruteur', RQTH: 'le référent handicap' };
+const TR_WHO = { 'Service handicap': 'le rôle du service handicap', Orthophoniste: 'le rôle de l’orthophoniste', 'Entretien d’embauche': 'le rôle du recruteur', RQTH: 'le rôle du conseiller de la MDPH' };
 let trTopic = 'Service handicap';
 let trI = 0;
 let TRM = [];
@@ -5315,7 +5315,7 @@ ACT.trSay = (el) => speak(TRM[Number(el.dataset.i)].t);
 function trFeedback(a) {
   const words = a.trim().split(/\s+/).length;
   if (/\b(nul|nulle|bête|idiot|incapable)\b/i.test(a)) return [tv('Tu peux dire autrement', 'Vous pouvez dire autrement'), tv('Évite de parler de toi en négatif. Par exemple : « J’ai besoin de plus de temps pour lire. »', 'Évitez de parler de vous en négatif. Par exemple : « J’ai besoin de plus de temps pour lire. »')];
-  if (/dyslex|dyscalc|dysorth|dyspra|dysphas|dysgraph/i.test(a)) return [tv('Tu peux dire autrement', 'Vous pouvez dire autrement'), tv('Tu n’es pas obligé de nommer ton trouble. Parle de ce qui t’aide.', 'Rien ne vous oblige à nommer le trouble. Parlez de ce qui aide.')];
+  if (/dyslex|dyscalc|dysorth|dyspra|dysphas|dysgraph/i.test(a)) return [tv('Tu peux dire autrement', 'Vous pouvez dire autrement'), tv('Rien ne t’oblige à nommer ton trouble. Parle de ce qui t’aide.', 'Rien ne vous oblige à nommer le trouble. Parlez de ce qui aide.')];
   if (words > 40) return [tv('Tu peux dire plus court', 'Vous pouvez faire plus court'), tv('Garde une seule idée. Tu pourras préciser si on te le demande.', 'Gardez une seule idée. Vous pourrez préciser si on vous le demande.')];
   if (words < 4) return [tv('Tu peux ajouter un exemple', 'Vous pouvez ajouter un exemple'), 'Un exemple concret aide la personne à comprendre.'];
   return ['Ce qui va', tv('Clair et précis. Tu peux ajouter ce qui t’aide.', 'Clair et précis. Vous pouvez ajouter ce qui vous aide.')];
@@ -5741,7 +5741,7 @@ ACT.simplify = () => { $('#lireSay').textContent = LIRE_V[lireV].simp; };
 const CALC_V = {
   payer: { q: '3 séances à 32,50\u00a0€, remboursées à 60\u00a0%. Combien je paie\u00a0?', steps: CALC, img: 'En image : sur 10 parts, 6 sont remboursées', n: 10, on: 6, leg: ['60 % remboursés', tv('40 % pour toi', '40 % pour vous')],
     say: 'Trois fois trente-deux euros cinquante, ça fait quatre-vingt-dix-sept euros cinquante. On en rembourse soixante pour cent : cinquante-huit euros cinquante. ' + tv('Il te reste trente-neuf euros.', 'Il vous reste trente-neuf euros.') },
-  temps: { q: 'Mon examen dure 3\u00a0heures. Avec le tiers temps, combien de temps j’ai\u00a0?', steps: [['Le tiers du temps', '3 h ÷ 3', '1 h'], ['Le temps en tout', '3 h + 1 h', '4 h']], img: 'En image : 3 heures, plus 1 heure', n: 4, on: 3, leg: ['3 h d’examen', '1 h en plus'],
+  temps: { q: 'Mon examen dure 3\u00a0heures. Avec le tiers temps, j’ai combien de temps\u00a0?', steps: [['Le tiers du temps', '3 h ÷ 3', '1 h'], ['Le temps en tout', '3 h + 1 h', '4 h']], img: 'En image : 3 heures, plus 1 heure', n: 4, on: 3, leg: ['3 h d’examen', '1 h en plus'],
     say: 'Trois heures divisées par trois, ça fait une heure. Trois heures plus une heure, ça fait quatre heures.' },
   partager: { q: 'Un cadeau à 45\u00a0€ pour 3\u00a0amis. Combien chacun paie\u00a0?', steps: [['La part de chacun', '45 ÷ 3', '15 €'], ['On vérifie', '15 × 3', '45 €']], img: 'En image : 45 € en 3 parts égales', n: 3, on: 1, leg: [tv('15 € pour toi', '15 € pour vous'), '30 € pour les deux autres'],
     say: 'Quarante-cinq euros divisés par trois, ça fait quinze euros chacun. On vérifie : quinze fois trois, ça fait quarante-cinq.' },
@@ -5771,8 +5771,8 @@ const ECR_V = {
 };
 
 const ASK = {
-  lire: { c: 'dem', q: tv('Pourquoi souhaites-tu lire\u00a0?', 'Pourquoi souhaitez-vous lire\u00a0?'),
-    opts: [['convoc', 'Comprendre une convocation', 'calendar'], ['consigne', 'Comprendre une consigne de devoir', 'school'], ['mdph', 'Comprendre un courrier officiel', 'mail']],
+  lire: { c: 'dem', q: tv('Qu’est-ce que tu veux lire\u00a0?', 'Qu’est-ce que vous voulez lire\u00a0?'),
+    opts: [['convoc', 'Une convocation', 'calendar'], ['consigne', 'Une consigne de devoir', 'school'], ['mdph', 'Un courrier officiel', 'mail']],
     pick: (v) => {
       lireV = v; const box = $('#readText');
       if (RL.on) { const b = $('[data-act="ruler"]'); if (b) ACT.ruler(b); }
@@ -5781,32 +5781,32 @@ const ASK = {
       $('[data-id="lire"] .ox-t').textContent = LIRE_V[v].t;
       $('#lireSay').textContent = tv('Clique sur un mot surligné : je te l’explique en une phrase.', 'Cliquez sur un mot surligné : je vous l’explique en une phrase.');
     } },
-  calculer: { c: 'car', q: tv('Pourquoi souhaites-tu calculer\u00a0?', 'Pourquoi souhaitez-vous calculer\u00a0?'),
-    opts: [['payer', 'Savoir ce que je vais payer', 'card'], ['temps', 'Connaître mon temps en plus', 'clock'], ['partager', 'Partager une dépense', 'users']],
+  calculer: { c: 'car', q: tv('Qu’est-ce que tu veux calculer\u00a0?', 'Qu’est-ce que vous voulez calculer\u00a0?'),
+    opts: [['payer', 'Combien je vais payer', 'card'], ['temps', 'Mon temps en plus aux examens', 'clock'], ['partager', 'La part de chacun', 'users']],
     pick: (v) => { calcV = v; CALC = CALC_V[v].steps; calcN = 0; calcPaid = false; $('[data-id="calculer"] .ox-t').textContent = CALC_V[v].q; paintCalc(); paintCalcImg(); } },
-  reformuler: { c: 'vio', q: tv('Pourquoi souhaites-tu reformuler\u00a0?', 'Pourquoi souhaitez-vous reformuler\u00a0?'),
-    opts: [['rdv', 'Préparer un rendez-vous', 'calendar'], ['appel', 'Préparer un appel', 'phone'], ['cours', 'Répondre en cours', 'school']],
+  reformuler: { c: 'vio', q: tv('Où vas-tu dire ton idée\u00a0?', 'Où allez-vous dire votre idée\u00a0?'),
+    opts: [['rdv', 'À un rendez-vous', 'calendar'], ['appel', 'Au téléphone', 'phone'], ['cours', 'En cours', 'school']],
     pick: (v) => { const i = $('#refIn'); if (i) { i.value = REF_V[v]; ACT.refFix(); } } },
-  ecrire: { c: 'lio', q: tv('Pourquoi souhaites-tu écrire\u00a0?', 'Pourquoi souhaitez-vous écrire\u00a0?'),
-    opts: [['prof', 'Écrire à un professeur', 'school'], ['travail', 'Écrire à mon employeur', 'hands'], ['notes', 'Prendre des notes', 'pen']],
+  ecrire: { c: 'lio', q: tv('Qu’est-ce que tu veux écrire\u00a0?', 'Qu’est-ce que vous voulez écrire\u00a0?'),
+    opts: [['prof', 'Un message à un professeur', 'school'], ['travail', 'Un message à mon employeur', 'hands'], ['notes', 'Des notes pour moi', 'pen']],
     pick: (v) => { const i = $('#ecrIn'); if (i) { i.value = ECR_V[v]; ACT.ecrFix(); } } },
-  organiser: { c: 'aut', q: tv('Pourquoi souhaites-tu t’organiser\u00a0?', 'Pourquoi souhaitez-vous vous organiser\u00a0?'),
-    opts: [['sac', 'Préparer mon sac pour un examen', 'bag'], ['rdv', 'Préparer un rendez-vous', 'calendar'], ['papiers', 'Ranger mes papiers', 'folder']],
+  organiser: { c: 'aut', q: tv('Qu’est-ce que tu veux organiser\u00a0?', 'Qu’est-ce que vous voulez organiser\u00a0?'),
+    opts: [['sac', 'Mon sac pour un examen', 'bag'], ['rdv', 'Un rendez-vous', 'calendar'], ['papiers', 'Mes papiers', 'folder']],
     pick: (v) => { ORG = ORG_V[v][1]; orgI = 0; orgPaid = false; $('[data-id="organiser"] .ox-t').textContent = ORG_V[v][0]; paintOrg(); } },
-  entrainer: { c: 'navy', q: tv('Pourquoi souhaites-tu t’entraîner\u00a0?', 'Pourquoi souhaitez-vous vous entraîner\u00a0?'),
-    opts: [['Service handicap', 'Un rendez-vous au service handicap', 'library', 'dem'], ['Orthophoniste', 'Un bilan chez l’orthophoniste', 'health', 'lio'], ['Entretien d’embauche', 'Un entretien d’embauche', 'hands', 'car'], ['RQTH', 'Une demande de RQTH', 'file', 'vio']],
+  entrainer: { c: 'navy', q: tv('Pour quel rendez-vous veux-tu t’entraîner\u00a0?', 'Pour quel rendez-vous voulez-vous vous entraîner\u00a0?'),
+    opts: [['Service handicap', 'Au service handicap', 'library', 'dem'], ['Orthophoniste', 'Chez l’orthophoniste', 'health', 'lio'], ['Entretien d’embauche', 'Un entretien d’embauche', 'hands', 'car'], ['RQTH', 'Une demande de RQTH', 'file', 'vio']],
     pick: (v) => { trTopic = v; $('#trInput').value = ''; trStart(); } },
 };
 const NUM = (t) => Number(String(t).replace(/\s/g, '').replace(',', '.'));
 const frN = (n) => n.toLocaleString('fr-FR', { maximumFractionDigits: 2 });
 const OTHER = {
-  organiser: { l: tv('Pour quoi veux-tu t’organiser ?', 'Pour quoi souhaitez-vous vous organiser ?'), ph: 'Par exemple : préparer ma rentrée',
+  organiser: { l: tv('Qu’est-ce que tu veux organiser ?', 'Qu’est-ce que vous voulez organiser ?'), ph: 'Par exemple : préparer ma rentrée',
     go: (t) => { ORG_V.autre = [up1(t), ['Écrire tout ce qu’il faut faire', 'Découper en petites étapes', 'Commencer par la plus facile', 'Faire une pause de 5 minutes', 'Cocher ce qui est fait']]; ASK.organiser.pick('autre'); } },
-  entrainer: { l: tv('Pour quel rendez-vous ?', 'Pour quel rendez-vous ?'), ph: 'Par exemple : voir mon professeur principal',
+  entrainer: { l: tv('Quel rendez-vous prépares-tu ?', 'Quel rendez-vous préparez-vous ?'), ph: 'Par exemple : voir mon professeur principal',
     go: (t) => {
       TR.Autre = ['Pouvez-vous vous présenter en quelques mots ?', 'Qu’est-ce qui est difficile pour vous ?', 'Qu’est-ce qui vous aiderait le plus ?', 'Avez-vous des questions ?'];
       TR_EX.Autre = 'J’ai besoin de plus de temps pour lire les documents.';
-      TR_WHO.Autre = `la personne de ${tv('ton', 'votre')} rendez-vous`;
+      TR_WHO.Autre = tv('le rôle de la personne que tu vas voir', 'le rôle de la personne que vous allez voir');
       ASK.entrainer.pick('Autre');
     } },
   lire: { l: tv('Colle ou écris le texte à lire', 'Collez ou écrivez le texte à lire'), ph: 'Le texte du document…', area: true,
@@ -5829,7 +5829,7 @@ const OTHER = {
       CALC_V.autre = { q: up1(t), steps: [['Le calcul', `${frN(a)} ${o} ${frN(b)}`, frN(r)]], img: '', say: `${frN(a)} ${w} ${frN(b)}, ça fait ${frN(r)}.` };
       ASK.calculer.pick('autre');
     } },
-  reformuler: { l: tv('Dis ton idée avec tes mots', 'Dites votre idée avec vos mots'), ph: 'Comme tu le dirais à voix haute…', area: true,
+  reformuler: { l: tv('Dis ton idée avec tes mots', 'Dites votre idée avec vos mots'), ph: tv('Comme tu le dirais à voix haute…', 'Comme vous le diriez à voix haute…'), area: true,
     go: (t) => { const i = $('#refIn'); if (i) { i.value = t; ACT.refFix(); } } },
   ecrire: { l: tv('Écris ou dicte ton texte', 'Écrivez ou dictez votre texte'), ph: 'Les fautes, ce n’est pas grave…', area: true,
     go: (t) => { const i = $('#ecrIn'); if (i) { i.value = t; ACT.ecrFix(); } } },
@@ -5857,7 +5857,7 @@ function oxAsk(k) {
   const A = ASK[k]; const ox = oxOf(k); if (!ox) return;
   const col = (c) => `--c: var(--${c}); --cb: var(--${c === 'navy' ? 'surf2' : `${c}-bg`});`;
   ox.dataset.st = 'ask';
-  $('.ox-ask', ox).innerHTML = `<div class="ox-q"><span class="ox-f" aria-hidden="true">${lioCopy()}</span><p class="ox-qt" id="oxQ-${k}">${A.q}</p></div><div class="ox-opts" data-n="${A.opts.length + 1}" role="group" aria-labelledby="oxQ-${k}">${A.opts.map(([v, l, i, c]) => `<button class="dc-opt" style="${col(c || A.c)}" data-act="oxPick" data-k="${k}" data-v="${esc(v)}">${ic(i, 24)}<span>${l}</span></button>`).join('')}<button class="dc-opt ox-autre" style="${col(A.c)}" data-act="oxOther" data-k="${k}" aria-expanded="false" aria-controls="oxO-${k}">${ic('edit', 24)}<span>Autre</span></button></div><form class="ox-other" id="oxO-${k}" data-k="${k}" hidden novalidate><label class="ox-lbl" for="oxI-${k}">${OTHER[k].l}</label><div class="ox-other-r">${OTHER[k].area ? `<textarea class="field" id="oxI-${k}" rows="3" placeholder="${OTHER[k].ph}" aria-describedby="oxE-${k}"></textarea>` : `<input class="field" id="oxI-${k}" placeholder="${OTHER[k].ph}" autocomplete="off" aria-describedby="oxE-${k}">`}<button class="btn ox-pri" type="submit">Continuer ${ic('arrow', 18)}</button></div><p class="ox-err" id="oxE-${k}" role="alert"></p></form>`;
+  $('.ox-ask', ox).innerHTML = `<div class="ox-q"><span class="ox-f" aria-hidden="true">${lioCopy()}</span><p class="ox-qt" id="oxQ-${k}">${A.q}</p></div><div class="ox-opts" data-n="${A.opts.length + 1}" role="group" aria-labelledby="oxQ-${k}">${A.opts.map(([v, l, i, c]) => `<button class="dc-opt" style="${col(c || A.c)}" data-act="oxPick" data-k="${k}" data-v="${esc(v)}">${ic(i, 24)}<span>${l}</span></button>`).join('')}<button class="dc-opt ox-autre" style="${col(A.c)}" data-act="oxOther" data-k="${k}" aria-expanded="false" aria-controls="oxO-${k}">${ic('edit', 24)}<span>Autre chose</span></button></div><form class="ox-other" id="oxO-${k}" data-k="${k}" hidden novalidate><label class="ox-lbl" for="oxI-${k}">${OTHER[k].l}</label><div class="ox-other-r">${OTHER[k].area ? `<textarea class="field" id="oxI-${k}" rows="3" placeholder="${OTHER[k].ph}" aria-describedby="oxE-${k}"></textarea>` : `<input class="field" id="oxI-${k}" placeholder="${OTHER[k].ph}" autocomplete="off" aria-describedby="oxE-${k}">`}<button class="btn ox-pri" type="submit">Continuer ${ic('arrow', 18)}</button></div><p class="ox-err" id="oxE-${k}" role="alert"></p></form>`;
 }
 ACT.oxPick = (el) => { const k = el.dataset.k; ASK[k].pick(el.dataset.v); oxOf(k).dataset.st = ''; scrollTo(0, 0); const t = $(`[data-id="${k}"] .ox-t`); if (t) { t.tabIndex = -1; t.focus({ preventScroll: true }); } };
 ACT.oxAsk = (el) => { oxAsk(el.dataset.k); scrollTo(0, 0); };
