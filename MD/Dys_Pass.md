@@ -56,10 +56,11 @@ Un seul personnage, une seule voix. Ce qu'il fait change selon ce qui coince.
 | **Calculer** | Décompose un calcul étape par étape, à voix haute |
 | **Reformuler** | On dit son idée en vrac, il la remet au propre à l'oral |
 | **Organiser** | Découpe une tâche du quotidien en étapes simples |
-| **Écrire** | On dicte, il rédige le mail selon le destinataire |
+| **Écrire** | On dicte, il corrige l'orthographe et la structure |
 | **S'entraîner** | Joue le recruteur, le médecin ou le référent handicap |
+| **Faire mes devoirs** | Explique la consigne pas à pas, sans faire le devoir à la place |
 
-Un seul compagnon, six casquettes — pas six outils à apprendre.
+Un seul compagnon, sept casquettes — pas sept outils à apprendre.
 
 ---
 

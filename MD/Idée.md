@@ -17,7 +17,7 @@ Passerelle est un compagnon numérique du quotidien pour les personnes dyslexiqu
 | Persona | Âge / situation | Besoin principal | Features clés |
 | --- | --- | --- | --- |
 | Léa | 14 ans, collégienne | Trouver une bibliothèque avec des livres en version adaptée pour réviser sans s'épuiser à lire | Carte des ressources, Assistant démarches (PAP) |
-| Karim | 20 ans, étudiant en fac | Obtenir un aménagement d'examen auprès d'un service handicap universitaire qu'il ne connaît pas | Préparateur d'entretien, Carte des ressources, Assistant démarches |
+| Adam | 20 ans, étudiant en fac | Obtenir un aménagement d'examen auprès d'un service handicap universitaire qu'il ne connaît pas | Préparateur d'entretien, Carte des ressources, Assistant démarches |
 | Sofia | 27 ans, salariée en entreprise | Faire une demande de RQTH et rédiger un mail correct à son employeur sans se sentir illégitime | Assistant démarches, Rédacteur de mails |
 | Amadou | 45 ans, parent d'un enfant dyslexique | Suivre les démarches MDPH/PPS sans s'épuiser dans la paperasse et centraliser les documents | Assistant démarches (kanban), Coffre documentaire |
 
