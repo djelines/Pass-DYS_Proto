@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+</head>
+<body>
+<title>Lio en direct</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Mise en page : à gauche ce que voit Adam (Lio à gauche), à droite ce que le serveur assemble et envoie au modèle. */
+:root{
+  --creme:#FFFDF7; --surf:#FFFFFF; --surf2:#F6F1E7; --line:#EAE3D6;
+  --ink:#1D2B3A; --sub:#5E6B7C; --navy:#34475F;
+  --lio:#2F7F77; --lio-800:#1F5650; --lio-bg:#E3F3F1;
+  --postit:#FBE7A1; --dem:#3B64A8; --pale:#E6EEF6; --car:#8A6412; --car-bg:#FCF3DA;
+  --code-bg:#1E2733; --code-fg:#E8EDF2; --code-sub:#9FB0C2;
+  --f-titre:"Figtree", "Segoe UI", system-ui, sans-serif;
+  --f-texte:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --f-code:ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+body{background:var(--creme);color:var(--ink);font-family:var(--f-texte);font-size:17px;line-height:1.5;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:28px 48px}
+.wrap{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--f-titre);text-wrap:balance;margin:0}
+h1{font-size:2.1rem;font-weight:800;letter-spacing:-.01em}
+h2{font-size:1.2rem;font-weight:700}
+h3{font-size:.98rem;font-weight:700}
+p{margin:0}
+.intro{display:flex;flex-direction:column;gap:10px;max-width:68ch}
+.intro p{color:var(--sub)}
+.note{background:var(--car-bg);border:1px solid #EFD9A0;border-radius:14px;padding:12px 16px;color:var(--ink);max-width:80ch;font-size:.95rem}
+.note strong{color:var(--car)}
+.cols{display:grid;grid-template-columns:1fr;gap:22px;align-items:start}
+@media (min-width:980px){.cols{grid-template-columns:minmax(0,5fr) minmax(0,6fr)}}
+.panel{border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.adam{background:var(--surf);border:1px solid var(--line)}
+.serveur{background:var(--surf2);border:1px solid var(--line)}
+.ptitle{display:flex;flex-direction:column;gap:2px}
+.ptitle span{font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--sub);font-weight:700}
+.missions{display:grid;grid-template-columns:1fr;gap:8px}
+@media (min-width:520px){.missions{grid-template-columns:1fr 1fr}}
+.mission{font:inherit;text-align:left;background:var(--surf);border:2px solid var(--line);border-bottom-width:4px;border-radius:16px;padding:10px 14px;cursor:pointer;color:var(--ink);display:flex;flex-direction:column;gap:1px}
+.mission b{font-family:var(--f-titre);font-weight:700;font-size:1rem}
+.mission small{color:var(--sub);font-size:.85rem}
+.mission[aria-pressed="true"]{border-color:var(--lio);background:var(--lio-bg)}
+.mission:focus-visible,.btn:focus-visible,textarea:focus-visible,.tab:focus-visible{outline:3px solid var(--dem);outline-offset:2px}
+label.lab{font-weight:700;font-size:.95rem}
+textarea{width:100%;min-height:118px;resize:vertical;font:inherit;font-size:1rem;line-height:1.5;color:var(--ink);background:var(--creme);border:2px solid var(--line);border-radius:14px;padding:12px 14px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{font-family:var(--f-titre);font-weight:700;font-size:1rem;border-radius:16px;padding:11px 18px;cursor:pointer;border:2px solid transparent;border-bottom-width:4px}
+.btn.main{background:var(--lio);color:#fff;border-color:var(--lio-800)}
+.btn.main:disabled{opacity:.55;cursor:wait}
+.btn.sec{background:var(--surf);color:var(--ink);border-color:var(--line)}
+.btn.sec[hidden]{display:none!important}
+.reponse{display:flex;gap:12px;align-items:flex-start}
+.reponse svg{width:58px;height:auto;flex:none}
+.bulle{flex:1;min-width:0;background:var(--lio-bg);border:2px solid #BFE2DD;border-radius:4px 18px 18px 18px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.bulle .texte{white-space:pre-wrap;overflow-wrap:anywhere;font-size:1.05rem}
+.bulle .etat{font-size:.85rem;color:var(--lio-800);font-weight:700}
+.bulle.attente .texte{color:var(--sub);font-style:italic}
+.etapes{display:flex;flex-direction:column;gap:10px}
+.bloc{background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.bloc header{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}
+.bloc header em{font-style:normal;color:var(--sub);font-size:.85rem}
+.bloc .num{display:inline-block;min-width:1.6em;font-family:var(--f-titre);color:var(--lio);font-weight:800}
+.bloc pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font-family:var(--f-code);font-size:.83rem;line-height:1.5;color:var(--ink);max-height:220px;overflow:auto}
+.bloc.fiche{background:var(--pale);border-color:#C9D8EA}
+.bloc.fiche .trouve{font-size:.88rem;color:var(--dem);font-weight:700}
+.bloc.vide pre{color:var(--sub);font-family:var(--f-texte);font-style:italic}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{font:inherit;font-size:.9rem;font-weight:700;background:transparent;border:2px solid var(--line);border-radius:12px;padding:6px 12px;cursor:pointer;color:var(--navy)}
+.tab[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.code{background:var(--code-bg);color:var(--code-fg);border-radius:14px;padding:14px;overflow:auto;max-height:360px}
+.code pre{margin:0;font-family:var(--f-code);font-size:.8rem;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}
+.code .cap{color:var(--code-sub);font-family:var(--f-texte);font-size:.82rem;margin-bottom:8px}
+.cout{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.cout div{background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:10px 12px;display:flex;flex-direction:column;gap:2px}
+.cout span{font-size:.8rem;color:var(--sub);letter-spacing:.04em;text-transform:uppercase;font-weight:700}
+.cout b{font-family:var(--f-titre);font-size:1.15rem;font-variant-numeric:tabular-nums}
+.cout small{color:var(--sub);font-size:.82rem}
+.pied{color:var(--sub);font-size:.88rem;max-width:80ch}
+@media (prefers-reduced-motion:no-preference){.bulle{transition:background .2s}}
+</style>
+
+<div class="wrap">
+  <div class="intro">
+    <h1>Lio en direct</h1>
+    <p>Choisis une mission, écris comme Adam, puis envoie. À droite, tu vois ce que le serveur NestJS assemble avant d'appeler le modèle : les règles, la consigne de la mission, les exemples, la fiche officielle et la question.</p>
+  </div>
+  <p class="note"><strong>Gratuit.</strong> Ici, c'est Claude qui répond, sur ton abonnement Claude actuel : pas de clé, pas de carte bancaire, rien à payer en plus. Dans Pass'Dys, ce sera Mistral. Le paquet envoyé est le même, seul le fournisseur change : c'est tout l'intérêt de la couche d'abstraction.</p>
+
+  <div class="cols">
+    <section class="panel adam" aria-labelledby="t-adam">
+      <div class="ptitle"><span>Ce que voit Adam</span><h2 id="t-adam">Demander à Lio</h2></div>
+      <div class="missions" id="missions" role="group" aria-label="Mission"></div>
+      <label class="lab" for="question">Ce qu'Adam écrit</label>
+      <textarea id="question"></textarea>
+      <div class="actions">
+        <button class="btn main" id="envoyer" type="button">Envoyer à Lio</button>
+        <button class="btn sec" id="arreter" type="button" hidden>Arrêter</button>
+        <button class="btn sec" id="ecouter" type="button" hidden>Écouter</button>
+        <button class="btn sec" id="reset" type="button">Remettre l'exemple</button>
+      </div>
+      <div class="reponse">
+        <svg viewBox="28 42 272 222" aria-hidden="true"><defs><clipPath id="lio-b"><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z"/></clipPath><clipPath id="lio-cap"><path d="M70 130 C72 58 230 56 234 126 Z"/></clipPath></defs><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z" fill="#9fdcd5"/><g clip-path="url(#lio-b)"><ellipse cx="160" cy="262" rx="150" ry="48" fill="#7cc7bf"/></g><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z" fill="none" stroke="#21293f" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/><path d="M70 130 C72 58 230 56 234 126 Z" fill="#116176" stroke="#21293f" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/><path d="M92 100 C108 78 146 70 174 76 C146 80 120 90 104 108 Z" fill="#1b7a92" clip-path="url(#lio-cap)"/><path d="M214 118 C246 110 278 116 286 132 C260 142 230 140 206 132 Z" fill="#116176" stroke="#21293f" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/><circle cx="152" cy="66" r="9" fill="#21293f"/><ellipse cx="128" cy="160" rx="11" ry="15" fill="#21293f"/><ellipse cx="186" cy="160" rx="11" ry="15" fill="#21293f"/><circle cx="132" cy="154" r="4" fill="#ffffff"/><circle cx="190" cy="154" r="4" fill="#ffffff"/><ellipse cx="96" cy="186" rx="13" ry="8" fill="#f7a58c"/><ellipse cx="220" cy="186" rx="13" ry="8" fill="#f7a58c"/><path d="M126 194 C140 214 176 214 190 194" fill="none" stroke="#21293f" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/></svg>
+        <div class="bulle" id="bulle" aria-live="polite">
+          <div class="etat" id="etat"></div>
+          <div class="texte" id="reponse"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel serveur" aria-labelledby="t-serveur">
+      <div class="ptitle"><span>Ce que fait le serveur</span><h2 id="t-serveur">Le paquet envoyé au modèle</h2></div>
+      <div class="etapes">
+        <div class="bloc"><header><h3><span class="num">1</span>Règles communes</h3><em>les mêmes pour les 15 missions</em></header><pre id="b-regles"></pre></div>
+        <div class="bloc"><header><h3><span class="num">2</span>Consigne de la mission</h3><em id="b-consigne-titre"></em></header><pre id="b-consigne"></pre></div>
+        <div class="bloc"><header><h3><span class="num">3</span>Exemples (few-shot)</h3><em>2 ici, 10 à 20 dans l'application</em></header><pre id="b-exemples"></pre></div>
+        <div class="bloc fiche" id="bloc-fiche"><header><h3><span class="num">4</span>Fiche officielle trouvée (RAG)</h3><em>choisie par mots-clés</em></header><p class="trouve" id="b-fiche-trouve"></p><pre id="b-fiche"></pre></div>
+        <div class="bloc"><header><h3><span class="num">5</span>Question d'Adam</h3><em>ce qu'il a tapé, tel quel</em></header><pre id="b-question"></pre></div>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Format de l'envoi">
+        <button class="tab" role="tab" id="tab-mistral" aria-selected="true" type="button">Requête vers Mistral</button>
+        <button class="tab" role="tab" id="tab-texte" aria-selected="false" type="button">Texte envoyé à Claude ici</button>
+      </div>
+      <div class="code"><p class="cap" id="code-cap"></p><pre id="code"></pre></div>
+      <div class="cout">
+        <div><span>Jetons envoyés</span><b id="c-in"></b><small>estimation</small></div>
+        <div><span>Jetons reçus</span><b id="c-out"></b><small id="c-out-note">estimation</small></div>
+        <div><span>Coût chez Mistral</span><b id="c-prix"></b><small id="c-modele"></small></div>
+      </div>
+      <p class="pied">Les fiches officielles de cette démo sont des résumés simplifiés, écrits pour l'exemple : à vérifier sur leur source avant de les mettre dans l'application. Tarifs Mistral relevés en novembre 2026, sur des sites tiers. Jetons estimés à un pour 3,5 caractères.</p>
+    </section>
+  </div>
+</div>
+
+<script>
+(function(){
+  var REGLES = [
+    "Tu es Lio, le compagnon de l'application Pass'Dys, pour des jeunes dys, du primaire à l'emploi.",
+    "Règles pour toutes les missions :",
+    "- Tu tutoies. Phrases courtes, mots simples, une idée par phrase.",
+    "- Pas de Markdown, pas d'emoji, pas de gras. Des tirets si tu fais une liste.",
+    "- Tu ne poses jamais de diagnostic médical.",
+    "- Si tu ne sais pas, tu le dis. Tu n'inventes jamais une règle ou un fait."
+  ].join("\n");
+
+  var FICHES = [
+    {
+      id: "pap",
+      titre: "PAP : plan d'accompagnement personnalisé",
+      mots: ["pap", "plan d accompagnement", "accompagnement personnalise"],
+      source: "https://www.monparcourshandicap.gouv.fr/scolarite/quest-ce-que-le-pap-plan-daccompagnement-personnalise",
+      texte: [
+        "Pour qui : les élèves qui ont des difficultés scolaires durables à cause d'un trouble des apprentissages (dyslexie, dyspraxie, dysphasie, dyscalculie...).",
+        "Pas besoin de passer par la MDPH.",
+        "Comment : la famille le demande à l'école, ou l'équipe de l'école le propose. Le médecin scolaire donne son avis, à partir des bilans (orthophoniste, etc.).",
+        "Si l'avis est favorable, le chef d'établissement (ou le directeur d'école) écrit le PAP avec les enseignants et la famille.",
+        "Contenu : les aménagements en classe, par exemple des documents agrandis, moins d'exercices, l'usage d'un ordinateur.",
+        "Suivi : le professeur principal coordonne. Le PAP est revu chaque année.",
+        "Limites : il ne donne pas d'AESH ni de matériel décidé par la MDPH. Les aménagements d'examen se demandent à part."
+      ].join("\n")
+    },
+    {
+      id: "pps",
+      titre: "PPS : projet personnalisé de scolarisation",
+      mots: ["pps", "projet personnalise de scolarisation", "aesh", "avs", "ulis"],
+      source: "https://www.monparcourshandicap.gouv.fr/scolarite/ppre-pai-pap-pps-en-quoi-consistent-les-differentes-possibilites-dappui-la-scolarisation",
+      texte: [
+        "Pour qui : les élèves dont le handicap est reconnu par la MDPH.",
+        "Comment : la famille fait une demande à la MDPH. La CDAPH décide.",
+        "Contenu : il peut prévoir une AESH, du matériel adapté, ou une orientation (par exemple une ULIS).",
+        "Suivi : l'enseignant référent suit le PPS avec la famille et l'école."
+      ].join("\n")
+    },
+    {
+      id: "rqth",
+      titre: "RQTH : reconnaissance de la qualité de travailleur handicapé",
+      mots: ["rqth", "travailleur handicape", "cap emploi", "employeur", "patron", "travail", "stage", "alternance", "boulot"],
+      source: "https://www.monparcourshandicap.gouv.fr/aides/la-reconnaissance-de-la-qualite-de-travailleur-handicape-rqth",
+      texte: [
+        "Pour qui : les personnes dont le handicap rend plus difficile le fait de trouver ou de garder un emploi.",
+        "Comment : la demande se fait à la MDPH. La CDAPH décide.",
+        "Ce que ça donne : un accompagnement vers l'emploi (par exemple Cap emploi), un poste de travail aménagé. Pas d'argent directement.",
+        "Confidentialité : on n'est pas obligé de dire à son employeur qu'on a une RQTH. C'est un choix."
+      ].join("\n")
+    }
+  ];
+
+  var MISSIONS = [
+    {
+      id: "demarches", num: 13, nom: "Répondre sur les démarches", ecran: "Démarches",
+      modele: "Ministral 3 8B", prixEntree: 0.15, prixSortie: 0.15, fiches: true,
+      consigne: [
+        "Mission : répondre à une question sur une démarche (école, MDPH, emploi).",
+        "- Réponds seulement avec les informations de la fiche officielle fournie.",
+        "- S'il n'y a pas de fiche, ou si elle ne répond pas, dis que tu ne sais pas et propose à qui demander (professeur principal, MDPH).",
+        "- 5 phrases au plus.",
+        "- Termine par une ligne \"Source : \" suivie du lien de la fiche, seulement si tu as utilisé une fiche."
+      ].join("\n"),
+      exemples: [
+        { entree: "la rqth c obligé de le dire a mon patron ?",
+          sortie: "Non. Tu n'es pas obligé de dire à ton employeur que tu as une RQTH.\nC'est toi qui choisis.\nLe dire peut t'aider à avoir un poste aménagé.\nSource : https://www.monparcourshandicap.gouv.fr/aides/la-reconnaissance-de-la-qualite-de-travailleur-handicape-rqth" },
+        { entree: "un ordi adapté c rembourse par la secu ?",
+          sortie: "Je n'ai pas de fiche officielle sur ce sujet, donc je préfère ne pas te répondre au hasard.\nTu peux poser la question à la MDPH de ton département ou à ton professeur principal." }
+      ],
+      exemple: "c koi un pap ? jsuis en 4e et jai une dyslexie",
+      repli: "Le PAP, c'est le plan d'accompagnement personnalisé.\nIl sert aux élèves qui ont un trouble des apprentissages, comme la dyslexie.\nIl liste les aides en classe, par exemple des documents agrandis ou moins d'exercices.\nPour l'avoir, ta famille en parle à l'école, puis le médecin scolaire donne son avis.\nPas besoin de passer par la MDPH.\nSource : https://www.monparcourshandicap.gouv.fr/scolarite/quest-ce-que-le-pap-plan-daccompagnement-personnalise"
+    },
+    {
+      id: "simplifier", num: 4, nom: "Simplifier", ecran: "Lire, Devoirs",
+      modele: "Ministral 3 8B", prixEntree: 0.15, prixSortie: 0.15, fiches: false,
+      consigne: [
+        "Mission : réécrire un texte difficile en phrases courtes.",
+        "- Une phrase par ligne.",
+        "- Garde toutes les informations importantes : dates, heures, lieux, obligations.",
+        "- N'ajoute rien qui n'est pas dans le texte."
+      ].join("\n"),
+      exemples: [
+        { entree: "La séance de rattrapage se tiendra le mercredi 12 en salle B204 ; la présence des élèves concernés est obligatoire.",
+          sortie: "Il y a un cours de rattrapage le mercredi 12.\nC'est en salle B204.\nSi tu es concerné, tu dois venir." },
+        { entree: "Les dossiers incomplets ne pourront faire l'objet d'aucun traitement.",
+          sortie: "Si ton dossier n'est pas complet, il ne sera pas étudié.\nVérifie que tu as mis tous les papiers demandés." }
+      ],
+      exemple: "Conformément aux dispositions en vigueur, les candidats bénéficiant d'aménagements d'épreuves sont invités à se présenter à l'accueil de l'établissement trente minutes avant le début de l'épreuve, munis de leur convocation et d'une pièce d'identité en cours de validité. Toute absence non justifiée entraînera l'annulation de l'inscription.",
+      repli: "Tu as des aménagements pour l'examen.\nTu dois arriver à l'accueil 30 minutes avant le début.\nPrends ta convocation.\nPrends aussi une pièce d'identité valide.\nSi tu ne viens pas sans raison valable, ton inscription sera annulée."
+    },
+    {
+      id: "devoir", num: 11, nom: "Guider un devoir", ecran: "Faire mes devoirs",
+      modele: "Mistral Small 4", prixEntree: 0.15, prixSortie: 0.60, fiches: false,
+      consigne: [
+        "Mission : aider à faire un devoir, sans le faire à la place de l'élève.",
+        "- Ne donne jamais la réponse finale, même si on te la demande.",
+        "- Explique la consigne avec tes mots.",
+        "- Donne un seul indice à la fois.",
+        "- Termine par une question qui fait avancer l'élève."
+      ].join("\n"),
+      exemples: [
+        { entree: "Exercice : conjugue « finir » au présent avec nous. donne la réponse",
+          sortie: "Je ne vais pas te donner la réponse, mais je t'aide à la trouver.\nOn te demande de conjuguer le verbe finir au présent, avec nous.\nIndice : finir se conjugue comme choisir.\nComment tu dirais « nous » avec choisir ?" },
+        { entree: "Explique pourquoi la Révolution française commence en 1789. fais le moi",
+          sortie: "Je ne vais pas écrire la réponse à ta place, mais on peut la construire ensemble.\nOn te demande les raisons du début de la Révolution.\nIndice : regarde dans ta leçon ce qui se passe avec les impôts et le prix du pain en 1789.\nQu'est-ce que tu trouves ?" }
+      ],
+      exemple: "Exercice 3 : un rectangle mesure 7 cm de long et 4 cm de large. Calcule son aire. Tu peux me donner la réponse stp ?",
+      repli: "Je ne vais pas te donner le résultat, mais je t'aide à le trouver.\nOn te demande l'aire du rectangle : la place qu'il prend à l'intérieur.\nIndice : pour l'aire d'un rectangle, on multiplie la longueur par la largeur.\nQuels sont les deux nombres que tu dois multiplier ?"
+    },
+    {
+      id: "mail", num: 8, nom: "Rédiger un mail", ecran: "Écrire un mail",
+      modele: "Mistral Small 4", prixEntree: 0.15, prixSortie: 0.60, fiches: false,
+      consigne: [
+        "Mission : rédiger un mail à partir du destinataire, de l'objectif, de l'idée et du ton.",
+        "- Première ligne : \"Objet : \" puis un objet court.",
+        "- Formule de politesse adaptée au destinataire. Ici, tu vouvoies le destinataire.",
+        "- 6 lignes au plus dans le corps du mail.",
+        "- Signe avec le prénom s'il est donné, sinon avec [Ton prénom].",
+        "- N'invente aucun fait qui n'est pas dans la demande."
+      ].join("\n"),
+      exemples: [
+        { entree: "Destinataire : M. Diallo, prof de maths\nObjectif : dire que j'étais absent lundi\nIdée : rendez-vous chez l'orthophoniste, je veux le cours\nTon : poli",
+          sortie: "Objet : Absence de lundi\n\nBonjour Monsieur Diallo,\n\nJ'étais absent lundi car j'avais un rendez-vous chez l'orthophoniste.\nPourriez-vous me dire comment récupérer le cours ?\n\nMerci beaucoup,\n[Ton prénom]" },
+        { entree: "Destinataire : service des stages de la fac\nObjectif : savoir si je peux avoir plus de temps pour rendre mon rapport\nIdée : j'ai une RQTH\nTon : formel",
+          sortie: "Objet : Délai pour le rapport de stage\n\nMadame, Monsieur,\n\nJe bénéficie d'une RQTH.\nSerait-il possible d'avoir un délai supplémentaire pour rendre mon rapport de stage ?\n\nJe vous remercie par avance de votre réponse.\nCordialement,\n[Ton prénom]" }
+      ],
+      exemple: "Destinataire : Mme Laurent, professeure principale\nObjectif : demander le sujet du contrôle en police plus grande\nIdée : j'ai un PPS, ça m'aide à lire, contrôle de français vendredi\nTon : poli\nPrénom : Adam",
+      repli: "Objet : Sujet du contrôle de français de vendredi\n\nBonjour Madame Laurent,\n\nJ'ai un PPS et une police plus grande m'aide à lire.\nSerait-il possible d'avoir le sujet du contrôle de français de vendredi en police plus grande ?\n\nMerci beaucoup,\nAdam"
+    }
+  ];
+
+  var $ = function(id){ return document.getElementById(id); };
+  var courante = MISSIONS[0];
+  var vue = "mistral";
+  var dernierTexte = "";
+  var sample = null, tts = null, ctl = null;
+  var nf = new Intl.NumberFormat("fr-FR", { maximumSignificantDigits: 2 });
+  var nfEntier = new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 0 });
+
+  function normaliser(s){
+    return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
+  }
+
+  function trouverFiche(question){
+    var q = " " + normaliser(question) + " ";
+    var meilleure = null, score = 0, trouves = [];
+    FICHES.forEach(function(f){
+      var mots = f.mots.filter(function(m){ return q.indexOf(" " + m + " ") !== -1; });
+      if (mots.length > score){ score = mots.length; meilleure = f; trouves = mots; }
+    });
+    return meilleure ? { fiche: meilleure, mots: trouves } : null;
+  }
+
+  function texteExemples(m){
+    return m.exemples.map(function(e, i){
+      return "Exemple " + (i + 1) + "\nEntrée : " + e.entree + "\nRéponse : " + e.sortie;
+    }).join("\n\n");
+  }
+
+  function texteFiche(r){
+    return "Fiche : " + r.fiche.titre + "\n" + r.fiche.texte + "\nLien : " + r.fiche.source;
+  }
+
+  function construire(question){
+    var m = courante;
+    var r = m.fiches ? trouverFiche(question) : null;
+    var systeme = REGLES + "\n\n" + m.consigne;
+    if (m.fiches){
+      systeme += "\n\n" + (r ? "Fiche officielle à utiliser :\n" + texteFiche(r) : "Aucune fiche officielle ne correspond à cette question.");
+    }
+    var messages = [{ role: "system", content: systeme }];
+    m.exemples.forEach(function(e){
+      messages.push({ role: "user", content: e.entree });
+      messages.push({ role: "assistant", content: e.sortie });
+    });
+    messages.push({ role: "user", content: question });
+
+    var prompt = systeme + "\n\nExemples de réponses attendues :\n\n" + texteExemples(m) +
+      "\n\nDemande d'Adam :\n" + question + "\n\nÉcris seulement ta réponse à Adam, rien d'autre.";
+    return { m: m, r: r, systeme: systeme, messages: messages, prompt: prompt };
+  }
+
+  function jetons(s){ return Math.max(1, Math.round(s.length / 3.5)); }
+
+  function afficherPaquet(){
+    var q = $("question").value.trim() || "(vide)";
+    var p = construire(q);
+    $("b-regles").textContent = REGLES;
+    $("b-consigne-titre").textContent = "mission " + p.m.num + ", écran " + p.m.ecran;
+    $("b-consigne").textContent = p.m.consigne;
+    $("b-exemples").textContent = texteExemples(p.m);
+    var bloc = $("bloc-fiche");
+    if (!p.m.fiches){
+      bloc.classList.add("vide");
+      $("b-fiche-trouve").textContent = "";
+      $("b-fiche").textContent = "Pas de fiche pour cette mission : seule la mission 13 répond sur des règles officielles.";
+    } else if (p.r){
+      bloc.classList.remove("vide");
+      $("b-fiche-trouve").textContent = "Fiche choisie : " + p.r.fiche.id.toUpperCase() + " (mots trouvés : " + p.r.mots.join(", ") + ")";
+      $("b-fiche").textContent = texteFiche(p.r);
+    } else {
+      bloc.classList.add("vide");
+      $("b-fiche-trouve").textContent = "Aucune fiche trouvée";
+      $("b-fiche").textContent = "Aucun mot-clé reconnu. Lio doit donc dire qu'il ne sait pas, au lieu d'inventer. Essaie avec « pps », « rqth » ou « pap ».";
+    }
+    $("b-question").textContent = q;
+
+    if (vue === "mistral"){
+      $("code-cap").textContent = "Ce que NestJS enverrait à l'API de Mistral (simplifié). Le nom exact du modèle est à vérifier dans la documentation Mistral.";
+      $("code").textContent = JSON.stringify({ model: p.m.modele, temperature: 0.3, max_tokens: 400, messages: p.messages }, null, 2);
+    } else {
+      $("code-cap").textContent = "La démo envoie à Claude un seul texte qui regroupe tout le paquet.";
+      $("code").textContent = p.prompt;
+    }
+
+    var jIn = jetons(p.prompt);
+    var jOut = dernierTexte ? jetons(dernierTexte) : 200;
+    $("c-in").textContent = nfEntier.format(jIn);
+    $("c-out").textContent = nfEntier.format(jOut);
+    $("c-out-note").textContent = dernierTexte ? "d'après la réponse affichée" : "estimation avant réponse";
+    var prix = (jIn * p.m.prixEntree + jOut * p.m.prixSortie) / 1e6;
+    $("c-prix").textContent = nf.format(prix) + " $";
+    $("c-modele").textContent = p.m.modele + ", soit environ " + nfEntier.format(Math.round(1 / prix / 100) * 100) + " questions pour 1 $";
+  }
+
+  function montrer(texte, etat, attente){
+    dernierTexte = attente ? "" : texte;
+    $("reponse").textContent = texte;
+    $("etat").textContent = etat;
+    $("bulle").classList.toggle("attente", !!attente);
+    $("ecouter").hidden = !tts || attente || !texte;
+  }
+
+  function montrerRepli(raison){
+    montrer(courante.repli, raison || "Réponse d'exemple, écrite à l'avance. Clique sur « Envoyer à Lio » pour une vraie réponse en direct.");
+    afficherPaquet();
+  }
+
+  function choisir(m){
+    if (ctl){ ctl.abort(); }
+    courante = m;
+    Array.prototype.forEach.call(document.querySelectorAll(".mission"), function(b){
+      b.setAttribute("aria-pressed", b.dataset.id === m.id ? "true" : "false");
+    });
+    $("question").value = m.exemple;
+    montrerRepli();
+  }
+
+  MISSIONS.forEach(function(m){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "mission"; b.dataset.id = m.id;
+    var t = document.createElement("b"); t.textContent = m.nom;
+    var s = document.createElement("small"); s.textContent = "Mission " + m.num + " · " + m.ecran;
+    b.appendChild(t); b.appendChild(s);
+    b.addEventListener("click", function(){ choisir(m); });
+    $("missions").appendChild(b);
+  });
+
+  function messageErreur(code){
+    if (code === "not_granted" || code === "sampling_disabled" || code === "not_declared" || code === "capability_disabled")
+      return "L'appel en direct n'est pas autorisé ici.";
+    if (code === "rate_limited") return "Trop de questions d'un coup. Attends un peu, puis réessaie.";
+    if (code === "session_expired") return "Ta session Claude a expiré. Reconnecte-toi, puis réessaie.";
+    if (code === "refused") return "Le modèle a refusé cette demande. Reformule-la.";
+    return "L'appel n'a pas abouti. Réessaie dans un instant.";
+  }
+
+  $("envoyer").addEventListener("click", async function(){
+    var question = $("question").value.trim();
+    if (!question){ montrer("Écris d'abord quelque chose dans la case.", "", true); return; }
+    if (!sample){
+      if (question === courante.exemple) montrerRepli("L'appel en direct n'est pas disponible dans cette vue. Voici la réponse d'exemple écrite à l'avance.");
+      else montrer("L'appel en direct n'est pas disponible dans cette vue. Ouvre la page sur claude.ai et accepte l'accès à Claude.", "", true);
+      return;
+    }
+    var p = construire(question);
+    ctl = new AbortController();
+    var monCtl = ctl;
+    $("envoyer").disabled = true; $("arreter").hidden = false;
+    if (tts) tts.stop();
+    montrer("Lio réfléchit...", "En direct", true);
+    afficherPaquet();
+    try {
+      var res = await sample(p.prompt, {
+        modelTier: "quick",
+        cache: false,
+        signal: monCtl.signal,
+        onText: function(u){ montrer(u.text, "En direct, en train d'écrire...", false); }
+      });
+      montrer(res.text, "Réponse en direct" + (res.truncated ? " (coupée, trop longue)" : ""), false);
+    } catch (e) {
+      if (e && e.code === "cancelled"){
+        montrer(e.text || "Arrêté.", "Arrêté", !e.text);
+      } else {
+        var code = e && e.code;
+        if ((code === "not_granted" || code === "sampling_disabled") && question === courante.exemple){
+          montrerRepli(messageErreur(code) + " Voici la réponse d'exemple écrite à l'avance.");
+        } else {
+          montrer((e && e.text) || messageErreur(code), (e && e.text) ? messageErreur(code) : "", !(e && e.text));
+        }
+      }
+    } finally {
+      if (ctl === monCtl) ctl = null;
+      $("envoyer").disabled = false; $("arreter").hidden = true;
+      afficherPaquet();
+    }
+  });
+
+  $("arreter").addEventListener("click", function(){ if (ctl) ctl.abort(); });
+  $("reset").addEventListener("click", function(){ choisir(courante); });
+  $("question").addEventListener("input", function(){ afficherPaquet(); });
+
+  function choisirVue(v){
+    vue = v;
+    $("tab-mistral").setAttribute("aria-selected", v === "mistral" ? "true" : "false");
+    $("tab-texte").setAttribute("aria-selected", v === "texte" ? "true" : "false");
+    afficherPaquet();
+  }
+  $("tab-mistral").addEventListener("click", function(){ choisirVue("mistral"); });
+  $("tab-texte").addEventListener("click", function(){ choisirVue("texte"); });
+
+  $("ecouter").addEventListener("click", function(){
+    if (!tts || !dernierTexte) return;
+    tts.speak(dernierTexte.slice(0, 2000)).catch(function(e){
+      if (e && e.code === "not_granted") $("ecouter").hidden = true;
+    });
+  });
+
+  choisir(MISSIONS[0]);
+
+  if (window.claude && window.claude.use){
+    window.claude.use("sample").then(function(s){ sample = s; }).catch(function(){ sample = null; });
+    window.claude.use("tts").then(function(t){
+      tts = t;
+      if (tts){
+        $("ecouter").hidden = !dernierTexte;
+        tts.onState(function(st){ $("ecouter").textContent = st.state === "speaking" ? "Lio lit..." : "Écouter"; });
+      }
+    }).catch(function(){ tts = null; });
+  }
+})();
+</script>
+
+</body>
+</html>
