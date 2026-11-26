@@ -5284,7 +5284,7 @@ const TR = {
   RQTH: ['Qu’est-ce qui est difficile au travail ?', 'Qu’est-ce qui vous aiderait au quotidien ?', 'En avez-vous parlé à votre employeur ?', 'Que souhaitez-vous demander ?'],
 };
 const TR_EX = { 'Service handicap': 'Lire les consignes vite, et le bruit dans la salle.', Orthophoniste: 'Depuis le CP, surtout quand le texte est long.', 'Entretien d’embauche': 'J’ai organisé la collecte de mon association.', RQTH: 'Les mails longs, je dois les relire plusieurs fois.' };
-const TR_WHO = { 'Service handicap': 'le rôle du service handicap', Orthophoniste: 'le rôle de l’orthophoniste', 'Entretien d’embauche': 'le rôle du recruteur', RQTH: 'le rôle du conseiller de la MDPH' };
+const TR_WHO = { 'Service handicap': 'le rôle du service handicap', Orthophoniste: 'le rôle de l’orthophoniste', 'Entretien d’embauche': 'le rôle du recruteur', RQTH: 'le rôle du conseiller Cap emploi' };
 let trTopic = 'Service handicap';
 let trI = 0;
 let TRM = [];
@@ -5794,7 +5794,7 @@ const ASK = {
     opts: [['sac', 'Mon sac pour un examen', 'bag'], ['rdv', 'Un rendez-vous', 'calendar'], ['papiers', 'Mes papiers', 'folder']],
     pick: (v) => { ORG = ORG_V[v][1]; orgI = 0; orgPaid = false; $('[data-id="organiser"] .ox-t').textContent = ORG_V[v][0]; paintOrg(); } },
   entrainer: { c: 'navy', q: tv('Pour quel rendez-vous veux-tu t’entraîner\u00a0?', 'Pour quel rendez-vous voulez-vous vous entraîner\u00a0?'),
-    opts: [['Service handicap', 'Au service handicap', 'library', 'dem'], ['Orthophoniste', 'Chez l’orthophoniste', 'health', 'lio'], ['Entretien d’embauche', 'Un entretien d’embauche', 'hands', 'car'], ['RQTH', 'Une demande de RQTH', 'file', 'vio']],
+    opts: [['Service handicap', 'Au service handicap', 'library', 'dem'], ['Orthophoniste', 'Chez l’orthophoniste', 'health', 'lio'], ['Entretien d’embauche', 'Un entretien d’embauche', 'hands', 'car'], ['RQTH', 'Chez Cap emploi (RQTH)', 'file', 'vio']],
     pick: (v) => { trTopic = v; $('#trInput').value = ''; trStart(); } },
 };
 const NUM = (t) => Number(String(t).replace(/\s/g, '').replace(',', '.'));
