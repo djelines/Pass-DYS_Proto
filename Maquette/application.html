@@ -3583,6 +3583,85 @@ html.role-parent .tabs .tab[data-nav="lio"], html.role-parent .tabbar .tb-i[data
 .tc-open { font-size: var(--fs-16); line-height: 1.4; }
 .pj-date .pj-lbl { font-size: var(--fs-14); font-weight: 700; margin-bottom: var(--sp-4); white-space: nowrap; }
 .pj-date .pj-none { font-size: var(--fs-14); font-weight: 700; line-height: 1.25; }
+
+/* ================= Organiser et S’entraîner : colonne centrée, tuile de l’outil, chemin d’étapes, discussion ================= */
+[data-id="organiser"] .page, [data-id="entrainer"] .page { max-width: 860px; }
+[data-id="entrainer"] .page { padding-bottom: calc(var(--dock-h) + var(--sp-16)); }
+[data-id="organiser"] .ox { --bt: var(--aut); }
+.ox { display: flex; flex-direction: column; gap: var(--sp-20); }
+
+/* tuile de l’outil, comme dans la grille Outils */
+.ox-hero { position: relative; overflow: hidden; isolation: isolate; display: flex; align-items: center; gap: var(--sp-16); padding: 22px 24px; margin-bottom: var(--sp-4); border-radius: var(--r-8); background: var(--bc); background-image: linear-gradient(135deg, rgba(255, 255, 255, .16), rgba(255, 255, 255, 0) 24%, rgba(0, 0, 0, .1)); color: var(--c-white); box-shadow: var(--relief-4) color-mix(in srgb, var(--bc) 60%, var(--c-black)); }
+.ox-wm { position: absolute; z-index: -1; right: 90px; bottom: -46px; opacity: .14; transform: rotate(-14deg); line-height: 0; }
+.ox-ic { flex: none; width: 52px; height: 52px; display: grid; place-items: center; border-radius: var(--r-8); background: rgba(255, 255, 255, .18); }
+.ox-hd { flex: 1; min-width: 0; }
+.ox-k { display: block; font-size: var(--fs-15); font-weight: 600; opacity: .92; }
+.ox-t { margin: 2px 0 0; font-family: var(--title); font-size: clamp(22px, 2.4vw, 27px); font-weight: 800; letter-spacing: -.02em; line-height: 1.15; color: inherit; }
+.ox-n { flex: none; text-align: right; font-size: var(--fs-15); font-weight: 600; }
+.ox-n b { font-family: var(--title); font-size: 30px; font-weight: 800; line-height: 1; }
+.ox-n small { display: block; margin-top: 2px; font-size: var(--fs-14); font-weight: 600; opacity: .92; }
+.ox-seg { display: flex; gap: var(--sp-4); width: 104px; margin-top: var(--sp-8); }
+.ox-seg i { flex: 1; height: 8px; border-radius: var(--r-4); background: rgba(255, 255, 255, .28); }
+.ox-seg i.ok { background: var(--c-white); }
+.ox-seg i.on { background: rgba(255, 255, 255, .62); }
+
+/* Organiser : chemin d’étapes, comme le chemin 1-2-3-4 de l’inscription */
+.og-path { list-style: none; margin: 0; padding: 0 2px; display: flex; align-items: center; }
+.og-path li { flex: 1; display: flex; align-items: center; }
+.og-path li:last-child { flex: none; }
+.og-path li::after { content: ''; flex: 1; height: 4px; margin: 0 var(--sp-8); border-radius: var(--r-4); background: var(--line); }
+.og-path li:last-child::after { display: none; }
+.og-path li.ok::after { background: var(--bc); }
+.og-st { --sh: color-mix(in srgb, var(--bc) 30%, var(--surf)); flex: none; width: 54px; height: 54px; display: grid; place-items: center; margin-bottom: var(--sp-4); border: 2px solid var(--sh); border-radius: 50%; background: var(--surf); color: var(--ink); font-family: var(--title); font-size: 19px; font-weight: 800; box-shadow: var(--relief-4) var(--sh); transition: transform var(--dur-100) ease, box-shadow var(--dur-100) ease, border-color var(--dur-150); }
+.og-path li.ok .og-st { --sh: color-mix(in srgb, var(--bc) 45%, var(--surf)); background: var(--aut-bg); color: var(--bt); }
+.og-path li.on .og-st { --sh: color-mix(in srgb, var(--bc) 60%, var(--c-black)); background: var(--bc); color: var(--c-white); }
+.og-st:active { transform: translateY(3px); box-shadow: var(--relief-1) var(--sh); }
+@media (hover: hover) { .og-path li:not(.on) .og-st:hover { border-color: var(--bc); } }
+
+/* Organiser : l’étape en cours */
+.og-now { padding: clamp(22px, 3vw, 34px); border: 2px solid var(--line); border-radius: var(--r-8); background: var(--surf); box-shadow: var(--relief-4) var(--line); }
+.og-now { text-align: center; }
+.og-say { display: flex; flex-direction: column; align-items: center; gap: var(--sp-12); }
+.og-f { flex: none; line-height: 0; }
+.og-f svg { width: 72px; height: auto; }
+.og-b { min-width: 0; }
+.og-lbl { font-family: var(--title); font-size: var(--fs-15); font-weight: 700; color: var(--bt); }
+.og-txt { margin: var(--sp-4) 0 0; font-family: var(--title); font-size: clamp(26px, 3.2vw, 34px); font-weight: 800; letter-spacing: -.02em; line-height: 1.15; color: var(--ink); }
+.og-acts { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-12); margin-top: 26px; }
+.og-acts .btn { min-height: 60px; padding: 0 28px; font-size: var(--fs-18); }
+.btn.og-done { --sh: color-mix(in srgb, var(--bc) 60%, var(--c-black)); background: var(--bc); border-color: var(--bc); color: var(--c-white); box-shadow: var(--relief-4) var(--sh); margin-bottom: var(--sp-4); }
+.btn.og-done:hover { filter: brightness(1.06); }
+.btn.og-done:active { transform: translateY(3px); box-shadow: var(--relief-1) var(--sh); }
+.og-next { margin: 22px 0 0; padding-top: var(--sp-16); border-top: 1px solid var(--line2); color: var(--sub); font-size: var(--fs-16); }
+
+/* S’entraîner : choix de la personne, puis discussion */
+.tr-sc { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.tr-sc .dc-opt { min-height: 58px; padding: var(--sp-8) 14px; gap: 10px; line-height: 1.2; }
+.tr-sc .dc-opt.on { border-color: var(--c); box-shadow: var(--relief-4) var(--c); }
+.tr-log { padding: 0; }
+.dc-m.k-q { --kc: var(--navy); }
+.tr-q { font-size: var(--fs-18); font-weight: 600; line-height: 1.5; }
+.tr-in { margin-top: var(--sp-4); }
+
+@media (max-width: 600px) {
+  .ox { gap: var(--sp-16); }
+  .ox-hero { gap: var(--sp-12); padding: var(--sp-16); }
+  .ox-ic { width: 40px; height: 40px; }
+  .ox-ic svg { width: 22px; height: 22px; }
+  .ox-wm { display: none; }
+  .ox-k { font-size: var(--fs-14); }
+  .ox-t { font-size: 19px; }
+  .ox-n b { font-size: 24px; }
+  .ox-seg { width: 72px; }
+  .og-st { width: 44px; height: 44px; font-size: 17px; }
+  .og-path li::after { margin: 0 var(--sp-4); }
+  .og-f svg { width: 52px; }
+  .og-txt { font-size: 24px; }
+  .og-acts .btn { flex: 1; min-height: 56px; padding: 0 var(--sp-16); }
+  .tr-sc { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-8); }
+  .tr-sc .dc-opt { min-height: 52px; font-size: var(--fs-15); }
+}
+@media (prefers-reduced-motion: reduce) { .og-st { transition: none; } .og-st:active, .btn.og-done:active { transform: none; } }
 </style>
 <style>/* required styles */
 
@@ -4360,21 +4439,27 @@ svg.leaflet-image-layer.leaflet-interactive path {
     <p class="lbl" style="margin: 26px 0 10px;">Phrases prêtes à dire</p><div class="row wrap" style="gap: 8px;"><button class="chip wrapt" data-act="say" data-t="Pouvez-vous répéter plus lentement ?"><svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M155.51,24.81a8,8,0,0,0-8.42.88L77.25,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V32A8,8,0,0,0,155.51,24.81ZM32,96H72v64H32ZM144,207.64,88,164.09V91.91l56-43.55Zm54-106.08a40,40,0,0,1,0,52.88,8,8,0,0,1-12-10.58,24,24,0,0,0,0-31.72,8,8,0,0,1,12-10.58ZM248,128a79.9,79.9,0,0,1-20.37,53.34,8,8,0,0,1-11.92-10.67,64,64,0,0,0,0-85.33,8,8,0,1,1,11.92-10.67A79.83,79.83,0,0,1,248,128Z"/></svg>Pouvez-vous répéter plus lentement ?</button><button class="chip wrapt" data-act="say" data-t="J’ai besoin d’un peu plus de temps pour répondre."><svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M155.51,24.81a8,8,0,0,0-8.42.88L77.25,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V32A8,8,0,0,0,155.51,24.81ZM32,96H72v64H32ZM144,207.64,88,164.09V91.91l56-43.55Zm54-106.08a40,40,0,0,1,0,52.88,8,8,0,0,1-12-10.58,24,24,0,0,0,0-31.72,8,8,0,0,1,12-10.58ZM248,128a79.9,79.9,0,0,1-20.37,53.34,8,8,0,0,1-11.92-10.67,64,64,0,0,0,0-85.33,8,8,0,1,1,11.92-10.67A79.83,79.83,0,0,1,248,128Z"/></svg>J’ai besoin d’un peu plus de temps pour répondre.</button><button class="chip wrapt" data-act="say" data-t="Pouvez-vous me l’écrire ?"><svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M155.51,24.81a8,8,0,0,0-8.42.88L77.25,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V32A8,8,0,0,0,155.51,24.81ZM32,96H72v64H32ZM144,207.64,88,164.09V91.91l56-43.55Zm54-106.08a40,40,0,0,1,0,52.88,8,8,0,0,1-12-10.58,24,24,0,0,0,0-31.72,8,8,0,0,1,12-10.58ZM248,128a79.9,79.9,0,0,1-20.37,53.34,8,8,0,0,1-11.92-10.67,64,64,0,0,0,0-85.33,8,8,0,1,1,11.92-10.67A79.83,79.83,0,0,1,248,128Z"/></svg>Pouvez-vous me l’écrire ?</button></div>
     <div class="lio-ask" style="margin-top: 24px;"><span class="muted grow"><span class="t-tu">Redis ton idée…</span><span class="t-vous">Redites votre idée…</span></span><button class="lio-mic" style="background: #6552C9;" data-act="mic" aria-label="Parler à Lio"><svg width="22" height="22" viewBox="0 0 256 256" fill="#fff" aria-hidden="true" style="flex-shrink:0"><path d="M128,176a48.05,48.05,0,0,0,48-48V64a48,48,0,0,0-96,0v64A48.05,48.05,0,0,0,128,176ZM96,64a32,32,0,0,1,64,0v64a32,32,0,0,1-64,0Zm40,143.6V240a8,8,0,0,1-16,0V207.6A80.11,80.11,0,0,1,48,128a8,8,0,0,1,16,0,64,64,0,0,0,128,0,8,8,0,0,1,16,0A80.11,80.11,0,0,1,136,207.6Z"/></svg></button></div></div></section>
 <section class="screen" data-id="organiser"><div class="page"><div class="page-h fade"><div><button class="btn ghost sm pg-back" data-act="go" data-to="lio" style="margin: 0 0 10px -10px;"><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"/></svg>Outils</button><h1 class="t1"><span style="display: inline-flex; align-items: center; gap: 14px;"><span style="width: 48px; height: 48px; border-radius: 8px; background: #B4533A; display: inline-flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 256 256" fill="#fff" aria-hidden="true" style="flex-shrink:0"><path d="M224,128a8,8,0,0,1-8,8H128a8,8,0,0,1,0-16h88A8,8,0,0,1,224,128ZM128,72h88a8,8,0,0,0,0-16H128a8,8,0,0,0,0,16Zm88,112H128a8,8,0,0,0,0,16h88a8,8,0,0,0,0-16ZM82.34,42.34,56,68.69,45.66,58.34A8,8,0,0,0,34.34,69.66l16,16a8,8,0,0,0,11.32,0l32-32A8,8,0,0,0,82.34,42.34Zm0,64L56,132.69,45.66,122.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32,0l32-32a8,8,0,0,0-11.32-11.32Zm0,64L56,196.69,45.66,186.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32,0l32-32a8,8,0,0,0-11.32-11.32Z"/></svg></span>Organiser</span></h1><p class="lead">Il découpe une tâche en étapes. <span class="pill" style="margin-left: 4px;">Pensé pour la dyspraxie</span></p></div></div>
-    <div class="card fade" style="max-width: 900px; padding: clamp(20px, 3vw, 32px);"><div class="row"><h2 class="t3 grow" style="font-size: 22px;">Préparer mon sac pour l’examen</h2><span class="muted" id="orgCount"></span></div><div class="bar" style="margin-top: 14px;"><i id="orgBar" style="background: var(--c-aut);"></i></div>
-      <p id="orgNow" style="font-family: var(--title); font-weight: 700; font-size: clamp(26px, 3.4vw, 36px); letter-spacing: -.03em; margin: 26px 0;"></p>
-      <div class="row wrap"><button class="btn lg" style="background: var(--c-aut); color: var(--c-white); min-height: 64px; padding: 0 34px; font-size: 18px;" data-act="orgDone"><svg width="22" height="22" viewBox="0 0 256 256" fill="#fff" aria-hidden="true" style="flex-shrink:0"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg>C’est fait</button><button class="btn sec lg" style="min-height: 64px;" data-act="orgSay"><svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M155.51,24.81a8,8,0,0,0-8.42.88L77.25,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V32A8,8,0,0,0,155.51,24.81ZM32,96H72v64H32ZM144,207.64,88,164.09V91.91l56-43.55Zm54-106.08a40,40,0,0,1,0,52.88,8,8,0,0,1-12-10.58,24,24,0,0,0,0-31.72,8,8,0,0,1,12-10.58ZM248,128a79.9,79.9,0,0,1-20.37,53.34,8,8,0,0,1-11.92-10.67,64,64,0,0,0,0-85.33,8,8,0,1,1,11.92-10.67A79.83,79.83,0,0,1,248,128Z"/></svg>Répète</button></div>
-      <p class="lbl" style="margin: 24px 0 10px;">Reprendre à l’étape…</p><div class="row wrap" id="orgDots" style="gap: 10px;"></div></div>
-    <p class="small muted" style="margin-top: 14px;">Gros boutons, rien à glisser. <span class="t-tu">Tu peux reprendre où tu veux.</span><span class="t-vous">Vous pouvez reprendre où vous le souhaitez.</span></p></div></section>
+    <div class="ox" style="--bc: var(--c-aut);">
+      <div class="ox-hero fade"><span class="ox-wm" aria-hidden="true"><svg width="150" height="150" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M224,128a8,8,0,0,1-8,8H128a8,8,0,0,1,0-16h88A8,8,0,0,1,224,128ZM128,72h88a8,8,0,0,0,0-16H128a8,8,0,0,0,0,16Zm88,112H128a8,8,0,0,0,0,16h88a8,8,0,0,0,0-16ZM82.34,42.34,56,68.69,45.66,58.34A8,8,0,0,0,34.34,69.66l16,16a8,8,0,0,0,11.32,0l32-32A8,8,0,0,0,82.34,42.34Zm0,64L56,132.69,45.66,122.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32,0l32-32a8,8,0,0,0-11.32-11.32Zm0,64L56,196.69,45.66,186.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32,0l32-32a8,8,0,0,0-11.32-11.32Z"/></svg></span><span class="ox-ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M224,128a8,8,0,0,1-8,8H128a8,8,0,0,1,0-16h88A8,8,0,0,1,224,128ZM128,72h88a8,8,0,0,0,0-16H128a8,8,0,0,0,0,16Zm88,112H128a8,8,0,0,0,0,16h88a8,8,0,0,0,0-16ZM82.34,42.34,56,68.69,45.66,58.34A8,8,0,0,0,34.34,69.66l16,16a8,8,0,0,0,11.32,0l32-32A8,8,0,0,0,82.34,42.34Zm0,64L56,132.69,45.66,122.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32,0l32-32a8,8,0,0,0-11.32-11.32Zm0,64L56,196.69,45.66,186.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32,0l32-32a8,8,0,0,0-11.32-11.32Z"/></svg></span><div class="ox-hd"><span class="ox-k">Organiser, une chose à la fois</span><h2 class="ox-t">Préparer mon sac pour l’examen</h2></div><span class="ox-n" id="orgCount"></span></div>
+      <ol class="og-path fade" id="orgDots" aria-label="Les étapes"></ol>
+      <div class="og-now fade">
+        <div class="og-say"><span class="og-f" aria-hidden="true"><svg class="lio-m" width="72" height="59" viewBox="28 42 272 222" aria-hidden="true"><defs><clipPath id="lb16"><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z"/></clipPath><clipPath id="lc16"><path d="M70 130 C72 58 230 56 234 126 Z"/></clipPath></defs><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z" fill="#9fdcd5"/><g clip-path="url(#lb16)"><ellipse cx="160" cy="262" rx="150" ry="48" fill="#7cc7bf"/></g><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z" fill="none" stroke="#21293f" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/><g class="lio-cap"><path d="M70 130 C72 58 230 56 234 126 Z" fill="#116176" stroke="#21293f" stroke-width="11" stroke-linejoin="round"/><path d="M92 100 C108 78 146 70 174 76 C146 80 120 90 104 108 Z" fill="#1b7a92" clip-path="url(#lc16)"/><path d="M214 118 C246 110 278 116 286 132 C260 142 230 140 206 132 Z" fill="#116176" stroke="#21293f" stroke-width="11" stroke-linejoin="round"/><circle cx="152" cy="66" r="9" fill="#21293f"/></g><g class="lio-eyes"><ellipse cx="128" cy="160" rx="11" ry="15" fill="#21293f"/><ellipse cx="186" cy="160" rx="11" ry="15" fill="#21293f"/><circle cx="132" cy="154" r="4" fill="#fff"/><circle cx="190" cy="154" r="4" fill="#fff"/></g><ellipse cx="96" cy="186" rx="13" ry="8" fill="#f7a58c"/><ellipse cx="220" cy="186" rx="13" ry="8" fill="#f7a58c"/><path class="lio-mouth" d="M126 194 C140 214 176 214 190 194" fill="none" stroke="#21293f" stroke-width="11" stroke-linecap="round"/></svg></span><div class="og-b"><span class="og-lbl" id="orgLbl"></span><p class="og-txt" id="orgNow" aria-live="polite"></p></div></div>
+        <div class="og-acts" id="orgActs"></div>
+        <p class="og-next" id="orgNext"></p>
+      </div>
+    </div></div></section>
 <section class="screen" data-id="ecrire"><div class="page"><div class="page-h fade"><div><button class="btn ghost sm pg-back" data-act="go" data-to="lio" style="margin: 0 0 10px -10px;"><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"/></svg>Outils</button><h1 class="t1"><span style="display: inline-flex; align-items: center; gap: 14px;"><span style="width: 48px; height: 48px; border-radius: 8px; background: #2F7F77; display: inline-flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 256 256" fill="#fff" aria-hidden="true" style="flex-shrink:0"><path d="M227.31,73.37,182.63,28.68a16,16,0,0,0-22.63,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H92.69A15.86,15.86,0,0,0,104,219.31L227.31,96a16,16,0,0,0,0-22.63ZM92.69,208H48V163.31l88-88L180.69,120ZM192,108.68,147.31,64l24-24L216,84.68Z"/></svg></span>Écrire</span></h1><p class="lead"><span class="t-tu">Tu dictes, il corrige</span><span class="t-vous">Vous dictez, il corrige</span>. <span class="pill" style="margin-left: 4px;">Pensé pour la dysgraphie</span></p></div></div>
     <div class="card fade" style="max-width: 900px; overflow: hidden;"><div style="padding: clamp(20px, 3vw, 30px); font-size: 19px; line-height: 1.9;">bonjour madame je <s style="color: var(--bad);">voudrai</s> <b style="color: var(--lio);">voudrais</b> savoir si <s style="color: var(--bad);">sa</s> <b style="color: var(--lio);">ce</b> serait possible <s style="color: var(--bad);">davoir</s> <b style="color: var(--lio);">d’avoir</b> les sujets en avance car je <s style="color: var(--bad);">doit</s> <b style="color: var(--lio);">dois</b> les lire plusieurs fois</div>
       <div class="col small muted" style="padding: 0 clamp(20px, 3vw, 30px) 20px; gap: 6px;"><span>« voudrai » devient « voudrais » : on parle de soi au conditionnel.</span><span>« sa » devient « ce » : on peut dire « cela serait ».</span><span>« doit » devient « dois » : avec « je », on écrit -s.</span></div>
       <div class="row wrap" style="padding: 0 clamp(20px, 3vw, 30px) 26px;"><button class="btn lg" style="background: var(--c-lio); color: var(--c-white);" data-act="ecrMail"><svg width="18" height="18" viewBox="0 0 256 256" fill="#fff" aria-hidden="true" style="flex-shrink:0"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"/></svg>En faire un mail</button><button class="btn sec lg" data-act="say" data-t="Bonjour Madame, je voudrais savoir s’il serait possible d’avoir les sujets en avance, car je dois les lire plusieurs fois."><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M155.51,24.81a8,8,0,0,0-8.42.88L77.25,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V32A8,8,0,0,0,155.51,24.81ZM32,96H72v64H32ZM144,207.64,88,164.09V91.91l56-43.55Zm54-106.08a40,40,0,0,1,0,52.88,8,8,0,0,1-12-10.58,24,24,0,0,0,0-31.72,8,8,0,0,1,12-10.58ZM248,128a79.9,79.9,0,0,1-20.37,53.34,8,8,0,0,1-11.92-10.67,64,64,0,0,0,0-85.33,8,8,0,1,1,11.92-10.67A79.83,79.83,0,0,1,248,128Z"/></svg>Écouter</button></div></div>
     <div class="lio-ask" style="margin-top: 24px;"><span class="muted grow"><span class="t-tu">Dicte ce que tu veux dire…</span><span class="t-vous">Dictez ce que vous souhaitez dire…</span></span><button class="lio-mic" style="background: #2F7F77;" data-act="mic" aria-label="Parler à Lio"><svg width="22" height="22" viewBox="0 0 256 256" fill="#fff" aria-hidden="true" style="flex-shrink:0"><path d="M128,176a48.05,48.05,0,0,0,48-48V64a48,48,0,0,0-96,0v64A48.05,48.05,0,0,0,128,176ZM96,64a32,32,0,0,1,64,0v64a32,32,0,0,1-64,0Zm40,143.6V240a8,8,0,0,1-16,0V207.6A80.11,80.11,0,0,1,48,128a8,8,0,0,1,16,0,64,64,0,0,0,128,0,8,8,0,0,1,16,0A80.11,80.11,0,0,1,136,207.6Z"/></svg></button></div></div></section>
 <section class="screen" data-id="entrainer"><div class="page"><div class="page-h fade"><div><button class="btn ghost sm pg-back" data-act="go" data-to="lio" style="margin: 0 0 10px -10px;"><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"/></svg>Outils</button><h1 class="t1"><span style="display: inline-flex; align-items: center; gap: 14px;"><span style="width: 48px; height: 48px; border-radius: 8px; background: #34475F; display: inline-flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 256 256" fill="#fff" aria-hidden="true" style="flex-shrink:0"><path d="M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z"/></svg></span>S’entraîner</span></h1><p class="lead">Il joue le recruteur ou le médecin. <span class="pill" style="margin-left: 4px;">Pour les rendez-vous qui comptent</span></p></div></div>
-    <div class="chips fade" id="trChips"><button class="chip on" data-act="trTopic" data-t="Service handicap">Service handicap</button><button class="chip" data-act="trTopic" data-t="Orthophoniste">Orthophoniste</button><button class="chip" data-act="trTopic" data-t="Entretien d’embauche">Entretien d’embauche</button><button class="chip" data-act="trTopic" data-t="RQTH">RQTH</button></div>
-    <div class="row fade" style="max-width: 900px; margin-top: 22px; align-items: flex-start;"><div class="float"><svg class="lio-m" width="85" height="69" viewBox="28 42 272 222" aria-hidden="true"><defs><clipPath id="lb16"><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z"/></clipPath><clipPath id="lc16"><path d="M70 130 C72 58 230 56 234 126 Z"/></clipPath></defs><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z" fill="#9fdcd5"/><g clip-path="url(#lb16)"><ellipse cx="160" cy="262" rx="150" ry="48" fill="#7cc7bf"/></g><path d="M92 236 C58 232 40 206 42 174 C46 120 92 92 152 92 C214 92 258 128 258 174 C258 212 228 236 188 236 L128 236 C116 250 92 258 64 254 C80 248 90 242 92 236 Z" fill="none" stroke="#21293f" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/><g class="lio-cap"><path d="M70 130 C72 58 230 56 234 126 Z" fill="#116176" stroke="#21293f" stroke-width="11" stroke-linejoin="round"/><path d="M92 100 C108 78 146 70 174 76 C146 80 120 90 104 108 Z" fill="#1b7a92" clip-path="url(#lc16)"/><path d="M214 118 C246 110 278 116 286 132 C260 142 230 140 206 132 Z" fill="#116176" stroke="#21293f" stroke-width="11" stroke-linejoin="round"/><circle cx="152" cy="66" r="9" fill="#21293f"/></g><g class="lio-eyes"><ellipse cx="128" cy="160" rx="11" ry="15" fill="#21293f"/><ellipse cx="186" cy="160" rx="11" ry="15" fill="#21293f"/><circle cx="132" cy="154" r="4" fill="#fff"/><circle cx="190" cy="154" r="4" fill="#fff"/></g><ellipse cx="96" cy="186" rx="13" ry="8" fill="#f7a58c"/><ellipse cx="220" cy="186" rx="13" ry="8" fill="#f7a58c"/><path class="lio-mouth" d="M126 194 C140 214 176 214 190 194" fill="none" stroke="#21293f" stroke-width="11" stroke-linecap="round"/></svg></div><div class="bubble grow"><span class="tiny muted" id="trCount">Question 1 sur 4</span><p id="trQ" style="font-size: 21px; font-weight: 600; margin-top: 4px;"></p></div></div>
-    <div id="trA" style="max-width: 900px;"></div>
-    <div class="row" style="max-width: 900px; margin-top: 20px; gap: 10px;"><input class="field" id="trInput" aria-label="Ta réponse" data-vous-al="Votre réponse" placeholder="Réponds ici, ou appuie sur le micro" data-vous-ph="Répondez ici, ou appuyez sur le micro"><button class="lio-mic" style="background: var(--c-navy);" data-act="trMic" aria-label="Répondre à voix haute"><svg width="22" height="22" viewBox="0 0 256 256" fill="#fff" aria-hidden="true" style="flex-shrink:0"><path d="M128,176a48.05,48.05,0,0,0,48-48V64a48,48,0,0,0-96,0v64A48.05,48.05,0,0,0,128,176ZM96,64a32,32,0,0,1,64,0v64a32,32,0,0,1-64,0Zm40,143.6V240a8,8,0,0,1-16,0V207.6A80.11,80.11,0,0,1,48,128a8,8,0,0,1,16,0,64,64,0,0,0,128,0,8,8,0,0,1,16,0A80.11,80.11,0,0,1,136,207.6Z"/></svg></button><button class="btn pri" data-act="trSend">Répondre</button></div></div></section>
+    <div class="ox" style="--bc: var(--c-navy);">
+      <div class="ox-hero fade"><span class="ox-wm" aria-hidden="true"><svg width="150" height="150" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z"/></svg></span><span class="ox-ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z"/></svg></span><div class="ox-hd"><span class="ox-k">S’entraîner, jeu de rôle</span><h2 class="ox-t" id="trTitle">Lio joue le service handicap</h2></div><span class="ox-n" id="trCount"></span></div>
+      <div class="tr-sc fade" id="trChips" role="group" aria-label="Avec qui s’entraîner"><button class="dc-opt" style="--c: var(--dem); --cb: var(--dem-bg);" data-act="trTopic" data-t="Service handicap" aria-pressed="false"><svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M231.65,194.55,198.46,36.75a16,16,0,0,0-19-12.39L132.65,34.42a16.08,16.08,0,0,0-12.3,19l33.19,157.8A16,16,0,0,0,169.16,224a16.25,16.25,0,0,0,3.38-.36l46.81-10.06A16.09,16.09,0,0,0,231.65,194.55ZM136,50.15c0-.06,0-.09,0-.09l46.8-10,3.33,15.87L139.33,66Zm6.62,31.47,46.82-10.05,3.34,15.9L146,97.53Zm6.64,31.57,46.82-10.06,13.3,63.24-46.82,10.06ZM216,197.94l-46.8,10-3.33-15.87L212.67,182,216,197.85C216,197.91,216,197.94,216,197.94ZM104,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V48A16,16,0,0,0,104,32ZM56,48h48V64H56Zm0,32h48v96H56Zm48,128H56V192h48v16Z"/></svg><span>Service handicap</span></button><button class="dc-opt" style="--c: var(--lio); --cb: var(--lio-bg);" data-act="trTopic" data-t="Orthophoniste" aria-pressed="false"><svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M216,88H168V40a16,16,0,0,0-16-16H104A16,16,0,0,0,88,40V88H40a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16H88v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V168h48a16,16,0,0,0,16-16V104A16,16,0,0,0,216,88Zm0,64H160a8,8,0,0,0-8,8v56H104V160a8,8,0,0,0-8-8H40V104H96a8,8,0,0,0,8-8V40h48V96a8,8,0,0,0,8,8h56Z"/></svg><span>Orthophoniste</span></button><button class="dc-opt" style="--c: var(--car); --cb: var(--car-bg);" data-act="trTopic" data-t="Entretien d’embauche" aria-pressed="false"><svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M230.33,141.06a24.34,24.34,0,0,0-18.61-4.77C230.5,117.33,240,98.48,240,80c0-26.47-21.29-48-47.46-48A47.58,47.58,0,0,0,156,48.75,47.58,47.58,0,0,0,119.46,32C93.29,32,72,53.53,72,80c0,11,3.24,21.69,10.06,33a31.87,31.87,0,0,0-14.75,8.4L44.69,144H16A16,16,0,0,0,0,160v40a16,16,0,0,0,16,16H120a7.93,7.93,0,0,0,1.94-.24l64-16a6.94,6.94,0,0,0,1.19-.4L226,182.82l.44-.2a24.6,24.6,0,0,0,3.93-41.56ZM119.46,48A31.15,31.15,0,0,1,148.6,67a8,8,0,0,0,14.8,0,31.15,31.15,0,0,1,29.14-19C209.59,48,224,62.65,224,80c0,19.51-15.79,41.58-45.66,63.9l-11.09,2.55A28,28,0,0,0,140,112H100.68C92.05,100.36,88,90.12,88,80,88,62.65,102.41,48,119.46,48ZM16,160H40v40H16Zm203.43,8.21-38,16.18L119,200H56V155.31l22.63-22.62A15.86,15.86,0,0,1,89.94,128H140a12,12,0,0,1,0,24H112a8,8,0,0,0,0,16h32a8.32,8.32,0,0,0,1.79-.2l67-15.41.31-.08a8.6,8.6,0,0,1,6.3,15.9Z"/></svg><span>Entretien d’embauche</span></button><button class="dc-opt" style="--c: var(--vio); --cb: var(--vio-bg);" data-act="trTopic" data-t="RQTH" aria-pressed="false"><svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z"/></svg><span>RQTH</span></button></div>
+      <div class="dc-log tr-log" id="trLog" aria-live="polite"></div>
+      <form class="dc-in tr-in" id="trForm"><label class="vh" for="trInput"><span class="t-tu">Ta réponse</span><span class="t-vous">Votre réponse</span></label><textarea id="trInput" rows="1" placeholder="Écris ta réponse" data-vous-ph="Écrivez votre réponse" autocomplete="off"></textarea><button type="button" class="dc-ib" data-act="trMic" aria-label="Répondre à voix haute" title="Répondre à voix haute"><svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M128,176a48.05,48.05,0,0,0,48-48V64a48,48,0,0,0-96,0v64A48.05,48.05,0,0,0,128,176ZM96,64a32,32,0,0,1,64,0v64a32,32,0,0,1-64,0Zm40,143.6V240a8,8,0,0,1-16,0V207.6A80.11,80.11,0,0,1,48,128a8,8,0,0,1,16,0,64,64,0,0,0,128,0,8,8,0,0,1,16,0A80.11,80.11,0,0,1,136,207.6Z"/></svg></button><button type="submit" class="dc-send" aria-label="Envoyer" title="Envoyer"><svg width="22" height="22" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M227.32,28.68a16,16,0,0,0-15.66-4.08l-.15,0L19.57,82.84a16,16,0,0,0-2.49,29.8L102,154l41.3,84.87A15.86,15.86,0,0,0,157.74,248q.69,0,1.38-.06a15.88,15.88,0,0,0,14-11.51l58.2-191.94c0-.05,0-.1,0-.15A16,16,0,0,0,227.32,28.68ZM157.83,231.85l-.05.14,0-.07-40.06-82.3,48-48a8,8,0,0,0-11.31-11.31l-48,48L24.08,98.25l-.07,0,.14,0L216,40Z"/></svg></button></form>
+    </div></div></section>
 <section class="screen" data-id="lieux"><div class="mp"><div id="map" role="region" aria-label="Carte des lieux"></div>
     <aside class="mx-panel" id="mpPanel" aria-label="Lieux et soignants"></aside><button class="btn sec mx-show" id="mpShow" data-act="mpShow" hidden><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM40,56H80V200H40ZM216,200H96V56H216V200Z"/></svg>Afficher la liste</button><div id="mpPop"></div><div class="mx-mob" id="mpM"></div></div></section>
 <section class="screen" data-id="annuaire"><div class="page"><div class="ax-top fade"><h1 class="t1">Autour de moi</h1><div class="seg mx-sw" role="group" aria-label="Affichage"><button aria-pressed="false" data-act="go" data-to="lieux">Carte</button><button class="on" aria-pressed="true">Annuaire</button></div></div>
@@ -5054,16 +5139,20 @@ ACT.refShort = (el) => {
 const ORG = ['Mettre la carte étudiante dans le sac', 'Prendre deux stylos', 'Remplir la gourde', 'Mettre le casque anti-bruit', 'Vérifier la salle : B204'];
 let orgI = 0;
 function paintOrg() {
-  $('#orgNow').textContent = orgI < ORG.length ? ORG[orgI] : tv('Ton sac est prêt.', 'Votre sac est prêt.');
-  $('#orgCount').textContent = `${Math.min(orgI, ORG.length)} sur ${ORG.length}`;
-  $('#orgBar').style.width = `${orgI / ORG.length * 100}%`;
-  $('#orgDots').innerHTML = ORG.map((t, i) => `<button class="btn ${i === orgI ? 'pri' : i < orgI ? 'ai' : 'sec'}" style="min-width: 52px; min-height: 52px;" data-act="orgGo" data-i="${i}" aria-label="Étape ${i + 1} : ${t}">${i < orgI ? ic('check', 18, 'currentColor', 2.6) : i + 1}</button>`).join('');
+  const n = ORG.length; const end = orgI >= n;
+  $('#orgCount').innerHTML = `<b>${Math.min(orgI, n)}</b> sur ${n}<small>${orgI > 1 ? 'faites' : 'faite'}</small>`;
+  $('#orgLbl').textContent = end ? 'Terminé' : `Étape ${orgI + 1} sur ${n}`;
+  $('#orgNow').textContent = end ? tv('Ton sac est prêt.', 'Votre sac est prêt.') : ORG[orgI];
+  $('#orgNext').textContent = end ? tv('Bonne chance pour ton examen.', 'Bonne chance pour votre examen.') : orgI + 1 < n ? `Ensuite : ${ORG[orgI + 1]}` : 'C’est la dernière étape.';
+  $('#orgActs').innerHTML = end ? `<button class="btn og-done" data-act="orgAgain">${ic('replay', 22)}Recommencer</button>` : `<button class="btn og-done" data-act="orgDone">${ic('check', 22, 'currentColor', 2.6)}C’est fait</button><button class="btn sec og-rep" data-act="orgSay">${ic('volume', 20)}Répète</button>`;
+  $('#orgDots').innerHTML = ORG.map((t, i) => `<li class="${i < orgI ? 'ok' : i === orgI ? 'on' : ''}"><button class="og-st" data-act="orgGo" data-i="${i}"${i === orgI ? ' aria-current="step"' : ''} aria-label="Étape ${i + 1} : ${t}${i < orgI ? ', faite' : ''}" title="${t}">${i < orgI ? ic('check', 20, 'currentColor', 2.6) : i + 1}</button></li>`).join('');
 }
 ENTER.organiser = () => { orgI = 0; paintOrg(); };
 let orgPaid = false;
-ACT.orgDone = () => { if (orgI < ORG.length) { orgI++; paintOrg(); if (orgI >= ORG.length) { if (!orgPaid) { orgPaid = true; addXp(20, 'routine terminée'); } else toast(tv('Ton sac est prêt.', 'Votre sac est prêt.')); } } };
+ACT.orgDone = () => { if (orgI < ORG.length) { orgI++; paintOrg(); if (orgI >= ORG.length && !orgPaid) { orgPaid = true; addXp(20, 'routine terminée'); } } };
 ACT.orgSay = () => speak($('#orgNow').textContent);
 ACT.orgGo = (el) => { orgI = Number(el.dataset.i); paintOrg(); };
+ACT.orgAgain = () => { orgI = 0; paintOrg(); };
 /* Écrire : un vrai champ ; « Corriger » travaille sur le texte tapé ou dicté (correction simulée) */
 const ECR_EX = 'bonjour madame jvoudré savoir si sa serait possible davoir les sujets en avance car je doit les lire plusieurs fois';
 const ECR = { text: 'Bonjour Madame, je voudrais savoir s’il serait possible d’avoir les sujets en avance, car je dois les lire plusieurs fois.' };
@@ -5093,11 +5182,34 @@ const TR = {
   RQTH: ['Qu’est-ce qui est difficile au travail ?', 'Qu’est-ce qui vous aiderait au quotidien ?', 'En avez-vous parlé à votre employeur ?', 'Que souhaitez-vous demander ?'],
 };
 const TR_EX = { 'Service handicap': 'Lire les consignes vite, et le bruit dans la salle.', Orthophoniste: 'Depuis le CP, surtout quand le texte est long.', 'Entretien d’embauche': 'J’ai organisé la collecte de mon association.', RQTH: 'Les mails longs, je dois les relire plusieurs fois.' };
+const TR_WHO = { 'Service handicap': 'le service handicap', Orthophoniste: 'l’orthophoniste', 'Entretien d’embauche': 'le recruteur', RQTH: 'le référent handicap' };
 let trTopic = 'Service handicap';
 let trI = 0;
-function trPaint() { $('#trCount').textContent = `Question ${trI + 1} sur 4`; $('#trQ').textContent = TR[trTopic][trI]; }
-ENTER.entrainer = () => { if (params.scenario && TR[params.scenario]) trTopic = params.scenario; $$('#trChips .chip').forEach((c) => c.classList.toggle('on', c.dataset.t === trTopic)); trI = 0; Object.assign(TRS, { good: 0, short: 0, over: false }); $('#trA').innerHTML = ''; trPaint(); };
-ACT.trTopic = (el) => { trTopic = el.dataset.t; $$('#trChips .chip').forEach((c) => c.classList.toggle('on', c === el)); trI = 0; Object.assign(TRS, { good: 0, short: 0, over: false }); $('#trA').innerHTML = ''; trPaint(); };
+let TRM = [];
+let trT = 0;
+function trMsg(m, i) {
+  if (m.who === 'me') return `<div class="dc-m dc-me"><p class="dc-b"><span class="vh">${tv('Toi', 'Vous')} : </span>${esc(m.t)}</p></div>`;
+  const first = i === 0 || TRM[i - 1].who !== 'lio';
+  const k = { q: ['users', `Question ${m.n} sur 4`], ok: ['check', 'Ce qui va'], tip: ['sparkle', m.k], done: ['trophy', 'Entraînement terminé'] }[m.kind];
+  const cls = m.kind === 'ok' || m.kind === 'done' ? ' k-check' : m.kind === 'tip' ? ' k-hint' : m.kind === 'q' ? ' k-q' : '';
+  return `<div class="dc-m dc-lio${cls}"><span class="dc-f" aria-hidden="true">${first ? lioCopy() : ''}</span><div class="dc-b${m.kind === 'q' ? ' has-say' : ''}"><span class="vh">Lio : </span>${k ? `<span class="dc-k">${ic(k[0], 16, 'currentColor', 2.2)}${k[1]}</span>` : ''}<p${m.kind === 'q' ? ' class="tr-q"' : ''}>${m.t}</p>${m.kind === 'q' ? `<button class="dc-say" data-act="trSay" data-i="${i}" aria-label="Écouter la question" title="Écouter">${ic('volume', 20)}</button>` : ''}</div></div>`;
+}
+function trPaint(scroll) {
+  $('#trTitle').textContent = `Lio joue ${TR_WHO[trTopic]}`;
+  const done = TRS.over ? 4 : trI;
+  $('#trCount').innerHTML = `<b>${TRS.over ? 4 : trI + 1}</b> sur 4<span class="ox-seg" aria-hidden="true">${[0, 1, 2, 3].map((j) => `<i class="${j < done ? 'ok' : j === trI && !TRS.over ? 'on' : ''}"></i>`).join('')}</span>`;
+  $$('#trChips .dc-opt').forEach((c) => { const on = c.dataset.t === trTopic; c.classList.toggle('on', on); c.setAttribute('aria-pressed', on); });
+  $('#trLog').innerHTML = TRM.map(trMsg).join('');
+  if (scroll) { const l = $('#trLog').lastElementChild; if (l) l.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
+}
+function trStart() {
+  clearTimeout(trT); trI = 0; Object.assign(TRS, { good: 0, short: 0, over: false });
+  TRM = [{ who: 'lio', t: tv(`Je joue ${TR_WHO[trTopic]}. Réponds comme au vrai rendez-vous : après chaque réponse, je te dis ce qui va.`, `Je joue ${TR_WHO[trTopic]}. Répondez comme au vrai rendez-vous : après chaque réponse, je vous dis ce qui va.`) }, { who: 'lio', kind: 'q', n: 1, t: TR[trTopic][0] }];
+  trPaint();
+}
+ENTER.entrainer = () => { if (params.scenario && TR[params.scenario]) trTopic = params.scenario; $('#trInput').value = ''; trStart(); };
+ACT.trTopic = (el) => { trTopic = el.dataset.t; trStart(); };
+ACT.trSay = (el) => speak(TRM[Number(el.dataset.i)].t);
 function trFeedback(a) {
   const words = a.trim().split(/\s+/).length;
   if (/\b(nul|nulle|bête|idiot|incapable)\b/i.test(a)) return [tv('Tu peux dire autrement', 'Vous pouvez dire autrement'), tv('Évite de parler de toi en négatif. Par exemple : « J’ai besoin de plus de temps pour lire. »', 'Évitez de parler de vous en négatif. Par exemple : « J’ai besoin de plus de temps pour lire. »')];
@@ -5116,18 +5228,24 @@ ACT.trSend = () => {
   const [t, f] = trFeedback(a);
   if (t === 'Ce qui va') TRS.good++;
   if (a.split(/\s+/).length < 4) TRS.short++;
-  $('#trA').innerHTML = `<div class="row" style="justify-content: flex-end; margin-top: 16px;"><div class="bubble me" style="max-width: 70%;">${esc(a)}</div></div><div class="row" style="margin-top: 12px; padding: 14px 18px; border-radius: 8px; background: ${t === 'Ce qui va' ? 'var(--lio-bg)' : 'var(--car-bg)'};"><div class="grow"><b style="display: block;">${t}</b><span class="small">${f}</span></div></div>`;
+  TRM.push({ who: 'me', t: a }, { who: 'lio', kind: t === 'Ce qui va' ? 'ok' : 'tip', k: t, t: f });
   inp.value = '';
-  if (trI < 3) { trI++; setTimeout(trPaint, 1400); return; }
+  if (trI < 3) {
+    trPaint(true);
+    clearTimeout(trT);
+    trT = setTimeout(() => { trI++; TRM.push({ who: 'lio', kind: 'q', n: trI + 1, t: TR[trTopic][trI] }); trPaint(true); }, 900);
+    return;
+  }
   TRS.over = true;
-  $('#trCount').textContent = 'Entraînement terminé';
-  $('#trQ').textContent = TRS.good === 4 ? tv('Quatre réponses claires. Tu peux aborder le rendez-vous sereinement.', 'Quatre réponses claires. Vous pouvez aborder le rendez-vous sereinement.')
+  TRM.push({ who: 'lio', kind: 'done', t: TRS.good === 4 ? tv('Quatre réponses claires. Tu peux aborder le rendez-vous sereinement.', 'Quatre réponses claires. Vous pouvez aborder le rendez-vous sereinement.')
     : TRS.short >= 2 ? tv('Tes réponses étaient très courtes. Ajoute un exemple concret à chacune, puis recommence.', 'Vos réponses étaient très courtes. Ajoutez un exemple concret à chacune, puis recommencez.')
-      : tv(`${TRS.good} réponse${TRS.good > 1 ? 's' : ''} claire${TRS.good > 1 ? 's' : ''} sur 4. Relis les conseils, puis recommence pour t’améliorer.`, `${TRS.good} réponse${TRS.good > 1 ? 's' : ''} claire${TRS.good > 1 ? 's' : ''} sur 4. Relisez les conseils, puis recommencez pour progresser.`);
+      : tv(`${TRS.good} réponse${TRS.good > 1 ? 's' : ''} claire${TRS.good > 1 ? 's' : ''} sur 4. Relis les conseils, puis recommence pour t’améliorer.`, `${TRS.good} réponse${TRS.good > 1 ? 's' : ''} claire${TRS.good > 1 ? 's' : ''} sur 4. Relisez les conseils, puis recommencez pour progresser.`) });
+  trPaint(true);
   if (!TRS.short) addXp(25, 'entraînement terminé');
 };
 ACT.trMic = (el) => { el.classList.add('rec'); setTimeout(() => { el.classList.remove('rec'); $('#trInput').value = TR_EX[trTopic]; }, 1500); };
-document.addEventListener('keydown', (e) => { if (e.key === 'Enter' && e.target.id === 'trInput') ACT.trSend(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !e.shiftKey && e.target.id === 'trInput') { e.preventDefault(); ACT.trSend(); } });
+document.addEventListener('submit', (e) => { if (e.target.id === 'trForm') { e.preventDefault(); ACT.trSend(); } });
 
 /* ---------- Faire mes devoirs avec Lio : une discussion pas à pas. Lio explique et guide, il ne fait pas le devoir à la place de l'élève */
 const DV = {

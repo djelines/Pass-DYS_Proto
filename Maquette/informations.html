@@ -3583,6 +3583,85 @@ html.role-parent .tabs .tab[data-nav="lio"], html.role-parent .tabbar .tb-i[data
 .tc-open { font-size: var(--fs-16); line-height: 1.4; }
 .pj-date .pj-lbl { font-size: var(--fs-14); font-weight: 700; margin-bottom: var(--sp-4); white-space: nowrap; }
 .pj-date .pj-none { font-size: var(--fs-14); font-weight: 700; line-height: 1.25; }
+
+/* ================= Organiser et S’entraîner : colonne centrée, tuile de l’outil, chemin d’étapes, discussion ================= */
+[data-id="organiser"] .page, [data-id="entrainer"] .page { max-width: 860px; }
+[data-id="entrainer"] .page { padding-bottom: calc(var(--dock-h) + var(--sp-16)); }
+[data-id="organiser"] .ox { --bt: var(--aut); }
+.ox { display: flex; flex-direction: column; gap: var(--sp-20); }
+
+/* tuile de l’outil, comme dans la grille Outils */
+.ox-hero { position: relative; overflow: hidden; isolation: isolate; display: flex; align-items: center; gap: var(--sp-16); padding: 22px 24px; margin-bottom: var(--sp-4); border-radius: var(--r-8); background: var(--bc); background-image: linear-gradient(135deg, rgba(255, 255, 255, .16), rgba(255, 255, 255, 0) 24%, rgba(0, 0, 0, .1)); color: var(--c-white); box-shadow: var(--relief-4) color-mix(in srgb, var(--bc) 60%, var(--c-black)); }
+.ox-wm { position: absolute; z-index: -1; right: 90px; bottom: -46px; opacity: .14; transform: rotate(-14deg); line-height: 0; }
+.ox-ic { flex: none; width: 52px; height: 52px; display: grid; place-items: center; border-radius: var(--r-8); background: rgba(255, 255, 255, .18); }
+.ox-hd { flex: 1; min-width: 0; }
+.ox-k { display: block; font-size: var(--fs-15); font-weight: 600; opacity: .92; }
+.ox-t { margin: 2px 0 0; font-family: var(--title); font-size: clamp(22px, 2.4vw, 27px); font-weight: 800; letter-spacing: -.02em; line-height: 1.15; color: inherit; }
+.ox-n { flex: none; text-align: right; font-size: var(--fs-15); font-weight: 600; }
+.ox-n b { font-family: var(--title); font-size: 30px; font-weight: 800; line-height: 1; }
+.ox-n small { display: block; margin-top: 2px; font-size: var(--fs-14); font-weight: 600; opacity: .92; }
+.ox-seg { display: flex; gap: var(--sp-4); width: 104px; margin-top: var(--sp-8); }
+.ox-seg i { flex: 1; height: 8px; border-radius: var(--r-4); background: rgba(255, 255, 255, .28); }
+.ox-seg i.ok { background: var(--c-white); }
+.ox-seg i.on { background: rgba(255, 255, 255, .62); }
+
+/* Organiser : chemin d’étapes, comme le chemin 1-2-3-4 de l’inscription */
+.og-path { list-style: none; margin: 0; padding: 0 2px; display: flex; align-items: center; }
+.og-path li { flex: 1; display: flex; align-items: center; }
+.og-path li:last-child { flex: none; }
+.og-path li::after { content: ''; flex: 1; height: 4px; margin: 0 var(--sp-8); border-radius: var(--r-4); background: var(--line); }
+.og-path li:last-child::after { display: none; }
+.og-path li.ok::after { background: var(--bc); }
+.og-st { --sh: color-mix(in srgb, var(--bc) 30%, var(--surf)); flex: none; width: 54px; height: 54px; display: grid; place-items: center; margin-bottom: var(--sp-4); border: 2px solid var(--sh); border-radius: 50%; background: var(--surf); color: var(--ink); font-family: var(--title); font-size: 19px; font-weight: 800; box-shadow: var(--relief-4) var(--sh); transition: transform var(--dur-100) ease, box-shadow var(--dur-100) ease, border-color var(--dur-150); }
+.og-path li.ok .og-st { --sh: color-mix(in srgb, var(--bc) 45%, var(--surf)); background: var(--aut-bg); color: var(--bt); }
+.og-path li.on .og-st { --sh: color-mix(in srgb, var(--bc) 60%, var(--c-black)); background: var(--bc); color: var(--c-white); }
+.og-st:active { transform: translateY(3px); box-shadow: var(--relief-1) var(--sh); }
+@media (hover: hover) { .og-path li:not(.on) .og-st:hover { border-color: var(--bc); } }
+
+/* Organiser : l’étape en cours */
+.og-now { padding: clamp(22px, 3vw, 34px); border: 2px solid var(--line); border-radius: var(--r-8); background: var(--surf); box-shadow: var(--relief-4) var(--line); }
+.og-now { text-align: center; }
+.og-say { display: flex; flex-direction: column; align-items: center; gap: var(--sp-12); }
+.og-f { flex: none; line-height: 0; }
+.og-f svg { width: 72px; height: auto; }
+.og-b { min-width: 0; }
+.og-lbl { font-family: var(--title); font-size: var(--fs-15); font-weight: 700; color: var(--bt); }
+.og-txt { margin: var(--sp-4) 0 0; font-family: var(--title); font-size: clamp(26px, 3.2vw, 34px); font-weight: 800; letter-spacing: -.02em; line-height: 1.15; color: var(--ink); }
+.og-acts { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-12); margin-top: 26px; }
+.og-acts .btn { min-height: 60px; padding: 0 28px; font-size: var(--fs-18); }
+.btn.og-done { --sh: color-mix(in srgb, var(--bc) 60%, var(--c-black)); background: var(--bc); border-color: var(--bc); color: var(--c-white); box-shadow: var(--relief-4) var(--sh); margin-bottom: var(--sp-4); }
+.btn.og-done:hover { filter: brightness(1.06); }
+.btn.og-done:active { transform: translateY(3px); box-shadow: var(--relief-1) var(--sh); }
+.og-next { margin: 22px 0 0; padding-top: var(--sp-16); border-top: 1px solid var(--line2); color: var(--sub); font-size: var(--fs-16); }
+
+/* S’entraîner : choix de la personne, puis discussion */
+.tr-sc { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.tr-sc .dc-opt { min-height: 58px; padding: var(--sp-8) 14px; gap: 10px; line-height: 1.2; }
+.tr-sc .dc-opt.on { border-color: var(--c); box-shadow: var(--relief-4) var(--c); }
+.tr-log { padding: 0; }
+.dc-m.k-q { --kc: var(--navy); }
+.tr-q { font-size: var(--fs-18); font-weight: 600; line-height: 1.5; }
+.tr-in { margin-top: var(--sp-4); }
+
+@media (max-width: 600px) {
+  .ox { gap: var(--sp-16); }
+  .ox-hero { gap: var(--sp-12); padding: var(--sp-16); }
+  .ox-ic { width: 40px; height: 40px; }
+  .ox-ic svg { width: 22px; height: 22px; }
+  .ox-wm { display: none; }
+  .ox-k { font-size: var(--fs-14); }
+  .ox-t { font-size: 19px; }
+  .ox-n b { font-size: 24px; }
+  .ox-seg { width: 72px; }
+  .og-st { width: 44px; height: 44px; font-size: 17px; }
+  .og-path li::after { margin: 0 var(--sp-4); }
+  .og-f svg { width: 52px; }
+  .og-txt { font-size: 24px; }
+  .og-acts .btn { flex: 1; min-height: 56px; padding: 0 var(--sp-16); }
+  .tr-sc { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-8); }
+  .tr-sc .dc-opt { min-height: 52px; font-size: var(--fs-15); }
+}
+@media (prefers-reduced-motion: reduce) { .og-st { transition: none; } .og-st:active, .btn.og-done:active { transform: none; } }
 </style>
 
 <style>
@@ -3682,7 +3761,7 @@ html.role-parent .tabs .tab[data-nav="lio"], html.role-parent .tabbar .tb-i[data
       <div class="lg-box"><b>Voies de recours</b><p>Si tu nous as signalé un problème et que la réponse ne te convient pas, tu peux contacter le Défenseur des droits :</p><ul><li>par le formulaire en ligne sur defenseurdesdroits.fr ;</li><li>par téléphone au 09 69 39 00 00 ;</li><li>auprès d’un délégué près de chez toi ;</li><li>par courrier, gratuit, sans timbre : Défenseur des droits, Libre réponse 71120, 75342 Paris CEDEX 07.</li></ul></div></section>
 
     <section class="lg-sec" id="ethique" aria-labelledby="ethique-t"><h2 id="ethique-t">Éco-conception et éthique</h2>
-      <div class="lg-box"><b>Sobriété</b><ul><li>L’application pèse 737 Ko, l’inscription 129 Ko et le site 86 Ko, chacun sous le seuil d’1 Mo.</li><li>Aucune photo ni vidéo : les icônes et illustrations sont dessinées dans le code.</li><li>La carte ne charge que les environs de Cergy.</li><li>Le coffre affiche l’espace utilisé.</li></ul></div>
+      <div class="lg-box"><b>Sobriété</b><ul><li>L’application pèse 750 Ko, l’inscription 129 Ko et le site 86 Ko, chacun sous le seuil d’1 Mo.</li><li>Aucune photo ni vidéo : les icônes et illustrations sont dessinées dans le code.</li><li>La carte ne charge que les environs de Cergy.</li><li>Le coffre affiche l’espace utilisé.</li></ul></div>
       <div class="lg-box"><b>Outils libres</b><p>La carte utilise Leaflet et OpenStreetMap, deux projets libres, plutôt qu’un service fermé.</p></div>
       <div class="lg-box"><b>Respect de ton attention</b><ul><li>Points et niveaux désactivables : version simple, sans points ni niveaux.</li><li>Rappels dans l’application et par e-mail réglables séparément.</li><li>Pas de défilement sans fin, pas de notification pour te faire revenir.</li></ul></div>
       <div class="lg-box"><b>Inclusion</b><p>Pass’Dys est pensé pour les personnes dys et leurs proches : écrit court, une idée par phrase, formulaires en étapes, carte de besoins sans diagnostic.</p></div></section>
