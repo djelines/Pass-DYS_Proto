@@ -37,6 +37,24 @@ Tarifs relevés en novembre 2026, sur des sites tiers : à revérifier sur la pa
 
 On n'entraîne pas l'IA : un modèle entraîné continue d'inventer des faits. On lui donne les bonnes informations à chaque question.
 
+## Ce que je dis au jury
+
+« Je n'entraîne pas de modèle. J'intègre un modèle de langage existant, Mistral, hébergé en Europe, derrière une interface qui permet d'en changer. Je le guide avec une consigne et des exemples par mission, et je lui fournis les fiches officielles à chaque question pour qu'il ne réponde que sur des sources vérifiables. Le calcul est fait par le serveur, pas par l'IA. »
+
+## Comment ça s'appelle
+
+L'ensemble s'appelle **l'intégration d'un LLM** (grand modèle de langage, une IA générative) **par API**. Chaque morceau a son nom :
+
+| Ce que je fais | Nom technique |
+|---|---|
+| Écrire une consigne par mission | prompt système, prompt engineering |
+| Donner des exemples à chaque appel | few-shot prompting |
+| Fournir les fiches officielles à chaque question | RAG (génération augmentée par récupération) |
+| Cacher Mistral derrière une interface | couche d'abstraction (patron adaptateur) |
+| Faire faire le calcul au serveur | appel d'outil (tool calling), ou sortie structurée si le serveur lit lui-même le calcul extrait |
+| Relancer 20 cas par mission | évaluation (evals) |
+| Ce que je ne fais pas : ré-entraîner le modèle | fine-tuning |
+
 ## Ce que ça coûte
 
 Mistral est payé à l'usage : chaque appel est facturé selon le nombre de jetons envoyés et reçus. Il n'y a pas d'abonnement.
